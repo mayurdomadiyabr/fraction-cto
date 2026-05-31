@@ -8,6 +8,9 @@ description: "Build, buy, or wait? A simple decision tree for the technical call
 author: "The founder of Fraction"
 readTime: 5
 draft: false
+featured: true
+featuredTag: "Decision tree"
+featuredGlyph: "↺"
 ---
 
 "We need to build this" is one of the most expensive sentences a founder says, and it's usually wrong — not because building is bad, but because the instinct fires for the wrong reasons: it feels cheaper than it is, it feels like control, and engineers like building.

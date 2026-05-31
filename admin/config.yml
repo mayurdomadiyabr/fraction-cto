@@ -44,4 +44,7 @@ collections:
       - { name: author,      label: Author,       widget: string, default: "The founder of Fraction", required: false }
       - { name: readTime,    label: Read time (minutes), widget: number, required: false, hint: "Leave blank to auto-estimate." }
       - { name: draft,       label: Draft,        widget: boolean, default: false, required: false }
+      - { name: featured,    label: "Feature on /blog (large card at top)", widget: boolean, default: false, required: false }
+      - { name: featuredTag, label: "Featured tag (e.g. 'Case study')", widget: string, default: "Featured", required: false }
+      - { name: featuredGlyph, label: "Featured glyph (single character)", widget: string, default: "↺", required: false }
       - { name: body,        label: Body,         widget: markdown }
