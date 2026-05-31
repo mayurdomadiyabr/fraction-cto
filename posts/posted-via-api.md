@@ -1,17 +1,13 @@
 ---
-title: "Posted via API"
+title: "Posted via API (edited)"
 slug: "posted-via-api"
-date: "2026-05-31T05:42:07.113Z"
+date: "2026-05-31T05:43:13.088Z"
 category: "Notes"
-excerpt: "This post was created by a single curl command, no UI, no terminal git push."
-description: "This post was created by a single curl command, no UI, no terminal git push."
+excerpt: "Updated by a PATCH request to /api/posts."
+description: "Updated by a PATCH request to /api/posts."
 author: "Automation"
 readTime: 1
 draft: false
 ---
 
-## Hello from the API
-
-This exists to prove the `/api/posts` endpoint works.
-
-It was created with a `POST` request. Vercel rebuilt the site automatically.
+This body was rewritten with PATCH /api/posts?slug=posted-via-api.
