@@ -24,6 +24,12 @@ let cachedUid = null;
 let cachedAt = 0;
 const UID_TTL_MS = 10 * 60 * 1000; // 10 min
 
+// Allow ODOO_USERNAME (email) OR ODOO_UID (numeric id) — UID skips authenticate
+function effectiveUid(cfg) {
+  if (cfg.uid) return Number(cfg.uid);
+  return null;
+}
+
 function readJson(req) {
   return new Promise((resolve, reject) => {
     if (req.body && typeof req.body === "object") return resolve(req.body);
@@ -71,6 +77,9 @@ async function odooRpc(url, params) {
 }
 
 async function authenticate(cfg) {
+  // Fast path: caller already provided a UID via env
+  const direct = effectiveUid(cfg);
+  if (direct) return direct;
   if (cachedUid && Date.now() - cachedAt < UID_TTL_MS) return cachedUid;
   const uid = await odooRpc(`${cfg.url}/jsonrpc`, {
     service: "common",
@@ -152,13 +161,14 @@ function cfgFromEnv() {
   const url = (process.env.ODOO_URL || "").replace(/\/+$/, "");
   const db = process.env.ODOO_DB;
   const username = process.env.ODOO_USERNAME;
+  const uid = process.env.ODOO_UID;
   const apiKey = process.env.ODOO_API_KEY;
   const teamId = process.env.ODOO_TEAM_ID ? Number(process.env.ODOO_TEAM_ID) : null;
   const userId = process.env.ODOO_USER_ID ? Number(process.env.ODOO_USER_ID) : null;
   const tagName = process.env.ODOO_TAG_NAME || DEFAULT_TAG;
   const source = process.env.ODOO_SOURCE || DEFAULT_SOURCE;
-  const ok = url && db && username && apiKey;
-  return { url, db, username, apiKey, teamId, userId, tagName, source, ok };
+  const ok = url && db && apiKey && (username || uid);
+  return { url, db, username, uid, apiKey, teamId, userId, tagName, source, ok };
 }
 
 export default async function handler(req, res) {
