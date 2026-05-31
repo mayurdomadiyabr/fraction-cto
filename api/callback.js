@@ -60,33 +60,40 @@ export default async function handler(req, res) {
     );
     res.setHeader("Content-Type", "text/html; charset=utf-8");
 
-    const payload = JSON.stringify({
+    // Build the success message exactly as Decap CMS expects.
+    // Format: `authorization:github:success:{"token":"...","provider":"github"}`
+    const tokenPayload = JSON.stringify({
       token: data.access_token,
       provider: "github",
     });
 
-    // Send the token to Decap CMS via postMessage and close the popup.
+    // Canonical Decap CMS OAuth handshake:
+    //   1. Popup posts `authorizing:github` to opener to signal readiness.
+    //   2. Opener echoes a message back.
+    //   3. Popup responds with the success payload targeted at e.origin.
+    // Decap closes the popup once it receives the token.
     res.status(200).send(`<!doctype html>
-<html><head><meta charset="utf-8"><title>Authorized</title></head>
-<body>
-<p style="font-family:system-ui;padding:24px">Authorization successful. Closing window…</p>
+<html lang="en">
+<head><meta charset="utf-8"><title>Authorized</title></head>
+<body style="font-family:system-ui;padding:24px">
+<p>Authorization successful. You can close this window.</p>
 <script>
 (function () {
-  function receive(e) {
-    if (e.data !== 'authorizing:github') return;
-    window.removeEventListener('message', receive);
+  if (!window.opener) {
+    document.body.innerHTML += '<p style="color:#b00">Error: no opener window. Open /admin and click "Login with GitHub" again.</p>';
+    return;
+  }
+  function receiveMessage(e) {
+    // Respond once the opener sends us anything (Decap sends "authorizing:github").
     window.opener.postMessage(
-      'authorization:github:success:' + ${JSON.stringify(payload)},
+      'authorization:github:success:' + ${JSON.stringify(tokenPayload)},
       e.origin
     );
+    window.removeEventListener('message', receiveMessage, false);
   }
-  window.addEventListener('message', receive, false);
-  // Initial handshake — Decap may have already posted, so reply immediately too
-  window.opener && window.opener.postMessage(
-    'authorization:github:success:' + ${JSON.stringify(payload)},
-    '*'
-  );
-  setTimeout(function () { window.close(); }, 800);
+  window.addEventListener('message', receiveMessage, false);
+  // Tell the opener we're ready.
+  window.opener.postMessage('authorizing:github', '*');
 })();
 </script>
 </body></html>`);
