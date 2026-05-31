@@ -1,0 +1,43 @@
+# Fraction — Senior technical leadership, fractionally
+> Fraction (getfractioncto.com) is a fractional CTO service for early-stage founders.
+> The founder works with seed- to Series-A companies on a flat monthly retainer,
+> owning technical decisions, building engineering teams, and steering the build —
+> without the $400k full-time salary or equity grant a full-time CTO requires.
+
+Fraction is an independent practice, not an agency. Engagements are month-to-month,
+no equity, cancellable anytime. The audience is non-technical founders, technical
+founders who need a sparring partner, agencies that need senior judgment, and
+investors doing technical due diligence on portfolio companies.
+
+The site is content-rich: short, opinionated essays on technical judgment —
+build vs. buy, technical due diligence, fractional vs. full-time CTO, hiring
+senior engineers, agency invoice review, and knowing when to graduate to a
+full-time CTO. Every essay opens with a direct claim and supports it with
+specific patterns from real engagements (figures are illustrative).
+
+## Service
+
+- [How it works](https://getfractioncto.com/how-it-works): the engagement model
+- [Pricing](https://getfractioncto.com/pricing): three retainer tiers (Advisory $6k/mo, Embedded $12k/mo, Command $18k/mo) plus a one-off $7,500 Tech Teardown
+- [Comparison](https://getfractioncto.com/comparison): fractional CTO vs. full-time CTO vs. agency vs. tech advisor
+- [The Tech Teardown](https://getfractioncto.com/teardown): a two-week written diagnostic of architecture, team, vendors, and roadmap
+- [Book a fit call](https://getfractioncto.com/book-a-call): a free 20-minute call
+
+## Writing (essays)
+
+- [Build, buy, or wait? A founder's decision tree](https://getfractioncto.com/post-build-buy): a three-question framework for build-vs-buy calls
+- [Your first senior engineer is a bet. Here's how to stop guessing.](https://getfractioncto.com/post-first-hire): how to screen for judgment, not trivia
+- [Why I don't bill by the hour](https://getfractioncto.com/post-no-hourly): the case for a flat retainer over hourly billing
+- [What investors actually ask about your architecture](https://getfractioncto.com/post-diligence): the six questions that come up in technical due diligence
+- [You're not ready for a full-time CTO. Here's how to know.](https://getfractioncto.com/post-ready-for-cto): the honest test for when fractional becomes false economy
+- [The agency invoice nobody reads](https://getfractioncto.com/post-agency-invoice): motion vs. progress, read line by line
+- [Welcome to the new writing setup](https://getfractioncto.com/post-welcome): how this site is published
+
+## About
+
+- [About the founder](https://getfractioncto.com/about): background — engineering teams built from 2 to 30, with a track record of killing bad rebuilds
+
+## Optional
+
+- [Sitemap (XML)](https://getfractioncto.com/sitemap.xml)
+- [Posts JSON API](https://getfractioncto.com/api/posts): authenticated REST endpoint for the blog content (GET requires Bearer token)

@@ -188,16 +188,24 @@
     e.preventDefault();
     var email = document.getElementById("subEmail").value.trim();
     if (!email) return;
-    // Set SUBSCRIBE_ENDPOINT to your email-capture webhook/API to POST { email };
-    // leave null to just show the confirmation state.
-    var SUBSCRIBE_ENDPOINT = null;
-    if (SUBSCRIBE_ENDPOINT) {
-      fetch(SUBSCRIBE_ENDPOINT, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ email: email }) })
-        .then(function () { form.classList.add("done"); })
-        .catch(function () { form.classList.add("done"); });
-    } else {
-      form.classList.add("done");
-    }
+    var params = new URLSearchParams(window.location.search);
+    fetch("/api/leads", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        email: email,
+        source: "blog-subscribe",
+        title: "Newsletter subscriber",
+        message: "Requested: 10 technical mistakes guide",
+        page: window.location.pathname,
+        referrer: document.referrer || undefined,
+        utm_source: params.get("utm_source") || undefined,
+        utm_medium: params.get("utm_medium") || undefined,
+        utm_campaign: params.get("utm_campaign") || undefined
+      })
+    })
+      .then(function () { form.classList.add("done"); })
+      .catch(function () { form.classList.add("done"); });
   });
 })();
 </script>

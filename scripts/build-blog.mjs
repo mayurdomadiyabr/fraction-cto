@@ -161,7 +161,9 @@ async function main() {
     const author = fm.author || "The founder of Fraction";
     const readTime = fm.readTime || estimateReadTime(content);
     const date = fm.date || new Date().toISOString();
+    const dateIso = new Date(date).toISOString();
     const dateDisplay = formatDate(date);
+    const wordCount = content.split(/\s+/).filter(Boolean).length;
 
     // Convert markdown body → HTML
     const body = marked.parse(content);
@@ -174,6 +176,8 @@ async function main() {
       .replaceAll("{{AUTHOR}}", htmlEscape(author))
       .replaceAll("{{READ_TIME}}", String(readTime))
       .replaceAll("{{DATE_DISPLAY}}", htmlEscape(dateDisplay))
+      .replaceAll("{{DATE_ISO}}", dateIso)
+      .replaceAll("{{WORD_COUNT}}", String(wordCount))
       .replace("{{BODY}}", body); // body once, unescaped
 
     const outFile = path.join(ROOT, `post-${slug}.html`);
