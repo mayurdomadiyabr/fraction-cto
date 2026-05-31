@@ -20,7 +20,7 @@
 
   // ---------- CONFIG (edit if IDs change) ----------
   var GA4_ID        = "G-Z7FBZ7Q43J";  // Fraction CTO (property 539561881)
-  var CLARITY_ID    = "tw1lt7c0wd";     // Microsoft Clarity Project ID — replace if different
+  var CLARITY_ID    = "nmomcgpn87";     // Microsoft Clarity Project ID — replace if different
   // (Meta + LinkedIn auto-load if window.META_PIXEL_ID / window.LINKEDIN_PARTNER_ID are set)
 
   // ---------- Utility: persistent visitor + session ids ----------
