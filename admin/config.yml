@@ -1,0 +1,47 @@
+backend:
+  name: github
+  repo: mayurdomadiyabr/fraction-cto
+  branch: development
+  base_url: https://getfractioncto.com
+  auth_endpoint: /api/auth
+
+# Optional: enable a draft/edit/publish workflow with PR-based review
+publish_mode: simple
+
+site_url: https://getfractioncto.com
+display_url: https://getfractioncto.com
+logo_url: https://getfractioncto.com/favicon.svg
+
+media_folder: "uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: posts
+    label: Blog Posts
+    label_singular: Blog Post
+    folder: posts
+    create: true
+    delete: true
+    extension: md
+    format: frontmatter
+    slug: "{{slug}}"
+    summary: "{{title}} — {{date | date('YYYY-MM-DD')}}"
+    sortable_fields: [date, title]
+    view_filters:
+      - label: Drafts
+        field: draft
+        pattern: true
+      - label: Published
+        field: draft
+        pattern: false
+    fields:
+      - { name: title,       label: Title,        widget: string }
+      - { name: slug,        label: "URL slug (lowercase, hyphens; lives at /post-{slug})", widget: string, required: false, hint: "Leave blank to auto-generate from title." }
+      - { name: date,        label: Publish date, widget: datetime, format: "YYYY-MM-DDTHH:mm:ssZ" }
+      - { name: category,    label: Category,     widget: select,   options: [Decisions, Hiring, Vendors, Fundraising, "Pricing the work", "Knowing when", "Pattern recognition", Notes] }
+      - { name: excerpt,     label: Card summary (shown on /blog), widget: text, pattern: ['^.{40,180}$', "Aim for 40–180 chars."] }
+      - { name: description, label: SEO description (meta), widget: text, required: false }
+      - { name: author,      label: Author,       widget: string, default: "The founder of Fraction", required: false }
+      - { name: readTime,    label: Read time (minutes), widget: number, required: false, hint: "Leave blank to auto-estimate." }
+      - { name: draft,       label: Draft,        widget: boolean, default: false, required: false }
+      - { name: body,        label: Body,         widget: markdown }
