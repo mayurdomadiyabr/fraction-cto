@@ -1,1 +1,4 @@
 .vercel
+
+# Local-only API key (do not commit)
+.blog-api-key.local
