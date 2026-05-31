@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The rebuild that didn't need to happen — Fraction</title>
+  <meta name="description" content="An agency quoted a six-figure rebuild. Two weeks of review found three modules and a refactor. How to tell the difference before you sign." />
+  <meta name="theme-color" content="#FAFAF9" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Fraction" />
+  <meta property="og:title" content="The rebuild that didn't need to happen — Fraction" />
+  <meta property="og:description" content="An agency quoted a six-figure rebuild. Two weeks of review found three modules and a refactor. How to tell the difference before you sign." />
+  <meta property="og:url" content="https://getfractioncto.com/blog-post.html" />
+  <meta property="og:image" content="https://getfractioncto.com/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="The rebuild that didn't need to happen — Fraction" />
+  <meta name="twitter:description" content="An agency quoted a six-figure rebuild. Two weeks of review found three modules and a refactor. How to tell the difference before you sign." />
+  <meta name="twitter:image" content="https://getfractioncto.com/og-image.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Fraction home"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <ul class="nav-links">
+      <li><a href="how-it-works.html">How it works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="comparison.html">Compare</a></li>
+      <li><a href="blog.html" class="active">Writing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="teardown.html">The Teardown <span class="accent-dot"></span></a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke-linecap="round"/></svg></button>
+      <button class="icon-btn" aria-label="Toggle theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M21.5 12h-2.2M4.7 12H2.5M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6M18.4 18.4l-1.6-1.6M7.2 7.2 5.6 5.6" stroke-linecap="round"/></svg></button>
+      <a href="book-a-call.html" class="btn btn-primary nav-cta">Book a fit call</a>
+      <button class="icon-btn menu-btn" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu">
+  <div class="mm-top">
+    <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <button class="icon-btn menu-btn" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg></button>
+  </div>
+  <nav>
+    <a href="how-it-works.html">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="comparison.html">Compare</a>
+    <a href="blog.html">Writing</a>
+    <a href="about.html">About</a>
+    <a href="teardown.html">The Teardown</a>
+  </nav>
+  <div class="mm-cta">
+    <a href="teardown.html" class="btn btn-ghost">Start with a Teardown</a>
+    <a href="book-a-call.html" class="btn btn-primary">Book a 20-min fit call</a>
+  </div>
+</div>
+
+<main>
+<section class="page-hero center" style="padding-bottom:clamp(24px,4vw,40px)">
+  <div class="wrap">
+    <div class="article-hero">
+      <span class="post-cat">Pattern recognition · Case study</span>
+      <h1>The rebuild that didn't need to happen</h1>
+      <div class="post-meta">
+        <span>May 2026</span><span class="sep"></span><span>7 min read</span><span class="sep"></span><span>by the founder</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-tight" style="padding-top:8px">
+  <div class="wrap">
+    <div class="article-body reveal">
+      <p>A founder called me on a Tuesday, already half-resigned to spending six figures. Her agency had delivered the verdict with total confidence: the platform was "fundamentally unscalable" and needed a ground-up rebuild. Six months. A team of four. A number with a lot of zeroes. She didn't have the technical background to argue, and the people telling her this were the only technical people she had. So she was going to write the cheque.</p>
+
+      <p>We did a two-week Teardown instead. By the end of it, the rebuild was off the table — not because the platform was perfect, but because almost none of the pain was where the agency said it was.</p>
+
+      <h2>The tell: "fundamentally" is doing a lot of work</h2>
+      <p>When someone reaches for words like <strong>fundamental</strong>, <strong>unscalable</strong>, or <strong>technical debt</strong> without a single number attached, that's not a diagnosis. It's a vibe. Real problems have shapes: this endpoint takes 4 seconds because it makes 60 database calls; this table has no index and it's now 9 million rows; this deploy fails one time in five because two services share a secret nobody rotated.</p>
+
+      <p>The agency had none of that. What they had was a codebase they didn't write, a deadline they'd blown, and a strong commercial interest in the most expensive possible answer. A rebuild isn't a fix. It's a way to start the clock over and bill it to you.</p>
+
+      <div class="pull-quote">A rebuild isn't a fix. It's a way to <span class="accent">start the clock over</span> — and bill it to you.</div>
+
+      <h2>What two weeks actually found</h2>
+      <p>I'm not interested in whether code is pretty. I'm interested in what's costing you money, what's about to break, and what's slowing the team down. When you sort the platform by that, the list gets short fast.</p>
+
+      <ul>
+        <li><strong>Three modules</strong> were genuinely bad — one of them was the checkout path, which is the only place "bad" was actually hurting revenue.</li>
+        <li>The "unscalable" database was fine. It had two missing indexes. That's an afternoon, not a quarter.</li>
+        <li>The real problem wasn't the code at all. It was that <strong>nobody owned it.</strong> Three contractors had each built a third of it and left. No one could say why anything worked.</li>
+      </ul>
+
+      <p>So we refactored the three modules that mattered, added the indexes, and — more importantly — put one accountable person in front of the whole thing. Total cost: a fraction of the rebuild, and the product never went dark for six months while a new version chased the old one's feature list.</p>
+
+      <div class="article-figure">
+        <strong style="color:#fff; font-family:var(--display); font-size:1.05rem">The verdict, in one line:</strong><br />
+        Refactor 3 modules · add 2 indexes · assign 1 owner. Do <em>not</em> rebuild.
+        <div class="fig-cap">— Excerpt from the Teardown report. ~$140k and four months saved, for the cost of one Teardown.</div>
+      </div>
+
+      <h2>The lesson isn't "agencies lie"</h2>
+      <p>Most don't. The lesson is that an agency takes orders — and "rebuild it" is an order they're happy to take, because no one in the room is paid to say <em>stop, that's the wrong call.</em> That sentence is the entire job. It's the thing a fractional CTO is for and the thing a body shop structurally cannot provide, because it works against their own invoice.</p>
+
+      <p>If you're staring at a six-figure rebuild proposal right now and you can't personally pressure-test it, that's not a coding problem. It's a judgment problem — and it's a remarkably cheap one to solve before you sign, versus after.</p>
+    </div>
+
+    <div class="article-body">
+      <div class="author-card reveal">
+        <span class="ac-av">F</span>
+        <div>
+          <div class="ac-name">The founder of Fraction</div>
+          <div class="ac-bio">Built engineering teams from 2 to 30. Killed more bad rebuilds than I've greenlit. <a href="about.html" class="link-grow" style="font-size:0.96rem">More about me <span class="arrow">→</span></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section" style="padding-top:clamp(32px,5vw,56px)">
+  <div class="wrap">
+    <div class="callout reveal" style="text-align:center">
+      <h3 style="margin-left:auto;margin-right:auto;max-width:20ch">Staring at a rebuild proposal you can't pressure-test?</h3>
+      <p style="margin:0 auto 26px">That's exactly what a two-week Teardown is for. A blunt, written verdict in 14 days — and the fee comes off your first month if you go monthly.</p>
+      <div class="ph-cta" style="justify-content:center">
+        <a href="teardown.html" class="btn btn-accent">Start with a Teardown <span class="arrow">→</span></a>
+        <a href="book-a-call.html" class="link-grow" style="color:#fff">Book a fit call <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap-wide">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#14140F"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+        <p style="color:var(--grey-2); max-width:30ch; margin-top:18px; font-size:0.96rem; line-height:1.5">Senior technical leadership for founders who aren't ready for a full-time CTO — and shouldn't hire one yet.</p>
+      </div>
+      <div><h5>Service</h5><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="comparison.html">Fractional vs full-time</a></li><li><a href="teardown.html">The Tech Teardown</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="blog.html">Writing</a></li><li><a href="book-a-call.html">Book a call</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+      <div><h5>Start here</h5><ul><li><a href="book-a-call.html">Book a 20-min fit call</a></li><li><a href="teardown.html">Start with a Teardown</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Fraction · <a href="https://getfractioncto.com">getfractioncto.com</a> — no contract, no equity, cancel anytime.</span>
+      <span>Built on judgment, not hours.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="motion.js"></script>
+</body>
+</html>
