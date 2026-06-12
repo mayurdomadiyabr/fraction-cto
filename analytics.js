@@ -20,6 +20,8 @@
 
   // ---------- CONFIG (edit if IDs change) ----------
   var GA4_ID        = "G-Z7FBZ7Q43J";  // Fraction CTO (property 539561881)
+  var GADS_TAG_ID   = "GT-MRQ2KC99";    // Google Tag (Google Ads container) — Fraction
+  var GADS_CONV_ID  = "AW-17825971488/Z1c6CLLq4b0cEKD6irRC"; // Google Ads conversion: "Fraction - Book a Call" (₹10,000, 30-day)
   var CLARITY_ID    = "nmomcgpn87";     // Microsoft Clarity Project ID — replace if different
   // (Meta + LinkedIn auto-load if window.META_PIXEL_ID / window.LINKEDIN_PARTNER_ID are set)
 
@@ -72,6 +74,8 @@
     page_referrer: document.referrer || undefined,
     user_properties: { visitor_id: visitorId }
   });
+  // Register the Google Ads Google Tag (routes conversions to AW-17825971488)
+  if (GADS_TAG_ID) gtag("config", GADS_TAG_ID);
   var gtagScript = document.createElement("script");
   gtagScript.async = true;
   gtagScript.src = "https://www.googletagmanager.com/gtag/js?id=" + GA4_ID;
@@ -177,6 +181,17 @@
         has_name: !!name,
         has_email: !!email,
       });
+      // Google Ads conversion ("Fraction - Book a Call") — fires regardless of GA4
+      try {
+        if (GADS_CONV_ID) {
+          gtag("event", "conversion", {
+            send_to: GADS_CONV_ID,
+            value: 10000,
+            currency: "INR",
+            transaction_id: visitorId + "-" + Date.now()
+          });
+        }
+      } catch (e) {}
       // Also fire the official Meta Lead event if Pixel is loaded
       try { window.fbq && fbq("track", "Lead", { content_name: "fit-call" }); } catch (e) {}
     });
