@@ -86,53 +86,31 @@
       </div>
 
       <div class="book-card reveal" data-d="1">
-        <form id="bookForm">
+        <form id="bookForm" novalidate>
           <div style="margin-bottom:22px">
-            <div style="font-family:var(--display); font-weight:600; font-size:1.25rem; letter-spacing:-0.02em; margin-bottom:4px">Pick a time</div>
-            <div style="color:var(--grey); font-size:0.92rem">All times shown in your local timezone.</div>
-          </div>
-          <div class="field">
-            <label>Day this week</label>
-            <div class="slot-grid" id="dayGrid">
-              <div class="slot" data-day="Tue 3 Jun">Tue 3</div>
-              <div class="slot" data-day="Wed 4 Jun">Wed 4</div>
-              <div class="slot" data-day="Thu 5 Jun">Thu 5</div>
-              <div class="slot" data-day="Fri 6 Jun">Fri 6</div>
-              <div class="slot" data-day="Mon 9 Jun">Mon 9</div>
-              <div class="slot" data-day="Tue 10 Jun">Tue 10</div>
-            </div>
-          </div>
-          <div class="field">
-            <label>Time slot</label>
-            <div class="slot-grid" id="timeGrid">
-              <div class="slot" data-time="9:00am">9:00am</div>
-              <div class="slot" data-time="11:30am">11:30am</div>
-              <div class="slot" data-time="1:00pm">1:00pm</div>
-              <div class="slot" data-time="2:30pm">2:30pm</div>
-              <div class="slot" data-time="4:00pm">4:00pm</div>
-              <div class="slot" data-time="5:30pm">5:30pm</div>
-            </div>
+            <div style="font-family:var(--display); font-weight:600; font-size:1.25rem; letter-spacing:-0.02em; margin-bottom:4px">Request a fit call</div>
+            <div style="color:var(--grey); font-size:0.92rem">Two fields. I'll email back within a few hours with times.</div>
           </div>
           <div class="field">
             <label for="name">Your name</label>
-            <input id="name" name="name" type="text" placeholder="Jordan Rivera" required />
+            <input id="name" name="name" type="text" autocomplete="name" placeholder="Jordan Rivera" required />
           </div>
           <div class="field">
             <label for="email">Work email</label>
-            <input id="email" name="email" type="email" placeholder="jordan@company.com" required />
+            <input id="email" name="email" type="email" autocomplete="email" placeholder="jordan@company.com" required />
           </div>
           <div class="field">
-            <label for="stage">What's broken? (one line)</label>
-            <textarea id="stage" name="stage" placeholder="Paying devs, no idea if the work is good. Round stalling on tech diligence."></textarea>
+            <label for="stage">What's broken? <span style="color:var(--grey); font-weight:400">(optional)</span></label>
+            <textarea id="stage" name="stage" rows="2" placeholder="One line is fine — e.g. paying devs, no idea if the work is good."></textarea>
           </div>
-          <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center; margin-top:6px">Confirm fit call <span class="arrow">→</span></button>
-          <p class="form-note" id="formNote">No contract. No pressure. We'll send a calendar invite to your email.</p>
+          <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center; margin-top:6px">Request fit call <span class="arrow">→</span></button>
+          <p class="form-note" id="formNote">No contract. No pressure. Your email never gets shared.</p>
         </form>
 
         <div class="book-success" id="bookSuccess">
           <div class="ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <div style="font-family:var(--display); font-weight:600; font-size:1.5rem; letter-spacing:-0.02em; margin-bottom:8px">You're booked.</div>
-          <p style="color:var(--grey); margin:0 auto; max-width:34ch" id="successMsg">A calendar invite is on its way. Talk soon.</p>
+          <div style="font-family:var(--display); font-weight:600; font-size:1.5rem; letter-spacing:-0.02em; margin-bottom:8px">Got it.</div>
+          <p style="color:var(--grey); margin:0 auto; max-width:36ch" id="successMsg">I'll email you a couple of times within a few hours. Talk soon.</p>
           <div style="margin-top:24px"><a href="index.html" class="link-grow">Back to home <span class="arrow">→</span></a></div>
         </div>
       </div>
@@ -162,60 +140,53 @@
 <script src="motion.js"></script>
 <script>
 (function () {
-  var selDay = null, selTime = null;
-  function wire(gridId, key) {
-    var grid = document.getElementById(gridId);
-    grid.addEventListener("click", function (e) {
-      var slot = e.target.closest(".slot");
-      if (!slot) return;
-      [].forEach.call(grid.querySelectorAll(".slot"), function (s) { s.classList.remove("sel"); });
-      slot.classList.add("sel");
-      if (key === "day") selDay = slot.dataset.day; else selTime = slot.dataset.time;
-    });
-  }
-  wire("dayGrid", "day");
-  wire("timeGrid", "time");
-
   var form = document.getElementById("bookForm");
   var note = document.getElementById("formNote");
+  var defaultNote = note.textContent;
+
+  function setError(msg) {
+    note.textContent = msg;
+    note.style.color = "var(--accent-ink)";
+  }
+  function clearError() {
+    note.textContent = defaultNote;
+    note.style.color = "";
+  }
+
   form.addEventListener("submit", function (e) {
     e.preventDefault();
-    if (!selDay || !selTime) {
-      note.textContent = "Pick a day and a time slot first.";
-      note.style.color = "var(--accent-ink)";
-      return;
-    }
     var name = document.getElementById("name").value.trim();
     var email = document.getElementById("email").value.trim();
-    if (!name || !email) {
-      note.textContent = "Add your name and email so I can send the invite.";
-      note.style.color = "var(--accent-ink)";
-      return;
-    }
-    var msg = "Confirmed for " + selDay + " at " + selTime + ". A calendar invite is on its way to " + email + ". Talk soon, " + name.split(" ")[0] + ".";
+    var msgInput = document.getElementById("stage").value.trim();
+    if (!name) return setError("Add your name so I know who I'm replying to.");
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return setError("That email doesn't look right. Mind double-checking?");
+    clearError();
+
+    var btn = form.querySelector("button[type=submit]");
+    btn.disabled = true;
+    var btnOriginal = btn.innerHTML;
+    btn.innerHTML = "Sending…";
+
     function showSuccess() {
-      document.getElementById("successMsg").textContent = msg;
+      document.getElementById("successMsg").textContent =
+        "Thanks, " + name.split(" ")[0] + ". I'll email " + email + " within a few hours with a couple of time options.";
       form.style.display = "none";
       document.getElementById("bookSuccess").classList.add("show");
-      window.scrollTo({ top: 0 });
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
-    // ── Backend wiring → /api/leads (Odoo CRM, tagged "CTO") ──
-    note.textContent = "Booking…";
-    note.style.color = "var(--grey)";
+
     var params = new URLSearchParams(window.location.search);
     var payload = {
       name: name,
       email: email,
-      day: selDay,
-      time: selTime,
-      message: document.getElementById("stage").value.trim(),
+      message: msgInput,
       source: "book-a-call",
       page: window.location.pathname,
       referrer: document.referrer || undefined,
       utm_source: params.get("utm_source") || undefined,
       utm_medium: params.get("utm_medium") || undefined,
       utm_campaign: params.get("utm_campaign") || undefined,
-      title: "Fit-call request — " + selDay + " " + selTime
+      title: "Fit-call request — " + name
     };
     fetch("/api/leads", {
       method: "POST",
@@ -228,8 +199,9 @@
         showSuccess();
       })
       .catch(function (err) {
-        note.textContent = "Something went wrong — email hello@getfractioncto.com and we'll sort it.";
-        note.style.color = "var(--accent-ink)";
+        btn.disabled = false;
+        btn.innerHTML = btnOriginal;
+        setError("Something went wrong — email hello@getfractioncto.com and we'll sort it.");
         console.error("lead submit failed:", err);
       });
   });
