@@ -2,3 +2,8 @@
 
 # Local-only API key (do not commit)
 .blog-api-key.local
+
+# Local-only automation tooling (blog-factory / blog-trends / page-cro).
+# Kept off the repo so the daily routines' `git add -A` never deploys the
+# content strategy, payloads, or logs to the public site root.
+cowork/

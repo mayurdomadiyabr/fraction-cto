@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Good technical debt: when the shortcut is the right call — Fraction</title>
+  <meta name="description" content="Not all technical debt is a mistake. How to take on deliberate debt, write down the terms, and repay it before it compounds." />
+  <meta name="theme-color" content="#FAFAF9" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Fraction" />
+  <meta property="og:title" content="Good technical debt: when the shortcut is the right call — Fraction" />
+  <meta property="og:description" content="Not all technical debt is a mistake. How to take on deliberate debt, write down the terms, and repay it before it compounds." />
+  <meta property="og:url" content="https://getfractioncto.com/post-good-technical-debt" />
+  <meta property="og:image" content="https://getfractioncto.com/og-image.png" />
+  <meta property="article:published_time" content="2026-06-18T14:29:15.993Z" />
+  <meta property="article:author" content="The founder of Fraction" />
+  <meta property="article:section" content="Decisions" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Good technical debt: when the shortcut is the right call — Fraction" />
+  <meta name="twitter:description" content="Not all technical debt is a mistake. How to take on deliberate debt, write down the terms, and repay it before it compounds." />
+  <meta name="twitter:image" content="https://getfractioncto.com/og-image.png" />
+  <link rel="canonical" href="https://getfractioncto.com/post-good-technical-debt" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script src="/analytics.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Good technical debt: when the shortcut is the right call",
+  "description": "Not all technical debt is a mistake. How to take on deliberate debt, write down the terms, and repay it before it compounds.",
+  "datePublished": "2026-06-18T14:29:15.993Z",
+  "dateModified": "2026-06-18T14:29:15.993Z",
+  "author": {
+    "@type": "Person",
+    "name": "The founder of Fraction",
+    "url": "https://getfractioncto.com/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fraction",
+    "url": "https://getfractioncto.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://getfractioncto.com/og-image.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://getfractioncto.com/post-good-technical-debt"
+  },
+  "image": "https://getfractioncto.com/og-image.png",
+  "articleSection": "Decisions",
+  "wordCount": 947,
+  "inLanguage": "en",
+  "isAccessibleForFree": true
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home",   "item": "https://getfractioncto.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Writing","item": "https://getfractioncto.com/blog" },
+    { "@type": "ListItem", "position": 3, "name": "Good technical debt: when the shortcut is the right call", "item": "https://getfractioncto.com/post-good-technical-debt" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Fraction home"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <ul class="nav-links">
+      <li><a href="how-it-works.html">How it works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="comparison.html">Compare</a></li>
+      <li><a href="blog.html" class="active">Writing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="teardown.html">The Teardown <span class="accent-dot"></span></a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke-linecap="round"/></svg></button>
+      <button class="icon-btn" aria-label="Toggle theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M21.5 12h-2.2M4.7 12H2.5M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6M18.4 18.4l-1.6-1.6M7.2 7.2 5.6 5.6" stroke-linecap="round"/></svg></button>
+      <a href="book-a-call.html" class="btn btn-primary nav-cta">Book a fit call</a>
+      <button class="icon-btn menu-btn" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu">
+  <div class="mm-top">
+    <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <button class="icon-btn menu-btn" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg></button>
+  </div>
+  <nav>
+    <a href="how-it-works.html">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="comparison.html">Compare</a>
+    <a href="blog.html">Writing</a>
+    <a href="about.html">About</a>
+    <a href="teardown.html">The Teardown</a>
+  </nav>
+  <div class="mm-cta">
+    <a href="teardown.html" class="btn btn-ghost">Start with a Teardown</a>
+    <a href="book-a-call.html" class="btn btn-primary">Book a 20-min fit call</a>
+  </div>
+</div>
+
+<main>
+<section class="page-hero center" style="padding-bottom:clamp(24px,4vw,40px)">
+  <div class="wrap">
+    <div class="article-hero">
+      <span class="post-cat">Decisions</span>
+      <h1>Good technical debt: when the shortcut is the right call</h1>
+      <div class="post-meta"><span>Jun 2026</span><span class="sep"></span><span>4 min read</span><span class="sep"></span><span>by The founder of Fraction</span></div>
+    </div>
+  </div>
+</section>
+<section class="section-tight" style="padding-top:8px">
+  <div class="wrap">
+    <div class="article-body reveal">
+<p>Every founder has been warned about technical debt like it is a moral failing. Take shortcuts and the codebase rots, the team slows, the rewrite looms. That story is half true. The other half, the half nobody tells early founders, is that the best teams take on debt deliberately, on purpose, as a financing decision, and they are right to.</p>
+<h2>Debt is a tool, not a sin</h2>
+<p>Borrowing against the future is how you move fast enough to have a future. A startup that refuses all technical debt is a startup polishing infrastructure for a product the market has not validated. That is not discipline. It is a quieter way to run out of money.</p>
+<p>The distinction that matters is not debt versus no debt. It is deliberate debt versus accidental debt. Deliberate debt is a choice you made with eyes open: we are hardcoding this, skipping that test, copy-pasting this service, because shipping this week is worth more than the cleanliness, and we know what we are trading. Accidental debt is the mess you did not decide to take on and cannot see, the kind that surprises you in an outage or a diligence room.</p>
+<p>Deliberate debt is cheap because you can pay it back. You know where it is. You wrote down the terms. Accidental debt is expensive because you find it at the worst possible moment, at full price.</p>
+<h2>Write down the terms of the loan</h2>
+<p>A real loan has a principal, an interest rate, and a repayment trigger. Treat technical debt the same way.</p>
+<ul>
+<li>The principal is the shortcut: what you are doing instead of the right thing.</li>
+<li>The interest is what it costs you every week you carry it, the slower changes, the workarounds, the onboarding friction.</li>
+<li>The repayment trigger is the condition that says pay this back now: a user threshold, a second customer, a fundraise, a feature that finally depends on it.</li>
+</ul>
+<p>Put those three things in a comment, a ticket, or a one-line debt register. The act of writing them down converts invisible accidental debt into visible deliberate debt, which is the entire game. A team that can list its debts and their triggers is in control. A team that cannot is just hoping.</p>
+<h2>High-interest debt to refuse</h2>
+<p>Not all shortcuts are equal. Some debt is cheap and some is usurious, and the usurious kind is worth refusing even under deadline pressure.</p>
+<p>Refuse debt in anything that is hard to reverse later: your data model, your auth and permissions, anything that handles money, anything that touches customer data you cannot un-leak. Shortcuts here compound at a brutal rate, because reversing them means migrations, audits, and trust you may not get back.</p>
+<p>Take debt freely in things that are easy to throw away: the admin panel, the internal script, the first version of a feature you are not sure anyone wants. If it is cheap to delete, it is cheap to do badly on purpose.</p>
+<p>This is the same instinct behind build, buy, or wait. Most of the value is in knowing which decisions are reversible and which are not. I laid out that framework in <a href="/post-build-buy">build, buy, or wait</a>, and deliberate debt is the same muscle applied to your own code.</p>
+<h2>Pay it back before it compounds</h2>
+<p>The danger is not taking on debt. It is forgetting you did. Deliberate debt becomes accidental the moment the person who took it leaves, the comment gets buried, or the trigger passes unnoticed. Then it is just rot with a backstory.</p>
+<p>So review the register on a cadence. Monthly is plenty early on. And actually act on the triggers. If you are not sure whether a particular shortcut is the cheap kind or the dangerous kind, that is exactly the judgment a short technical review buys you. A <a href="/teardown">Teardown</a> is a fast way to get a blunt read on which of your debts are fine and which are quietly setting fire to your runway.</p>
+<h2>FAQ</h2>
+<h3>Isn&#39;t all technical debt bad?</h3>
+<p>No. Debt you took deliberately, wrote down, and can repay is a financing tool that lets you ship before you are sure. Debt you took accidentally and cannot see is the bad kind. The label is the same; the risk is opposite.</p>
+<h3>How much technical debt is too much?</h3>
+<p>When the interest, the weekly drag of carrying it, starts to exceed the value of moving fast, you are over-leveraged. In practice you feel it as changes that should take a day taking a week. That is the signal to repay, not borrow more.</p>
+<h3>Who decides what debt to take on?</h3>
+<p>Someone with the judgment to tell reversible from irreversible. That is a leadership call, not a junior one, because the cost of getting it wrong lands quarters later. If no one in the room can make that call confidently, borrowing one day a week of senior judgment is cheaper than the wrong shortcut.</p>
+<h2>A quick test before you borrow</h2>
+<p>Before you take a shortcut, ask one question: if this turns out wrong, what does it cost to undo? If the answer is an afternoon, take the debt and move on. If the answer is a data migration, a security review, or an apology to your customers, slow down and do it properly the first time. That single question sorts almost every shortcut into cheap or dangerous faster than any architecture diagram. The teams that stay fast are not the ones who avoid debt entirely. They are the ones who only ever borrow the kind they can repay in an afternoon, and who keep a short list of what they owe.</p>
+
+    </div>
+    <div class="article-body">
+      <div class="author-card reveal">
+        <span class="ac-av">F</span>
+        <div>
+          <div class="ac-name">The founder of Fraction</div>
+          <div class="ac-bio">Built engineering teams from 2 to 30. Killed more bad rebuilds than I've greenlit. <a href="about.html" class="link-grow" style="font-size:0.96rem">More about me <span class="arrow">&rarr;</span></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" style="padding-top:clamp(32px,5vw,56px)">
+  <div class="wrap">
+    <div class="callout reveal" style="text-align:center">
+      <h3 style="margin-left:auto;margin-right:auto;max-width:22ch">Not sure the call you're about to make is the right one?</h3>
+      <p style="margin:0 auto 26px">That's exactly what a 20-minute fit call is for &mdash; or a two-week Teardown if you'd rather start with a written verdict.</p>
+      <div class="ph-cta" style="justify-content:center">
+        <a href="book-a-call.html" class="btn btn-accent">Book a fit call <span class="arrow">&rarr;</span></a>
+        <a href="teardown.html" class="link-grow" style="color:#fff">Start with a Teardown <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap-wide">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#14140F"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+        <p style="color:var(--grey-2); max-width:30ch; margin-top:18px; font-size:0.96rem; line-height:1.5">Senior technical leadership for founders who aren't ready for a full-time CTO — and shouldn't hire one yet.</p>
+      </div>
+      <div><h5>Service</h5><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="comparison.html">Fractional vs full-time</a></li><li><a href="teardown.html">The Tech Teardown</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="blog.html">Writing</a></li><li><a href="book-a-call.html">Book a call</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+      <div><h5>Start here</h5><ul><li><a href="book-a-call.html">Book a 20-min fit call</a></li><li><a href="teardown.html">Start with a Teardown</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Fraction · <a href="https://getfractioncto.com">getfractioncto.com</a> — no contract, no equity, cancel anytime.</span>
+      <span>Built on judgment, not hours.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="motion.js"></script>
+</body>
+</html>
