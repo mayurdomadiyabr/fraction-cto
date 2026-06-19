@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The fixed bid that quietly becomes 60% more — Fraction</title>
+  <meta name="description" content="How fixed-bid dev contracts drift into change orders, and the three SOW clauses that decide whether your price holds." />
+  <meta name="theme-color" content="#FAFAF9" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Fraction" />
+  <meta property="og:title" content="The fixed bid that quietly becomes 60% more — Fraction" />
+  <meta property="og:description" content="How fixed-bid dev contracts drift into change orders, and the three SOW clauses that decide whether your price holds." />
+  <meta property="og:url" content="https://getfractioncto.com/post-fixed-bid-trap" />
+  <meta property="og:image" content="https://getfractioncto.com/og-image.png" />
+  <meta property="article:published_time" content="2026-06-19T11:58:53.661Z" />
+  <meta property="article:author" content="The founder of Fraction" />
+  <meta property="article:section" content="Vendors" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="The fixed bid that quietly becomes 60% more — Fraction" />
+  <meta name="twitter:description" content="How fixed-bid dev contracts drift into change orders, and the three SOW clauses that decide whether your price holds." />
+  <meta name="twitter:image" content="https://getfractioncto.com/og-image.png" />
+  <link rel="canonical" href="https://getfractioncto.com/post-fixed-bid-trap" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script src="/analytics.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "The fixed bid that quietly becomes 60% more",
+  "description": "How fixed-bid dev contracts drift into change orders, and the three SOW clauses that decide whether your price holds.",
+  "datePublished": "2026-06-19T11:58:53.661Z",
+  "dateModified": "2026-06-19T11:58:53.661Z",
+  "author": {
+    "@type": "Person",
+    "name": "The founder of Fraction",
+    "url": "https://getfractioncto.com/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fraction",
+    "url": "https://getfractioncto.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://getfractioncto.com/og-image.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://getfractioncto.com/post-fixed-bid-trap"
+  },
+  "image": "https://getfractioncto.com/og-image.png",
+  "articleSection": "Vendors",
+  "wordCount": 1009,
+  "inLanguage": "en",
+  "isAccessibleForFree": true
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home",   "item": "https://getfractioncto.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Writing","item": "https://getfractioncto.com/blog" },
+    { "@type": "ListItem", "position": 3, "name": "The fixed bid that quietly becomes 60% more", "item": "https://getfractioncto.com/post-fixed-bid-trap" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Fraction home"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <ul class="nav-links">
+      <li><a href="how-it-works.html">How it works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="comparison.html">Compare</a></li>
+      <li><a href="blog.html" class="active">Writing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="teardown.html">The Teardown <span class="accent-dot"></span></a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke-linecap="round"/></svg></button>
+      <button class="icon-btn" aria-label="Toggle theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M21.5 12h-2.2M4.7 12H2.5M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6M18.4 18.4l-1.6-1.6M7.2 7.2 5.6 5.6" stroke-linecap="round"/></svg></button>
+      <a href="book-a-call.html" class="btn btn-primary nav-cta">Book a fit call</a>
+      <button class="icon-btn menu-btn" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu">
+  <div class="mm-top">
+    <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <button class="icon-btn menu-btn" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg></button>
+  </div>
+  <nav>
+    <a href="how-it-works.html">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="comparison.html">Compare</a>
+    <a href="blog.html">Writing</a>
+    <a href="about.html">About</a>
+    <a href="teardown.html">The Teardown</a>
+  </nav>
+  <div class="mm-cta">
+    <a href="teardown.html" class="btn btn-ghost">Start with a Teardown</a>
+    <a href="book-a-call.html" class="btn btn-primary">Book a 20-min fit call</a>
+  </div>
+</div>
+
+<main>
+<section class="page-hero center" style="padding-bottom:clamp(24px,4vw,40px)">
+  <div class="wrap">
+    <div class="article-hero">
+      <span class="post-cat">Vendors</span>
+      <h1>The fixed bid that quietly becomes 60% more</h1>
+      <div class="post-meta"><span>Jun 2026</span><span class="sep"></span><span>5 min read</span><span class="sep"></span><span>by The founder of Fraction</span></div>
+    </div>
+  </div>
+</section>
+<section class="section-tight" style="padding-top:8px">
+  <div class="wrap">
+    <div class="article-body reveal">
+<p>The pitch is comforting: one number, one timeline, no surprises. You sign a fixed-bid contract for $120,000, the agency builds the thing, and you know exactly what you&#39;ll pay. Then month three arrives and the real number is $190,000, the launch slipped two months, and every dollar over the original quote came with a signature you provided yourself, on a change order you didn&#39;t fully read.</p>
+<p>This is not fraud. It is the predictable arithmetic of a fixed-price contract sitting on top of a vague scope. Here is how it works, and how to keep your fixed bid from quietly becoming 60% more.</p>
+<h2>Why fixed bids drift</h2>
+<p>An agency that quotes a fixed price is taking on risk. If the work runs long, they eat the cost. No shop that wants to stay in business absorbs that risk for free, so they price it in one of two ways.</p>
+<p>The first is padding. A careful agency adds 20 to 40 percent to its honest estimate to cover the unknowns. You pay for risk that may never materialize.</p>
+<p>The second, and more common, is the change order. The agency quotes a lean number to win the deal, knowing the scope is too thin to deliver a real product. Every gap in the original spec becomes a billable change later, at a rate set after you have already committed and have nowhere convenient to go. A $15,000 change order for a feature you assumed was included, repeated four times, is how a $120,000 quote becomes $190,000.</p>
+<p>The mechanism is the gap between what you pictured and what the contract actually described. Fixed price only protects you if the scope is fixed too. When the scope is vague and the price is firm, you have bought the worst of both: no flexibility and no real ceiling.</p>
+<h3>The clauses that do the damage</h3>
+<p>Three parts of a statement of work decide whether your fixed bid holds.</p>
+<ul>
+<li><strong>The scope definition.</strong> If deliverables are described in a paragraph instead of a line-item list, every ambiguity resolves in the agency&#39;s favor. &quot;User authentication&quot; can mean a login box or a full single sign-on, roles, and audit system. Guess which one is in the quote.</li>
+<li><strong>The change-order rate.</strong> Most SOWs name a price for the work and stay silent on the price of changes. That silent rate gets set at the moment you are least able to negotiate it.</li>
+<li><strong>The assumptions section.</strong> Buried near the end, the assumptions list (&quot;client will provide final designs by week two,&quot; &quot;third-party integrations are out of scope&quot;) quietly carves the real product out of the fixed price. Every assumption is a future change order with a pre-written justification.</li>
+</ul>
+<h2>What to do instead</h2>
+<p>You do not need to become a contracts lawyer. You need to change two things about how you buy.</p>
+<p>First, when requirements will evolve, and for an early-stage product they always will, a fixed bid is the wrong instrument. Time-and-materials with milestone checkpoints and a written change process is more honest about the uncertainty everyone already knows is there. You trade the illusion of a fixed number for the ability to steer.</p>
+<p>Second, if you do sign a fixed bid, make the scope earn it. Go through the SOW line by line with someone who has shipped software before. Force every deliverable into a concrete, testable sentence. Ask what happens when a change is needed, and get the rate in writing before you sign, not after. The half-day this takes is the cheapest insurance you will buy all year.</p>
+<p>This is the same discipline that lets you read <a href="/post-agency-invoice">the agency invoice nobody reads</a>. The contract and the invoice are two views of one question: are you paying for a defined outcome, or for whatever the agency decides to do next?</p>
+<p>If you do not have anyone with that judgment in the room, that gap is exactly what a fractional engagement fills. A few hours spent on the SOW before signing routinely saves a multiple of the <a href="/pricing">engagement&#39;s cost</a>, and it is the kind of review you can <a href="/book-a-call">book directly</a> before you commit six figures.</p>
+<h2>A quick gut check before you sign</h2>
+<p>Read your SOW and answer three questions. If you cannot, the document is not ready.</p>
+<ol>
+<li>Can I list every deliverable as a sentence a stranger could verify was done?</li>
+<li>Do I know the exact price of a change before I need one?</li>
+<li>Does the assumptions section quietly remove anything I consider essential?</li>
+</ol>
+<p>A contract that survives those three questions will mostly hold. One that does not will find the gaps for you, on its own schedule.</p>
+<h2>FAQ</h2>
+<h3>Is a fixed-bid contract ever the right choice?</h3>
+<p>Yes, when the scope is genuinely fixed and well understood: a defined integration, a migration with clear endpoints, a redesign of an existing flow. Fixed price works when the unknowns are small. It fails when you are discovering the product as you build it, which is most early-stage work.</p>
+<h3>How much padding is normal in a fixed bid?</h3>
+<p>A shop pricing honestly adds roughly 20 to 40 percent over its internal estimate to cover risk. That is not a rip-off; it is the cost of them carrying the uncertainty. The problem is paying for that padding and still getting hit with change orders, which means the scope was too thin to begin with.</p>
+<h3>What does a fair change-order process look like?</h3>
+<p>Changes get written up with a price and a schedule impact, you approve them before work starts, and the rate is the same one named in the original contract. If change-order rates run higher than the base rate, or if work proceeds without written approval, the process is built to surprise you.</p>
+<h3>Can I switch from fixed-bid to time-and-materials mid-project?</h3>
+<p>Often yes, especially at a natural milestone. Agencies frequently prefer time-and-materials because it removes their risk too. The conversation is easier than founders expect: you are offering to stop making them eat overruns in exchange for transparency.</p>
+
+    </div>
+    <div class="article-body">
+      <div class="author-card reveal">
+        <span class="ac-av">F</span>
+        <div>
+          <div class="ac-name">The founder of Fraction</div>
+          <div class="ac-bio">Built engineering teams from 2 to 30. Killed more bad rebuilds than I've greenlit. <a href="about.html" class="link-grow" style="font-size:0.96rem">More about me <span class="arrow">&rarr;</span></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" style="padding-top:clamp(32px,5vw,56px)">
+  <div class="wrap">
+    <div class="callout reveal" style="text-align:center">
+      <h3 style="margin-left:auto;margin-right:auto;max-width:22ch">Not sure the call you're about to make is the right one?</h3>
+      <p style="margin:0 auto 26px">That's exactly what a 20-minute fit call is for &mdash; or a two-week Teardown if you'd rather start with a written verdict.</p>
+      <div class="ph-cta" style="justify-content:center">
+        <a href="book-a-call.html" class="btn btn-accent">Book a fit call <span class="arrow">&rarr;</span></a>
+        <a href="teardown.html" class="link-grow" style="color:#fff">Start with a Teardown <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap-wide">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#14140F"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+        <p style="color:var(--grey-2); max-width:30ch; margin-top:18px; font-size:0.96rem; line-height:1.5">Senior technical leadership for founders who aren't ready for a full-time CTO — and shouldn't hire one yet.</p>
+      </div>
+      <div><h5>Service</h5><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="comparison.html">Fractional vs full-time</a></li><li><a href="teardown.html">The Tech Teardown</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="blog.html">Writing</a></li><li><a href="book-a-call.html">Book a call</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+      <div><h5>Start here</h5><ul><li><a href="book-a-call.html">Book a 20-min fit call</a></li><li><a href="teardown.html">Start with a Teardown</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Fraction · <a href="https://getfractioncto.com">getfractioncto.com</a> — no contract, no equity, cancel anytime.</span>
+      <span>Built on judgment, not hours.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="motion.js"></script>
+</body>
+</html>
