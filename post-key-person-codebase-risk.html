@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>When your whole codebase lives in one person&#39;s head — Fraction</title>
+  <meta name="description" content="Key-person risk is the early-stage pattern founders ignore until it gets expensive. How to spot it and reduce it without slowing down." />
+  <meta name="theme-color" content="#FAFAF9" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Fraction" />
+  <meta property="og:title" content="When your whole codebase lives in one person&#39;s head — Fraction" />
+  <meta property="og:description" content="Key-person risk is the early-stage pattern founders ignore until it gets expensive. How to spot it and reduce it without slowing down." />
+  <meta property="og:url" content="https://getfractioncto.com/post-key-person-codebase-risk" />
+  <meta property="og:image" content="https://getfractioncto.com/og-image.png" />
+  <meta property="article:published_time" content="2026-06-23T12:01:31.103Z" />
+  <meta property="article:author" content="The founder of Fraction" />
+  <meta property="article:section" content="Pattern recognition" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="When your whole codebase lives in one person&#39;s head — Fraction" />
+  <meta name="twitter:description" content="Key-person risk is the early-stage pattern founders ignore until it gets expensive. How to spot it and reduce it without slowing down." />
+  <meta name="twitter:image" content="https://getfractioncto.com/og-image.png" />
+  <link rel="canonical" href="https://getfractioncto.com/post-key-person-codebase-risk" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script src="/analytics.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "When your whole codebase lives in one person&#39;s head",
+  "description": "Key-person risk is the early-stage pattern founders ignore until it gets expensive. How to spot it and reduce it without slowing down.",
+  "datePublished": "2026-06-23T12:01:31.103Z",
+  "dateModified": "2026-06-23T12:01:31.103Z",
+  "author": {
+    "@type": "Person",
+    "name": "The founder of Fraction",
+    "url": "https://getfractioncto.com/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fraction",
+    "url": "https://getfractioncto.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://getfractioncto.com/og-image.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://getfractioncto.com/post-key-person-codebase-risk"
+  },
+  "image": "https://getfractioncto.com/og-image.png",
+  "articleSection": "Pattern recognition",
+  "wordCount": 930,
+  "inLanguage": "en",
+  "isAccessibleForFree": true
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home",   "item": "https://getfractioncto.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Writing","item": "https://getfractioncto.com/blog" },
+    { "@type": "ListItem", "position": 3, "name": "When your whole codebase lives in one person&#39;s head", "item": "https://getfractioncto.com/post-key-person-codebase-risk" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Fraction home"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <ul class="nav-links">
+      <li><a href="how-it-works.html">How it works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="comparison.html">Compare</a></li>
+      <li><a href="blog.html" class="active">Writing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="teardown.html">The Teardown <span class="accent-dot"></span></a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke-linecap="round"/></svg></button>
+      <button class="icon-btn" aria-label="Toggle theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M21.5 12h-2.2M4.7 12H2.5M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6M18.4 18.4l-1.6-1.6M7.2 7.2 5.6 5.6" stroke-linecap="round"/></svg></button>
+      <a href="book-a-call.html" class="btn btn-primary nav-cta">Book a fit call</a>
+      <button class="icon-btn menu-btn" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu">
+  <div class="mm-top">
+    <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <button class="icon-btn menu-btn" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg></button>
+  </div>
+  <nav>
+    <a href="how-it-works.html">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="comparison.html">Compare</a>
+    <a href="blog.html">Writing</a>
+    <a href="about.html">About</a>
+    <a href="teardown.html">The Teardown</a>
+  </nav>
+  <div class="mm-cta">
+    <a href="teardown.html" class="btn btn-ghost">Start with a Teardown</a>
+    <a href="book-a-call.html" class="btn btn-primary">Book a 20-min fit call</a>
+  </div>
+</div>
+
+<main>
+<section class="page-hero center" style="padding-bottom:clamp(24px,4vw,40px)">
+  <div class="wrap">
+    <div class="article-hero">
+      <span class="post-cat">Pattern recognition</span>
+      <h1>When your whole codebase lives in one person&#39;s head</h1>
+      <div class="post-meta"><span>Jun 2026</span><span class="sep"></span><span>4 min read</span><span class="sep"></span><span>by The founder of Fraction</span></div>
+    </div>
+  </div>
+</section>
+<section class="section-tight" style="padding-top:8px">
+  <div class="wrap">
+    <div class="article-body reveal">
+<p>Early on, having one engineer who understands the entire system is a gift. They move fast, hold the whole thing in their head, and never need a meeting to find out how something works. Founders rightly treasure this person. The problem is that the same trait that makes them valuable, all the context living in one head, is a risk that grows quietly until the day it is suddenly very expensive.</p>
+<p>Engineers call it the bus factor: how many people would have to be hit by a bus before the project stalls. A bus factor of one is the most common architecture smell I see in startups under twenty people, and the one founders are most reluctant to act on, because acting on it feels like distrusting the person who has carried them this far.</p>
+<h2>The strength that becomes a liability</h2>
+<p>When the system is small, concentrated knowledge is efficient. There is no overhead of writing things down, no coordination cost, no documentation to keep current. One person decides and builds. This is genuinely faster, and at five people it is often the right trade.</p>
+<p>It stops being a trade and becomes a liability at a predictable moment: when the cost of that person being unavailable for two weeks exceeds the cost of having spread the knowledge. That moment arrives earlier than founders expect, usually right when the product starts mattering to real revenue.</p>
+<h2>How to tell if you have it</h2>
+<h3>One person reviews or touches everything</h3>
+<p>Every pull request waits on the same reviewer. Every tricky bug routes to the same person. They are the bottleneck and the single point of failure at once, and both get worse as you grow.</p>
+<h3>Knowledge lives in chat, not in documents</h3>
+<p>How the deploy works, why a strange workaround exists, what the third-party integration&#39;s quirks are: all of it lives in the history of a chat thread and one person&#39;s memory. None of it survives that person leaving, and search will not save you.</p>
+<h3>Onboarding has no path</h3>
+<p>A new engineer&#39;s only route to being productive is to ask the key person constantly. There is no document, no runbook, no map of the system. Onboarding takes weeks and consumes the very person whose time is scarcest.</p>
+<h3>Nobody else can deploy or debug production</h3>
+<p>When production breaks at an awkward hour, exactly one person can fix it. They cannot take a real holiday. This is the sharpest edge of the risk and, fortunately, usually the cheapest to blunt with a written runbook and shared access.</p>
+<h2>What it actually costs</h2>
+<p>The cost stays at zero right up until it is enormous. The key person leaves, or burns out, or simply takes the holiday they have earned, and progress stops. Worse, the knowledge that left does not come back; the new hire spends months rediscovering decisions that were never written down.</p>
+<p>It also surfaces at the worst possible time during a fundraise. When an investor&#39;s reviewer asks what happens if your lead engineer leaves and the honest answer is that you would be in serious trouble, that is a finding that affects the deal. This is one of the things <a href="/post-diligence">investors actually probe in technical diligence</a>, and it is far cheaper to fix before you are asked than during.</p>
+<p>There is a vendor version of this too. If your whole product was built by an outside team and the knowledge lives with them, you have the same risk with worse leverage, which is part of why <a href="/post-managing-offshore-team">managing an offshore or agency team well</a> matters so much.</p>
+<h2>Reducing the risk without slowing down</h2>
+<p>You do not fix this by burying your best engineer in bureaucracy. You fix it with a few cheap, high-leverage habits.</p>
+<p>Write the runbook first: how to deploy, how to roll back, who has access, what to do when production breaks. One page beats none, and it is the single highest-return document a small team can have.</p>
+<p>Pair on the scary parts. When the key person works on the one system nobody else understands, have a second engineer in the room. The point is not the code; it is moving the context into a second head.</p>
+<p>Rotate review and on-call so more than one person sees production regularly. And document decisions as you make them, in two sentences, where the next person will find them. None of this requires heavy process, and none of it should cost you much speed.</p>
+<p>The goal is not to make your best engineer replaceable. It is to make sure the company does not stop the day they are unavailable. If you are not sure how concentrated your risk is, that is a good thing to <a href="/book-a-call">talk through on a call</a>.</p>
+<h2>FAQ</h2>
+<h3>Is key-person risk just about documentation?</h3>
+<p>No. Documentation helps, but the deeper fix is spreading live context: pairing, shared on-call, and reviews that more than one person does. Documents capture decisions; habits keep a second person current.</p>
+<h3>Will reducing this slow my best engineer down?</h3>
+<p>A little, and far less than founders fear. A one-page runbook and occasional pairing cost hours, not weeks. Set against two weeks of stalled progress when that person is unavailable, the trade is heavily in your favor.</p>
+<h3>When should I start worrying about this?</h3>
+<p>The moment your product carries real revenue or you are heading into a raise. Before that, a bus factor of one can be an acceptable trade. After it, the cost of being unavailable climbs fast, and so does what an investor will make of it.</p>
+
+    </div>
+    <div class="article-body">
+      <div class="author-card reveal">
+        <span class="ac-av">F</span>
+        <div>
+          <div class="ac-name">The founder of Fraction</div>
+          <div class="ac-bio">Built engineering teams from 2 to 30. Killed more bad rebuilds than I've greenlit. <a href="about.html" class="link-grow" style="font-size:0.96rem">More about me <span class="arrow">&rarr;</span></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" style="padding-top:clamp(32px,5vw,56px)">
+  <div class="wrap">
+    <div class="callout reveal" style="text-align:center">
+      <h3 style="margin-left:auto;margin-right:auto;max-width:22ch">Not sure the call you're about to make is the right one?</h3>
+      <p style="margin:0 auto 26px">That's exactly what a 20-minute fit call is for &mdash; or a two-week Teardown if you'd rather start with a written verdict.</p>
+      <div class="ph-cta" style="justify-content:center">
+        <a href="book-a-call.html" class="btn btn-accent">Book a fit call <span class="arrow">&rarr;</span></a>
+        <a href="teardown.html" class="link-grow" style="color:#fff">Start with a Teardown <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap-wide">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#14140F"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+        <p style="color:var(--grey-2); max-width:30ch; margin-top:18px; font-size:0.96rem; line-height:1.5">Senior technical leadership for founders who aren't ready for a full-time CTO — and shouldn't hire one yet.</p>
+      </div>
+      <div><h5>Service</h5><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="comparison.html">Fractional vs full-time</a></li><li><a href="teardown.html">The Tech Teardown</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="blog.html">Writing</a></li><li><a href="book-a-call.html">Book a call</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+      <div><h5>Start here</h5><ul><li><a href="book-a-call.html">Book a 20-min fit call</a></li><li><a href="teardown.html">Start with a Teardown</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Fraction · <a href="https://getfractioncto.com">getfractioncto.com</a> — no contract, no equity, cancel anytime.</span>
+      <span>Built on judgment, not hours.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="motion.js"></script>
+</body>
+</html>
