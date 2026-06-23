@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Building an AI agent? You may be building the wrong half — Fraction</title>
+  <meta name="description" content="Stop framing your AI agent as build or buy. Buy the commodity plumbing and build only your data and evals - the part that is actually your moat." />
+  <meta name="theme-color" content="#FAFAF9" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Fraction" />
+  <meta property="og:title" content="Building an AI agent? You may be building the wrong half — Fraction" />
+  <meta property="og:description" content="Stop framing your AI agent as build or buy. Buy the commodity plumbing and build only your data and evals - the part that is actually your moat." />
+  <meta property="og:url" content="https://getfractioncto.com/post-build-or-buy-ai-agent" />
+  <meta property="og:image" content="https://getfractioncto.com/og-image.png" />
+  <meta property="article:published_time" content="2026-06-23T00:00:00.000Z" />
+  <meta property="article:author" content="The founder of Fraction" />
+  <meta property="article:section" content="Decisions" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Building an AI agent? You may be building the wrong half — Fraction" />
+  <meta name="twitter:description" content="Stop framing your AI agent as build or buy. Buy the commodity plumbing and build only your data and evals - the part that is actually your moat." />
+  <meta name="twitter:image" content="https://getfractioncto.com/og-image.png" />
+  <link rel="canonical" href="https://getfractioncto.com/post-build-or-buy-ai-agent" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script src="/analytics.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Building an AI agent? You may be building the wrong half",
+  "description": "Stop framing your AI agent as build or buy. Buy the commodity plumbing and build only your data and evals - the part that is actually your moat.",
+  "datePublished": "2026-06-23T00:00:00.000Z",
+  "dateModified": "2026-06-23T00:00:00.000Z",
+  "author": {
+    "@type": "Person",
+    "name": "The founder of Fraction",
+    "url": "https://getfractioncto.com/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fraction",
+    "url": "https://getfractioncto.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://getfractioncto.com/og-image.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://getfractioncto.com/post-build-or-buy-ai-agent"
+  },
+  "image": "https://getfractioncto.com/og-image.png",
+  "articleSection": "Decisions",
+  "wordCount": 1874,
+  "inLanguage": "en",
+  "isAccessibleForFree": true
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home",   "item": "https://getfractioncto.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Writing","item": "https://getfractioncto.com/blog" },
+    { "@type": "ListItem", "position": 3, "name": "Building an AI agent? You may be building the wrong half", "item": "https://getfractioncto.com/post-build-or-buy-ai-agent" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Fraction home"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <ul class="nav-links">
+      <li><a href="how-it-works.html">How it works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="comparison.html">Compare</a></li>
+      <li><a href="blog.html" class="active">Writing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="teardown.html">The Teardown <span class="accent-dot"></span></a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke-linecap="round"/></svg></button>
+      <button class="icon-btn" aria-label="Toggle theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M21.5 12h-2.2M4.7 12H2.5M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6M18.4 18.4l-1.6-1.6M7.2 7.2 5.6 5.6" stroke-linecap="round"/></svg></button>
+      <a href="book-a-call.html" class="btn btn-primary nav-cta">Book a fit call</a>
+      <button class="icon-btn menu-btn" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu">
+  <div class="mm-top">
+    <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <button class="icon-btn menu-btn" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg></button>
+  </div>
+  <nav>
+    <a href="how-it-works.html">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="comparison.html">Compare</a>
+    <a href="blog.html">Writing</a>
+    <a href="about.html">About</a>
+    <a href="teardown.html">The Teardown</a>
+  </nav>
+  <div class="mm-cta">
+    <a href="teardown.html" class="btn btn-ghost">Start with a Teardown</a>
+    <a href="book-a-call.html" class="btn btn-primary">Book a 20-min fit call</a>
+  </div>
+</div>
+
+<main>
+<section class="page-hero center" style="padding-bottom:clamp(24px,4vw,40px)">
+  <div class="wrap">
+    <div class="article-hero">
+      <span class="post-cat">Decisions</span>
+      <h1>Building an AI agent? You may be building the wrong half</h1>
+      <div class="post-meta"><span>Jun 2026</span><span class="sep"></span><span>9 min read</span><span class="sep"></span><span>by The founder of Fraction</span></div>
+    </div>
+  </div>
+</section>
+<section class="section-tight" style="padding-top:8px">
+  <div class="wrap">
+    <div class="article-body reveal">
+<p>Short version: the build-versus-buy question for an AI feature is usually the wrong question. The right one is which thin layer is actually your moat, because that is the only part worth building yourself. Buy the commodity - the model, the orchestration plumbing, the generic tooling everyone else can also buy - and build only your proprietary data, your specific workflow, and the evaluation harness that proves the thing works. Most founders do the exact opposite. They spend months building the plumbing anyone can rent and quietly hand the defensible part to a vendor.</p>
+<p>I have had four versions of this conversation in the last month, all with founders at pre-seed to Series A who are putting an AI feature at the center of their product. It arrives as a binary: do we build our own agent, or buy one of the platforms? The founder wants me to settle the bet. I almost never do, because the bet is framed wrong, and the framing is where the money gets lost.</p>
+<h2>The question founders ask, and the one they should ask</h2>
+<p>&quot;Build or buy&quot; sounds like a clean decision with two outcomes. In practice an AI feature is not one thing. It is a stack of maybe six things, and you will buy some and build others no matter what, so arguing about the whole stack as a unit is how you end up overcommitted on the parts that do not matter.</p>
+<p>Underneath almost every AI feature there is the model, the orchestration layer that strings calls together, a retrieval or memory layer, the integrations into your other systems, the data you feed it, and the evaluation harness that tells you whether the output is any good. Five of those six are commodities in 2026. You can rent them, they get cheaper every quarter, and your competitors are renting the same ones. One of them is yours. The mistake is treating all six as a single &quot;build it so we control it&quot; decision, because control over the commodity parts buys you almost nothing and costs you a great deal.</p>
+<p>So the better question is not build or buy. It is: what is the smallest part of this I must own to keep my edge, and can I rent everything else? Answer that, and the build-versus-buy argument mostly dissolves.</p>
+<h2>Why &quot;build&quot; usually means building the wrong half</h2>
+<p>When a founder tells me they are going to build their own agent, I ask what specifically they mean by build. Nine times out of ten the answer describes the plumbing: the framework that routes between tools, the prompt-management setup, the queue, the retry logic, the glue that holds calls together. That is real engineering work, satisfying to build, and it produces visible progress. It is also the part that has the least to do with whether the company wins.</p>
+<p>None of that plumbing is defensible. A competitor can stand up the same orchestration in a weekend with an off-the-shelf platform, and increasingly they can do it for almost nothing, because the open-weight models and the agent frameworks have collapsed in price to a fraction of what the hosted alternatives cost. You can spend three months building a worse version of something you could have rented, and at the end you have spent your scarcest months of runway on infrastructure that confers no advantage. This is the same trap I described in the general <a href="/post-build-buy">build, buy, or wait decision</a>: the instinct to build for control is strongest exactly where control is worth the least.</p>
+<p>Meanwhile the part that is genuinely yours often gets the least attention. Your proprietary data, the specific judgment your workflow encodes, the way you turn a messy real-world task into a reliable output - that is the moat, and it is frequently bolted on as an afterthought to the plumbing the team was excited to build. I have watched a founder demo a slick agent architecture and then admit, when pressed, that the actual quality of the answers came from a spreadsheet of hand-curated examples one of them maintained on the side. They had built the commodity and treated the moat as a side project. It should have been the reverse.</p>
+<h2>What you should actually own</h2>
+<p>There are three things worth building yourself, and they are rarely the ones founders are most eager to build.</p>
+<p>The first is your data and the loop that improves it. If your feature gets better because you have data nobody else has, or because you capture how users correct the output and feed it back, that loop is the asset. It is the thing a vendor cannot replicate by signing the same contract your competitor signed. Own it, instrument it, and treat it as the product, not the byproduct.</p>
+<p>The second is the specific workflow you are encoding. Off-the-shelf agents are general. Your edge, if you have one, is that you understand a narrow task deeply enough to make the output reliable where a generic tool is merely plausible. That understanding lives in your prompts, your guardrails, your handling of the ten cases that actually matter to your users. That is worth building and defending.</p>
+<p>The third, and the one almost everyone skips, is evaluation. You need a harness that tells you, every time you change something, whether the output got better or worse, measured against cases you care about. Without it you are flying blind, shipping changes on vibes, and you will not notice the regression until a customer does. This is unglamorous and it is the single highest-leverage thing a small team can build, because it is what lets you safely rent everything else. When the model you depend on changes underneath you - and it will - the eval harness is the difference between a calm afternoon and a fire drill.</p>
+<h2>How to draw the line this quarter</h2>
+<p>The decision gets much easier when you stop deciding for all time and decide for the next two quarters. The economics here are moving fast, and a sensible line today will move as the prices and your volume move.</p>
+<p>Start by buying everything. Wire up a hosted model and a platform, get the feature in front of users, and learn what actually matters before you build anything. The version of this feature you imagine is not the version users need, and you will waste any infrastructure you build before you know the difference. This is the same logic as treating an <a href="/post-ai-mvp-draft">AI-built MVP as a draft rather than a product</a>: the first version exists to teach you what to build properly, not to be defended.</p>
+<p>Then, as you learn, pull exactly one thing in-house at a time, and only when you can name the reason. You are pulling your data loop in-house because the vendor cannot see your corrections. You are pulling your evals in-house because you keep getting surprised by regressions. You are not pulling the orchestration in-house because it would feel more like a real engineering team, which is the reason I hear most and the one that costs the most. If you cannot say in one sentence why owning a piece makes you harder to beat, keep renting it.</p>
+<h2>When the line moves</h2>
+<p>There is a real crossover where building more of the stack starts to pay off, and it is mostly about volume and dependence. When you are running enough through a hosted vendor that the bill rivals an engineer&#39;s salary, or when a single vendor sits so deep in your product that their outage is your outage and their price hike is your problem, the math for owning more of it changes. That is a genuine decision and worth taking seriously when you reach it.</p>
+<p>The mistake is reaching for that decision on day one, when you have neither the volume to justify it nor the knowledge to build the right thing. Premature ownership of an AI stack is just a new flavor of an old startup pattern, where teams build for a scale they have not earned yet. Buy until it hurts in a specific, measurable way, then build the thing that hurts. Do not build in advance of the pain.</p>
+<p>If you are staring at this decision right now and the team is split between building a platform and wiring one up, that disagreement is usually a sign that nobody has separated the moat from the plumbing yet. A few hours of an experienced outside read often settles it faster than another week of internal debate, which is a large part of what a <a href="/teardown">codebase and architecture teardown</a> is for. And if you want to pressure-test where your actual edge is before you commit a quarter of runway to building the wrong half, <a href="/book-a-call">book a call</a> and we will map your stack against that one question: what must you own, and what should you rent.</p>
+<h2>Frequently asked questions</h2>
+<h3>Should an early-stage startup build its own AI agent or buy a platform?</h3>
+<p>Buy first, almost always. Wire up a hosted model and an off-the-shelf platform, get the feature in front of real users, and learn what matters before building anything. Then pull in-house only the specific pieces that are your moat - typically your data loop and your evaluation harness - and keep renting the commodity plumbing. Building the whole stack on day one spends your scarcest runway on infrastructure that gives you no advantage.</p>
+<h3>What part of an AI feature is actually worth building in-house?</h3>
+<p>Three things: the data loop that improves with use, the specific workflow and guardrails that make your output reliable where a generic tool is only plausible, and the evaluation harness that tells you whether changes help or hurt. These are the parts a competitor cannot replicate by signing the same vendor contract you did. The orchestration, the model, and the generic tooling are commodities; rent them.</p>
+<h3>Is it cheaper to build now that open models are so inexpensive?</h3>
+<p>Cheaper to run, not cheaper to build. The falling cost of models and frameworks makes renting more attractive, not less, because the commodity layer keeps getting cheaper for everyone. Building still costs you engineering months and ongoing maintenance. Low model prices are a reason to buy the plumbing and spend your build effort on the narrow part that is genuinely yours.</p>
+<h3>When does it make sense to bring more of the AI stack in-house?</h3>
+<p>When volume or dependence forces it. If your hosted vendor bill starts rivaling an engineer&#39;s salary, or if one vendor is so deep in your product that their outage and their pricing become existential risks, owning more of the stack starts to pay off. Reach that decision when the pain is specific and measurable, not in advance of it.</p>
+<h3>How do I decide without a technical co-founder?</h3>
+<p>Make the team name the moat in one sentence before they build anything. If they cannot say plainly why owning a given piece makes you harder to beat, that piece should be rented. A non-technical founder does not need to adjudicate the architecture; they need to insist on that one question being answered honestly, and to get an experienced outside read when the team cannot agree.</p>
+
+    </div>
+    <div class="article-body">
+      <div class="author-card reveal">
+        <span class="ac-av">F</span>
+        <div>
+          <div class="ac-name">The founder of Fraction</div>
+          <div class="ac-bio">Built engineering teams from 2 to 30. Killed more bad rebuilds than I've greenlit. <a href="about.html" class="link-grow" style="font-size:0.96rem">More about me <span class="arrow">&rarr;</span></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" style="padding-top:clamp(32px,5vw,56px)">
+  <div class="wrap">
+    <div class="callout reveal" style="text-align:center">
+      <h3 style="margin-left:auto;margin-right:auto;max-width:22ch">Not sure the call you're about to make is the right one?</h3>
+      <p style="margin:0 auto 26px">That's exactly what a 20-minute fit call is for &mdash; or a two-week Teardown if you'd rather start with a written verdict.</p>
+      <div class="ph-cta" style="justify-content:center">
+        <a href="book-a-call.html" class="btn btn-accent">Book a fit call <span class="arrow">&rarr;</span></a>
+        <a href="teardown.html" class="link-grow" style="color:#fff">Start with a Teardown <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap-wide">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#14140F"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+        <p style="color:var(--grey-2); max-width:30ch; margin-top:18px; font-size:0.96rem; line-height:1.5">Senior technical leadership for founders who aren't ready for a full-time CTO — and shouldn't hire one yet.</p>
+      </div>
+      <div><h5>Service</h5><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="comparison.html">Fractional vs full-time</a></li><li><a href="teardown.html">The Tech Teardown</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="blog.html">Writing</a></li><li><a href="book-a-call.html">Book a call</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+      <div><h5>Start here</h5><ul><li><a href="book-a-call.html">Book a 20-min fit call</a></li><li><a href="teardown.html">Start with a Teardown</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Fraction · <a href="https://getfractioncto.com">getfractioncto.com</a> — no contract, no equity, cancel anytime.</span>
+      <span>Built on judgment, not hours.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="motion.js"></script>
+</body>
+</html>
