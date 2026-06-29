@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI wrote your code. Can it survive diligence? — Fraction</title>
+  <meta name="description" content="AI-built code can pass the demo and fail diligence. What reviewers actually grade, where AI codebases fail, and how to fix it before a raise or exit." />
+  <meta name="theme-color" content="#FAFAF9" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Fraction" />
+  <meta property="og:title" content="AI wrote your code. Can it survive diligence? — Fraction" />
+  <meta property="og:description" content="AI-built code can pass the demo and fail diligence. What reviewers actually grade, where AI codebases fail, and how to fix it before a raise or exit." />
+  <meta property="og:url" content="https://getfractioncto.com/post-ai-code-diligence" />
+  <meta property="og:image" content="https://getfractioncto.com/og-image.png" />
+  <meta property="article:published_time" content="2026-06-29T00:00:00.000Z" />
+  <meta property="article:author" content="The founder of Fraction" />
+  <meta property="article:section" content="Fundraising" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="AI wrote your code. Can it survive diligence? — Fraction" />
+  <meta name="twitter:description" content="AI-built code can pass the demo and fail diligence. What reviewers actually grade, where AI codebases fail, and how to fix it before a raise or exit." />
+  <meta name="twitter:image" content="https://getfractioncto.com/og-image.png" />
+  <link rel="canonical" href="https://getfractioncto.com/post-ai-code-diligence" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script src="/analytics.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "AI wrote your code. Can it survive diligence?",
+  "description": "AI-built code can pass the demo and fail diligence. What reviewers actually grade, where AI codebases fail, and how to fix it before a raise or exit.",
+  "datePublished": "2026-06-29T00:00:00.000Z",
+  "dateModified": "2026-06-29T00:00:00.000Z",
+  "author": {
+    "@type": "Person",
+    "name": "The founder of Fraction",
+    "url": "https://getfractioncto.com/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fraction",
+    "url": "https://getfractioncto.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://getfractioncto.com/og-image.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://getfractioncto.com/post-ai-code-diligence"
+  },
+  "image": "https://getfractioncto.com/og-image.png",
+  "articleSection": "Fundraising",
+  "wordCount": 1796,
+  "inLanguage": "en",
+  "isAccessibleForFree": true
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home",   "item": "https://getfractioncto.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Writing","item": "https://getfractioncto.com/blog" },
+    { "@type": "ListItem", "position": 3, "name": "AI wrote your code. Can it survive diligence?", "item": "https://getfractioncto.com/post-ai-code-diligence" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Fraction home"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <ul class="nav-links">
+      <li><a href="how-it-works.html">How it works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="comparison.html">Compare</a></li>
+      <li><a href="blog.html" class="active">Writing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="teardown.html">The Teardown <span class="accent-dot"></span></a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke-linecap="round"/></svg></button>
+      <button class="icon-btn" aria-label="Toggle theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M21.5 12h-2.2M4.7 12H2.5M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6M18.4 18.4l-1.6-1.6M7.2 7.2 5.6 5.6" stroke-linecap="round"/></svg></button>
+      <a href="book-a-call.html" class="btn btn-primary nav-cta">Book a fit call</a>
+      <button class="icon-btn menu-btn" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu">
+  <div class="mm-top">
+    <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <button class="icon-btn menu-btn" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg></button>
+  </div>
+  <nav>
+    <a href="how-it-works.html">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="comparison.html">Compare</a>
+    <a href="blog.html">Writing</a>
+    <a href="about.html">About</a>
+    <a href="teardown.html">The Teardown</a>
+  </nav>
+  <div class="mm-cta">
+    <a href="teardown.html" class="btn btn-ghost">Start with a Teardown</a>
+    <a href="book-a-call.html" class="btn btn-primary">Book a 20-min fit call</a>
+  </div>
+</div>
+
+<main>
+<section class="page-hero center" style="padding-bottom:clamp(24px,4vw,40px)">
+  <div class="wrap">
+    <div class="article-hero">
+      <span class="post-cat">Fundraising</span>
+      <h1>AI wrote your code. Can it survive diligence?</h1>
+      <div class="post-meta"><span>Jun 2026</span><span class="sep"></span><span>8 min read</span><span class="sep"></span><span>by The founder of Fraction</span></div>
+    </div>
+  </div>
+</section>
+<section class="section-tight" style="padding-top:8px">
+  <div class="wrap">
+    <div class="article-body reveal">
+<p>AI-generated code can survive technical diligence, but not on the strength that got you the meeting. Diligence does not grade how fast you shipped or how clean the demo looks. It grades whether someone can safely change the system, who actually understands it, and what it would cost a buyer or an investor to keep it running for the next five years. If your product was generated quickly and no human can explain how the pieces fit together, that gap is the first thing a diligence team finds, and the cheapest time to close it is months before they show up.</p>
+<p>I am having this conversation more often now than I have about almost anything else. A founder built something genuinely good with AI tools in a few weeks, got users, raised a seed on it, and is now staring at a Series A term sheet or an acquihire offer with a technical diligence clause attached. They ask me a version of the same question every time: the product works, customers pay, what is there to worry about? The answer is that diligence is not a test of whether the thing works today. It is a test of whether a stranger can take ownership of it tomorrow, and AI-built codebases are unusually good at passing the first test and failing the second.</p>
+<h2>What a diligence team is actually grading</h2>
+<p>A technical diligence reviewer is not impressed by your feature list. They have seen the demo, and they assume it works. Their job is to estimate risk on behalf of someone about to wire money, so they spend their time on the questions that predict future cost.</p>
+<p>The first question is changeability. Can a new engineer who has never seen this code add a feature next month without breaking three others? They will look for clear boundaries between parts of the system, for tests that catch mistakes, for some evidence that change is routine rather than terrifying. A codebase where every change is a gamble is a codebase that will slow the company down right when the buyer needs it to speed up.</p>
+<p>The second question is who holds the knowledge. Diligence reviewers ask, in various polite forms, what happens if your lead developer is hit by a bus. They are mapping how much of the system lives in documentation and clean structure versus how much lives in one person&#39;s memory. This is the same concern I have written about as the danger of a <a href="/post-key-person-codebase-risk">codebase that lives in one person&#39;s head</a>, and it is the question AI-built products struggle with most, because the knowledge often lives in no one&#39;s head at all.</p>
+<p>The third question is what it costs to maintain. Hidden duplication, dependencies nobody chose deliberately, security holes that a generator produced without anyone noticing: these are the line items that turn into months of cleanup after the deal closes. A good reviewer prices them, and that price comes out of your valuation or kills the deal outright. The <a href="/post-diligence-red-flags">red flags that quietly kill a round</a> are almost never the flashy ones. They are boring, structural, and visible only to someone reading the code with intent.</p>
+<h2>Where AI-built codebases tend to fail the read</h2>
+<p>AI coding tools are very good at producing code that runs and very indifferent to whether the result is legible. That split is exactly the seam a diligence reviewer pulls on, and the failures cluster in a few predictable places.</p>
+<p>The most common is no discernible architecture. The product was built feature by feature through prompting, and each feature solved its own problem without anyone deciding how the system as a whole should be organized. The result works, but it has no shape. A reviewer opens it, looks for the boundaries that tell them where things live, finds none, and writes the sentence that scares acquirers: significant refactoring required before the team can scale. I have described how this same absence of structure makes <a href="/post-ai-built-app-wall">an AI-built app hit a wall</a> a few months in. Diligence is just that wall arriving on someone else&#39;s schedule.</p>
+<p>The second is duplicated logic with no single owner. The same rule, pricing, permissions, a calculation, is implemented in four places because it was generated four times in four sessions. A reviewer finds two of them, infers the rest, and now distrusts the whole codebase, because if the core logic is copied around, every bug fix is a guess about how many copies exist.</p>
+<p>The third is invisible security and data handling. Generators happily produce code that logs secrets, trusts user input, or stores data in ways that will not survive a compliance review. None of it shows in the demo. All of it shows in a careful read, and for an acquirer who plans to run this product at their scale, a sloppy data layer is not a discount, it is a deal breaker.</p>
+<p>The fourth is the documentation gap. There is no record of why anything was built the way it was, because no human made those decisions consciously enough to write them down. A reviewer cannot reconstruct intent from generated code, so they assume the worst and price accordingly.</p>
+<p>None of this means the product is bad. It often means the product is genuinely useful and the codebase underneath it was never made ready for someone else to own. Those are two different things, and diligence is the moment they get separated. It is the same gap I described between <a href="/post-ai-mvp-draft">a draft and a product</a>: the AI gave you a working draft fast, and a draft can carry you to a seed round, but diligence asks for a product.</p>
+<h2>What you can fix before anyone shows up</h2>
+<p>The good news is that almost everything a diligence team flags is cheaper to fix before the process starts than to negotiate away during it. If you think a raise or an exit is six to twelve months out, here is where the leverage is.</p>
+<p>Make the system legible first. You do not need to rewrite the AI-generated code. You need to organize it so a stranger can find their way around: clear boundaries between the major parts, a sensible folder structure, names that mean something. Generated code inside a clear boundary is an asset. Generated code with no boundaries is the liability a reviewer prices.</p>
+<p>Write the decisions down. A short document that explains how the system is organized, what the main pieces do, and where the known shortcuts are will do more for your diligence outcome than another month of features. It directly answers the knowledge question, and it signals that someone is in control of the system rather than the other way around. Distinguishing the shortcuts you took on purpose from the ones that happened to you is the whole point of treating debt as <a href="/post-good-technical-debt">good technical debt</a> you can explain, instead of debt that explains you.</p>
+<p>Close the obvious security and data gaps. Get someone who knows what they are looking for to read the parts that touch secrets, user input, and stored data. These are the findings most likely to break a deal and the ones least likely to surface on their own.</p>
+<p>Get a dry run from someone who has sat on the other side of the table. The cheapest diligence is the one you run on yourself first, with a person who knows what reviewers actually look for. A short <a href="/teardown">codebase and architecture teardown</a> finds the same things a buyer&#39;s team would find, while you still have the time and the leverage to fix them quietly. The difference between finding a problem in your own review and having an acquirer find it is the difference between a weekend of work and a six-figure valuation haircut.</p>
+<h2>If diligence already started</h2>
+<p>Sometimes the process is already underway and the questions are getting pointed. The instinct is to either downplay the gaps or promise a rewrite, and both are mistakes. Reviewers have heard every version of &quot;we were planning to clean that up,&quot; and a rewrite promise reads as an admission that the asset is not ready.</p>
+<p>The better move is a clear-eyed read of your own codebase before the next call: what is genuinely load-bearing, what is fragile, what is safe, and which two or three findings the reviewer is most likely to lead with. Walking into a diligence call already knowing your own weak points, with a credible and specific plan for each, converts a red flag into evidence that the team has judgment. Reviewers are not looking for perfect code. They have never seen any. They are looking for a team that understands its own system well enough to be trusted with someone else&#39;s money. If you are mid-process and getting questions you cannot answer, <a href="/book-a-call">book a call</a> and we will get you a real read on what they are about to find before they find it.</p>
+<h2>Frequently asked questions</h2>
+<h3>Will a diligence team reject a product just because it was built with AI?</h3>
+<p>No. Reviewers care about the state of the codebase, not the tool that produced it. Plenty of human-written code fails diligence and plenty of AI-assisted code passes. What they react to is the absence of structure, ownership, and basic safety, which AI-built products are more likely to have because the tools optimize for working output over legible output. Fix the structure and the origin of the code stops mattering.</p>
+<h3>How early should I prepare for technical diligence?</h3>
+<p>Earlier than feels necessary. The fixes that matter most, legible structure, written decisions, closed security gaps, take weeks to do well and cannot be faked in the final sprint. If a raise or an exit is plausibly within a year, start treating your codebase as something a stranger will read soon.</p>
+<h3>What is the single most common finding in an AI-built codebase?</h3>
+<p>Duplicated logic with no single owner. The same rule implemented in several places because it was generated in several sessions. It is dangerous out of proportion to how it looks, because it means every fix is a guess about how many copies exist, and a reviewer who finds it stops trusting the rest of the code. Consolidating core logic into one place is one of the highest-leverage things you can do before a review.</p>
+<h3>Do I need to rewrite everything before diligence?</h3>
+<p>Almost never. A rewrite is slow, risky, and usually unnecessary. The goal is not pristine code; it is a system someone can understand and safely change. Most of the value comes from organizing what exists, documenting the decisions, and fixing a short list of real safety problems. Get a diagnosis of what actually matters before you spend a dollar rewriting code that was never the problem.</p>
+
+    </div>
+    <div class="article-body">
+      <div class="author-card reveal">
+        <span class="ac-av">F</span>
+        <div>
+          <div class="ac-name">The founder of Fraction</div>
+          <div class="ac-bio">Built engineering teams from 2 to 30. Killed more bad rebuilds than I've greenlit. <a href="about.html" class="link-grow" style="font-size:0.96rem">More about me <span class="arrow">&rarr;</span></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" style="padding-top:clamp(32px,5vw,56px)">
+  <div class="wrap">
+    <div class="callout reveal" style="text-align:center">
+      <h3 style="margin-left:auto;margin-right:auto;max-width:22ch">Not sure the call you're about to make is the right one?</h3>
+      <p style="margin:0 auto 26px">That's exactly what a 20-minute fit call is for &mdash; or a two-week Teardown if you'd rather start with a written verdict.</p>
+      <div class="ph-cta" style="justify-content:center">
+        <a href="book-a-call.html" class="btn btn-accent">Book a fit call <span class="arrow">&rarr;</span></a>
+        <a href="teardown.html" class="link-grow" style="color:#fff">Start with a Teardown <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap-wide">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#14140F"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+        <p style="color:var(--grey-2); max-width:30ch; margin-top:18px; font-size:0.96rem; line-height:1.5">Senior technical leadership for founders who aren't ready for a full-time CTO — and shouldn't hire one yet.</p>
+      </div>
+      <div><h5>Service</h5><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="comparison.html">Fractional vs full-time</a></li><li><a href="teardown.html">The Tech Teardown</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="blog.html">Writing</a></li><li><a href="book-a-call.html">Book a call</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+      <div><h5>Start here</h5><ul><li><a href="book-a-call.html">Book a 20-min fit call</a></li><li><a href="teardown.html">Start with a Teardown</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Fraction · <a href="https://getfractioncto.com">getfractioncto.com</a> — no contract, no equity, cancel anytime.</span>
+      <span>Built on judgment, not hours.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="motion.js"></script>
+</body>
+</html>
