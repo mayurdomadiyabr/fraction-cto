@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The integration sprawl nobody decided to build — Fraction</title>
+  <meta name="description" content="How integration sprawl accumulates one tool at a time until the glue between systems becomes a startup&#39;s most fragile dependency." />
+  <meta name="theme-color" content="#FAFAF9" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Fraction" />
+  <meta property="og:title" content="The integration sprawl nobody decided to build — Fraction" />
+  <meta property="og:description" content="How integration sprawl accumulates one tool at a time until the glue between systems becomes a startup&#39;s most fragile dependency." />
+  <meta property="og:url" content="https://getfractioncto.com/post-integration-sprawl" />
+  <meta property="og:image" content="https://getfractioncto.com/og-image.png" />
+  <meta property="article:published_time" content="2026-06-30T12:00:44.414Z" />
+  <meta property="article:author" content="The founder of Fraction" />
+  <meta property="article:section" content="Pattern recognition" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="The integration sprawl nobody decided to build — Fraction" />
+  <meta name="twitter:description" content="How integration sprawl accumulates one tool at a time until the glue between systems becomes a startup&#39;s most fragile dependency." />
+  <meta name="twitter:image" content="https://getfractioncto.com/og-image.png" />
+  <link rel="canonical" href="https://getfractioncto.com/post-integration-sprawl" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script src="/analytics.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "The integration sprawl nobody decided to build",
+  "description": "How integration sprawl accumulates one tool at a time until the glue between systems becomes a startup&#39;s most fragile dependency.",
+  "datePublished": "2026-06-30T12:00:44.414Z",
+  "dateModified": "2026-06-30T12:00:44.414Z",
+  "author": {
+    "@type": "Person",
+    "name": "The founder of Fraction",
+    "url": "https://getfractioncto.com/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fraction",
+    "url": "https://getfractioncto.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://getfractioncto.com/og-image.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://getfractioncto.com/post-integration-sprawl"
+  },
+  "image": "https://getfractioncto.com/og-image.png",
+  "articleSection": "Pattern recognition",
+  "wordCount": 1086,
+  "inLanguage": "en",
+  "isAccessibleForFree": true
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home",   "item": "https://getfractioncto.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Writing","item": "https://getfractioncto.com/blog" },
+    { "@type": "ListItem", "position": 3, "name": "The integration sprawl nobody decided to build", "item": "https://getfractioncto.com/post-integration-sprawl" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Fraction home"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <ul class="nav-links">
+      <li><a href="how-it-works.html">How it works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="comparison.html">Compare</a></li>
+      <li><a href="blog.html" class="active">Writing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="teardown.html">The Teardown <span class="accent-dot"></span></a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke-linecap="round"/></svg></button>
+      <button class="icon-btn" aria-label="Toggle theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M21.5 12h-2.2M4.7 12H2.5M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6M18.4 18.4l-1.6-1.6M7.2 7.2 5.6 5.6" stroke-linecap="round"/></svg></button>
+      <a href="book-a-call.html" class="btn btn-primary nav-cta">Book a fit call</a>
+      <button class="icon-btn menu-btn" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu">
+  <div class="mm-top">
+    <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <button class="icon-btn menu-btn" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg></button>
+  </div>
+  <nav>
+    <a href="how-it-works.html">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="comparison.html">Compare</a>
+    <a href="blog.html">Writing</a>
+    <a href="about.html">About</a>
+    <a href="teardown.html">The Teardown</a>
+  </nav>
+  <div class="mm-cta">
+    <a href="teardown.html" class="btn btn-ghost">Start with a Teardown</a>
+    <a href="book-a-call.html" class="btn btn-primary">Book a 20-min fit call</a>
+  </div>
+</div>
+
+<main>
+<section class="page-hero center" style="padding-bottom:clamp(24px,4vw,40px)">
+  <div class="wrap">
+    <div class="article-hero">
+      <span class="post-cat">Pattern recognition</span>
+      <h1>The integration sprawl nobody decided to build</h1>
+      <div class="post-meta"><span>Jun 2026</span><span class="sep"></span><span>5 min read</span><span class="sep"></span><span>by The founder of Fraction</span></div>
+    </div>
+  </div>
+</section>
+<section class="section-tight" style="padding-top:8px">
+  <div class="wrap">
+    <div class="article-body reveal">
+<p>Open the settings of almost any two-year-old startup and you will find the same thing: fifteen or twenty SaaS tools, connected to each other by webhooks, Zapier flows, a few cron jobs, and some glue code one engineer wrote on a Friday. No one sat down and designed this. Each piece arrived as a reasonable decision. Together they form the most fragile, least understood, and most expensive-to-change part of the company, and nobody owns it.</p>
+<p>This is integration sprawl, and it is a pattern worth catching early, because the cost of it is invisible right up until something breaks and no one can tell you why.</p>
+<h2>How the sprawl accumulates</h2>
+<p>Every individual decision was defensible. That is exactly why it is dangerous.</p>
+<h3>Each tool solved a real problem on the day you added it</h3>
+<p>You needed email, so you added an email tool. You needed billing, so you added a billing provider. You needed the billing events in your analytics, so you wired a webhook. You needed the analytics in a spreadsheet, so you added a sync. Each step was the fastest way to solve a real problem that day. None of them was wrong in isolation. The cost is in the accumulation, which no single decision is responsible for.</p>
+<h3>The glue is written once and never revisited</h3>
+<p>The webhook that moves data between two systems gets written under deadline, works in the demo, and is never looked at again. It has no tests, no monitoring, no documentation, and no owner. When it silently fails at 2am, nobody finds out until a customer reports that their data is wrong, and then an engineer spends a day archaeology-ing through systems they did not build to find the break.</p>
+<h3>Nobody can see the whole map</h3>
+<p>The person who added the email tool is not the person who wired the billing webhook is not the person who built the analytics sync. No one holds the full picture of what depends on what. This is the same risk as when <a href="/post-key-person-codebase-risk">critical knowledge lives in one person&#39;s head</a>, except worse, because here it lives in nobody&#39;s head at all. The map exists only as the emergent behavior of a dozen disconnected pieces.</p>
+<h2>Why it is more expensive than it looks</h2>
+<p>The bill for sprawl is paid in places that are hard to connect back to the cause.</p>
+<h3>Data integrity erodes quietly</h3>
+<p>When data flows through five hops between systems, every hop is a chance for it to drift. A field maps wrong, a sync runs twice, a webhook drops a message. The result is that your billing system and your analytics and your CRM all quietly disagree about basic facts, and you do not find out until you are trying to close the books or raise a round and the numbers do not tie.</p>
+<h3>Debugging crosses boundaries you do not control</h3>
+<p>When something breaks inside one application, you can read the code. When something breaks in the space between applications, you are debugging across systems you cannot see into, owned by vendors who will not return your call this week. The mean time to even understand the problem goes up by an order of magnitude.</p>
+<h3>The spend adds up where no one is watching</h3>
+<p>Fifteen tools at a few hundred dollars a month each is real money, and the per-seat pricing grows with the team. More to the point, much of it overlaps: three tools that all do part of what one could, kept because nobody owns the question of consolidation. This is the same blindness as <a href="/post-agency-invoice">the agency invoice nobody reads line by line</a>, applied to your own stack.</p>
+<h2>How to get ahead of it</h2>
+<p>You do not fix sprawl by banning tools. You fix it by making the system visible and owned.</p>
+<h3>Draw the actual map, once</h3>
+<p>Spend an afternoon and write down every external tool, what data flows into it, what flows out, and who or what moves that data. Most teams have never seen this on one page, and the act of drawing it surfaces the load-bearing glue nobody knew was load-bearing. You cannot manage a dependency graph you have never looked at.</p>
+<h3>Give the integration layer an owner</h3>
+<p>The glue between systems needs someone responsible for it the same way your application code does. Not necessarily a full-time hire, but a named owner who knows the map, monitors the critical flows, and is the person you call when data disagrees. Unowned infrastructure is infrastructure that fails silently.</p>
+<h3>Treat consolidation as a real decision, not a someday</h3>
+<p>Periodically ask whether three tools could be two, whether a fragile Zapier chain should become a small piece of real code with monitoring, whether a sync that breaks monthly is worth its trouble. This is a <a href="/post-migrate-or-stay-tool">build, buy, or consolidate judgment</a> about the cost of leaving a tool versus the cost of keeping the glue alive, and it deserves the same scrutiny as any other engineering decision.</p>
+<h3>Put monitoring on the flows that matter</h3>
+<p>The billing webhook that silently fails should page someone, not wait for a customer to notice. The flows that touch money and customer-facing data are the ones to instrument first. A failed integration you find out about in five minutes is an annoyance; one you find out about in five days is an incident.</p>
+<p>If your stack has quietly become a web of integrations nobody fully understands, that is exactly the kind of thing a fractional technical leader maps and de-risks. <a href="/book-a-call">Book a call</a> and we will draw the map together.</p>
+<h2>FAQ</h2>
+<h3>Is adding lots of tools just a normal part of growing?</h3>
+<p>Adding tools is normal. Letting the connections between them go unmapped, unmonitored, and unowned is the part that turns normal growth into fragility. The tools are fine; the invisible glue is the risk.</p>
+<h3>When does integration sprawl actually become a problem?</h3>
+<p>Usually around the point where no single person can draw the data flow from memory, or where a data discrepancy takes more than a day to trace. If finding why two systems disagree is an investigation rather than a lookup, you are already there.</p>
+<h3>Should I just build everything in-house to avoid this?</h3>
+<p>No. Buying tools is usually the right call, and rebuilding them rarely is. The fix is not fewer vendors; it is owning, mapping, and monitoring the integration layer so the glue is as visible and maintained as the rest of your system.</p>
+
+    </div>
+    <div class="article-body">
+      <div class="author-card reveal">
+        <span class="ac-av">F</span>
+        <div>
+          <div class="ac-name">The founder of Fraction</div>
+          <div class="ac-bio">Built engineering teams from 2 to 30. Killed more bad rebuilds than I've greenlit. <a href="about.html" class="link-grow" style="font-size:0.96rem">More about me <span class="arrow">&rarr;</span></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" style="padding-top:clamp(32px,5vw,56px)">
+  <div class="wrap">
+    <div class="callout reveal" style="text-align:center">
+      <h3 style="margin-left:auto;margin-right:auto;max-width:22ch">Not sure the call you're about to make is the right one?</h3>
+      <p style="margin:0 auto 26px">That's exactly what a 20-minute fit call is for &mdash; or a two-week Teardown if you'd rather start with a written verdict.</p>
+      <div class="ph-cta" style="justify-content:center">
+        <a href="book-a-call.html" class="btn btn-accent">Book a fit call <span class="arrow">&rarr;</span></a>
+        <a href="teardown.html" class="link-grow" style="color:#fff">Start with a Teardown <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap-wide">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#14140F"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+        <p style="color:var(--grey-2); max-width:30ch; margin-top:18px; font-size:0.96rem; line-height:1.5">Senior technical leadership for founders who aren't ready for a full-time CTO — and shouldn't hire one yet.</p>
+      </div>
+      <div><h5>Service</h5><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="comparison.html">Fractional vs full-time</a></li><li><a href="teardown.html">The Tech Teardown</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="blog.html">Writing</a></li><li><a href="book-a-call.html">Book a call</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+      <div><h5>Start here</h5><ul><li><a href="book-a-call.html">Book a 20-min fit call</a></li><li><a href="teardown.html">Start with a Teardown</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Fraction · <a href="https://getfractioncto.com">getfractioncto.com</a> — no contract, no equity, cancel anytime.</span>
+      <span>Built on judgment, not hours.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="motion.js"></script>
+</body>
+</html>
