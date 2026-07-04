@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The open-source license that can sink your valuation — Fraction</title>
+  <meta name="description" content="How open-source licenses like GPL and AGPL surface in technical diligence, why they threaten valuation, and how to audit your dependency tree first." />
+  <meta name="theme-color" content="#FAFAF9" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Fraction" />
+  <meta property="og:title" content="The open-source license that can sink your valuation — Fraction" />
+  <meta property="og:description" content="How open-source licenses like GPL and AGPL surface in technical diligence, why they threaten valuation, and how to audit your dependency tree first." />
+  <meta property="og:url" content="https://getfractioncto.com/post-open-source-license-diligence" />
+  <meta property="og:image" content="https://getfractioncto.com/og-image.png" />
+  <meta property="article:published_time" content="2026-07-04T14:39:41.825Z" />
+  <meta property="article:author" content="The founder of Fraction" />
+  <meta property="article:section" content="Fundraising" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="The open-source license that can sink your valuation — Fraction" />
+  <meta name="twitter:description" content="How open-source licenses like GPL and AGPL surface in technical diligence, why they threaten valuation, and how to audit your dependency tree first." />
+  <meta name="twitter:image" content="https://getfractioncto.com/og-image.png" />
+  <link rel="canonical" href="https://getfractioncto.com/post-open-source-license-diligence" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script src="/analytics.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "The open-source license that can sink your valuation",
+  "description": "How open-source licenses like GPL and AGPL surface in technical diligence, why they threaten valuation, and how to audit your dependency tree first.",
+  "datePublished": "2026-07-04T14:39:41.825Z",
+  "dateModified": "2026-07-04T14:39:41.825Z",
+  "author": {
+    "@type": "Person",
+    "name": "The founder of Fraction",
+    "url": "https://getfractioncto.com/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fraction",
+    "url": "https://getfractioncto.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://getfractioncto.com/og-image.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://getfractioncto.com/post-open-source-license-diligence"
+  },
+  "image": "https://getfractioncto.com/og-image.png",
+  "articleSection": "Fundraising",
+  "wordCount": 1071,
+  "inLanguage": "en",
+  "isAccessibleForFree": true
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home",   "item": "https://getfractioncto.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Writing","item": "https://getfractioncto.com/blog" },
+    { "@type": "ListItem", "position": 3, "name": "The open-source license that can sink your valuation", "item": "https://getfractioncto.com/post-open-source-license-diligence" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Fraction home"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <ul class="nav-links">
+      <li><a href="how-it-works.html">How it works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="comparison.html">Compare</a></li>
+      <li><a href="blog.html" class="active">Writing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="teardown.html">The Teardown <span class="accent-dot"></span></a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke-linecap="round"/></svg></button>
+      <button class="icon-btn" aria-label="Toggle theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M21.5 12h-2.2M4.7 12H2.5M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6M18.4 18.4l-1.6-1.6M7.2 7.2 5.6 5.6" stroke-linecap="round"/></svg></button>
+      <a href="book-a-call.html" class="btn btn-primary nav-cta">Book a fit call</a>
+      <button class="icon-btn menu-btn" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu">
+  <div class="mm-top">
+    <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <button class="icon-btn menu-btn" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg></button>
+  </div>
+  <nav>
+    <a href="how-it-works.html">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="comparison.html">Compare</a>
+    <a href="blog.html">Writing</a>
+    <a href="about.html">About</a>
+    <a href="teardown.html">The Teardown</a>
+  </nav>
+  <div class="mm-cta">
+    <a href="teardown.html" class="btn btn-ghost">Start with a Teardown</a>
+    <a href="book-a-call.html" class="btn btn-primary">Book a 20-min fit call</a>
+  </div>
+</div>
+
+<main>
+<section class="page-hero center" style="padding-bottom:clamp(24px,4vw,40px)">
+  <div class="wrap">
+    <div class="article-hero">
+      <span class="post-cat">Fundraising</span>
+      <h1>The open-source license that can sink your valuation</h1>
+      <div class="post-meta"><span>Jul 2026</span><span class="sep"></span><span>5 min read</span><span class="sep"></span><span>by The founder of Fraction</span></div>
+    </div>
+  </div>
+</section>
+<section class="section-tight" style="padding-top:8px">
+  <div class="wrap">
+    <div class="article-body reveal">
+<p>A diligence team runs a scan on your codebase and finds an AGPL-licensed library sitting three levels deep in your dependency tree. Nobody on your team chose it. Nobody knew it was there. And now you are explaining to an investor&#39;s technical advisor why your proprietary SaaS might carry an obligation to publish its source code. That conversation costs you leverage at exactly the moment you have the least to spare.</p>
+<p>License risk is one of the few diligence problems that is almost entirely preventable and almost always ignored until it is urgent. Founders track their cap table and their contracts. They rarely track the licenses of the open-source code their product is built on, even though that code often outnumbers the code their own team wrote by a wide margin.</p>
+<h2>Why licenses show up in diligence at all</h2>
+<p>When a buyer or investor does technical diligence, one of the standard checks is: what third-party code is in this product, and what obligations come with it? This is not paranoia. Every open-source dependency ships with a license, and licenses are contracts. Some are permissive and ask almost nothing. Others are copyleft and can attach conditions to the code you built around them.</p>
+<p>A serious diligence process runs an automated scan, called software composition analysis, across your whole dependency tree. It produces a list of every package and its license. Then a human reads it looking for the licenses that create obligations. If your team has never run that scan, the diligence team is seeing your license exposure before you are, and that is the wrong order. It is the same principle as the rest of your data room: you never want an investor discovering something structural about your codebase before you have. If the <a href="/post-technical-data-room">technical half of your data room is empty</a>, this is one of the first things to put in it.</p>
+<h2>The licenses that actually cause problems</h2>
+<p>Not all open-source licenses are equal, and the difference is the whole game.</p>
+<p>Permissive licenses, like MIT and Apache 2.0, let you use the code in proprietary software with minimal conditions, usually just attribution. The vast majority of your dependencies are probably these, and they are fine.</p>
+<p>Copyleft licenses are where the risk lives. GPL requires that if you distribute software that includes GPL code, you make your corresponding source available under the same terms. For a long time SaaS companies assumed this did not touch them because they do not distribute binaries; customers use the product over a network.</p>
+<p>The AGPL closes exactly that loophole, and it is the one to watch. The Affero GPL triggers its source-disclosure requirement when users interact with the software over a network, not only when you ship a binary. For a SaaS company that is the normal way customers use your product. A single AGPL component in your stack can, in principle, create an obligation to disclose your source or to buy a commercial license from the maintainer.</p>
+<p>This is not theoretical. In 2024, in SFC v. Vizio, a court let a GPL enforcement case survive summary judgment, ruling that consumers can enforce the GPL as third-party beneficiaries. Enforcement of these licenses is real, and diligence teams know it.</p>
+<h2>How AGPL closes the SaaS loophole</h2>
+<p>The reason AGPL deserves its own paragraph is that it defeats the assumption most founders operate on. &quot;We are SaaS, we do not distribute anything, so copyleft does not apply to us.&quot; That reasoning holds for plain GPL. It does not hold for AGPL.</p>
+<p>Under AGPL, letting a user interact with the software over a network counts as the triggering event. So if you built a feature on top of an AGPL library and users touch that feature through your web app, you may have triggered the source-disclosure obligation without ever shipping a file to anyone. The fix is usually to rip out the AGPL component and replace it, or to buy a commercial license from the vendor who dual-licenses it. Both are cheaper to do calmly, months before a raise, than under a diligence clock.</p>
+<h2>How to find your exposure before an investor does</h2>
+<p>The good news is this is a solved problem if you spend a day on it.</p>
+<p>Run a software composition analysis tool across your codebase. There are several open-source and commercial scanners built for exactly this. It will inventory every dependency and flag the license of each. Sort by license type and look specifically for GPL, AGPL, LGPL, and other copyleft terms. Pay attention to transitive dependencies, the ones your direct dependencies pull in, because that is where the buried AGPL library hides three levels down.</p>
+<p>For anything flagged, decide: keep it and comply, replace it with a permissively licensed equivalent, or buy a commercial license. Write down what you found and what you did. That short document is exactly what a diligence team wants to see, and handing it to them proactively flips the story from &quot;they found a problem&quot; to &quot;the team is on top of its supply chain.&quot;</p>
+<p>This is the same discipline that separates a clean AI diligence from a messy one. If AI wrote a chunk of your code, the provenance and licensing of what it pulled in matters even more, which is its own reason to get ahead of <a href="/post-ai-code-diligence">whether your AI-written code survives diligence</a>. And it belongs on the same list as the other <a href="/post-diligence-red-flags">technical red flags that quietly kill a round</a>.</p>
+<h3>FAQ</h3>
+<p><strong>Is using open source a problem for fundraising by itself?</strong>
+No. Nearly every startup is built on open source and investors expect it. The problem is specific copyleft licenses used in ways that create disclosure obligations, and not knowing which ones you have.</p>
+<p><strong>Which licenses should I worry about most?</strong>
+AGPL first, because it triggers on network use and hits SaaS directly. Then GPL and other strong copyleft licenses. Permissive licenses like MIT and Apache are almost never an issue.</p>
+<p><strong>How do I find what licenses I am using?</strong>
+Run a software composition analysis scan. It inventories your full dependency tree, including transitive dependencies, and labels each license so you can spot copyleft components.</p>
+<p><strong>What if I find an AGPL dependency?</strong>
+Replace it with a permissive alternative, or buy a commercial license from the maintainer. Do it before diligence, not during. If you are unsure how exposed you are, <a href="/book-a-call">book a call</a> and we can scope a quick license audit.</p>
+
+    </div>
+    <div class="article-body">
+      <div class="author-card reveal">
+        <span class="ac-av">F</span>
+        <div>
+          <div class="ac-name">The founder of Fraction</div>
+          <div class="ac-bio">Built engineering teams from 2 to 30. Killed more bad rebuilds than I've greenlit. <a href="about.html" class="link-grow" style="font-size:0.96rem">More about me <span class="arrow">&rarr;</span></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" style="padding-top:clamp(32px,5vw,56px)">
+  <div class="wrap">
+    <div class="callout reveal" style="text-align:center">
+      <h3 style="margin-left:auto;margin-right:auto;max-width:22ch">Not sure the call you're about to make is the right one?</h3>
+      <p style="margin:0 auto 26px">That's exactly what a 20-minute fit call is for &mdash; or a two-week Teardown if you'd rather start with a written verdict.</p>
+      <div class="ph-cta" style="justify-content:center">
+        <a href="book-a-call.html" class="btn btn-accent">Book a fit call <span class="arrow">&rarr;</span></a>
+        <a href="teardown.html" class="link-grow" style="color:#fff">Start with a Teardown <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap-wide">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#14140F"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+        <p style="color:var(--grey-2); max-width:30ch; margin-top:18px; font-size:0.96rem; line-height:1.5">Senior technical leadership for founders who aren't ready for a full-time CTO — and shouldn't hire one yet.</p>
+      </div>
+      <div><h5>Service</h5><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="comparison.html">Fractional vs full-time</a></li><li><a href="teardown.html">The Tech Teardown</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="blog.html">Writing</a></li><li><a href="book-a-call.html">Book a call</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+      <div><h5>Start here</h5><ul><li><a href="book-a-call.html">Book a 20-min fit call</a></li><li><a href="teardown.html">Start with a Teardown</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Fraction · <a href="https://getfractioncto.com">getfractioncto.com</a> — no contract, no equity, cancel anytime.</span>
+      <span>Built on judgment, not hours.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="motion.js"></script>
+</body>
+</html>
