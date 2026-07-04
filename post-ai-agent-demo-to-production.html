@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Your AI agent demo wowed the room. Can it ship? — Fraction</title>
+  <meta name="description" content="Why AI agent demos impress and then never ship, what production-ready actually means for an agent, and how to tell if your team is closing the gap." />
+  <meta name="theme-color" content="#FAFAF9" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Fraction" />
+  <meta property="og:title" content="Your AI agent demo wowed the room. Can it ship? — Fraction" />
+  <meta property="og:description" content="Why AI agent demos impress and then never ship, what production-ready actually means for an agent, and how to tell if your team is closing the gap." />
+  <meta property="og:url" content="https://getfractioncto.com/post-ai-agent-demo-to-production" />
+  <meta property="og:image" content="https://getfractioncto.com/og-image.png" />
+  <meta property="article:published_time" content="2026-07-04T00:00:00.000Z" />
+  <meta property="article:author" content="The founder of Fraction" />
+  <meta property="article:section" content="Pattern recognition" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Your AI agent demo wowed the room. Can it ship? — Fraction" />
+  <meta name="twitter:description" content="Why AI agent demos impress and then never ship, what production-ready actually means for an agent, and how to tell if your team is closing the gap." />
+  <meta name="twitter:image" content="https://getfractioncto.com/og-image.png" />
+  <link rel="canonical" href="https://getfractioncto.com/post-ai-agent-demo-to-production" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script src="/analytics.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Your AI agent demo wowed the room. Can it ship?",
+  "description": "Why AI agent demos impress and then never ship, what production-ready actually means for an agent, and how to tell if your team is closing the gap.",
+  "datePublished": "2026-07-04T00:00:00.000Z",
+  "dateModified": "2026-07-04T00:00:00.000Z",
+  "author": {
+    "@type": "Person",
+    "name": "The founder of Fraction",
+    "url": "https://getfractioncto.com/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fraction",
+    "url": "https://getfractioncto.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://getfractioncto.com/og-image.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://getfractioncto.com/post-ai-agent-demo-to-production"
+  },
+  "image": "https://getfractioncto.com/og-image.png",
+  "articleSection": "Pattern recognition",
+  "wordCount": 1642,
+  "inLanguage": "en",
+  "isAccessibleForFree": true
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home",   "item": "https://getfractioncto.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Writing","item": "https://getfractioncto.com/blog" },
+    { "@type": "ListItem", "position": 3, "name": "Your AI agent demo wowed the room. Can it ship?", "item": "https://getfractioncto.com/post-ai-agent-demo-to-production" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Fraction home"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <ul class="nav-links">
+      <li><a href="how-it-works.html">How it works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="comparison.html">Compare</a></li>
+      <li><a href="blog.html" class="active">Writing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="teardown.html">The Teardown <span class="accent-dot"></span></a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke-linecap="round"/></svg></button>
+      <button class="icon-btn" aria-label="Toggle theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M21.5 12h-2.2M4.7 12H2.5M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6M18.4 18.4l-1.6-1.6M7.2 7.2 5.6 5.6" stroke-linecap="round"/></svg></button>
+      <a href="book-a-call.html" class="btn btn-primary nav-cta">Book a fit call</a>
+      <button class="icon-btn menu-btn" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu">
+  <div class="mm-top">
+    <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <button class="icon-btn menu-btn" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg></button>
+  </div>
+  <nav>
+    <a href="how-it-works.html">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="comparison.html">Compare</a>
+    <a href="blog.html">Writing</a>
+    <a href="about.html">About</a>
+    <a href="teardown.html">The Teardown</a>
+  </nav>
+  <div class="mm-cta">
+    <a href="teardown.html" class="btn btn-ghost">Start with a Teardown</a>
+    <a href="book-a-call.html" class="btn btn-primary">Book a 20-min fit call</a>
+  </div>
+</div>
+
+<main>
+<section class="page-hero center" style="padding-bottom:clamp(24px,4vw,40px)">
+  <div class="wrap">
+    <div class="article-hero">
+      <span class="post-cat">Pattern recognition</span>
+      <h1>Your AI agent demo wowed the room. Can it ship?</h1>
+      <div class="post-meta"><span>Jul 2026</span><span class="sep"></span><span>7 min read</span><span class="sep"></span><span>by The founder of Fraction</span></div>
+    </div>
+  </div>
+</section>
+<section class="section-tight" style="padding-top:8px">
+  <div class="wrap">
+    <div class="article-body reveal">
+<p>An AI agent that shines in a demo and an AI agent you can put in front of paying customers are two different products, and the distance between them is where most of the work lives. A demo has to work once, on a friendly input, with you watching. Production has to work on the ten-thousandth input, on a hostile one, with nobody watching. Closing that gap means evals, guardrails, failure states, observability, and cost controls, not more prompt tuning. If your agent has wowed a room but has not shipped, this is almost always why.</p>
+<p>I have watched this pattern often enough that I can now predict it. A founder shows me an agent that triages support tickets, or drafts contracts, or reconciles invoices. It is genuinely impressive. Then I ask one question: what happens when it is wrong and nobody is looking? The room goes quiet. That quiet is the whole gap.</p>
+<h2>The demo is the easy 20 percent</h2>
+<p>Here is the uncomfortable part. The demo is not a small version of the product. It is a different thing entirely, and it is the easy part.</p>
+<p>A demo is a performance. You pick the input. You have run it before. You are standing right there to catch it if it wanders. Modern models are good enough that a capable founder can get an agent to nail a curated scenario in a weekend. That is real, and it is worth something, but it proves almost nothing about whether the thing can ship.</p>
+<p>Production flips every one of those conditions. The input is chosen by a stranger who does not know or care what your agent expects. It has never seen that exact case. And you are asleep when it runs. The skills that got you a clean demo, prompt phrasing, model choice, a slick interface, are roughly 20 percent of the work. The other 80 percent is the part nobody claps for.</p>
+<p>This is the same trap I wrote about in <a href="/post-ai-mvp-draft">your AI-built MVP is a draft, not a product</a>, except one level up. There, AI wrote the app and the founder mistook a draft for a finished build. Here, the agent <em>is</em> the product, and the founder mistakes a demo for a shippable one. Same optical illusion, higher stakes, because now the failure lands on a customer instead of a codebase.</p>
+<h2>What &quot;production-ready&quot; actually means for an agent</h2>
+<p>When an engineer tells you an agent is not production-ready, they usually mean five specific things are missing. It helps to know what they are, because &quot;make it production-ready&quot; sounds like polish and is actually a second build.</p>
+<p><strong>Reliability.</strong> Does it do the right thing every time, or just most times? An agent that is correct 92 percent of the time sounds great until you do the math. On a thousand tickets a day, that is eighty wrong answers a day going out unsupervised. Demos hide this because you never run the tail cases on stage.</p>
+<p><strong>Failure states.</strong> What does it do when it does not know? A demo agent answers confidently no matter what, which looks decisive and is dangerous. A production agent has to recognize its own uncertainty, refuse, escalate to a human, or ask a question. Designing that behavior is harder than the happy path and gets none of the credit.</p>
+<p><strong>Guardrails.</strong> What is it not allowed to do, ever, regardless of what the input says? Refund limits, data it must not touch, actions it must never take without a human. In a demo you trust the input. In production you assume some inputs are trying to break it.</p>
+<p><strong>Observability.</strong> When it is wrong at 2am, can anyone tell? Can you see which decision it made, on what input, and why? Without this you cannot debug, you cannot improve, and you find out about failures from an angry customer instead of a dashboard.</p>
+<p><strong>Cost controls.</strong> Does one hard request quietly trigger forty model calls? Agents that loop, retry, and call tools can burn money in ways a flat API call never does. I have seen this turn a healthy-looking product into one that loses money on its heaviest users, which is a close cousin of the problem in <a href="/post-ai-feature-unit-economics">your AI feature might be losing money on every user</a>.</p>
+<p>None of these five show up in a demo. All five are load-bearing in production. That asymmetry is the entire reason impressive agents stall.</p>
+<h2>A pattern from the room</h2>
+<p>A seed-stage founder came to me with a support-triage agent. It read an incoming ticket, decided which team should own it, and routed it. In the demo it was flawless, and it closed a design partner on the spot.</p>
+<p>Four months later they still had not shipped it to that partner. The agent worked, mostly. But it confidently mis-routed roughly one ticket in twelve, and there was no way to catch a bad route before the customer felt it. A billing question would land with the engineering team, sit for a day, and surface as a furious email. The founder kept asking the team to &quot;tighten the prompt.&quot; The team kept saying the prompt was not the problem.</p>
+<p>They were both right and talking past each other. The demo was done. The product was maybe a third built. What was missing was a confidence threshold below which the agent handed off to a human, a review queue so a person could catch bad routes before the customer did, and logging so they could actually measure the error rate instead of guessing. That is a few weeks of unglamorous work that no demo ever forces you to do. Once it existed, they shipped in three weeks. The delay was never the model. It was the 80 percent nobody had scoped.</p>
+<h2>How to tell if your team is closing the gap or polishing the demo</h2>
+<p>You do not need to read code to tell the difference. Ask these, and listen for whether the answers are specific or hand-wavy.</p>
+<ul>
+<li><strong>What is our real error rate, and how do we measure it?</strong> If the answer is &quot;it feels accurate,&quot; there is no eval, which means there is no way to know if a change made things better or worse. That is the single clearest tell.</li>
+<li><strong>What happens when the agent is unsure?</strong> A good answer describes a specific behavior. A bad answer is &quot;it usually gets it right,&quot; which is not an answer to the question I asked.</li>
+<li><strong>How would we find out the agent did something wrong yesterday?</strong> If the honest answer is &quot;a customer would tell us,&quot; you have no observability.</li>
+<li><strong>What is the worst thing this agent can do, and what stops it?</strong> If nobody has a crisp answer, there are no guardrails.</li>
+<li><strong>What does a hard request cost us in model calls?</strong> If nobody knows, you have no cost controls.</li>
+</ul>
+<p>Progress on an agent looks like the error rate on a fixed test set going down and the failure behavior getting more defined. Motion that is not progress looks like endless prompt tweaking with no way to prove anything improved. This is the same distinction I keep coming back to in <a href="/post-ai-team-feels-fast">your AI team feels fast, is it actually shipping faster</a>: activity and progress are not the same thing, and with agents the gap is especially easy to hide.</p>
+<h2>What this means for what you build and buy</h2>
+<p>Two practical consequences for a founder.</p>
+<p>First, budget the 80 percent. When you scope the work, the eval harness, guardrails, human-in-the-loop review, observability, and cost controls are not a phase-two nice-to-have. They are the product. A plan that ends at &quot;the agent works in the demo&quot; is a plan that ships in the demo and nowhere else.</p>
+<p>Second, this reshapes build versus buy. Some of that 80 percent, evaluation tooling, observability, guardrail layers, is increasingly available off the shelf, and reinventing it is rarely where your edge is. Your edge is the specific judgment your agent encodes about your customers&#39; problem. Spend your build budget there and buy the plumbing, a version of the choice I laid out in <a href="/post-build-or-buy-ai-agent">building an AI agent? You may be building the wrong half</a>.</p>
+<h2>FAQ</h2>
+<h3>Why do AI agent demos look so much better than the shipped product?</h3>
+<p>Because a demo tests the easy 20 percent under ideal conditions you control, and production tests the hard 80 percent under conditions a stranger controls while you are asleep. Reliability on the long tail, failure handling, guardrails, observability, and cost control are all invisible on stage and load-bearing in production. The demo is not lying, it is just measuring the wrong thing.</p>
+<h3>How long does it take to go from a working demo to a shippable agent?</h3>
+<p>There is no fixed number, but the honest framing is that the demo is often a third or less of the total work. The remaining effort is evals, human-in-the-loop review, guardrails, observability, and cost controls. If your team scoped only the demo, expect the shippable version to take several times longer than the demo did, which is exactly the surprise most founders hit.</p>
+<h3>Do I need to hire a specialist AI engineer to close the gap?</h3>
+<p>Not necessarily. Most of this is disciplined product engineering, measuring error rates, designing failure states, adding logging, applied to an agent. What you need is someone senior enough to insist on it before you have a public incident, and honest enough to tell you the demo is not the product. If you are not sure whether your current team is doing this, an outside read helps.</p>
+<p>If your agent demos well but has not shipped, a <a href="/teardown">teardown</a> will usually locate the missing 80 percent in an afternoon, and you can <a href="/book-a-call">book a call</a> to talk through what it would take to close it.</p>
+
+    </div>
+    <div class="article-body">
+      <div class="author-card reveal">
+        <span class="ac-av">F</span>
+        <div>
+          <div class="ac-name">The founder of Fraction</div>
+          <div class="ac-bio">Built engineering teams from 2 to 30. Killed more bad rebuilds than I've greenlit. <a href="about.html" class="link-grow" style="font-size:0.96rem">More about me <span class="arrow">&rarr;</span></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" style="padding-top:clamp(32px,5vw,56px)">
+  <div class="wrap">
+    <div class="callout reveal" style="text-align:center">
+      <h3 style="margin-left:auto;margin-right:auto;max-width:22ch">Not sure the call you're about to make is the right one?</h3>
+      <p style="margin:0 auto 26px">That's exactly what a 20-minute fit call is for &mdash; or a two-week Teardown if you'd rather start with a written verdict.</p>
+      <div class="ph-cta" style="justify-content:center">
+        <a href="book-a-call.html" class="btn btn-accent">Book a fit call <span class="arrow">&rarr;</span></a>
+        <a href="teardown.html" class="link-grow" style="color:#fff">Start with a Teardown <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap-wide">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#14140F"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+        <p style="color:var(--grey-2); max-width:30ch; margin-top:18px; font-size:0.96rem; line-height:1.5">Senior technical leadership for founders who aren't ready for a full-time CTO — and shouldn't hire one yet.</p>
+      </div>
+      <div><h5>Service</h5><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="comparison.html">Fractional vs full-time</a></li><li><a href="teardown.html">The Tech Teardown</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="blog.html">Writing</a></li><li><a href="book-a-call.html">Book a call</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+      <div><h5>Start here</h5><ul><li><a href="book-a-call.html">Book a 20-min fit call</a></li><li><a href="teardown.html">Start with a Teardown</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Fraction · <a href="https://getfractioncto.com">getfractioncto.com</a> — no contract, no equity, cancel anytime.</span>
+      <span>Built on judgment, not hours.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="motion.js"></script>
+</body>
+</html>
