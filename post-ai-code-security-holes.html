@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The security holes hiding in your AI-written code — Fraction</title>
+  <meta name="description" content="AI coding tools ship insecure code by default. How a non-technical founder finds and fixes the security holes before a customer or attacker does." />
+  <meta name="theme-color" content="#FAFAF9" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Fraction" />
+  <meta property="og:title" content="The security holes hiding in your AI-written code — Fraction" />
+  <meta property="og:description" content="AI coding tools ship insecure code by default. How a non-technical founder finds and fixes the security holes before a customer or attacker does." />
+  <meta property="og:url" content="https://getfractioncto.com/post-ai-code-security-holes" />
+  <meta property="og:image" content="https://getfractioncto.com/og-image.png" />
+  <meta property="article:published_time" content="2026-07-06T14:04:27.923Z" />
+  <meta property="article:author" content="The founder of Fraction" />
+  <meta property="article:section" content="Pattern recognition" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="The security holes hiding in your AI-written code — Fraction" />
+  <meta name="twitter:description" content="AI coding tools ship insecure code by default. How a non-technical founder finds and fixes the security holes before a customer or attacker does." />
+  <meta name="twitter:image" content="https://getfractioncto.com/og-image.png" />
+  <link rel="canonical" href="https://getfractioncto.com/post-ai-code-security-holes" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script src="/analytics.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "The security holes hiding in your AI-written code",
+  "description": "AI coding tools ship insecure code by default. How a non-technical founder finds and fixes the security holes before a customer or attacker does.",
+  "datePublished": "2026-07-06T14:04:27.923Z",
+  "dateModified": "2026-07-06T14:04:27.923Z",
+  "author": {
+    "@type": "Person",
+    "name": "The founder of Fraction",
+    "url": "https://getfractioncto.com/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fraction",
+    "url": "https://getfractioncto.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://getfractioncto.com/og-image.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://getfractioncto.com/post-ai-code-security-holes"
+  },
+  "image": "https://getfractioncto.com/og-image.png",
+  "articleSection": "Pattern recognition",
+  "wordCount": 1573,
+  "inLanguage": "en",
+  "isAccessibleForFree": true
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home",   "item": "https://getfractioncto.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Writing","item": "https://getfractioncto.com/blog" },
+    { "@type": "ListItem", "position": 3, "name": "The security holes hiding in your AI-written code", "item": "https://getfractioncto.com/post-ai-code-security-holes" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Fraction home"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <ul class="nav-links">
+      <li><a href="how-it-works.html">How it works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="comparison.html">Compare</a></li>
+      <li><a href="blog.html" class="active">Writing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="teardown.html">The Teardown <span class="accent-dot"></span></a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke-linecap="round"/></svg></button>
+      <button class="icon-btn" aria-label="Toggle theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M21.5 12h-2.2M4.7 12H2.5M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6M18.4 18.4l-1.6-1.6M7.2 7.2 5.6 5.6" stroke-linecap="round"/></svg></button>
+      <a href="book-a-call.html" class="btn btn-primary nav-cta">Book a fit call</a>
+      <button class="icon-btn menu-btn" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu">
+  <div class="mm-top">
+    <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <button class="icon-btn menu-btn" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg></button>
+  </div>
+  <nav>
+    <a href="how-it-works.html">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="comparison.html">Compare</a>
+    <a href="blog.html">Writing</a>
+    <a href="about.html">About</a>
+    <a href="teardown.html">The Teardown</a>
+  </nav>
+  <div class="mm-cta">
+    <a href="teardown.html" class="btn btn-ghost">Start with a Teardown</a>
+    <a href="book-a-call.html" class="btn btn-primary">Book a 20-min fit call</a>
+  </div>
+</div>
+
+<main>
+<section class="page-hero center" style="padding-bottom:clamp(24px,4vw,40px)">
+  <div class="wrap">
+    <div class="article-hero">
+      <span class="post-cat">Pattern recognition</span>
+      <h1>The security holes hiding in your AI-written code</h1>
+      <div class="post-meta"><span>Jul 2026</span><span class="sep"></span><span>7 min read</span><span class="sep"></span><span>by The founder of Fraction</span></div>
+    </div>
+  </div>
+</section>
+<section class="section-tight" style="padding-top:8px">
+  <div class="wrap">
+    <div class="article-body reveal">
+<p>A founder showed me a product last month that three people had built in six weeks using AI coding tools. It worked. It looked good. It had paying users. Then I asked one question: who has read this code for security? The room went quiet. Nobody had. And when I spent an afternoon looking, the holes were exactly where I expected them.</p>
+<p>Here is the direct answer. AI coding tools ship insecure code by default, and the studies coming out in 2026 all point the same direction: a large share of AI-generated code carries at least one known security flaw, whether you put the number at a quarter of samples or the vast majority of codebases. If you built with these tools and nobody with security judgment has reviewed the output, assume there are holes. The fix is not to stop using the tools. It is to get someone who can read the code to hunt for the predictable failure patterns and close them before a customer, an auditor, or an attacker finds them first.</p>
+<h2>Why AI writes insecure code by default</h2>
+<p>The tools are trained on the public internet, and the public internet is full of code that was written to work, not to be safe. A tutorial that shows you how to query a database rarely stops to sanitize the input. A code sample that connects to a third-party service usually hardcodes the key right there in the file. The model learned from millions of these examples, so it reproduces the same shortcuts, confidently and at speed.</p>
+<p>Speed is the part founders underestimate. A developer using AI assistance ships several times more code than they would by hand. That is the selling point. But if the same person introduces security problems at a much higher rate per line, the volume works against you. You are not just getting more features. You are getting more surface area for things to go wrong, produced faster than anyone is checking it.</p>
+<p>The deeper issue is that the model has no memory of your threat model. It does not know that this endpoint is public and that one is internal. It does not know that this field comes from a user you cannot trust. It generates the most statistically likely code for the prompt, and the most likely code is usually the insecure convenient version. A senior engineer carries that context in their head and corrects for it without thinking. The tool does not carry it at all.</p>
+<h2>The holes I find most often</h2>
+<p>When I do a security-minded read of an AI-built product, I am not hunting for exotic attacks. I am looking for the same five or six patterns, because they show up almost every time.</p>
+<h3>Secrets sitting in the code</h3>
+<p>API keys, database passwords, and tokens written directly into files, often then committed to the repository. The tool put them there because that was the fastest way to make the example run. Now they live in your git history forever, and anyone who gets a copy of the code gets the keys.</p>
+<h3>Missing checks on who is allowed to do what</h3>
+<p>The classic version: an endpoint that returns a user&#39;s data based on an ID in the URL, with no check that the person asking is actually that user. Change the number, see someone else&#39;s account. AI generates the happy path perfectly and skips the authorization check almost every time, because the prompt rarely mentions it.</p>
+<h3>Trusting input that came from a user</h3>
+<p>Data from a form or a URL gets passed straight into a database query or a system command without being cleaned. This is the oldest category of web vulnerability, and AI tools reintroduce it constantly because the naive version is shorter and looks like it works.</p>
+<h3>Dependencies nobody is watching</h3>
+<p>AI-assisted builds pull in a lot of third-party packages, quickly. Each one is code you did not write and are not tracking. Some are outdated with known vulnerabilities. A few, occasionally, are packages the model invented that do not exist, which is its own kind of supply-chain risk when an attacker registers that name.</p>
+<h3>Error messages that tell an attacker too much</h3>
+<p>When something breaks, the default AI-generated handler often dumps the full internal error to the screen: file paths, query structure, sometimes credentials. It is helpful during development and a gift to anyone probing your system.</p>
+<p>None of these require a genius to find. They require someone who knows to look, and who has the judgment to tell a real problem from a harmless one. That is the gap. The tools removed the need to write the code. They did not remove the need to understand it.</p>
+<h2>What a non-technical founder can actually do</h2>
+<p>You cannot read the code yourself, and you should not try to become a security expert overnight. But you are not helpless. Three moves cover most of the risk.</p>
+<p>First, get an independent read. Have someone with security judgment go through the codebase specifically looking for the patterns above. This is not a six-month audit. A focused review of an early-stage product is usually a few days of work, and it tells you the difference between &quot;a handful of fixable issues&quot; and &quot;this needs to be substantially rebuilt before you take another customer.&quot; A short, honest <a href="/teardown">technical teardown of what you have built</a> is exactly the kind of thing that surfaces these holes before they surface themselves.</p>
+<p>Second, fix the leverage points first. You will not close every finding at once, and you do not need to. Rotating exposed secrets, adding the missing authorization checks, and cleaning up user input handling covers the issues most likely to actually hurt you. A good reviewer will rank the list by real risk, not by count, so you spend your limited engineering time where it matters.</p>
+<p>Third, put a floor under future code. Once the current holes are closed, the goal is to stop generating new ones at the same rate. That means automated security scanning in the pipeline so obvious problems get caught before they ship, and a person who reviews the risky changes even when the AI wrote them. This is the same discipline that keeps <a href="/post-ai-review-bottleneck">AI agents from writing faster than anyone can safely review</a>, applied to security specifically.</p>
+<p>The founders who get burned are not the ones who used AI to build. Almost everyone is doing that now, and it is the right call for getting to a working product fast. The ones who get burned are the ones who mistook &quot;it works and looks finished&quot; for &quot;it is safe to run in front of real users and real data.&quot; Those are different claims, and only one of them is visible from the outside.</p>
+<p>If you are about to raise, sell to a larger customer, or handle anything sensitive, this moves from important to urgent. The security questions do not stay hidden. They surface in <a href="/post-security-questionnaire-deal">the security questionnaire that stalls your biggest deal</a>, or in diligence, or in an incident. Finding them yourself first, on your own timeline, is the cheapest version of this story by a wide margin. If you want a straight answer on where your code actually stands, you can <a href="/book-a-call">book a call</a> and I will tell you.</p>
+<h2>Frequently asked questions</h2>
+<h3>Does using AI to write code mean my product is insecure?</h3>
+<p>Not automatically, but the odds are not in your favor without a review. AI tools generate insecure patterns by default, so an AI-built product that no one with security judgment has read should be treated as if it has holes until proven otherwise. The tool is not the problem. The missing review is.</p>
+<h3>Can I just ask the AI tool to make the code secure?</h3>
+<p>You can, and it helps at the margin, but it is not a substitute for a human read. The model does not know your threat model, cannot see your whole system at once, and often reintroduces problems it just fixed elsewhere. Asking it to &quot;add security&quot; produces code that looks more secure without reliably being more secure.</p>
+<h3>How much does a security review of an early-stage product cost?</h3>
+<p>Far less than the incident it prevents. A focused review of a small codebase is usually a few days of senior time, not a drawn-out enterprise audit. The output is a ranked list of real issues and a fix plan, which is a fraction of the cost of rotating leaked credentials after a breach or losing a deal to a failed security questionnaire.</p>
+<h3>Is this the same thing as a full technical due diligence?</h3>
+<p>Related but narrower. Security is one slice of what diligence covers, and the broader question of whether <a href="/post-ai-code-diligence">AI-written code can survive diligence</a> includes maintainability, ownership, and architecture as well. A security read is the piece you want done first, because it is the one with an attacker on the other side of it.</p>
+<h3>We have not been breached, so is this really urgent?</h3>
+<p>Not being breached yet is not evidence of being safe. It is evidence that no one has looked, or no one has told you. The holes described here are quiet until they are not, and the moment they stop being quiet is usually the worst possible time to find out about them. Doing the review on your own schedule is the only cheap version.</p>
+
+    </div>
+    <div class="article-body">
+      <div class="author-card reveal">
+        <span class="ac-av">F</span>
+        <div>
+          <div class="ac-name">The founder of Fraction</div>
+          <div class="ac-bio">Built engineering teams from 2 to 30. Killed more bad rebuilds than I've greenlit. <a href="about.html" class="link-grow" style="font-size:0.96rem">More about me <span class="arrow">&rarr;</span></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" style="padding-top:clamp(32px,5vw,56px)">
+  <div class="wrap">
+    <div class="callout reveal" style="text-align:center">
+      <h3 style="margin-left:auto;margin-right:auto;max-width:22ch">Not sure the call you're about to make is the right one?</h3>
+      <p style="margin:0 auto 26px">That's exactly what a 20-minute fit call is for &mdash; or a two-week Teardown if you'd rather start with a written verdict.</p>
+      <div class="ph-cta" style="justify-content:center">
+        <a href="book-a-call.html" class="btn btn-accent">Book a fit call <span class="arrow">&rarr;</span></a>
+        <a href="teardown.html" class="link-grow" style="color:#fff">Start with a Teardown <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap-wide">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#14140F"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+        <p style="color:var(--grey-2); max-width:30ch; margin-top:18px; font-size:0.96rem; line-height:1.5">Senior technical leadership for founders who aren't ready for a full-time CTO — and shouldn't hire one yet.</p>
+      </div>
+      <div><h5>Service</h5><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="comparison.html">Fractional vs full-time</a></li><li><a href="teardown.html">The Tech Teardown</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="blog.html">Writing</a></li><li><a href="book-a-call.html">Book a call</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+      <div><h5>Start here</h5><ul><li><a href="book-a-call.html">Book a 20-min fit call</a></li><li><a href="teardown.html">Start with a Teardown</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Fraction · <a href="https://getfractioncto.com">getfractioncto.com</a> — no contract, no equity, cancel anytime.</span>
+      <span>Built on judgment, not hours.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="motion.js"></script>
+</body>
+</html>
