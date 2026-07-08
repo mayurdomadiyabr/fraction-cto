@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The AI model your product runs on will be retired — Fraction</title>
+  <meta name="description" content="AI vendors retire models every few quarters. What model deprecation costs an early-stage startup, and how to build so a sunset email is not a crisis." />
+  <meta name="theme-color" content="#FAFAF9" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Fraction" />
+  <meta property="og:title" content="The AI model your product runs on will be retired — Fraction" />
+  <meta property="og:description" content="AI vendors retire models every few quarters. What model deprecation costs an early-stage startup, and how to build so a sunset email is not a crisis." />
+  <meta property="og:url" content="https://getfractioncto.com/post-ai-model-deprecation-risk" />
+  <meta property="og:image" content="https://getfractioncto.com/og-image.png" />
+  <meta property="article:published_time" content="2026-07-08T00:00:00.000Z" />
+  <meta property="article:author" content="The founder of Fraction" />
+  <meta property="article:section" content="Decisions" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="The AI model your product runs on will be retired — Fraction" />
+  <meta name="twitter:description" content="AI vendors retire models every few quarters. What model deprecation costs an early-stage startup, and how to build so a sunset email is not a crisis." />
+  <meta name="twitter:image" content="https://getfractioncto.com/og-image.png" />
+  <link rel="canonical" href="https://getfractioncto.com/post-ai-model-deprecation-risk" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script src="/analytics.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "The AI model your product runs on will be retired",
+  "description": "AI vendors retire models every few quarters. What model deprecation costs an early-stage startup, and how to build so a sunset email is not a crisis.",
+  "datePublished": "2026-07-08T00:00:00.000Z",
+  "dateModified": "2026-07-08T00:00:00.000Z",
+  "author": {
+    "@type": "Person",
+    "name": "The founder of Fraction",
+    "url": "https://getfractioncto.com/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fraction",
+    "url": "https://getfractioncto.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://getfractioncto.com/og-image.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://getfractioncto.com/post-ai-model-deprecation-risk"
+  },
+  "image": "https://getfractioncto.com/og-image.png",
+  "articleSection": "Decisions",
+  "wordCount": 1555,
+  "inLanguage": "en",
+  "isAccessibleForFree": true
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home",   "item": "https://getfractioncto.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Writing","item": "https://getfractioncto.com/blog" },
+    { "@type": "ListItem", "position": 3, "name": "The AI model your product runs on will be retired", "item": "https://getfractioncto.com/post-ai-model-deprecation-risk" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Fraction home"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <ul class="nav-links">
+      <li><a href="how-it-works.html">How it works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="comparison.html">Compare</a></li>
+      <li><a href="blog.html" class="active">Writing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="teardown.html">The Teardown <span class="accent-dot"></span></a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke-linecap="round"/></svg></button>
+      <button class="icon-btn" aria-label="Toggle theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M21.5 12h-2.2M4.7 12H2.5M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6M18.4 18.4l-1.6-1.6M7.2 7.2 5.6 5.6" stroke-linecap="round"/></svg></button>
+      <a href="book-a-call.html" class="btn btn-primary nav-cta">Book a fit call</a>
+      <button class="icon-btn menu-btn" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu">
+  <div class="mm-top">
+    <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <button class="icon-btn menu-btn" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg></button>
+  </div>
+  <nav>
+    <a href="how-it-works.html">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="comparison.html">Compare</a>
+    <a href="blog.html">Writing</a>
+    <a href="about.html">About</a>
+    <a href="teardown.html">The Teardown</a>
+  </nav>
+  <div class="mm-cta">
+    <a href="teardown.html" class="btn btn-ghost">Start with a Teardown</a>
+    <a href="book-a-call.html" class="btn btn-primary">Book a 20-min fit call</a>
+  </div>
+</div>
+
+<main>
+<section class="page-hero center" style="padding-bottom:clamp(24px,4vw,40px)">
+  <div class="wrap">
+    <div class="article-hero">
+      <span class="post-cat">Decisions</span>
+      <h1>The AI model your product runs on will be retired</h1>
+      <div class="post-meta"><span>Jul 2026</span><span class="sep"></span><span>7 min read</span><span class="sep"></span><span>by The founder of Fraction</span></div>
+    </div>
+  </div>
+</section>
+<section class="section-tight" style="padding-top:8px">
+  <div class="wrap">
+    <div class="article-body reveal">
+<p>If your product calls an AI model through someone else&#39;s API, that model has an expiration date you do not control. In 2026 the major providers retire models every few quarters, and when the one you shipped on enters its sunset window you have to re-test, re-tune, and migrate to a replacement on the vendor&#39;s clock, not yours. This is not a reason to avoid buying models. It is a standing cost you should plan for, the way you plan for a library upgrade, so the sunset email lands as a scheduled chore instead of a fire drill.</p>
+<p>I am the founder of Fraction, and this has quietly moved up the list of things I check when I look at an early-stage AI product. A year ago the question was whether the model was good enough. Now I also ask what happens when it goes away, because for the first time that is a when, not an if.</p>
+<h2>Why this became a real problem in 2026</h2>
+<p>For a while the model underneath your feature felt like electricity. You called the API, it answered, and you did not think about the version any more than you think about the voltage in the wall.</p>
+<p>That assumption broke this year. Support windows that used to run eighteen to twenty-four months compressed to roughly half that. The providers are shipping new models fast, and to keep that pace they retire old ones on a schedule, sometimes forcing traffic onto a successor whether or not you asked for it. The practical result is that at almost any given moment, at least one model somewhere in a typical startup&#39;s stack is inside a retirement window.</p>
+<p>None of this is malicious. It is the cost of riding a technology that is improving every quarter. But it changes what buying a model means. You are not buying a stable component. You are renting a fast-moving one, and the lease terms include eviction notices.</p>
+<h2>What a sunset actually costs you</h2>
+<p>The migration itself is rarely the hard part. Swapping a model identifier in your code is an afternoon. The cost is everything around it.</p>
+<p>The replacement model does not behave exactly like the one it replaces. Prompts that were tuned over months produce slightly different output. The tone shifts. An extraction that was reliably clean now drops a field one time in fifty. A classification that sat at ninety-four percent accuracy lands at ninety-one, or ninety-six, and you cannot tell which without measuring. If you have no way to measure, you are shipping a behavior change to every user and hoping.</p>
+<p>So the real bill is regression work. Re-running your prompts against the new model, comparing the output to what you had, re-tuning the ones that drifted, and re-checking anything downstream that depended on the old output shape. For a founder with one AI feature and a handful of prompts, that is a focused week. For a team that has let prompts sprawl across the codebase with no evaluation harness, it is a scramble that eats a sprint and still leaks quality into production. This is the same trap I describe when a team has <a href="/post-build-or-buy-ai-agent">built the wrong half of an AI agent</a>: the model is the easy part, and the glue around it is where the work actually lives.</p>
+<h2>The three ways founders get caught</h2>
+<p>I see the same three patterns, and all of them are avoidable.</p>
+<h3>They hardcoded one model everywhere</h3>
+<p>The model name is a string literal scattered across a dozen files. There is no single place to change it, no way to run the old and new side by side, and no easy path to roll back if the new one is worse. A one-afternoon swap becomes a search-and-replace across the codebase with no safety net. The fix is boring and cheap: put the model choice behind one configuration point so switching it is a setting, not a refactor.</p>
+<h3>They never wrote down what &quot;working&quot; means</h3>
+<p>This is the expensive one. If you cannot answer &quot;how do I know the new model is at least as good as the old one,&quot; you have no way to migrate safely. You are choosing between shipping blind and manually eyeballing a few dozen examples, which does not scale and does not catch the quiet regressions. A small set of saved test cases with expected outputs, run before and after, turns a leap of faith into a checklist.</p>
+<h3>They assumed a vendor equals stability</h3>
+<p>Founders pick a big-name provider partly for reassurance, then treat that choice as permanent infrastructure. But a large vendor deprecating on schedule is less stable, in the specific sense of version churn, than a smaller one that moves slowly. Size does not buy you a stable model version. It buys you a reliable company that will still retire the exact model you depend on. This is the gap between renting capability and owning a moat that I get into in <a href="/post-ai-moat-diligence">do you have an AI moat, or are you just renting one</a>.</p>
+<h2>How to carry the risk without over-engineering</h2>
+<p>You do not need an abstraction layer that supports every model on earth. Early on that is wasted effort, and it usually makes the code worse. What you need is enough structure that a forced migration is a known-size job.</p>
+<p>Three things get you most of the way. First, one place in the code where the model is chosen, so swapping it is a config change. Second, a handful of saved examples with expected outputs that you can run against any model to see if it holds up. Third, a habit of reading the vendor&#39;s deprecation notices instead of finding out from a 503 in production. That is the whole program. It costs a day or two to set up and it converts every future sunset from a crisis into a maintenance task.</p>
+<p>The mistake in the other direction is real too. I have watched teams build elaborate multi-provider routing before they had a single paying customer, on the theory that they were de-risking. They were not. They were spending scarce engineering time insuring against a problem they could have absorbed in a week later, while the actual risk, that nobody wanted the product, went unaddressed. Match the effort to the stage.</p>
+<h2>What this means when someone diligences you</h2>
+<p>If you raise, an investor&#39;s technical advisor will eventually ask what your product depends on and what happens if a dependency changes. &quot;We call one model, hardcoded, and we have no way to tell if a replacement is worse&quot; is a bad answer. &quot;The model is a config choice and we have an evaluation set we run before switching&quot; is a good one, and it takes the same two days to be able to say honestly. Model dependency is now part of how a technical read gets scored, and it is the kind of thing a <a href="/teardown">quick technical teardown</a> surfaces in an afternoon.</p>
+<p>Most of my job with early-stage founders is calling which risks to spend on now and which to carry cheaply until later. Model deprecation is squarely in the &quot;carry it cheaply&quot; bucket, as long as you do the two days of preparation before the sunset email arrives rather than after. If you are building on someone&#39;s model and are not sure how exposed you are, <a href="/book-a-call">book a call</a> and we will size it together.</p>
+<h2>FAQ</h2>
+<h3>How often are AI models actually being retired now?</h3>
+<p>Frequently enough that you should treat it as routine. Across the major providers, model support windows have compressed to roughly six to twelve months, and successors ship on a steady cadence. The safe assumption for planning is that any given model you depend on will enter a retirement window within a year, so build as if the next sunset is a matter of when.</p>
+<h3>Should I use an open-weights model I host myself to avoid this?</h3>
+<p>It removes the forced-sunset problem, because nobody can retire a model whose weights you hold. But it trades that for the cost and responsibility of running inference yourself, keeping it patched, and getting the quality you would otherwise rent. For most pre-seed to Series A teams that is the wrong trade early, because the operational burden is larger than the deprecation risk you are avoiding. Revisit it when scale or data sensitivity actually justifies it.</p>
+<h3>Is a multi-provider setup worth building up front?</h3>
+<p>Usually not before you have real usage. Supporting several providers doubles the surface you test and maintain, and early on that effort is better spent finding out whether anyone wants the feature at all. Get the cheap version first: one config point for the model and a small evaluation set. That gives you most of the portability benefit at a fraction of the cost, and you can add real multi-provider support later if the business ever needs it.</p>
+<h3>What is the single most useful thing to do this week?</h3>
+<p>Write down ten to twenty real examples of what your AI feature should do, with the output you expect, and save them somewhere you can re-run them. That one artifact turns every future model change from a guess into a measurement, and it is the thing almost nobody has when the sunset notice lands.</p>
+
+    </div>
+    <div class="article-body">
+      <div class="author-card reveal">
+        <span class="ac-av">F</span>
+        <div>
+          <div class="ac-name">The founder of Fraction</div>
+          <div class="ac-bio">Built engineering teams from 2 to 30. Killed more bad rebuilds than I've greenlit. <a href="about.html" class="link-grow" style="font-size:0.96rem">More about me <span class="arrow">&rarr;</span></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" style="padding-top:clamp(32px,5vw,56px)">
+  <div class="wrap">
+    <div class="callout reveal" style="text-align:center">
+      <h3 style="margin-left:auto;margin-right:auto;max-width:22ch">Not sure the call you're about to make is the right one?</h3>
+      <p style="margin:0 auto 26px">That's exactly what a 20-minute fit call is for &mdash; or a two-week Teardown if you'd rather start with a written verdict.</p>
+      <div class="ph-cta" style="justify-content:center">
+        <a href="book-a-call.html" class="btn btn-accent">Book a fit call <span class="arrow">&rarr;</span></a>
+        <a href="teardown.html" class="link-grow" style="color:#fff">Start with a Teardown <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap-wide">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#14140F"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+        <p style="color:var(--grey-2); max-width:30ch; margin-top:18px; font-size:0.96rem; line-height:1.5">Senior technical leadership for founders who aren't ready for a full-time CTO — and shouldn't hire one yet.</p>
+      </div>
+      <div><h5>Service</h5><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="comparison.html">Fractional vs full-time</a></li><li><a href="teardown.html">The Tech Teardown</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="blog.html">Writing</a></li><li><a href="book-a-call.html">Book a call</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+      <div><h5>Start here</h5><ul><li><a href="book-a-call.html">Book a 20-min fit call</a></li><li><a href="teardown.html">Start with a Teardown</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Fraction · <a href="https://getfractioncto.com">getfractioncto.com</a> — no contract, no equity, cancel anytime.</span>
+      <span>Built on judgment, not hours.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="motion.js"></script>
+</body>
+</html>
