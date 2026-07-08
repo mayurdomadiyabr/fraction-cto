@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>You deploy straight to prod. Do you need staging yet? — Fraction</title>
+  <meta name="description" content="When does a startup need a staging environment? The signals you have crossed the line, and the minimum setup that is enough." />
+  <meta name="theme-color" content="#FAFAF9" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Fraction" />
+  <meta property="og:title" content="You deploy straight to prod. Do you need staging yet? — Fraction" />
+  <meta property="og:description" content="When does a startup need a staging environment? The signals you have crossed the line, and the minimum setup that is enough." />
+  <meta property="og:url" content="https://getfractioncto.com/post-staging-environment-yet" />
+  <meta property="og:image" content="https://getfractioncto.com/og-image.png" />
+  <meta property="article:published_time" content="2026-07-08T14:47:51.603Z" />
+  <meta property="article:author" content="The founder of Fraction" />
+  <meta property="article:section" content="Decisions" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="You deploy straight to prod. Do you need staging yet? — Fraction" />
+  <meta name="twitter:description" content="When does a startup need a staging environment? The signals you have crossed the line, and the minimum setup that is enough." />
+  <meta name="twitter:image" content="https://getfractioncto.com/og-image.png" />
+  <link rel="canonical" href="https://getfractioncto.com/post-staging-environment-yet" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script src="/analytics.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "You deploy straight to prod. Do you need staging yet?",
+  "description": "When does a startup need a staging environment? The signals you have crossed the line, and the minimum setup that is enough.",
+  "datePublished": "2026-07-08T14:47:51.603Z",
+  "dateModified": "2026-07-08T14:47:51.603Z",
+  "author": {
+    "@type": "Person",
+    "name": "The founder of Fraction",
+    "url": "https://getfractioncto.com/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fraction",
+    "url": "https://getfractioncto.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://getfractioncto.com/og-image.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://getfractioncto.com/post-staging-environment-yet"
+  },
+  "image": "https://getfractioncto.com/og-image.png",
+  "articleSection": "Decisions",
+  "wordCount": 1002,
+  "inLanguage": "en",
+  "isAccessibleForFree": true
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home",   "item": "https://getfractioncto.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Writing","item": "https://getfractioncto.com/blog" },
+    { "@type": "ListItem", "position": 3, "name": "You deploy straight to prod. Do you need staging yet?", "item": "https://getfractioncto.com/post-staging-environment-yet" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Fraction home"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <ul class="nav-links">
+      <li><a href="how-it-works.html">How it works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="comparison.html">Compare</a></li>
+      <li><a href="blog.html" class="active">Writing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="teardown.html">The Teardown <span class="accent-dot"></span></a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke-linecap="round"/></svg></button>
+      <button class="icon-btn" aria-label="Toggle theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M21.5 12h-2.2M4.7 12H2.5M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6M18.4 18.4l-1.6-1.6M7.2 7.2 5.6 5.6" stroke-linecap="round"/></svg></button>
+      <a href="book-a-call.html" class="btn btn-primary nav-cta">Book a fit call</a>
+      <button class="icon-btn menu-btn" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu">
+  <div class="mm-top">
+    <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <button class="icon-btn menu-btn" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg></button>
+  </div>
+  <nav>
+    <a href="how-it-works.html">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="comparison.html">Compare</a>
+    <a href="blog.html">Writing</a>
+    <a href="about.html">About</a>
+    <a href="teardown.html">The Teardown</a>
+  </nav>
+  <div class="mm-cta">
+    <a href="teardown.html" class="btn btn-ghost">Start with a Teardown</a>
+    <a href="book-a-call.html" class="btn btn-primary">Book a 20-min fit call</a>
+  </div>
+</div>
+
+<main>
+<section class="page-hero center" style="padding-bottom:clamp(24px,4vw,40px)">
+  <div class="wrap">
+    <div class="article-hero">
+      <span class="post-cat">Decisions</span>
+      <h1>You deploy straight to prod. Do you need staging yet?</h1>
+      <div class="post-meta"><span>Jul 2026</span><span class="sep"></span><span>5 min read</span><span class="sep"></span><span>by The founder of Fraction</span></div>
+    </div>
+  </div>
+</section>
+<section class="section-tight" style="padding-top:8px">
+  <div class="wrap">
+    <div class="article-body reveal">
+<p>&quot;We just push to production.&quot; For a two-person team with ten users and a landing page, that is not recklessness, it is the correct amount of process. Adding a staging environment before you have anyone to protect is the kind of premature infrastructure that slows a startup down while feeling responsible.</p>
+<p>But there is a point where deploying straight to production stops being lean and starts being a bet you keep making with real customers&#39; money. Knowing where that line is, for your specific product, is the decision.</p>
+<h2>The case for waiting</h2>
+<p>I push back on founders who want to build a full CI/CD pipeline in week one, because the cost of process is real and the payoff only exists once you have something to lose.</p>
+<p>Early on, your fastest way to learn is to ship, watch, and change. A staging environment adds a step between &quot;I wrote it&quot; and &quot;users see it,&quot; and every step has a tax. When you have no paying customers and a bug means you fix it and redeploy in four minutes, the blast radius of a mistake is tiny. Optimizing that away is optimizing the wrong thing, the same reflex behind most <a href="/post-premature-scaling">premature scaling</a>: building for a scale of risk you do not have yet.</p>
+<p>So if you are pre-launch, or you have a handful of friendly users who forgive a hiccup, pushing to production is probably right. Do not let anyone shame you into a release process you do not need.</p>
+<h2>The signals that you have crossed the line</h2>
+<p>The decision flips when the cost of a bad deploy stops being &quot;a bad afternoon&quot; and starts being &quot;a customer who leaves.&quot; Watch for these.</p>
+<h3>A bad deploy now costs real money</h3>
+<p>The story I have seen play out more than once: a team deploys straight to production every Friday, a minor change slips through, and it causes a multi-hour outage that costs thousands in revenue and burns a reference customer. The math changed and nobody noticed. Once a bad deploy can cost you a real customer or real money, the four minutes you save skipping staging are the most expensive four minutes in the company.</p>
+<h3>You have customers with expectations, or a contract</h3>
+<p>The moment you have paying customers, especially any with an uptime expectation or an actual SLA, &quot;we broke prod for an hour&quot; is no longer an internal event. It is a trust event, and possibly a contractual one. That is the threshold where a pre-production environment stops being overhead and becomes table stakes.</p>
+<h3>More than one person deploys</h3>
+<p>With a single developer holding the whole system in their head, deploys are relatively safe because one person knows what is fragile. Add a second or third engineer and that shared context disappears. Manual deploys introduce human error, untested code reaches production, and bugs compound faster than anyone catches them. A staging step plus automated tests is how a growing team keeps that from happening. This is the same <a href="/post-key-person-codebase-risk">key-person risk</a> surfacing in a different place: the system is only safe because it lives in one person&#39;s head, which is not safe at all.</p>
+<h2>What &quot;enough&quot; actually looks like</h2>
+<p>Founders overestimate the cost of this because they imagine a sprawling DevOps setup. The minimum viable version is a day of work on a modern platform, not a quarter.</p>
+<p>A sane starting point for a team that has crossed the line:</p>
+<ul>
+<li>An automated test suite that runs on every push, so obvious breakage is caught before a human is involved.</li>
+<li>A staging environment that mirrors production closely enough to be meaningful.</li>
+<li>Automatic deploy to staging when you merge, then a manual promotion to production once someone has eyeballed it.</li>
+</ul>
+<p>That last pattern, one pipeline that deploys to staging automatically and pauses before production, gives you a place to catch the six-hour-outage change without adding much friction. You still ship daily. You just stop shipping blind.</p>
+<p>The mistake is treating this as all-or-nothing. You do not need blue-green deploys and a full observability stack the day you get your third customer. You need a net under the trapeze. Start with the cheapest version that would have caught your last bad deploy, and add sophistication only when a specific incident justifies it. Like most of the <a href="/post-reversible-decisions">early decisions you cannot cheaply undo</a>, the goal is not perfection; it is not being one bad Friday away from losing a customer you worked a year to win.</p>
+<h2>FAQ</h2>
+<h3>We are pre-launch. Do we need a staging environment?</h3>
+<p>Almost certainly not. Before you have customers, shipping and learning fast beats process, and the blast radius of a bug is small. Push to production, fix forward, and revisit this the moment you have paying users or more than one person deploying.</p>
+<h3>How much does a basic staging setup actually cost to build?</h3>
+<p>On a modern cloud platform, a minimal setup of automated tests, a staging environment, and deploy-on-merge is roughly a day of engineering work, not a quarter, and it does not require a dedicated DevOps hire. The ongoing hosting cost of a small staging environment is usually modest compared to the cost of a single customer-facing outage.</p>
+<h3>What is the single clearest trigger to add staging?</h3>
+<p>When a bad deploy can cost you real money or a real customer. That usually coincides with getting paying customers, signing anything resembling an uptime commitment, or growing past a single deploying engineer. Any one of those three is a strong signal.</p>
+<h3>Isn&#39;t skipping staging just being lean?</h3>
+<p>Early, yes. Later, no. Lean means cutting process that does not pay for itself, and before you have customers a release process does not. Once an outage costs money or trust, skipping staging is not lean, it is uninsured. If you are unsure which side of that line you are on, a <a href="/teardown">technical teardown</a> can look at your deploy process and tell you whether it matches the risk you are actually carrying.</p>
+
+    </div>
+    <div class="article-body">
+      <div class="author-card reveal">
+        <span class="ac-av">F</span>
+        <div>
+          <div class="ac-name">The founder of Fraction</div>
+          <div class="ac-bio">Built engineering teams from 2 to 30. Killed more bad rebuilds than I've greenlit. <a href="about.html" class="link-grow" style="font-size:0.96rem">More about me <span class="arrow">&rarr;</span></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" style="padding-top:clamp(32px,5vw,56px)">
+  <div class="wrap">
+    <div class="callout reveal" style="text-align:center">
+      <h3 style="margin-left:auto;margin-right:auto;max-width:22ch">Not sure the call you're about to make is the right one?</h3>
+      <p style="margin:0 auto 26px">That's exactly what a 20-minute fit call is for &mdash; or a two-week Teardown if you'd rather start with a written verdict.</p>
+      <div class="ph-cta" style="justify-content:center">
+        <a href="book-a-call.html" class="btn btn-accent">Book a fit call <span class="arrow">&rarr;</span></a>
+        <a href="teardown.html" class="link-grow" style="color:#fff">Start with a Teardown <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap-wide">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#14140F"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+        <p style="color:var(--grey-2); max-width:30ch; margin-top:18px; font-size:0.96rem; line-height:1.5">Senior technical leadership for founders who aren't ready for a full-time CTO — and shouldn't hire one yet.</p>
+      </div>
+      <div><h5>Service</h5><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="comparison.html">Fractional vs full-time</a></li><li><a href="teardown.html">The Tech Teardown</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="blog.html">Writing</a></li><li><a href="book-a-call.html">Book a call</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+      <div><h5>Start here</h5><ul><li><a href="book-a-call.html">Book a 20-min fit call</a></li><li><a href="teardown.html">Start with a Teardown</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Fraction · <a href="https://getfractioncto.com">getfractioncto.com</a> — no contract, no equity, cancel anytime.</span>
+      <span>Built on judgment, not hours.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="motion.js"></script>
+</body>
+</html>
