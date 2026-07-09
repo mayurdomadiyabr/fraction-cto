@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>You gave your AI agents the keys. Nobody scoped them. — Fraction</title>
+  <meta name="description" content="Your AI agents likely hold broad production access nobody decided to grant. How to scope agent identities before it becomes a breach or a diligence flag." />
+  <meta name="theme-color" content="#FAFAF9" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Fraction" />
+  <meta property="og:title" content="You gave your AI agents the keys. Nobody scoped them. — Fraction" />
+  <meta property="og:description" content="Your AI agents likely hold broad production access nobody decided to grant. How to scope agent identities before it becomes a breach or a diligence flag." />
+  <meta property="og:url" content="https://getfractioncto.com/post-ai-agent-access-scope" />
+  <meta property="og:image" content="https://getfractioncto.com/og-image.png" />
+  <meta property="article:published_time" content="2026-07-09T00:00:00.000Z" />
+  <meta property="article:author" content="The founder of Fraction" />
+  <meta property="article:section" content="Pattern recognition" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="You gave your AI agents the keys. Nobody scoped them. — Fraction" />
+  <meta name="twitter:description" content="Your AI agents likely hold broad production access nobody decided to grant. How to scope agent identities before it becomes a breach or a diligence flag." />
+  <meta name="twitter:image" content="https://getfractioncto.com/og-image.png" />
+  <link rel="canonical" href="https://getfractioncto.com/post-ai-agent-access-scope" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script src="/analytics.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "You gave your AI agents the keys. Nobody scoped them.",
+  "description": "Your AI agents likely hold broad production access nobody decided to grant. How to scope agent identities before it becomes a breach or a diligence flag.",
+  "datePublished": "2026-07-09T00:00:00.000Z",
+  "dateModified": "2026-07-09T00:00:00.000Z",
+  "author": {
+    "@type": "Person",
+    "name": "The founder of Fraction",
+    "url": "https://getfractioncto.com/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fraction",
+    "url": "https://getfractioncto.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://getfractioncto.com/og-image.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://getfractioncto.com/post-ai-agent-access-scope"
+  },
+  "image": "https://getfractioncto.com/og-image.png",
+  "articleSection": "Pattern recognition",
+  "wordCount": 1426,
+  "inLanguage": "en",
+  "isAccessibleForFree": true
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home",   "item": "https://getfractioncto.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Writing","item": "https://getfractioncto.com/blog" },
+    { "@type": "ListItem", "position": 3, "name": "You gave your AI agents the keys. Nobody scoped them.", "item": "https://getfractioncto.com/post-ai-agent-access-scope" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Fraction home"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <ul class="nav-links">
+      <li><a href="how-it-works.html">How it works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="comparison.html">Compare</a></li>
+      <li><a href="blog.html" class="active">Writing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="teardown.html">The Teardown <span class="accent-dot"></span></a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke-linecap="round"/></svg></button>
+      <button class="icon-btn" aria-label="Toggle theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M21.5 12h-2.2M4.7 12H2.5M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6M18.4 18.4l-1.6-1.6M7.2 7.2 5.6 5.6" stroke-linecap="round"/></svg></button>
+      <a href="book-a-call.html" class="btn btn-primary nav-cta">Book a fit call</a>
+      <button class="icon-btn menu-btn" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu">
+  <div class="mm-top">
+    <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <button class="icon-btn menu-btn" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg></button>
+  </div>
+  <nav>
+    <a href="how-it-works.html">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="comparison.html">Compare</a>
+    <a href="blog.html">Writing</a>
+    <a href="about.html">About</a>
+    <a href="teardown.html">The Teardown</a>
+  </nav>
+  <div class="mm-cta">
+    <a href="teardown.html" class="btn btn-ghost">Start with a Teardown</a>
+    <a href="book-a-call.html" class="btn btn-primary">Book a 20-min fit call</a>
+  </div>
+</div>
+
+<main>
+<section class="page-hero center" style="padding-bottom:clamp(24px,4vw,40px)">
+  <div class="wrap">
+    <div class="article-hero">
+      <span class="post-cat">Pattern recognition</span>
+      <h1>You gave your AI agents the keys. Nobody scoped them.</h1>
+      <div class="post-meta"><span>Jul 2026</span><span class="sep"></span><span>6 min read</span><span class="sep"></span><span>by The founder of Fraction</span></div>
+    </div>
+  </div>
+</section>
+<section class="section-tight" style="padding-top:8px">
+  <div class="wrap">
+    <div class="article-body reveal">
+<p>Somewhere in your stack, an AI agent is holding a credential that can read your database, deploy to production, or call your payment API. Nobody decided to give it that much. It inherited a broad, long-lived key because that was the fastest way to make the demo work. The fix is not to rip agents out. It is to scope each one to a narrow, short-lived, task-bounded identity, so a single leaked key cannot touch everything you own. Here is how that goes wrong between pre-seed and Series A, and what scoping actually looks like.</p>
+<h2>How the over-permission happens</h2>
+<p>No founder sits down and decides to give a bot admin rights. It happens in three small steps, each of which felt reasonable at the time.</p>
+<p>First, someone wires up an agent to do a real job: a coding assistant that can open pull requests and trigger deploys, an in-product support agent that reads customer records, a back-office agent that reconciles invoices. To make it work on a Friday afternoon, they hand it the same credentials a human engineer uses, or a fresh API key with every scope checked because unchecking them meant reading docs.</p>
+<p>Second, the demo works. It reads the data, it takes the action, the room is impressed. Nobody goes back to tighten the key, because tightening it risks breaking the thing that just worked. The broad credential becomes load-bearing.</p>
+<p>Third, you add a second agent, and a third. Each one gets its own broad key, or worse, they share one. Six months later you have a handful of non-human identities that can each touch most of your systems, and no single person can tell you what any of them is actually allowed to do. I have walked into pre-seed companies with two human engineers and nine active machine identities, most of them created by an AI tool that spun up a helper and never cleaned it up.</p>
+<p>The uncomfortable part: an agent is not a passive key holder like an old service account. It chains actions. It can call one tool, use the result to call another, spawn a sub-agent, and write and run code along the way. So the blast radius of one leaked agent credential is not one table or one endpoint. It is everything that agent can reach, plus everything it can reach through the next hop.</p>
+<h2>Why this is a 2026 problem, not a someday problem</h2>
+<p>Two things changed this year that move agent access from a nice-to-have to a real line item.</p>
+<p>The first is scale. In most cloud setups, machine identities now vastly outnumber human ones, and AI agents are the fastest-growing category. When your headcount is five and your machine-identity count is thirty, the humans are no longer where the risk lives. Your attack surface is a set of keys you did not audit.</p>
+<p>The second is that buyers and investors started asking. Technical diligence in 2026 increasingly includes a specific question about how autonomous systems are permissioned and monitored. Enterprise security questionnaires now have agent-access sections. If your answer is a shrug, that is a stall on the deal, the same way an empty data room stalls a round. This is the same dynamic I wrote about in the <a href="/post-security-questionnaire-deal">security questionnaire that stalls your biggest deal</a> and in why the <a href="/post-technical-data-room">technical half of your data room is probably empty</a>: the work is invisible until someone asks, and then it is urgent and expensive.</p>
+<p>It is worth separating this from a related risk you may already be tracking. The vulnerabilities that hide inside AI-generated code are about what the agent <em>wrote</em>. This is about what the agent can <em>do</em>. You can have clean, well-reviewed code and still hand it a key that owns your whole account. Both matter, and they are different problems. If code quality is your worry, that is <a href="/post-ai-code-security-holes">the security holes hiding in your AI-written code</a>; this piece is about the identity the code runs as.</p>
+<h2>What scoping actually looks like</h2>
+<p>You do not need an identity platform or a security hire to fix this at your stage. You need three habits and an afternoon.</p>
+<p>Give every agent its own identity. Not a shared key, not a human&#39;s credential. One agent, one identity, so that when something goes wrong you can see which agent did it and revoke exactly that one without breaking the others. Shared keys are the machine-identity version of one password for the whole team.</p>
+<p>Scope each identity to the narrowest job it actually does. The support agent that reads customer records does not need write access to your billing system. The deploy agent does not need to read your customer database. Write down, in one sentence per agent, what it is allowed to touch. If you cannot write that sentence, the agent is over-permissioned by definition.</p>
+<p>Make the credentials short-lived. A key that expires with the task is a key that cannot be quietly harvested and used six months later. This is the single highest-leverage change, because it turns a permanent liability into a temporary one. Long-lived, broadly scoped keys are the ones that show up in breach post-mortems.</p>
+<p>Then keep a log of what agents actually did. Not for compliance theater, for the moment when a customer asks why their record was changed and you need an answer that is not a guess.</p>
+<p>None of this is exotic. It is the same least-privilege discipline good engineers apply to humans, pointed at machines. The reason it gets skipped is not difficulty. It is that nobody owns it, and it never breaks loudly enough to force the issue until it breaks very loudly.</p>
+<h2>Who owns this at a startup with no security team</h2>
+<p>This is the honest gap. At pre-seed to Series A, agent access falls between chairs. The founder assumes an engineer is handling it. The engineer assumes it is a founder-level policy call. The agency or contractor who wired the agent in assumes it is your problem now. So it sits.</p>
+<p>Someone has to own the boring inventory: every agent, what it can touch, whether its key expires, who gets paged if it misbehaves. That is a governance job, not a coding job, and it is exactly the kind of thing a <a href="/pricing">fractional technical leader</a> sets up in a week and then leaves running. When I run a <a href="/teardown">technical teardown</a> for a founder, agent and machine-identity access is now a standard section, because I keep finding the same unscoped keys in company after company.</p>
+<p>The payoff is not just avoiding a breach. It is being able to answer the diligence question in one paragraph instead of a panicked week, and being able to add the next agent without widening the blast radius every time.</p>
+<h2>Frequently asked questions</h2>
+<h3>Does this mean AI agents are too risky to use?</h3>
+<p>No. It means they need the same access discipline you would apply to a new employee, applied faster and to more of them. The risk is not the agent. The risk is the unscoped, long-lived key you handed it. Scope the key and the agent is a productive teammate.</p>
+<h3>We are five people. Isn&#39;t this premature?</h3>
+<p>The opposite. Five people is when it is cheapest to fix, because you have three agents, not thirty, and no legacy sprawl to untangle. Doing it now is an afternoon. Doing it after your first enterprise deal, under a security questionnaire deadline, is a fire drill.</p>
+<h3>An agency set up our agents. Is this their job or ours?</h3>
+<p>Once the code runs against your accounts, the risk is yours regardless of who wrote it. Ask your agency to document, per agent, what each identity can access and whether the credentials expire. If they cannot produce that in a day, that itself is the finding.</p>
+<h3>How do I even know which agents have access to what?</h3>
+<p>Start with an inventory. List every API key, service account, and machine identity, then note which were created by or for an AI tool and what each can reach. Most founders are surprised by the count. That surprise is the point, and the list is the first deliverable.</p>
+<h3>What is the fastest first step?</h3>
+<p>Rotate and shorten the lifetime of your most powerful agent key, and give that one agent its own dedicated identity. That single move shrinks your worst-case blast radius more than any policy document. If you want a second pair of eyes on where to start, <a href="/book-a-call">book a call</a> and we can look at your actual setup.</p>
+
+    </div>
+    <div class="article-body">
+      <div class="author-card reveal">
+        <span class="ac-av">F</span>
+        <div>
+          <div class="ac-name">The founder of Fraction</div>
+          <div class="ac-bio">Built engineering teams from 2 to 30. Killed more bad rebuilds than I've greenlit. <a href="about.html" class="link-grow" style="font-size:0.96rem">More about me <span class="arrow">&rarr;</span></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" style="padding-top:clamp(32px,5vw,56px)">
+  <div class="wrap">
+    <div class="callout reveal" style="text-align:center">
+      <h3 style="margin-left:auto;margin-right:auto;max-width:22ch">Not sure the call you're about to make is the right one?</h3>
+      <p style="margin:0 auto 26px">That's exactly what a 20-minute fit call is for &mdash; or a two-week Teardown if you'd rather start with a written verdict.</p>
+      <div class="ph-cta" style="justify-content:center">
+        <a href="book-a-call.html" class="btn btn-accent">Book a fit call <span class="arrow">&rarr;</span></a>
+        <a href="teardown.html" class="link-grow" style="color:#fff">Start with a Teardown <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap-wide">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#14140F"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+        <p style="color:var(--grey-2); max-width:30ch; margin-top:18px; font-size:0.96rem; line-height:1.5">Senior technical leadership for founders who aren't ready for a full-time CTO — and shouldn't hire one yet.</p>
+      </div>
+      <div><h5>Service</h5><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="comparison.html">Fractional vs full-time</a></li><li><a href="teardown.html">The Tech Teardown</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="blog.html">Writing</a></li><li><a href="book-a-call.html">Book a call</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+      <div><h5>Start here</h5><ul><li><a href="book-a-call.html">Book a 20-min fit call</a></li><li><a href="teardown.html">Start with a Teardown</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Fraction · <a href="https://getfractioncto.com">getfractioncto.com</a> — no contract, no equity, cancel anytime.</span>
+      <span>Built on judgment, not hours.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="motion.js"></script>
+</body>
+</html>
