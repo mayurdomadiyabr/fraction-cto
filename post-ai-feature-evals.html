@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>You shipped an AI feature. How do you know it is good? — Fraction</title>
+  <meta name="description" content="How founders know an AI feature is actually good: a lightweight eval habit you can start in an afternoon with 25 real cases, not a platform." />
+  <meta name="theme-color" content="#FAFAF9" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Fraction" />
+  <meta property="og:title" content="You shipped an AI feature. How do you know it is good? — Fraction" />
+  <meta property="og:description" content="How founders know an AI feature is actually good: a lightweight eval habit you can start in an afternoon with 25 real cases, not a platform." />
+  <meta property="og:url" content="https://getfractioncto.com/post-ai-feature-evals" />
+  <meta property="og:image" content="https://getfractioncto.com/og-image.png" />
+  <meta property="article:published_time" content="2026-07-11T00:00:00.000Z" />
+  <meta property="article:author" content="The founder of Fraction" />
+  <meta property="article:section" content="Pattern recognition" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="You shipped an AI feature. How do you know it is good? — Fraction" />
+  <meta name="twitter:description" content="How founders know an AI feature is actually good: a lightweight eval habit you can start in an afternoon with 25 real cases, not a platform." />
+  <meta name="twitter:image" content="https://getfractioncto.com/og-image.png" />
+  <link rel="canonical" href="https://getfractioncto.com/post-ai-feature-evals" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script src="/analytics.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "You shipped an AI feature. How do you know it is good?",
+  "description": "How founders know an AI feature is actually good: a lightweight eval habit you can start in an afternoon with 25 real cases, not a platform.",
+  "datePublished": "2026-07-11T00:00:00.000Z",
+  "dateModified": "2026-07-11T00:00:00.000Z",
+  "author": {
+    "@type": "Person",
+    "name": "The founder of Fraction",
+    "url": "https://getfractioncto.com/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fraction",
+    "url": "https://getfractioncto.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://getfractioncto.com/og-image.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://getfractioncto.com/post-ai-feature-evals"
+  },
+  "image": "https://getfractioncto.com/og-image.png",
+  "articleSection": "Pattern recognition",
+  "wordCount": 1479,
+  "inLanguage": "en",
+  "isAccessibleForFree": true
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home",   "item": "https://getfractioncto.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Writing","item": "https://getfractioncto.com/blog" },
+    { "@type": "ListItem", "position": 3, "name": "You shipped an AI feature. How do you know it is good?", "item": "https://getfractioncto.com/post-ai-feature-evals" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Fraction home"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <ul class="nav-links">
+      <li><a href="how-it-works.html">How it works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="comparison.html">Compare</a></li>
+      <li><a href="blog.html" class="active">Writing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="teardown.html">The Teardown <span class="accent-dot"></span></a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke-linecap="round"/></svg></button>
+      <button class="icon-btn" aria-label="Toggle theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M21.5 12h-2.2M4.7 12H2.5M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6M18.4 18.4l-1.6-1.6M7.2 7.2 5.6 5.6" stroke-linecap="round"/></svg></button>
+      <a href="book-a-call.html" class="btn btn-primary nav-cta">Book a fit call</a>
+      <button class="icon-btn menu-btn" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu">
+  <div class="mm-top">
+    <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <button class="icon-btn menu-btn" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg></button>
+  </div>
+  <nav>
+    <a href="how-it-works.html">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="comparison.html">Compare</a>
+    <a href="blog.html">Writing</a>
+    <a href="about.html">About</a>
+    <a href="teardown.html">The Teardown</a>
+  </nav>
+  <div class="mm-cta">
+    <a href="teardown.html" class="btn btn-ghost">Start with a Teardown</a>
+    <a href="book-a-call.html" class="btn btn-primary">Book a 20-min fit call</a>
+  </div>
+</div>
+
+<main>
+<section class="page-hero center" style="padding-bottom:clamp(24px,4vw,40px)">
+  <div class="wrap">
+    <div class="article-hero">
+      <span class="post-cat">Pattern recognition</span>
+      <h1>You shipped an AI feature. How do you know it is good?</h1>
+      <div class="post-meta"><span>Jul 2026</span><span class="sep"></span><span>7 min read</span><span class="sep"></span><span>by The founder of Fraction</span></div>
+    </div>
+  </div>
+</section>
+<section class="section-tight" style="padding-top:8px">
+  <div class="wrap">
+    <div class="article-body reveal">
+<p>You shipped an AI feature. It demoed well, a few customers like it, and it is live. Now answer a harder question: how do you know it is still good tomorrow, after you change a prompt, swap the model, or a user types something you never tried? Most early teams answer this by eyeballing a handful of outputs and hoping. The discipline that replaces hope with a number is called an eval, and you can start one in an afternoon with about twenty-five real examples and a short list of what &quot;good&quot; means. It is the cheapest insurance an AI product can buy, and almost nobody buys it until something breaks in front of a customer.</p>
+<p>I keep meeting founders who can tell me their signup conversion to the decimal but cannot tell me whether their AI feature got better or worse last week. That is not a character flaw. Traditional software either works or throws an error, and you notice. AI features fail quietly, in the space between &quot;technically returned an answer&quot; and &quot;returned a good answer,&quot; and that space is invisible unless you are measuring it on purpose.</p>
+<h2>Why &quot;it works&quot; is a claim you cannot currently defend</h2>
+<p>A normal function is deterministic. Same input, same output, and a test either passes or fails. Your AI feature is not like that. The same question can produce a good answer on Tuesday and a subtly wrong one on Wednesday, because the model is probabilistic, because you edited the prompt, or because the provider updated the model underneath you in a way you felt but did not measure.</p>
+<p>So when you say the feature &quot;works,&quot; what you actually mean is that it worked the handful of times you watched it, on the inputs you happened to try, which were the inputs you already knew it handled. That is the demo. Real users bring messier inputs, and they bring them when nobody is watching. The gap between &quot;worked in the demo&quot; and &quot;works for a stranger at 2am&quot; is exactly where AI products get into trouble, and I have written about the broader version of that gap in <a href="/post-ai-agent-demo-to-production">whether your AI demo can actually ship</a>. Evals are how you close it.</p>
+<h2>The two wrong answers founders reach for</h2>
+<p>When I raise this, founders tend to jump to one of two extremes, and both are mistakes.</p>
+<p>The first is ship and pray. You push changes, glance at a few outputs, and let production be your test suite. This feels fast. It is fast, right up until you tweak a prompt to fix one customer complaint and silently break three things that were working. You will not find out from your dashboard. You will find out from a churned customer, weeks later, with no idea which change caused it.</p>
+<p>The second is the opposite panic: deciding you need a real evaluation framework, so you stop shipping and spend a month building elaborate tooling before you feel allowed to touch the feature again. For a five-person company before product-market fit, that is its own kind of waste. You do not have the time, and you do not yet know enough about your own failure modes to design the perfect harness.</p>
+<p>The right answer is in the middle, and it is smaller than both. Treat evaluation as a lightweight habit, not a platform project.</p>
+<h2>What an eval actually is, in founder terms</h2>
+<p>Strip away the tooling and an eval is three plain steps.</p>
+<p>First, write down what good looks like. Not in your head, on paper. For a support-answer feature, good might mean: correct, grounded in our actual docs, does not promise things we do not do, stays on topic. Five or six concrete criteria you could hand to a new employee.</p>
+<p>Second, collect a small set of real cases. Pull twenty to thirty actual inputs, ideally from production, including the ugly ones customers really send. This set is the single most valuable artifact here. It is your product&#39;s reality, written down.</p>
+<p>Third, score outputs against your criteria and track the number over time. You can do the scoring by hand at first, or have a model grade against your rubric once the set grows. What matters is that before you ship a prompt change, you run it against the set and see whether the score went up or down. Now a change is a measurement, not a prayer.</p>
+<p>That is the whole thing. Twenty-five cases, a handful of criteria, and the rule that you check the set before you ship. It costs an afternoon to stand up and it converts every future change from a gamble into a maintenance task.</p>
+<h2>What this looks like in the room</h2>
+<p>A founder I worked with had an AI feature that summarized customer calls. A big customer complained that summaries were too long, so the team edited the prompt to make them shorter. Complaint solved. Three weeks later a different customer left, and in the exit conversation mentioned the summaries had started dropping the action items entirely. The shorter-summary change had done that. Nobody caught it because nobody had a set of examples to run the change against. The fix that solved one problem had quietly created a worse one, and it cost a customer to discover.</p>
+<p>Standing up a twenty-five case eval set would have caught it in minutes: run the new prompt, watch the &quot;captures action items&quot; score fall off a cliff, and know before shipping. The team was not careless. They were flying without instruments, which feels fine right up until the weather changes. This is the same trap as <a href="/post-ai-team-feels-fast">an AI team that feels fast but is not actually shipping value</a> -- motion without a way to check direction.</p>
+<h2>When you actually need this, and when you do not</h2>
+<p>I am not telling you to evaluate everything. A throwaway prototype nobody depends on does not need an eval set, and building one is premature. The line is real users depending on the output, or you changing the system often enough that regressions are likely. If either is true, you are past the point where eyeballing is responsible.</p>
+<p>You also do not need to buy anything yet. The instinct to purchase an evaluation platform before you have written down what good means is backwards. Start with a spreadsheet and twenty-five real cases. Add tooling only when the manual version genuinely hurts, which is a good problem and a much later one. Buy the platform to scale a discipline you already have, never to substitute for one you do not.</p>
+<p>There is a fundraising edge here too. Technical diligence on AI products has started asking how teams know their features are good, because an AI company with no evaluation discipline is one that cannot improve safely or prove it is improving at all. The founders who can show a simple eval set and a trend line look like operators. The ones who say &quot;it seems to work well&quot; sound like they are hoping. That difference is starting to show up in how a technical reviewer scores you, the same way an AI-built product that reads as <a href="/post-ai-mvp-draft">a draft rather than a finished thing</a> does.</p>
+<h2>Frequently asked questions</h2>
+<h3>Isn&#39;t this just testing?</h3>
+<p>It is testing adapted to a probabilistic system. Traditional tests assert an exact answer and pass or fail. Evals score quality on a spectrum against criteria you define, because there is no single correct output. Same instinct, different mechanics, and your normal test suite does not cover it.</p>
+<h3>We only use a hosted model through an API. Do we still need this?</h3>
+<p>Yes, and arguably more. You do not control that model, so it can change beneath you, and your prompt is doing more work than you think. An eval set is how you notice when a provider update shifts your output quality, and how you safely move to a different model when you need to.</p>
+<h3>How much time does this really take to start?</h3>
+<p>An afternoon for the first version. Writing your criteria is an hour of arguing about what good means, which is useful on its own. Collecting twenty-five real cases is an hour of pulling from logs or support tickets. The rest is scoring, which you can do by hand until volume forces something more automated.</p>
+<h3>Who owns the eval set in a small team?</h3>
+<p>Whoever owns the feature&#39;s quality, which early on is often the founder. It is not a job to hire for yet. It is a habit to install, and the person closest to what customers actually need should hold the definition of good. If you are not sure how to start, that is the kind of thing a short technical read can set up with you -- see <a href="/teardown">what a teardown looks like</a> or <a href="/book-a-call">book a call</a>.</p>
+
+    </div>
+    <div class="article-body">
+      <div class="author-card reveal">
+        <span class="ac-av">F</span>
+        <div>
+          <div class="ac-name">The founder of Fraction</div>
+          <div class="ac-bio">Built engineering teams from 2 to 30. Killed more bad rebuilds than I've greenlit. <a href="about.html" class="link-grow" style="font-size:0.96rem">More about me <span class="arrow">&rarr;</span></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" style="padding-top:clamp(32px,5vw,56px)">
+  <div class="wrap">
+    <div class="callout reveal" style="text-align:center">
+      <h3 style="margin-left:auto;margin-right:auto;max-width:22ch">Not sure the call you're about to make is the right one?</h3>
+      <p style="margin:0 auto 26px">That's exactly what a 20-minute fit call is for &mdash; or a two-week Teardown if you'd rather start with a written verdict.</p>
+      <div class="ph-cta" style="justify-content:center">
+        <a href="book-a-call.html" class="btn btn-accent">Book a fit call <span class="arrow">&rarr;</span></a>
+        <a href="teardown.html" class="link-grow" style="color:#fff">Start with a Teardown <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap-wide">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#14140F"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+        <p style="color:var(--grey-2); max-width:30ch; margin-top:18px; font-size:0.96rem; line-height:1.5">Senior technical leadership for founders who aren't ready for a full-time CTO — and shouldn't hire one yet.</p>
+      </div>
+      <div><h5>Service</h5><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="comparison.html">Fractional vs full-time</a></li><li><a href="teardown.html">The Tech Teardown</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="blog.html">Writing</a></li><li><a href="book-a-call.html">Book a call</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+      <div><h5>Start here</h5><ul><li><a href="book-a-call.html">Book a 20-min fit call</a></li><li><a href="teardown.html">Start with a Teardown</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Fraction · <a href="https://getfractioncto.com">getfractioncto.com</a> — no contract, no equity, cancel anytime.</span>
+      <span>Built on judgment, not hours.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="motion.js"></script>
+</body>
+</html>
