@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Your AI agent keeps guessing what you meant — Fraction</title>
+  <meta name="description" content="Why AI coding agents build the wrong thing, and how a one-page spec written before the agent starts stops the guessing and outlives the prompt." />
+  <meta name="theme-color" content="#FAFAF9" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Fraction" />
+  <meta property="og:title" content="Your AI agent keeps guessing what you meant — Fraction" />
+  <meta property="og:description" content="Why AI coding agents build the wrong thing, and how a one-page spec written before the agent starts stops the guessing and outlives the prompt." />
+  <meta property="og:url" content="https://getfractioncto.com/post-ai-agent-guessing-intent" />
+  <meta property="og:image" content="https://getfractioncto.com/og-image.png" />
+  <meta property="article:published_time" content="2026-07-13T14:06:24.019Z" />
+  <meta property="article:author" content="The founder of Fraction" />
+  <meta property="article:section" content="Pattern recognition" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Your AI agent keeps guessing what you meant — Fraction" />
+  <meta name="twitter:description" content="Why AI coding agents build the wrong thing, and how a one-page spec written before the agent starts stops the guessing and outlives the prompt." />
+  <meta name="twitter:image" content="https://getfractioncto.com/og-image.png" />
+  <link rel="canonical" href="https://getfractioncto.com/post-ai-agent-guessing-intent" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script src="/analytics.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Your AI agent keeps guessing what you meant",
+  "description": "Why AI coding agents build the wrong thing, and how a one-page spec written before the agent starts stops the guessing and outlives the prompt.",
+  "datePublished": "2026-07-13T14:06:24.019Z",
+  "dateModified": "2026-07-13T14:06:24.019Z",
+  "author": {
+    "@type": "Person",
+    "name": "The founder of Fraction",
+    "url": "https://getfractioncto.com/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fraction",
+    "url": "https://getfractioncto.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://getfractioncto.com/og-image.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://getfractioncto.com/post-ai-agent-guessing-intent"
+  },
+  "image": "https://getfractioncto.com/og-image.png",
+  "articleSection": "Pattern recognition",
+  "wordCount": 1638,
+  "inLanguage": "en",
+  "isAccessibleForFree": true
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home",   "item": "https://getfractioncto.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Writing","item": "https://getfractioncto.com/blog" },
+    { "@type": "ListItem", "position": 3, "name": "Your AI agent keeps guessing what you meant", "item": "https://getfractioncto.com/post-ai-agent-guessing-intent" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Fraction home"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <ul class="nav-links">
+      <li><a href="how-it-works.html">How it works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="comparison.html">Compare</a></li>
+      <li><a href="blog.html" class="active">Writing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="teardown.html">The Teardown <span class="accent-dot"></span></a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke-linecap="round"/></svg></button>
+      <button class="icon-btn" aria-label="Toggle theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M21.5 12h-2.2M4.7 12H2.5M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6M18.4 18.4l-1.6-1.6M7.2 7.2 5.6 5.6" stroke-linecap="round"/></svg></button>
+      <a href="book-a-call.html" class="btn btn-primary nav-cta">Book a fit call</a>
+      <button class="icon-btn menu-btn" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu">
+  <div class="mm-top">
+    <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <button class="icon-btn menu-btn" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg></button>
+  </div>
+  <nav>
+    <a href="how-it-works.html">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="comparison.html">Compare</a>
+    <a href="blog.html">Writing</a>
+    <a href="about.html">About</a>
+    <a href="teardown.html">The Teardown</a>
+  </nav>
+  <div class="mm-cta">
+    <a href="teardown.html" class="btn btn-ghost">Start with a Teardown</a>
+    <a href="book-a-call.html" class="btn btn-primary">Book a 20-min fit call</a>
+  </div>
+</div>
+
+<main>
+<section class="page-hero center" style="padding-bottom:clamp(24px,4vw,40px)">
+  <div class="wrap">
+    <div class="article-hero">
+      <span class="post-cat">Pattern recognition</span>
+      <h1>Your AI agent keeps guessing what you meant</h1>
+      <div class="post-meta"><span>Jul 2026</span><span class="sep"></span><span>7 min read</span><span class="sep"></span><span>by The founder of Fraction</span></div>
+    </div>
+  </div>
+</section>
+<section class="section-tight" style="padding-top:8px">
+  <div class="wrap">
+    <div class="article-body reveal">
+<p>Your AI agent is not building the wrong thing because it is dumb. It is building the wrong thing because you told it &quot;add login&quot; and left forty decisions unspecified, so it guessed. The fix is not a better prompt or a smarter model. It is a short written spec -- what the feature must do and what counts as done -- before the agent starts. Write intent down once and the agent stops guessing, your reviewer gets something to check against, and you leave behind an artifact a human engineer and an investor can actually read.</p>
+<p>I watch founders run into this weekly now. The agent is fast, the demo looked right, and then the third feature quietly does something nobody asked for. The reflex is to blame the model and try a longer prompt. The real problem is upstream of the prompt.</p>
+<h2>Why a capable agent still builds the wrong thing</h2>
+<p>There are three failure modes here, and they are not about model quality. They show up with the best tools on the market.</p>
+<p>The first is intent drift. &quot;Add login&quot; is not a specification, it is a wish. Email and password, or a magic link? Social sign-in? How long does a session last? What happens on the fifth failed attempt? Is there password reset, and does it email or text? A capable agent answers all of those questions for you, quickly and reasonably, and its reasonable answers are almost never the ones you had in your head. You did not decide. It decided, and you find out later.</p>
+<p>The second is context decay. Your codebase grows past what the agent can hold in view at once, and it starts forgetting decisions it made three sessions ago. It rebuilds a thing it already built, contradicts an earlier choice, wires the new feature to an assumption that is no longer true. The code looks confident on every screen and drifts as a whole.</p>
+<p>The third is unverifiable output. Without a written definition of &quot;correct,&quot; the only test the feature ever gets is you clicking through it a few times. &quot;It works&quot; comes to mean &quot;it worked the three times I watched it.&quot; That is not the same claim, and the gap between them is where your production incidents live. This is the same motion-versus-progress trap I wrote about in <a href="/post-ai-team-feels-fast">why an AI team can feel fast without shipping faster</a> -- speed you cannot verify is not progress you can bank.</p>
+<h2>The spec is the missing layer, not more process</h2>
+<p>When I say &quot;write a spec,&quot; founders picture a forty-page waterfall document and a two-week delay. That is not what this is. A founder-sized spec is a single page, and often less. It exists to answer the questions the agent would otherwise answer for you.</p>
+<p>Here is what one costs to skip. A fintech founder I talked with told his agent to &quot;add a payout flow&quot; for their marketplace. The agent built clean, instant payouts -- a perfectly sensible reading of the request. The actual requirement, which lived only in the founder&#39;s head, was a two-day hold on every payout so the fraud team could review it. One sentence in a spec would have caught it. Instead it caught a week of rework, and it nearly caught a real fraud loss in production first, because the flow shipped to a staging environment that a few real users could reach.</p>
+<p>The spec is not bureaucracy. It is the one place where the decisions that determine whether the feature is right actually get made by you instead of defaulted by the model. Skipping it does not save the decision. It just moves the decision to the agent and hides it from you until it is expensive.</p>
+<h2>What a founder-sized spec looks like</h2>
+<p>You do not need a template or a tool. You need to answer three questions in plain sentences before the agent starts.</p>
+<p>What should it do? Describe the behavior the way you would explain it to a new teammate. &quot;A user signs in with email and a one-time code we text them. Sessions last seven days. After three failed codes we lock the account for an hour.&quot;</p>
+<p>What should it never do? This is the part founders skip and regret. &quot;Never allow sign-in with just a password. Never send the code by email. Never auto-create an account for an unknown number.&quot;</p>
+<p>How will we know it is right? Two or three checks you can actually run. &quot;A wrong code five times locks the account. A locked account cannot request a new code for an hour. A valid code signs in and the session survives a page refresh.&quot;</p>
+<p>That is a complete spec for a login feature, and it took four sentences. Hand that to the agent instead of &quot;add login&quot; and you have removed almost every guess. Keep it in the repository next to the code, in the file your tools already read for context, so the next session inherits it and does not re-litigate the same decisions. The reviewer inherits it too, and now <a href="/post-ai-review-bottleneck">reviewing the agent&#39;s output</a> is checking against a definition instead of squinting at a diff and hoping.</p>
+<h2>The spec is also the artifact you will need later</h2>
+<p>Here is the part that makes this worth doing even when the feature is small. The spec outlives the prompt.</p>
+<p>Your prompt is thrown away the moment the agent responds. The code remains, but code tells you what the system does, not what it was supposed to do -- and when those two things disagree, the code cannot tell you which one is the bug. A spec is the only record of intent. When your first engineer starts and inherits a codebase built by an agent, the difference between a good week and a bad month is whether there is any written statement of what these features are meant to do. Without it they are reverse-engineering your intentions from the agent&#39;s guesses.</p>
+<p>Diligence cares about the same thing for a different reason. When an investor&#39;s technical reviewer opens your data room, the absence of any written intent is a signal, and not a good one. It reads as a team that does not know what it is building, only what it has generated. I have watched <a href="/post-technical-data-room">the technical half of a data room</a> sit empty precisely because everything lived in throwaway prompts and one founder&#39;s memory. A few lightweight specs are cheap insurance against that conversation.</p>
+<p>There is a neat symmetry worth naming. A spec defines what &quot;right&quot; means before the agent builds; <a href="/post-ai-feature-evals">evals for an AI feature</a> measure whether it stays right after you ship. One guards the front of the pipeline, the other the back. Most founders have neither. The spec is the cheaper of the two to start, and it is the one that stops the wrong thing from ever getting built.</p>
+<h2>Where founders overdo it</h2>
+<p>The failure mode in the other direction is real, so be honest about it. Do not write a spec for a throwaway prototype you are building to see if an idea feels right -- if the code is disposable, the guessing is free. Do not write a spec longer than the feature it describes. And do not let this calcify into a sign-off gate where nothing gets built until a document is approved, because then you have reinvented the process the AI was supposed to free you from.</p>
+<p>The test is simple. A spec earns its place when a wrong guess would cost you real rework or a real incident. For the login flow and the payout hold, it pays for itself the first time. For a color change on a landing page, skip it. The point is to remove guessing where guessing is expensive, not to add paperwork everywhere.</p>
+<p>This is judgment, and it is exactly the kind of judgment that is hard to hold consistently when you are also the person shipping. If you want a second set of eyes on where your AI-built product is quietly guessing, <a href="/book-a-call">book a call</a> or start with a <a href="/teardown">teardown</a> and we will find the places where a page of intent would have saved you a month.</p>
+<h2>FAQ</h2>
+<h3>Isn&#39;t writing a spec just throwing away the speed I bought the AI for?</h3>
+<p>No. The spec is what makes the speed count. An agent that builds the wrong thing quickly cost you the build plus the rework plus the time to notice, which is slower than getting it right once. Four sentences of intent up front is the cheapest speed you will buy all week.</p>
+<h3>How long should a spec be?</h3>
+<p>As short as it can be while still answering what it should do, what it must never do, and how you will know it is right. For most early-stage features that is a paragraph or a short bullet list. If it is running past a page, you are either specifying too much or the feature is genuinely complex and deserves it.</p>
+<h3>Where do I keep the spec?</h3>
+<p>In the repository, next to the code, in whatever context file your AI tools already read. That way the next agent session inherits it automatically and the next human engineer finds it without asking. A spec that lives in a chat window or your head is a spec that decays the moment you close the tab.</p>
+<h3>Isn&#39;t this the same as writing tests?</h3>
+<p>Related but earlier. A test checks a specific behavior after the code exists. A spec states the intended behavior before the code exists, in language you can read without being an engineer. The best outcome is that your spec&#39;s &quot;how will we know it is right&quot; checks become the agent&#39;s tests, so intent and verification are the same artifact.</p>
+
+    </div>
+    <div class="article-body">
+      <div class="author-card reveal">
+        <span class="ac-av">F</span>
+        <div>
+          <div class="ac-name">The founder of Fraction</div>
+          <div class="ac-bio">Built engineering teams from 2 to 30. Killed more bad rebuilds than I've greenlit. <a href="about.html" class="link-grow" style="font-size:0.96rem">More about me <span class="arrow">&rarr;</span></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" style="padding-top:clamp(32px,5vw,56px)">
+  <div class="wrap">
+    <div class="callout reveal" style="text-align:center">
+      <h3 style="margin-left:auto;margin-right:auto;max-width:22ch">Not sure the call you're about to make is the right one?</h3>
+      <p style="margin:0 auto 26px">That's exactly what a 20-minute fit call is for &mdash; or a two-week Teardown if you'd rather start with a written verdict.</p>
+      <div class="ph-cta" style="justify-content:center">
+        <a href="book-a-call.html" class="btn btn-accent">Book a fit call <span class="arrow">&rarr;</span></a>
+        <a href="teardown.html" class="link-grow" style="color:#fff">Start with a Teardown <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap-wide">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#14140F"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+        <p style="color:var(--grey-2); max-width:30ch; margin-top:18px; font-size:0.96rem; line-height:1.5">Senior technical leadership for founders who aren't ready for a full-time CTO — and shouldn't hire one yet.</p>
+      </div>
+      <div><h5>Service</h5><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="comparison.html">Fractional vs full-time</a></li><li><a href="teardown.html">The Tech Teardown</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="blog.html">Writing</a></li><li><a href="book-a-call.html">Book a call</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+      <div><h5>Start here</h5><ul><li><a href="book-a-call.html">Book a 20-min fit call</a></li><li><a href="teardown.html">Start with a Teardown</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Fraction · <a href="https://getfractioncto.com">getfractioncto.com</a> — no contract, no equity, cancel anytime.</span>
+      <span>Built on judgment, not hours.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="motion.js"></script>
+</body>
+</html>
