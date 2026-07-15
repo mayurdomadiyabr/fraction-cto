@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>A customer wants an API. Should you build one? — Fraction</title>
+  <meta name="description" content="Should you build a public API? Why it is a product not a feature, what it costs, and the lighter options to try first." />
+  <meta name="theme-color" content="#FAFAF9" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Fraction" />
+  <meta property="og:title" content="A customer wants an API. Should you build one? — Fraction" />
+  <meta property="og:description" content="Should you build a public API? Why it is a product not a feature, what it costs, and the lighter options to try first." />
+  <meta property="og:url" content="https://getfractioncto.com/post-should-you-build-an-api" />
+  <meta property="og:image" content="https://getfractioncto.com/og-image.png" />
+  <meta property="article:published_time" content="2026-07-15T13:14:55.449Z" />
+  <meta property="article:author" content="The founder of Fraction" />
+  <meta property="article:section" content="Decisions" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="A customer wants an API. Should you build one? — Fraction" />
+  <meta name="twitter:description" content="Should you build a public API? Why it is a product not a feature, what it costs, and the lighter options to try first." />
+  <meta name="twitter:image" content="https://getfractioncto.com/og-image.png" />
+  <link rel="canonical" href="https://getfractioncto.com/post-should-you-build-an-api" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script src="/analytics.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "A customer wants an API. Should you build one?",
+  "description": "Should you build a public API? Why it is a product not a feature, what it costs, and the lighter options to try first.",
+  "datePublished": "2026-07-15T13:14:55.449Z",
+  "dateModified": "2026-07-15T13:14:55.449Z",
+  "author": {
+    "@type": "Person",
+    "name": "The founder of Fraction",
+    "url": "https://getfractioncto.com/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fraction",
+    "url": "https://getfractioncto.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://getfractioncto.com/og-image.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://getfractioncto.com/post-should-you-build-an-api"
+  },
+  "image": "https://getfractioncto.com/og-image.png",
+  "articleSection": "Decisions",
+  "wordCount": 1235,
+  "inLanguage": "en",
+  "isAccessibleForFree": true
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home",   "item": "https://getfractioncto.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Writing","item": "https://getfractioncto.com/blog" },
+    { "@type": "ListItem", "position": 3, "name": "A customer wants an API. Should you build one?", "item": "https://getfractioncto.com/post-should-you-build-an-api" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Fraction home"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <ul class="nav-links">
+      <li><a href="how-it-works.html">How it works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="comparison.html">Compare</a></li>
+      <li><a href="blog.html" class="active">Writing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="teardown.html">The Teardown <span class="accent-dot"></span></a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke-linecap="round"/></svg></button>
+      <button class="icon-btn" aria-label="Toggle theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M21.5 12h-2.2M4.7 12H2.5M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6M18.4 18.4l-1.6-1.6M7.2 7.2 5.6 5.6" stroke-linecap="round"/></svg></button>
+      <a href="book-a-call.html" class="btn btn-primary nav-cta">Book a fit call</a>
+      <button class="icon-btn menu-btn" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu">
+  <div class="mm-top">
+    <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <button class="icon-btn menu-btn" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg></button>
+  </div>
+  <nav>
+    <a href="how-it-works.html">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="comparison.html">Compare</a>
+    <a href="blog.html">Writing</a>
+    <a href="about.html">About</a>
+    <a href="teardown.html">The Teardown</a>
+  </nav>
+  <div class="mm-cta">
+    <a href="teardown.html" class="btn btn-ghost">Start with a Teardown</a>
+    <a href="book-a-call.html" class="btn btn-primary">Book a 20-min fit call</a>
+  </div>
+</div>
+
+<main>
+<section class="page-hero center" style="padding-bottom:clamp(24px,4vw,40px)">
+  <div class="wrap">
+    <div class="article-hero">
+      <span class="post-cat">Decisions</span>
+      <h1>A customer wants an API. Should you build one?</h1>
+      <div class="post-meta"><span>Jul 2026</span><span class="sep"></span><span>6 min read</span><span class="sep"></span><span>by The founder of Fraction</span></div>
+    </div>
+  </div>
+</section>
+<section class="section-tight" style="padding-top:8px">
+  <div class="wrap">
+    <div class="article-body reveal">
+<p>A customer asks if you have an API. Maybe a few of them do. It sounds like a small yes: you already have the data, you already have the endpoints your own frontend calls, how hard can it be to expose them? So you promise it, and then you discover that a public API is not a feature you ship, it is a product you now maintain forever, with its own users, its own support burden, and a promise you cannot easily take back.</p>
+<p>This is a build-versus-wait decision, and the reason founders get it wrong is that they price the build and ignore the commitment. The build is the cheap part.</p>
+<h2>An internal API and a public API are not the same thing</h2>
+<p>The endpoints your own app calls are an internal API. You control both sides, so you can change them whenever you want. Break one, fix the caller, ship both together, done. Nobody outside notices.</p>
+<p>A public API is a contract with people you do not control. The moment a customer writes code against it, you have promised that code will keep working. You cannot rename a field, tighten a validation, or change a default without potentially breaking someone&#39;s integration silently, in production, at a time you will not find out about until they are angry. Everything that made your internal endpoints easy to change is exactly what you lose the day you make them public.</p>
+<p>That shift from &quot;I can change this&quot; to &quot;I have promised this will not change&quot; is the whole decision. Treat it lightly and you will spend the next two years unable to move because a handful of integrations depend on a shape you regret.</p>
+<h2>What it actually costs</h2>
+<p>The build itself is modest. A straightforward customer-facing API runs somewhere between 10,000 and 25,000 dollars; a more complex multi-tenant one, 25,000 to 60,000. But the quotes founders get almost never include the parts that make an API safe to expose: authentication, rate limiting, a real error-handling standard, versioning architecture, interactive documentation, and security hardening. Those are not polish. Without them a public API is a liability, and adding them after launch is far more expensive than building them in.</p>
+<p>Then comes the part that never ends. Budget 15 to 20 percent of the build cost every year for maintenance, plus infrastructure that scales with usage and monitoring on top. And the single most expensive mistake is skipping versioning. Planning it in from the start costs a few days of architecture work. Retrofitting it onto a live API that already has customers depending on it can take months, plus a deprecation cycle you have to manage without breaking anyone. Versioning is the thing you cannot cheaply add later, so it is the thing you have to decide up front.</p>
+<h2>When building it is the right call</h2>
+<p>None of this is an argument against ever building an API. Plenty of products should. It is an argument for building it on purpose, because you have a reason, not because one customer asked.</p>
+<h3>The API is the product, or a real channel to it</h3>
+<p>If integrations are how customers get value, or how you distribute, then the API is not a side feature, it is core, and it deserves the full investment. Developer-facing products, platforms, anything where &quot;does it connect to our stack&quot; is a buying criterion: build it properly and treat it as a first-class product with its own roadmap.</p>
+<h3>The demand is a pattern, not a request</h3>
+<p>One customer asking for an API is a data point. Ten asking, or the same request blocking deals repeatedly, is a market signal. Build for the pattern. A single request is often better served by a one-off export, a webhook, or a scoped integration you build for them, without opening a public contract you have to honor for everyone forever. This is the same discipline as telling apart a single loud customer from a real market, the trap where <a href="/post-biggest-customer-roadmap">your biggest customer starts writing your roadmap</a>.</p>
+<h3>You can commit to maintaining it</h3>
+<p>An API you launch and then neglect is worse than no API. Stale docs, unversioned breaking changes, and slow support turn a selling point into a reason to churn. Only build it if you can staff the ongoing commitment, not just the initial build.</p>
+<h2>The lighter options founders skip</h2>
+<p>Before you commit to a full public API, ask what the customer actually needs, because it is often less than an API. A webhook that pushes events to them covers a surprising number of &quot;we need to integrate&quot; requests. A scheduled export or a reporting endpoint covers many others. A single scoped integration you build for one important customer closes the deal without a public contract. Each of these is reversible in a way a public API is not, which is the whole point: this is a decision worth keeping cheap to undo until you are sure. That instinct to reach for the fully general solution before you need it is the same one behind a lot of <a href="/post-integration-sprawl">integration sprawl nobody actually decided to build</a>.</p>
+<p>The move I recommend to most early founders is to treat the first few requests as bespoke integrations, learn what people genuinely do with them, and only then design the public API around real usage. You end up with an API shaped by evidence instead of guesses, and you delayed the irreversible commitment until you could make it well. If you are weighing this against a specific customer ask right now, it is worth talking through before you promise something public. Founders <a href="/book-a-call">book a call</a> for exactly this kind of build-or-wait call.</p>
+<h2>FAQ</h2>
+<h3>A customer will only sign if we have an API. Do we have to build one?</h3>
+<p>Find out what they need the API for first. Often it is a specific integration, a data export, or event notifications, all of which you can deliver with a webhook or a scoped one-off without exposing a full public API. Build the bespoke thing to close the deal, and only build the public API when the demand is a repeated pattern rather than one contract.</p>
+<h3>What is the real difference between an internal and a public API?</h3>
+<p>Control. Your internal endpoints can change any time because you own every caller. A public API is a promise to outside developers that their code will keep working, so every change risks breaking integrations you cannot see. That loss of freedom to change, not the code, is what makes a public API expensive.</p>
+<h3>Why is versioning such a big deal?</h3>
+<p>Because it is the one part you cannot cheaply add later. Designing versioning in from the start is a few days of work. Retrofitting it onto a live API with active consumers is months of work plus a managed deprecation cycle, all while trying not to break the customers you already have. Decide your versioning strategy before the first external call, not after.</p>
+<h3>How much should we budget beyond the initial build?</h3>
+<p>Plan on 15 to 20 percent of the build cost per year for maintenance, plus infrastructure that grows with traffic and monitoring tooling. Just as important, budget the parts often left out of build quotes: authentication, rate limiting, documentation, and security hardening. An API without those is not cheaper, it is unfinished and unsafe to expose.</p>
+
+    </div>
+    <div class="article-body">
+      <div class="author-card reveal">
+        <span class="ac-av">F</span>
+        <div>
+          <div class="ac-name">The founder of Fraction</div>
+          <div class="ac-bio">Built engineering teams from 2 to 30. Killed more bad rebuilds than I've greenlit. <a href="about.html" class="link-grow" style="font-size:0.96rem">More about me <span class="arrow">&rarr;</span></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" style="padding-top:clamp(32px,5vw,56px)">
+  <div class="wrap">
+    <div class="callout reveal" style="text-align:center">
+      <h3 style="margin-left:auto;margin-right:auto;max-width:22ch">Not sure the call you're about to make is the right one?</h3>
+      <p style="margin:0 auto 26px">That's exactly what a 20-minute fit call is for &mdash; or a two-week Teardown if you'd rather start with a written verdict.</p>
+      <div class="ph-cta" style="justify-content:center">
+        <a href="book-a-call.html" class="btn btn-accent">Book a fit call <span class="arrow">&rarr;</span></a>
+        <a href="teardown.html" class="link-grow" style="color:#fff">Start with a Teardown <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap-wide">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#14140F"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+        <p style="color:var(--grey-2); max-width:30ch; margin-top:18px; font-size:0.96rem; line-height:1.5">Senior technical leadership for founders who aren't ready for a full-time CTO — and shouldn't hire one yet.</p>
+      </div>
+      <div><h5>Service</h5><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="comparison.html">Fractional vs full-time</a></li><li><a href="teardown.html">The Tech Teardown</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="blog.html">Writing</a></li><li><a href="book-a-call.html">Book a call</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+      <div><h5>Start here</h5><ul><li><a href="book-a-call.html">Book a 20-min fit call</a></li><li><a href="teardown.html">Start with a Teardown</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Fraction · <a href="https://getfractioncto.com">getfractioncto.com</a> — no contract, no equity, cancel anytime.</span>
+      <span>Built on judgment, not hours.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="motion.js"></script>
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>How much testing do you need before you have users? — Fraction</title>
+  <meta name="description" content="How much automated testing an early startup really needs before product-market fit, and where the few tests should go." />
+  <meta name="theme-color" content="#FAFAF9" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Fraction" />
+  <meta property="og:title" content="How much testing do you need before you have users? — Fraction" />
+  <meta property="og:description" content="How much automated testing an early startup really needs before product-market fit, and where the few tests should go." />
+  <meta property="og:url" content="https://getfractioncto.com/post-how-much-testing-early" />
+  <meta property="og:image" content="https://getfractioncto.com/og-image.png" />
+  <meta property="article:published_time" content="2026-07-15T13:14:55.718Z" />
+  <meta property="article:author" content="The founder of Fraction" />
+  <meta property="article:section" content="Decisions" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="How much testing do you need before you have users? — Fraction" />
+  <meta name="twitter:description" content="How much automated testing an early startup really needs before product-market fit, and where the few tests should go." />
+  <meta name="twitter:image" content="https://getfractioncto.com/og-image.png" />
+  <link rel="canonical" href="https://getfractioncto.com/post-how-much-testing-early" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script src="/analytics.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How much testing do you need before you have users?",
+  "description": "How much automated testing an early startup really needs before product-market fit, and where the few tests should go.",
+  "datePublished": "2026-07-15T13:14:55.718Z",
+  "dateModified": "2026-07-15T13:14:55.718Z",
+  "author": {
+    "@type": "Person",
+    "name": "The founder of Fraction",
+    "url": "https://getfractioncto.com/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fraction",
+    "url": "https://getfractioncto.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://getfractioncto.com/og-image.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://getfractioncto.com/post-how-much-testing-early"
+  },
+  "image": "https://getfractioncto.com/og-image.png",
+  "articleSection": "Decisions",
+  "wordCount": 1208,
+  "inLanguage": "en",
+  "isAccessibleForFree": true
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home",   "item": "https://getfractioncto.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Writing","item": "https://getfractioncto.com/blog" },
+    { "@type": "ListItem", "position": 3, "name": "How much testing do you need before you have users?", "item": "https://getfractioncto.com/post-how-much-testing-early" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Fraction home"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <ul class="nav-links">
+      <li><a href="how-it-works.html">How it works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="comparison.html">Compare</a></li>
+      <li><a href="blog.html" class="active">Writing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="teardown.html">The Teardown <span class="accent-dot"></span></a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke-linecap="round"/></svg></button>
+      <button class="icon-btn" aria-label="Toggle theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M21.5 12h-2.2M4.7 12H2.5M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6M18.4 18.4l-1.6-1.6M7.2 7.2 5.6 5.6" stroke-linecap="round"/></svg></button>
+      <a href="book-a-call.html" class="btn btn-primary nav-cta">Book a fit call</a>
+      <button class="icon-btn menu-btn" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu">
+  <div class="mm-top">
+    <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <button class="icon-btn menu-btn" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg></button>
+  </div>
+  <nav>
+    <a href="how-it-works.html">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="comparison.html">Compare</a>
+    <a href="blog.html">Writing</a>
+    <a href="about.html">About</a>
+    <a href="teardown.html">The Teardown</a>
+  </nav>
+  <div class="mm-cta">
+    <a href="teardown.html" class="btn btn-ghost">Start with a Teardown</a>
+    <a href="book-a-call.html" class="btn btn-primary">Book a 20-min fit call</a>
+  </div>
+</div>
+
+<main>
+<section class="page-hero center" style="padding-bottom:clamp(24px,4vw,40px)">
+  <div class="wrap">
+    <div class="article-hero">
+      <span class="post-cat">Decisions</span>
+      <h1>How much testing do you need before you have users?</h1>
+      <div class="post-meta"><span>Jul 2026</span><span class="sep"></span><span>5 min read</span><span class="sep"></span><span>by The founder of Fraction</span></div>
+    </div>
+  </div>
+</section>
+<section class="section-tight" style="padding-top:8px">
+  <div class="wrap">
+    <div class="article-body reveal">
+<p>How much automated testing does an early-stage product need? Founders ask me this expecting a percentage, and there is a whole industry ready to tell them the answer is 80 percent code coverage, always, from day one. That advice is written for companies that have already found product-market fit, and applying it before you have is one of the quieter ways to burn time you do not have building infrastructure for a product that is about to change shape anyway.</p>
+<p>The honest answer is that the right amount of testing before product-market fit is much less than you have been told, and knowing where to spend the little you do write is most of the skill.</p>
+<h2>Why heavy testing early works against you</h2>
+<p>A test is a promise that a specific behavior will not change. That is exactly what you want in a mature product and exactly what you do not want in one you are reshaping every few weeks.</p>
+<p>Before product-market fit, your product looks fundamentally different every 60 days. Features get cut, flows get rebuilt, whole sections get thrown away because the market told you they were wrong. Every one of those changes breaks the tests that referenced the old behavior, and now you are spending more time updating tests than writing them. You built infrastructure to protect a shape that no longer exists. The tests did not catch a bug; they caught you changing your mind, which is the thing you are supposed to be doing at this stage.</p>
+<p>Automated testing is infrastructure, and like all infrastructure it has a maintenance cost. For a pre-PMF product changing constantly, that maintenance cost usually outweighs the protection, and the hours go further spent on customer discovery and iteration, the work that actually tells you whether the product should exist. This is the same premature-scaling instinct that <a href="/post-premature-scaling">sinks otherwise healthy startups</a>: building for a stability you have not earned yet.</p>
+<h2>Where the little testing you do write should go</h2>
+<p>None of this means ship untested and hope. It means aim narrowly. Even in a product changing weekly, a few things are stable, expensive to get wrong, and worth guarding.</p>
+<h3>The parts that move money or lose data</h3>
+<p>Billing, payments, anything that charges a card or calculates what a customer owes. Authentication and the boundary that stops one customer seeing another&#39;s data. Anything that writes to a record you cannot recreate if it corrupts. These do not change shape every sprint the way your feature set does, and a bug here is not an annoyance, it is a refund, a breach, or a customer you never get back. Test these even when you test nothing else.</p>
+<h3>The bug that already bit you twice</h3>
+<p>The most efficient test you will ever write is the one that pins a bug that has now recurred. If something broke in production, you fixed it, and it came back, that is a piece of behavior stable and important enough to lock down. Let real incidents, not a coverage target, tell you where the tests belong. Your bug tracker is a better guide to what to test than any percentage.</p>
+<h3>The path every user takes</h3>
+<p>There is usually one flow the product cannot be broken on: sign up, get to the core action, come back. A handful of tests on that critical path catches the catastrophic break, the kind where the product is down for everyone and you find out from an angry email. That is worth a few tests. Exhaustively testing the settings page a tenth of users open is not, yet.</p>
+<h2>The sequence that actually pays off</h2>
+<p>The timing that works for the founders I advise is straightforward. Before product-market fit, keep automated testing deliberately minimal: guard money, data, security, and the one critical path, and let everything else be covered by using the product and watching real users. After product-market fit, when the product stabilizes enough that tests stop breaking every week, invest properly. A pre-Series-A team can automate roughly 80 percent of its regression scenarios in three to four weeks once the shape holds still. Do that same work six months earlier and you would have rewritten those tests three times over.</p>
+<p>The trap in the other direction is real too, so be honest about which stage you are in. If your product has stopped changing shape, if flows are stable and customers are relying on it, and you are still shipping with almost no tests because &quot;we are early,&quot; you are not early anymore. You are running a product people depend on without a safety net, and every manual deploy is a coin flip. That is a different failure, and the tell is that your bugs are now regressions, breaking things that used to work, rather than churn from features you are still figuring out. This is closely related to the question of <a href="/post-staging-environment-yet">whether you have outgrown deploying straight to production</a>: both are about noticing the moment your maturity has quietly changed.</p>
+<p>The skill is matching your testing investment to your stage, and the failure at either extreme is expensive. If you are genuinely unsure which side of that line your product is on, that read is one of the concrete things a fractional technical leader can give you quickly. Founders <a href="/book-a-call">book a call</a> for exactly this kind of &quot;are we investing in the right things for our stage&quot; gut check.</p>
+<h2>FAQ</h2>
+<h3>Isn&#39;t shipping with few tests just irresponsible?</h3>
+<p>Not before product-market fit, if you are deliberate about where the few tests go. Guarding payments, data integrity, security, and the core user path while leaving the churning feature set lightly tested is not recklessness, it is matching your effort to a product that is still changing shape. Irresponsible is heavy testing of code you are about to throw away, or no tests at all on the code that touches money.</p>
+<h3>When exactly should we invest in real test coverage?</h3>
+<p>When the product stops changing shape every few weeks and customers start depending on it, which usually coincides with finding product-market fit. That is when tests stop breaking constantly and start paying for themselves. A pre-Series-A team can automate most of its regression coverage in three to four weeks once the product is stable enough to make that work last.</p>
+<h3>What should we test if we only have time for a little?</h3>
+<p>The things that are stable and expensive to get wrong: anything that handles money, anything that protects one customer&#39;s data from another, anything that writes records you cannot recreate, and the single critical path every user follows. Add a test whenever a bug recurs. Let real incidents and money-touching code decide where your limited testing goes, not a coverage percentage.</p>
+<h3>Our product is stable now but we still barely test. Is that a problem?</h3>
+<p>Yes, and it is a sign your stage has changed. If flows have stopped shifting and customers rely on the product, you have crossed from &quot;early enough to skip tests&quot; into &quot;running without a safety net.&quot; The signal is that your bugs are now regressions rather than churn from unfinished features. That is the moment to make the testing investment you correctly deferred earlier.</p>
+
+    </div>
+    <div class="article-body">
+      <div class="author-card reveal">
+        <span class="ac-av">F</span>
+        <div>
+          <div class="ac-name">The founder of Fraction</div>
+          <div class="ac-bio">Built engineering teams from 2 to 30. Killed more bad rebuilds than I've greenlit. <a href="about.html" class="link-grow" style="font-size:0.96rem">More about me <span class="arrow">&rarr;</span></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" style="padding-top:clamp(32px,5vw,56px)">
+  <div class="wrap">
+    <div class="callout reveal" style="text-align:center">
+      <h3 style="margin-left:auto;margin-right:auto;max-width:22ch">Not sure the call you're about to make is the right one?</h3>
+      <p style="margin:0 auto 26px">That's exactly what a 20-minute fit call is for &mdash; or a two-week Teardown if you'd rather start with a written verdict.</p>
+      <div class="ph-cta" style="justify-content:center">
+        <a href="book-a-call.html" class="btn btn-accent">Book a fit call <span class="arrow">&rarr;</span></a>
+        <a href="teardown.html" class="link-grow" style="color:#fff">Start with a Teardown <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap-wide">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#14140F"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+        <p style="color:var(--grey-2); max-width:30ch; margin-top:18px; font-size:0.96rem; line-height:1.5">Senior technical leadership for founders who aren't ready for a full-time CTO — and shouldn't hire one yet.</p>
+      </div>
+      <div><h5>Service</h5><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="comparison.html">Fractional vs full-time</a></li><li><a href="teardown.html">The Tech Teardown</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="blog.html">Writing</a></li><li><a href="book-a-call.html">Book a call</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+      <div><h5>Start here</h5><ul><li><a href="book-a-call.html">Book a 20-min fit call</a></li><li><a href="teardown.html">Start with a Teardown</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Fraction · <a href="https://getfractioncto.com">getfractioncto.com</a> — no contract, no equity, cancel anytime.</span>
+      <span>Built on judgment, not hours.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="motion.js"></script>
+</body>
+</html>
