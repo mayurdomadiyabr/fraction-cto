@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Every tool you connect to your AI agent taxes every call — Fraction</title>
+  <meta name="description" content="Your agent loads every tool description on every call, before the question. How that tax shows up in your bill, latency, and error rate." />
+  <meta name="theme-color" content="#FAFAF9" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Fraction" />
+  <meta property="og:title" content="Every tool you connect to your AI agent taxes every call — Fraction" />
+  <meta property="og:description" content="Your agent loads every tool description on every call, before the question. How that tax shows up in your bill, latency, and error rate." />
+  <meta property="og:url" content="https://getfractioncto.com/post-ai-agent-tool-tax" />
+  <meta property="og:image" content="https://getfractioncto.com/og-image.png" />
+  <meta property="article:published_time" content="2026-07-17T15:29:29.279Z" />
+  <meta property="article:author" content="The founder of Fraction" />
+  <meta property="article:section" content="Pattern recognition" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Every tool you connect to your AI agent taxes every call — Fraction" />
+  <meta name="twitter:description" content="Your agent loads every tool description on every call, before the question. How that tax shows up in your bill, latency, and error rate." />
+  <meta name="twitter:image" content="https://getfractioncto.com/og-image.png" />
+  <link rel="canonical" href="https://getfractioncto.com/post-ai-agent-tool-tax" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script src="/analytics.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Every tool you connect to your AI agent taxes every call",
+  "description": "Your agent loads every tool description on every call, before the question. How that tax shows up in your bill, latency, and error rate.",
+  "datePublished": "2026-07-17T15:29:29.279Z",
+  "dateModified": "2026-07-17T15:29:29.279Z",
+  "author": {
+    "@type": "Person",
+    "name": "The founder of Fraction",
+    "url": "https://getfractioncto.com/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fraction",
+    "url": "https://getfractioncto.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://getfractioncto.com/og-image.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://getfractioncto.com/post-ai-agent-tool-tax"
+  },
+  "image": "https://getfractioncto.com/og-image.png",
+  "articleSection": "Pattern recognition",
+  "wordCount": 1777,
+  "inLanguage": "en",
+  "isAccessibleForFree": true
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home",   "item": "https://getfractioncto.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Writing","item": "https://getfractioncto.com/blog" },
+    { "@type": "ListItem", "position": 3, "name": "Every tool you connect to your AI agent taxes every call", "item": "https://getfractioncto.com/post-ai-agent-tool-tax" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Fraction home"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <ul class="nav-links">
+      <li><a href="how-it-works.html">How it works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="comparison.html">Compare</a></li>
+      <li><a href="blog.html" class="active">Writing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="teardown.html">The Teardown <span class="accent-dot"></span></a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke-linecap="round"/></svg></button>
+      <button class="icon-btn" aria-label="Toggle theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M21.5 12h-2.2M4.7 12H2.5M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6M18.4 18.4l-1.6-1.6M7.2 7.2 5.6 5.6" stroke-linecap="round"/></svg></button>
+      <a href="book-a-call.html" class="btn btn-primary nav-cta">Book a fit call</a>
+      <button class="icon-btn menu-btn" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu">
+  <div class="mm-top">
+    <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <button class="icon-btn menu-btn" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg></button>
+  </div>
+  <nav>
+    <a href="how-it-works.html">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="comparison.html">Compare</a>
+    <a href="blog.html">Writing</a>
+    <a href="about.html">About</a>
+    <a href="teardown.html">The Teardown</a>
+  </nav>
+  <div class="mm-cta">
+    <a href="teardown.html" class="btn btn-ghost">Start with a Teardown</a>
+    <a href="book-a-call.html" class="btn btn-primary">Book a 20-min fit call</a>
+  </div>
+</div>
+
+<main>
+<section class="page-hero center" style="padding-bottom:clamp(24px,4vw,40px)">
+  <div class="wrap">
+    <div class="article-hero">
+      <span class="post-cat">Pattern recognition</span>
+      <h1>Every tool you connect to your AI agent taxes every call</h1>
+      <div class="post-meta"><span>Jul 2026</span><span class="sep"></span><span>8 min read</span><span class="sep"></span><span>by The founder of Fraction</span></div>
+    </div>
+  </div>
+</section>
+<section class="section-tight" style="padding-top:8px">
+  <div class="wrap">
+    <div class="article-body reveal">
+<p>A founder showed me a chart of his AI product&#39;s inference bill climbing steadily over four months while active usage stayed almost flat. He assumed his model provider had quietly changed pricing. It had not. In those four months his team had wired the agent up to nine new tools: a calendar, a CRM, a document search API, an internal database, a few smaller ones. Every one of them was making every request more expensive, slower, and slightly worse, and nothing in his dashboard connected the two facts.</p>
+<p>Here is the short version. Most AI agents load the full description of every tool they can call into the model&#39;s context on every single request, before the user&#39;s question is even read. So each integration you add raises the cost and latency of all your other calls, and past a point it starts degrading answer quality too. The fix is not fewer features. It is loading only the tools a given request could plausibly need, and measuring what you spend before the first token comes back.</p>
+<h2>Why every tool rides along on every request</h2>
+<p>When you give an agent a tool, you are not just handing it a capability. You are handing the model a written description of that capability: the name, what it does, every parameter, the type of each parameter, and usually a sentence or two of guidance on when to use it. The model needs all of that in its context to decide whether and how to call the tool. That description is not free. It is tokens, and tokens are what you pay for and what the model has to read through on the way to an answer.</p>
+<p>The part founders miss is that this happens on the way in, not on the way out. The tool descriptions are loaded before the model has seen the user&#39;s message. So a request that ends up using zero tools still paid for all of them. A customer asking your agent a simple question that needs no calendar, no CRM, and no database still shipped the full manual for all three to the model, got billed for it, and waited a little longer while the model read past it.</p>
+<p>A single tool&#39;s schema can run anywhere from a couple hundred tokens for something trivial to well over a thousand for a rich one with nested parameters. String forty of those together and you can be loading tens of thousands of tokens of pure tool documentation before a single word of the actual conversation. That is the tax. It is charged per request, it scales with the number of tools you connect, and it is close to invisible unless you go looking for it.</p>
+<h2>The three bills nobody itemizes</h2>
+<p>The token cost is the obvious one, and it is real. If every call carries an extra fifteen or twenty thousand tokens of tool descriptions, and you are running hundreds of thousands of calls a month, that is a line item you can watch grow while your product does not. This is the same category of surprise I wrote about in <a href="/post-ai-feature-unit-economics">the AI feature whose unit economics quietly go negative</a>, except the cause is your own tool loadout rather than user behavior.</p>
+<p>The second bill is latency. Every token in the context is a token the model has to process. More tool descriptions means a longer prompt means a slower first response. Your users do not know why the agent feels sluggish. They just feel it.</p>
+<p>The third bill is the one that actually scares me, because it does not show up on any invoice: quality. Models do not attend to a huge context perfectly evenly. When the model has to choose among forty tools, many of them overlapping in purpose or vaguely described, it picks the wrong one more often. It calls the search API when it should have queried the database. The failure looks like the model getting dumber, and teams respond by upgrading to a more expensive model, when the real problem was that they buried the right tool under thirty-nine distractions. I have watched a team cut their error rate meaningfully by removing tools, which is a deeply counterintuitive fix until you understand what the context is doing.</p>
+<h2>The ten-minute audit I run</h2>
+<p>When an agent product feels slow, expensive, or unreliable and nobody can say why, the tool loadout is the first place I look. The audit is not complicated.</p>
+<p>Count the tools the agent loads on a typical request. Not the tools you have built. The tools that get loaded into context for an ordinary interaction. Teams are frequently surprised by this number, because tools accumulate and nobody ever removes them. This is the agent version of the <a href="/post-integration-sprawl">integration sprawl that nobody actually decided to build</a>.</p>
+<p>Then measure tokens before the first token out. Most model APIs report prompt tokens and completion tokens separately. Look at prompt tokens on a simple request that uses no tools at all. That number, minus your actual instructions and the user&#39;s message, is the tax you are paying on every single call for the privilege of having tools available that this request did not touch.</p>
+<p>Finally, look at how often each tool is actually called. Instrument it for a week. You will usually find that a handful of tools do almost all the work and a long tail of tools are called rarely or never. You are paying full freight on the long tail on every request, for close to nothing in return.</p>
+<h2>What to do about it, and what not to</h2>
+<p>The wrong response is to rip out features. You built those tools for a reason, and a smaller product is not the goal. The goal is to stop paying for all of them on every call.</p>
+<p>Load tools conditionally. The agent rarely needs every tool for every request. A support conversation and a scheduling conversation need different tools. Route the request first, then load only the relevant set. This alone can take a forty-tool context down to five or six for most calls, and it is the highest-leverage change available.</p>
+<p>Group and consolidate. If you have five nearly identical tools that each hit a different endpoint, you often have one tool with a parameter. Fewer, cleaner tool descriptions cost less and confuse the model less. Overlapping tools are the ones the model picks wrong.</p>
+<p>Consider a gateway if you are past a handful of integrations. There are now layers whose job is to sit between your agent and its tools and expose only what a given request needs, not the entire catalog. Past a real number of internal systems, it is worth an afternoon of evaluation.</p>
+<p>And measure it as a metric you actually watch. Tokens-before-first-output per request belongs on the same dashboard as your bill and your latency. It is the number that tells you the tax is creeping up before the invoice does. While you are in there, this is also the moment to confirm nobody wired in a <a href="/post-ai-agent-unvetted-tools">tool nobody vetted</a>, because tool sprawl and security sprawl tend to arrive together.</p>
+<h2>The pattern underneath</h2>
+<p>The thing to internalize is not &quot;connect fewer tools.&quot; It is that in an agent product, everything you make available to the model has a standing cost, paid on every request, whether or not that request uses it. Capability is not free just because you already built it. It sits in the context, it gets billed, it gets read, and past a certain density it makes the model worse at its job.</p>
+<p>This is one of those early architecture decisions that is cheap to get right at the start and annoying to unwind once a year of features has piled on. It rarely shows up as a crisis. It shows up as a bill that drifts up, a product that feels a half-second slower every month, and an error rate nobody can explain. If that is the shape of what you are seeing, the tool loadout is worth a look before you blame the model or the vendor.</p>
+<h2>FAQ</h2>
+<h3>Does this apply if I use a framework or a hosted agent platform?</h3>
+<p>Yes, and often more so, because the abstraction hides the tool loadout from you. Frameworks make it a one-line change to add a tool, which is exactly why teams accumulate so many. Ask your framework how many tokens of tool schema go into a typical call. If nobody knows, that is the finding.</p>
+<h3>Isn&#39;t this a rounding error compared to the actual generation cost?</h3>
+<p>Sometimes, early on. But it grows with two things at once: the number of tools you connect and the number of requests you serve. A cost that is a rounding error at a thousand calls a day with five tools is not a rounding error at half a million calls a month with forty. It scales in exactly the direction your product is trying to go.</p>
+<h3>How do I know if my quality problem is tool overload versus the model?</h3>
+<p>Instrument which tool the agent calls and check it against which tool it should have called on a sample of real requests. If the model is choosing wrong among similar or overlapping tools, that is a context problem you can fix by trimming and consolidating, not a model problem you fix by paying more.</p>
+<h3>We are pre-seed with one simple agent. Do I need to care yet?</h3>
+<p>Not urgently. With a handful of tools and modest volume this is not your problem this quarter. What is worth doing now is the one-line habit: know your prompt-token count on a no-tool request, and glance at it when you add integrations. The point of knowing early is that it stays cheap to fix. The teams that get surprised are the ones who never looked until the bill forced them to.</p>
+<h3>Is this the same thing as prompt engineering?</h3>
+<p>No. Prompt engineering is about the instructions you write. This is about the machinery that rides along with every request regardless of your instructions: the tool descriptions, and increasingly other context the agent carries. Getting the loadout right is closer to an architecture and cost decision than a writing one, which is why it tends to fall through the gap between whoever owns the prompt and whoever owns the bill.</p>
+<p>If your agent&#39;s cost or latency has been drifting and nobody can point at why, a <a href="/teardown">teardown</a> will usually find it in an afternoon, and you are welcome to <a href="/book-a-call">bring the numbers to a call</a> if you want a second read before you touch anything.</p>
+
+    </div>
+    <div class="article-body">
+      <div class="author-card reveal">
+        <span class="ac-av">F</span>
+        <div>
+          <div class="ac-name">The founder of Fraction</div>
+          <div class="ac-bio">Built engineering teams from 2 to 30. Killed more bad rebuilds than I've greenlit. <a href="about.html" class="link-grow" style="font-size:0.96rem">More about me <span class="arrow">&rarr;</span></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" style="padding-top:clamp(32px,5vw,56px)">
+  <div class="wrap">
+    <div class="callout reveal" style="text-align:center">
+      <h3 style="margin-left:auto;margin-right:auto;max-width:22ch">Not sure the call you're about to make is the right one?</h3>
+      <p style="margin:0 auto 26px">That's exactly what a 20-minute fit call is for &mdash; or a two-week Teardown if you'd rather start with a written verdict.</p>
+      <div class="ph-cta" style="justify-content:center">
+        <a href="book-a-call.html" class="btn btn-accent">Book a fit call <span class="arrow">&rarr;</span></a>
+        <a href="teardown.html" class="link-grow" style="color:#fff">Start with a Teardown <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap-wide">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#14140F"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+        <p style="color:var(--grey-2); max-width:30ch; margin-top:18px; font-size:0.96rem; line-height:1.5">Senior technical leadership for founders who aren't ready for a full-time CTO — and shouldn't hire one yet.</p>
+      </div>
+      <div><h5>Service</h5><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="comparison.html">Fractional vs full-time</a></li><li><a href="teardown.html">The Tech Teardown</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="blog.html">Writing</a></li><li><a href="book-a-call.html">Book a call</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+      <div><h5>Start here</h5><ul><li><a href="book-a-call.html">Book a 20-min fit call</a></li><li><a href="teardown.html">Start with a Teardown</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Fraction · <a href="https://getfractioncto.com">getfractioncto.com</a> — no contract, no equity, cancel anytime.</span>
+      <span>Built on judgment, not hours.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="motion.js"></script>
+</body>
+</html>
