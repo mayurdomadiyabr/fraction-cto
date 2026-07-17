@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Your AI agent is live and failing. Pull it or fix it in place? — Fraction</title>
+  <meta name="description" content="When your live AI agent misbehaves, decide fast: pull it back, shrink its scope, or patch it. Containment first, debugging second. Here is the order." />
+  <meta name="theme-color" content="#FAFAF9" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Fraction" />
+  <meta property="og:title" content="Your AI agent is live and failing. Pull it or fix it in place? — Fraction" />
+  <meta property="og:description" content="When your live AI agent misbehaves, decide fast: pull it back, shrink its scope, or patch it. Containment first, debugging second. Here is the order." />
+  <meta property="og:url" content="https://getfractioncto.com/post-pull-ai-agent-back" />
+  <meta property="og:image" content="https://getfractioncto.com/og-image.png" />
+  <meta property="article:published_time" content="2026-07-17T13:30:00.000Z" />
+  <meta property="article:author" content="The founder of Fraction" />
+  <meta property="article:section" content="Decisions" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Your AI agent is live and failing. Pull it or fix it in place? — Fraction" />
+  <meta name="twitter:description" content="When your live AI agent misbehaves, decide fast: pull it back, shrink its scope, or patch it. Containment first, debugging second. Here is the order." />
+  <meta name="twitter:image" content="https://getfractioncto.com/og-image.png" />
+  <link rel="canonical" href="https://getfractioncto.com/post-pull-ai-agent-back" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script src="/analytics.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Your AI agent is live and failing. Pull it or fix it in place?",
+  "description": "When your live AI agent misbehaves, decide fast: pull it back, shrink its scope, or patch it. Containment first, debugging second. Here is the order.",
+  "datePublished": "2026-07-17T13:30:00.000Z",
+  "dateModified": "2026-07-17T13:30:00.000Z",
+  "author": {
+    "@type": "Person",
+    "name": "The founder of Fraction",
+    "url": "https://getfractioncto.com/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fraction",
+    "url": "https://getfractioncto.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://getfractioncto.com/og-image.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://getfractioncto.com/post-pull-ai-agent-back"
+  },
+  "image": "https://getfractioncto.com/og-image.png",
+  "articleSection": "Decisions",
+  "wordCount": 1498,
+  "inLanguage": "en",
+  "isAccessibleForFree": true
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home",   "item": "https://getfractioncto.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Writing","item": "https://getfractioncto.com/blog" },
+    { "@type": "ListItem", "position": 3, "name": "Your AI agent is live and failing. Pull it or fix it in place?", "item": "https://getfractioncto.com/post-pull-ai-agent-back" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Fraction home"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <ul class="nav-links">
+      <li><a href="how-it-works.html">How it works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="comparison.html">Compare</a></li>
+      <li><a href="blog.html" class="active">Writing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="teardown.html">The Teardown <span class="accent-dot"></span></a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke-linecap="round"/></svg></button>
+      <button class="icon-btn" aria-label="Toggle theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M21.5 12h-2.2M4.7 12H2.5M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6M18.4 18.4l-1.6-1.6M7.2 7.2 5.6 5.6" stroke-linecap="round"/></svg></button>
+      <a href="book-a-call.html" class="btn btn-primary nav-cta">Book a fit call</a>
+      <button class="icon-btn menu-btn" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu">
+  <div class="mm-top">
+    <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <button class="icon-btn menu-btn" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg></button>
+  </div>
+  <nav>
+    <a href="how-it-works.html">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="comparison.html">Compare</a>
+    <a href="blog.html">Writing</a>
+    <a href="about.html">About</a>
+    <a href="teardown.html">The Teardown</a>
+  </nav>
+  <div class="mm-cta">
+    <a href="teardown.html" class="btn btn-ghost">Start with a Teardown</a>
+    <a href="book-a-call.html" class="btn btn-primary">Book a 20-min fit call</a>
+  </div>
+</div>
+
+<main>
+<section class="page-hero center" style="padding-bottom:clamp(24px,4vw,40px)">
+  <div class="wrap">
+    <div class="article-hero">
+      <span class="post-cat">Decisions</span>
+      <h1>Your AI agent is live and failing. Pull it or fix it in place?</h1>
+      <div class="post-meta"><span>Jul 2026</span><span class="sep"></span><span>7 min read</span><span class="sep"></span><span>by The founder of Fraction</span></div>
+    </div>
+  </div>
+</section>
+<section class="section-tight" style="padding-top:8px">
+  <div class="wrap">
+    <div class="article-body reveal">
+<p>If your live AI agent just took an action you can&#39;t explain, pull it back to a narrow, supervised mode first, then decide what to do next. You are not choosing between pull and patch. You pull first, because a wrong autonomous action keeps compounding while you debug, and only after it is contained do you decide whether to shrink its scope, patch it, or retire it. Founders get burned when they leave a misbehaving agent running because the fix feels close.</p>
+<p>I have watched more than one founder lose a week to this. The agent does something odd on a Tuesday, the team says &quot;we almost have it,&quot; and it keeps acting on real customer data until Friday. By then the cleanup costs more than the feature earned.</p>
+<h2>The decision is containment, not debugging</h2>
+<p>When an agent misbehaves, the instinct is to open the logs and find the bug. That is the wrong first move if the agent is still taking actions that touch customers, money, or data you can&#39;t easily reverse.</p>
+<p>Debugging is a calm activity. It assumes you have time. A live agent with write access does not give you time, because every minute it runs is another minute it can repeat the mistake at machine speed. The founder&#39;s first job is not to understand the failure. It is to stop the bleeding.</p>
+<p>So the real question on the table is narrower than &quot;what went wrong.&quot; It is: what is the smallest change that stops this agent from doing more harm, right now, that I can ship in the next ten minutes? Usually the answer is not a code fix. It is a scope cut, a kill switch, or a human put back in the loop. You debug after the agent can no longer surprise you.</p>
+<p>I wrote a companion piece on the version of this problem you should have solved before launch in <a href="/post-ai-agent-no-circuit-breaker">what stops an AI agent that can run all night</a>. This post is about the day you didn&#39;t.</p>
+<h2>Why live agents fail in ways the demo never did</h2>
+<p>The demo failed on quality. The bot gave a slightly wrong answer, you tuned the prompt, everyone clapped. That is the failure mode founders prepare for, and it is not the one that pulls agents back out of production.</p>
+<p>Live agents fail on operations. A token expires and the agent silently retries against the wrong account. One misread field triggers a downstream action, which triggers another, and now three systems disagree about the truth. The model was fine. The plumbing around it was not. This is why a founder who only stress-tested answer quality is unprepared for the actual incident, and I broke that gap down separately in <a href="/post-ai-agent-demo-to-production">your AI agent demo wowed the room, can it ship</a>.</p>
+<p>The practical consequence: you cannot judge whether to pull the agent by asking &quot;is the model good enough.&quot; The model is rarely the thing that failed. Ask instead: what real-world action did it take, can I reverse that action, and can I guarantee it won&#39;t take the action again in the next hour. If any of those answers is uncomfortable, pull it.</p>
+<h2>The three ways back</h2>
+<p>Once the agent is contained, you have three honest options. Most founders only consider the middle one.</p>
+<p><strong>Pull it fully.</strong> Turn the autonomous behavior off and route the work back to a human or a simple deterministic path. This feels like defeat. It is usually the cheapest option. A feature that is off is a feature that cannot cost you a customer while you think. You lose the demo shine; you keep the account.</p>
+<p><strong>Shrink the scope.</strong> Leave the agent running, but strip its authority. Let it draft instead of send. Let it flag instead of act. Cap it to one low-stakes segment of customers. This is the option that keeps the value while removing the blast radius, and it is the one teams reach for last because it means admitting the original scope was too wide. Scoping the agent down is the same discipline as scoping it up in the first place, which I covered in <a href="/post-ai-agent-access-scope">you gave your AI agents the keys, nobody scoped them</a>.</p>
+<p><strong>Retire it.</strong> Sometimes the incident is telling you the feature was a bad fit for an autonomous agent at all. If the task genuinely requires judgment you can&#39;t specify, and the cost of being wrong is high, the agent was always going to be a liability. Killing it is not a failure of engineering. It is a correct read of the risk.</p>
+<p>The mistake is treating &quot;patch it in place while it keeps running&quot; as the default. It is the riskiest of the four things you can do, and founders pick it because it is the only one that doesn&#39;t require admitting anything.</p>
+<h2>What supervised mode actually looks like</h2>
+<p>&quot;Put a human in the loop&quot; gets said a lot and built rarely. Concretely, supervised mode means the agent proposes and a person disposes, with three properties.</p>
+<p>First, the human sees the action before it happens, not a log of it after. A dashboard of what the agent already did is not supervision. It is a post-mortem generator.</p>
+<p>Second, approving is genuinely faster than doing the task by hand, or your team will quietly stop reading and rubber-stamp everything. If review is slower than the work, you have built theater, not a safeguard.</p>
+<p>Third, there is a clean path back to full autonomy that you control, so supervised mode is a temporary state with an exit, not a permanent tax. You want to be able to say &quot;the agent has run clean under supervision for 200 actions, we can widen it again&quot; as a deliberate decision, not drift back because someone got tired of clicking approve.</p>
+<p>If you cannot describe your supervised mode in those terms, you do not have one, and pulling the agent fully is the safer call.</p>
+<h2>Build the off switch before you need it</h2>
+<p>The founders who handle this well are not the ones with the best models. They are the ones who decided, before launch, who owns the agent when it breaks and how it gets stopped in one action.</p>
+<p>That is an ownership question as much as an engineering one. On a small team the person who built the agent is often heads-down on the next feature the day it fails. Someone has to own reliability as a job, not a chore squeezed between everything else. If nobody owns the off switch, the off switch does not get pulled, and the agent runs until a customer complains. This is the same reliability-versus-velocity trade I unpack in <a href="/post-feature-freeze-reliability">freeze features and fix reliability, or keep shipping</a>.</p>
+<p>You do not need a large team to do this. You need one person with the authority to pull a live feature and the mandate to build the controls that make pulling it a ten-minute, one-command operation instead of a war room. Deciding who that is, and what &quot;contained&quot; means for your product, is exactly the kind of call a fractional CTO earns their retainer on. If you are staring at a live agent you are afraid to turn off, that is a good reason to <a href="/book-a-call">book a call</a>, and a technical <a href="/teardown">teardown</a> will usually surface the missing off switch before your customers do.</p>
+<h2>FAQ</h2>
+<h3>How fast should I pull a misbehaving live agent?</h3>
+<p>If it has write access to customer data, money, or anything you can&#39;t cheaply reverse, pull or shrink it the moment you see a failure you can&#39;t explain. Do not wait for a root cause. Containment first, diagnosis second.</p>
+<h3>Isn&#39;t pulling the agent an overreaction to one bad action?</h3>
+<p>One visible bad action usually means several invisible ones, because agents act at machine speed and repeat. The single incident you saw is a sample, not the whole count. Pulling it lets you measure the real blast radius instead of guessing.</p>
+<h3>Can I just add a guardrail and keep it running?</h3>
+<p>Sometimes, if the guardrail is a hard constraint the agent cannot route around, not another prompt asking it nicely. A prompt is a suggestion. A code-level cap on what actions are even possible is a guardrail. If you can only add the former quickly, contain first.</p>
+<h3>Who should own the decision to pull an AI agent?</h3>
+<p>One named person with the authority to turn off a live feature without a meeting. On an early team that is often a fractional CTO or your most senior engineer. What matters is that the owner is decided before the incident, not chosen during it.</p>
+<h3>Does pulling it back mean the agent was a mistake?</h3>
+<p>No. It means autonomous scope should be earned back through evidence, not granted by default. Most durable agent features get narrowed after their first real incident and widened again once they have run clean under supervision. That loop is the normal path, not a sign of failure.</p>
+
+    </div>
+    <div class="article-body">
+      <div class="author-card reveal">
+        <span class="ac-av">F</span>
+        <div>
+          <div class="ac-name">The founder of Fraction</div>
+          <div class="ac-bio">Built engineering teams from 2 to 30. Killed more bad rebuilds than I've greenlit. <a href="about.html" class="link-grow" style="font-size:0.96rem">More about me <span class="arrow">&rarr;</span></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" style="padding-top:clamp(32px,5vw,56px)">
+  <div class="wrap">
+    <div class="callout reveal" style="text-align:center">
+      <h3 style="margin-left:auto;margin-right:auto;max-width:22ch">Not sure the call you're about to make is the right one?</h3>
+      <p style="margin:0 auto 26px">That's exactly what a 20-minute fit call is for &mdash; or a two-week Teardown if you'd rather start with a written verdict.</p>
+      <div class="ph-cta" style="justify-content:center">
+        <a href="book-a-call.html" class="btn btn-accent">Book a fit call <span class="arrow">&rarr;</span></a>
+        <a href="teardown.html" class="link-grow" style="color:#fff">Start with a Teardown <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap-wide">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#14140F"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+        <p style="color:var(--grey-2); max-width:30ch; margin-top:18px; font-size:0.96rem; line-height:1.5">Senior technical leadership for founders who aren't ready for a full-time CTO — and shouldn't hire one yet.</p>
+      </div>
+      <div><h5>Service</h5><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="comparison.html">Fractional vs full-time</a></li><li><a href="teardown.html">The Tech Teardown</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="blog.html">Writing</a></li><li><a href="book-a-call.html">Book a call</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+      <div><h5>Start here</h5><ul><li><a href="book-a-call.html">Book a 20-min fit call</a></li><li><a href="teardown.html">Start with a Teardown</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Fraction · <a href="https://getfractioncto.com">getfractioncto.com</a> — no contract, no equity, cancel anytime.</span>
+      <span>Built on judgment, not hours.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="motion.js"></script>
+</body>
+</html>
