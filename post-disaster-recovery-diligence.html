@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Your database dies at 2am. Can you get it back? — Fraction</title>
+  <meta name="description" content="Why disaster recovery is a diligence question, what RTO and RPO mean for a startup, and how to answer the recovery question without hand-waving." />
+  <meta name="theme-color" content="#FAFAF9" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Fraction" />
+  <meta property="og:title" content="Your database dies at 2am. Can you get it back? — Fraction" />
+  <meta property="og:description" content="Why disaster recovery is a diligence question, what RTO and RPO mean for a startup, and how to answer the recovery question without hand-waving." />
+  <meta property="og:url" content="https://getfractioncto.com/post-disaster-recovery-diligence" />
+  <meta property="og:image" content="https://getfractioncto.com/og-image.png" />
+  <meta property="article:published_time" content="2026-07-18T11:58:05.604Z" />
+  <meta property="article:author" content="The founder of Fraction" />
+  <meta property="article:section" content="Fundraising" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Your database dies at 2am. Can you get it back? — Fraction" />
+  <meta name="twitter:description" content="Why disaster recovery is a diligence question, what RTO and RPO mean for a startup, and how to answer the recovery question without hand-waving." />
+  <meta name="twitter:image" content="https://getfractioncto.com/og-image.png" />
+  <link rel="canonical" href="https://getfractioncto.com/post-disaster-recovery-diligence" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script src="/analytics.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Your database dies at 2am. Can you get it back?",
+  "description": "Why disaster recovery is a diligence question, what RTO and RPO mean for a startup, and how to answer the recovery question without hand-waving.",
+  "datePublished": "2026-07-18T11:58:05.604Z",
+  "dateModified": "2026-07-18T11:58:05.604Z",
+  "author": {
+    "@type": "Person",
+    "name": "The founder of Fraction",
+    "url": "https://getfractioncto.com/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fraction",
+    "url": "https://getfractioncto.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://getfractioncto.com/og-image.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://getfractioncto.com/post-disaster-recovery-diligence"
+  },
+  "image": "https://getfractioncto.com/og-image.png",
+  "articleSection": "Fundraising",
+  "wordCount": 1011,
+  "inLanguage": "en",
+  "isAccessibleForFree": true
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home",   "item": "https://getfractioncto.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Writing","item": "https://getfractioncto.com/blog" },
+    { "@type": "ListItem", "position": 3, "name": "Your database dies at 2am. Can you get it back?", "item": "https://getfractioncto.com/post-disaster-recovery-diligence" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Fraction home"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <ul class="nav-links">
+      <li><a href="how-it-works.html">How it works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="comparison.html">Compare</a></li>
+      <li><a href="blog.html" class="active">Writing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="teardown.html">The Teardown <span class="accent-dot"></span></a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke-linecap="round"/></svg></button>
+      <button class="icon-btn" aria-label="Toggle theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M21.5 12h-2.2M4.7 12H2.5M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6M18.4 18.4l-1.6-1.6M7.2 7.2 5.6 5.6" stroke-linecap="round"/></svg></button>
+      <a href="book-a-call.html" class="btn btn-primary nav-cta">Book a fit call</a>
+      <button class="icon-btn menu-btn" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu">
+  <div class="mm-top">
+    <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <button class="icon-btn menu-btn" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg></button>
+  </div>
+  <nav>
+    <a href="how-it-works.html">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="comparison.html">Compare</a>
+    <a href="blog.html">Writing</a>
+    <a href="about.html">About</a>
+    <a href="teardown.html">The Teardown</a>
+  </nav>
+  <div class="mm-cta">
+    <a href="teardown.html" class="btn btn-ghost">Start with a Teardown</a>
+    <a href="book-a-call.html" class="btn btn-primary">Book a 20-min fit call</a>
+  </div>
+</div>
+
+<main>
+<section class="page-hero center" style="padding-bottom:clamp(24px,4vw,40px)">
+  <div class="wrap">
+    <div class="article-hero">
+      <span class="post-cat">Fundraising</span>
+      <h1>Your database dies at 2am. Can you get it back?</h1>
+      <div class="post-meta"><span>Jul 2026</span><span class="sep"></span><span>5 min read</span><span class="sep"></span><span>by The founder of Fraction</span></div>
+    </div>
+  </div>
+</section>
+<section class="section-tight" style="padding-top:8px">
+  <div class="wrap">
+    <div class="article-body reveal">
+<p>Here is a question I ask founders that reliably changes the temperature of the room: if your primary database died right now, how long until you are back, and how much data would you lose. The confident answer is rare. The common one is some version of &quot;we have backups,&quot; said in a tone that tells me nobody has ever tried to restore one.</p>
+<p>That gap is exactly what a diligence reviewer is probing when they ask about disaster recovery. It is not a checkbox about whether backups exist. It is a test of whether you know your own failure modes and have a real, tested plan for the day something breaks. Vague answers about resilience and redundancy, with no numbers attached, are a signal a reviewer notices.</p>
+<h2>Two numbers you should be able to say out loud</h2>
+<p>Disaster recovery has a shared vocabulary, and using it correctly signals that you have actually thought about this.</p>
+<h3>RPO: how much data you can lose</h3>
+<p>Recovery point objective is the maximum amount of data, measured in time, you are willing to lose. If you back up every 24 hours, your RPO is 24 hours, which means a failure at the wrong moment costs you a full day of customer data. If that is unacceptable for your product, your backup frequency is wrong, and a reviewer will do that arithmetic in their head while you talk.</p>
+<h3>RTO: how long you can be down</h3>
+<p>Recovery time objective is the maximum acceptable downtime: how long from failure to back-in-business. An RTO of four hours and an RTO of four days require completely different infrastructure and completely different amounts of money. Naming yours, and showing that it matches what your customers actually tolerate, is the difference between a plan and a hope.</p>
+<p>The point is not to have aggressive numbers. A young startup with a 24-hour RPO and a one-day RTO can be completely reasonable. The point is to know them, to have chosen them on purpose, and to have proven you can actually hit them.</p>
+<h2>Backups you have never restored are not backups</h2>
+<p>The most expensive lesson in this area is that an untested backup is a guess. Backups fail silently: a job that has been erroring for months, a dump that is missing a table, a restore procedure nobody has run and that turns out to take eight hours the first time you try it under pressure. The 3-2-1 pattern, three copies of your data on two kinds of media with one off-site, is the baseline, but the copies only count if you have restored from them.</p>
+<p>Test restores on a schedule. Quarterly for anything critical is a reasonable early-stage bar. An automated restore check that boots your backup and confirms it is intact closes the gap between &quot;we have backups&quot; and &quot;we have recoverable backups,&quot; and those are very different sentences to say in a diligence call.</p>
+<h2>It is really a single-point-of-failure question</h2>
+<p>Disaster recovery is one instance of a larger question a reviewer is asking: where can one failure take the whole thing down. Map the dependencies. If your entire system lives in one cloud region with no plan for that region going dark, that is a single point of failure. If a critical piece of state exists in exactly one place with no replica, same problem. This connects directly to whether your architecture can <a href="/post-can-it-handle-10x">handle real growth</a>, because the same weak points that break under a failure often break under load too.</p>
+<p>The other single point of failure is human. If only one engineer knows how to run a restore, your recovery time in practice is however long it takes to reach that person, which on a bad night could be never. A recovery plan that depends on one unreachable human is the same <a href="/post-key-person-codebase-risk">key-person risk</a> in a different costume.</p>
+<h2>How to answer it in diligence</h2>
+<p>Have a one-page recovery plan in your data room before anyone asks. It states your RPO and RTO by workload, describes how backups run and where they live, records when you last tested a restore and how long it took, and names more than one person who can execute it. That page turns a scary open-ended question into a two-minute confident answer, and it is precisely the kind of artifact that keeps <a href="/post-technical-data-room">your technical data room</a> from being the empty half that stalls a review.</p>
+<p>If you cannot write that page today because you genuinely do not know the answers, that is worth fixing before a raise rather than discovering it live. Getting a startup to a tested, documented recovery story is a concrete piece of work, and if you want help sizing it, <a href="/book-a-call">book a call</a>.</p>
+<h2>FAQ</h2>
+<h3>What RPO and RTO should an early-stage startup target?</h3>
+<p>There is no universal number. Pick them from what your customers actually tolerate. A 24-hour RPO and a one-day RTO are fine for many early products. The mistake is not having loose targets, it is not knowing yours or never having tested whether you can hit them.</p>
+<h3>How often should I test a restore?</h3>
+<p>Quarterly for critical data is a defensible early-stage cadence, with automated integrity checks in between. The first real restore always takes longer than you expect, so you want to discover that in a test, not during an outage or a diligence call.</p>
+<h3>Is a managed database enough on its own?</h3>
+<p>It helps, because good managed providers handle replication and point-in-time recovery. But you still own the plan: you need to know the provider&#39;s RPO and RTO, confirm you can actually trigger a restore, and cover application state that lives outside the database. Managed reduces the work, it does not remove the responsibility.</p>
+<h3>Will a reviewer actually test my backups?</h3>
+<p>Rarely themselves, but they will ask when you last tested yours and how long it took. A specific answer with a date builds confidence. &quot;We have backups&quot; with no restore history is the answer that turns into a follow-up and a note in their report.</p>
+
+    </div>
+    <div class="article-body">
+      <div class="author-card reveal">
+        <span class="ac-av">F</span>
+        <div>
+          <div class="ac-name">The founder of Fraction</div>
+          <div class="ac-bio">Built engineering teams from 2 to 30. Killed more bad rebuilds than I've greenlit. <a href="about.html" class="link-grow" style="font-size:0.96rem">More about me <span class="arrow">&rarr;</span></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" style="padding-top:clamp(32px,5vw,56px)">
+  <div class="wrap">
+    <div class="callout reveal" style="text-align:center">
+      <h3 style="margin-left:auto;margin-right:auto;max-width:22ch">Not sure the call you're about to make is the right one?</h3>
+      <p style="margin:0 auto 26px">That's exactly what a 20-minute fit call is for &mdash; or a two-week Teardown if you'd rather start with a written verdict.</p>
+      <div class="ph-cta" style="justify-content:center">
+        <a href="book-a-call.html" class="btn btn-accent">Book a fit call <span class="arrow">&rarr;</span></a>
+        <a href="teardown.html" class="link-grow" style="color:#fff">Start with a Teardown <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap-wide">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#14140F"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+        <p style="color:var(--grey-2); max-width:30ch; margin-top:18px; font-size:0.96rem; line-height:1.5">Senior technical leadership for founders who aren't ready for a full-time CTO — and shouldn't hire one yet.</p>
+      </div>
+      <div><h5>Service</h5><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="comparison.html">Fractional vs full-time</a></li><li><a href="teardown.html">The Tech Teardown</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="blog.html">Writing</a></li><li><a href="book-a-call.html">Book a call</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+      <div><h5>Start here</h5><ul><li><a href="book-a-call.html">Book a 20-min fit call</a></li><li><a href="teardown.html">Start with a Teardown</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Fraction · <a href="https://getfractioncto.com">getfractioncto.com</a> — no contract, no equity, cancel anytime.</span>
+      <span>Built on judgment, not hours.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="motion.js"></script>
+</body>
+</html>
