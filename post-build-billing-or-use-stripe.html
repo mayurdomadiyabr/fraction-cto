@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Build your own billing, or let Stripe run it? — Fraction</title>
+  <meta name="description" content="Build billing yourself or let Stripe run subscriptions? When to buy, the narrow cases to build, and the maintenance cost each choice hides." />
+  <meta name="theme-color" content="#FAFAF9" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Fraction" />
+  <meta property="og:title" content="Build your own billing, or let Stripe run it? — Fraction" />
+  <meta property="og:description" content="Build billing yourself or let Stripe run subscriptions? When to buy, the narrow cases to build, and the maintenance cost each choice hides." />
+  <meta property="og:url" content="https://getfractioncto.com/post-build-billing-or-use-stripe" />
+  <meta property="og:image" content="https://getfractioncto.com/og-image.png" />
+  <meta property="article:published_time" content="2026-08-12T09:20:00.000Z" />
+  <meta property="article:author" content="The founder of Fraction" />
+  <meta property="article:section" content="Decisions" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Build your own billing, or let Stripe run it? — Fraction" />
+  <meta name="twitter:description" content="Build billing yourself or let Stripe run subscriptions? When to buy, the narrow cases to build, and the maintenance cost each choice hides." />
+  <meta name="twitter:image" content="https://getfractioncto.com/og-image.png" />
+  <link rel="canonical" href="https://getfractioncto.com/post-build-billing-or-use-stripe" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script src="/analytics.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Build your own billing, or let Stripe run it?",
+  "description": "Build billing yourself or let Stripe run subscriptions? When to buy, the narrow cases to build, and the maintenance cost each choice hides.",
+  "datePublished": "2026-08-12T09:20:00.000Z",
+  "dateModified": "2026-08-12T09:20:00.000Z",
+  "author": {
+    "@type": "Person",
+    "name": "The founder of Fraction",
+    "url": "https://getfractioncto.com/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fraction",
+    "url": "https://getfractioncto.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://getfractioncto.com/og-image.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://getfractioncto.com/post-build-billing-or-use-stripe"
+  },
+  "image": "https://getfractioncto.com/og-image.png",
+  "articleSection": "Decisions",
+  "wordCount": 1177,
+  "inLanguage": "en",
+  "isAccessibleForFree": true
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home",   "item": "https://getfractioncto.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Writing","item": "https://getfractioncto.com/blog" },
+    { "@type": "ListItem", "position": 3, "name": "Build your own billing, or let Stripe run it?", "item": "https://getfractioncto.com/post-build-billing-or-use-stripe" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Fraction home"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <ul class="nav-links">
+      <li><a href="how-it-works.html">How it works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="comparison.html">Compare</a></li>
+      <li><a href="blog.html" class="active">Writing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="teardown.html">The Teardown <span class="accent-dot"></span></a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke-linecap="round"/></svg></button>
+      <button class="icon-btn" aria-label="Toggle theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M21.5 12h-2.2M4.7 12H2.5M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6M18.4 18.4l-1.6-1.6M7.2 7.2 5.6 5.6" stroke-linecap="round"/></svg></button>
+      <a href="book-a-call.html" class="btn btn-primary nav-cta">Book a fit call</a>
+      <button class="icon-btn menu-btn" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu">
+  <div class="mm-top">
+    <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <button class="icon-btn menu-btn" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg></button>
+  </div>
+  <nav>
+    <a href="how-it-works.html">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="comparison.html">Compare</a>
+    <a href="blog.html">Writing</a>
+    <a href="about.html">About</a>
+    <a href="teardown.html">The Teardown</a>
+  </nav>
+  <div class="mm-cta">
+    <a href="teardown.html" class="btn btn-ghost">Start with a Teardown</a>
+    <a href="book-a-call.html" class="btn btn-primary">Book a 20-min fit call</a>
+  </div>
+</div>
+
+<main>
+<section class="page-hero center" style="padding-bottom:clamp(24px,4vw,40px)">
+  <div class="wrap">
+    <div class="article-hero">
+      <span class="post-cat">Decisions</span>
+      <h1>Build your own billing, or let Stripe run it?</h1>
+      <div class="post-meta"><span>Aug 2026</span><span class="sep"></span><span>5 min read</span><span class="sep"></span><span>by The founder of Fraction</span></div>
+    </div>
+  </div>
+</section>
+<section class="section-tight" style="padding-top:8px">
+  <div class="wrap">
+    <div class="article-body reveal">
+<p>An engineer looks at your subscription plans and says billing is core to the business, so the team should own it rather than rent it. It is a reasonable-sounding argument, and it is wrong far more often than it is right. Billing is not one feature. It is a dozen small features that all have to be correct on the day money moves, and most of them have nothing to do with what your product actually does.</p>
+<p>I have watched founders spend an engineer-quarter rebuilding what a payment processor already gives them for a fraction of a percent, then spend the next year maintaining it. Here is how I decide before anyone opens a pull request.</p>
+<h2>Why billing looks like a build and almost never is</h2>
+<p>The word &quot;billing&quot; hides how much surface area you are volunteering to own. Charge a card once and you are done. Charge it every month and you have signed up for proration when someone upgrades mid-cycle, dunning and retry logic when a card fails, invoices that have to be correct for accounting, tax calculation that changes by jurisdiction, refunds, credits, trial expiries, and a webhook pipeline that keeps all of it in sync with your own database. None of that is your product. All of it has to work.</p>
+<p>The failure card decides how much this matters. Roughly 5 to 15 percent of recurring charges fail on the first attempt, usually because a card expired or hit a limit, not because the customer left. A payment processor&#39;s dunning system quietly retries those on a smart schedule and recovers a large share of them. Rebuild billing yourself and you either rebuild that recovery logic too, or you silently churn paying customers you could have kept. That is revenue you lose to save on a percentage fee.</p>
+<p>Run the arithmetic on the fee itself. Stripe Billing sits on top of standard processing at roughly half a percent of recurring revenue. On 40,000 dollars a month of subscriptions that is about 200 dollars. A senior engineer-month, fully loaded, is 15,000 to 25,000 dollars, and a from-scratch billing system is rarely one month of work, plus it never stops needing attention. The buy side wins by an order of magnitude for almost every company under Series A. This is the same build-versus-buy math I walk through in <a href="/post-build-buy">the build, buy, or wait decision tree</a>, applied to the one system where a bug is measured in lost dollars, not lost time. It is the same reflex that makes <a href="/post-build-your-own-auth">building your own login instead of buying it</a> a bad trade.</p>
+<h2>The narrow cases where building is the right call</h2>
+<p>Buying the processor&#39;s billing does not mean you write zero billing code. It means you do not own the engine. The line moves when your pricing stops fitting what the processor models cleanly.</p>
+<p>Usage-based and hybrid pricing is the honest edge. If you charge per seat plus per API call plus overage, with prepaid credits that draw down and ramp deals that step up over 12 months, you will end up writing metering and rating logic on top of whatever the processor gives you. The processor still moves the money and stores the card; you own the layer that decides how much to charge. That is not building billing from scratch, and you should resist the version of this project that becomes exactly that.</p>
+<p>The other real case is a marketplace that splits a payment across multiple parties, or contracts complex enough that finance needs custom invoice logic and revenue recognition the standard tools will not produce. Even here, the right shape is almost never a homegrown card vault. Storing and securing card data yourself pulls you into PCI scope that costs more than any fee you were trying to avoid.</p>
+<h2>The hybrid nobody names: buy the engine, own the policy</h2>
+<p>Most of the pain comes from framing this as build or buy, one or the other. The durable answer is a seam. Let the processor own the parts that are commodity and dangerous to get wrong: the card vault, the charge, the retries, the tax and invoice primitives. You own the thin policy layer above it that is genuinely yours, such as which plan maps to which features, how a usage event turns into a charge, and what happens at the boundary of a trial.</p>
+<p>Drawing that seam well is what keeps you from repricing your whole stack later. Most startups do eventually outgrow the simplest tier of a billing tool. The ones who migrate cleanly are the ones who kept their own pricing logic separate from the vendor&#39;s plumbing from the start.</p>
+<h2>How to decide in an afternoon</h2>
+<p>You do not need a design doc. Answer four questions. First, does your pricing fit one plan, one cycle, one invoice, in the currencies you actually sell in? If yes, buy it and move on. Second, is subscription revenue central to the business, or a side of it? Central means lean harder on a proven system, not less. Third, if you build, who maintains the retry, tax, and invoice logic in eighteen months when the person who wrote it has moved on? Fourth, what does a billing bug cost you, in refunds, in trust, and in a finance team that no longer trusts the numbers?</p>
+<p>The honest failure I see most is a team that built billing to feel in control, then spent a year debugging proration and dunning instead of building the product customers pay for. Own the pricing policy that is yours. Rent the money-moving machinery that is not. If you are staring at a homegrown billing project and cannot tell which side of that line it falls on, that is a thirty-minute conversation worth having before the sprint starts, and it is exactly what a <a href="/book-a-call">call before you commit</a> is for.</p>
+<h2>FAQ</h2>
+<h3>Is a payment processor&#39;s billing enough for usage-based pricing?</h3>
+<p>For simple metered pricing, yes. The tools model per-unit and tiered usage well. The moment you stack prepaid credits, add-ons, and negotiated enterprise ramps, you will write rating logic on top. That is normal. Keep that logic in your codebase and let the processor move the money.</p>
+<h3>Will I get locked in if I buy billing?</h3>
+<p>Some, but less than people fear if you keep your pricing definitions in your own system rather than encoding them entirely in the vendor. The card data and money movement are the hard parts to migrate, and you would not want to own those anyway. Plan the seam and a later switch stays a project, not a rewrite.</p>
+<h3>My engineer wants to build it to save the fee. How do I push back?</h3>
+<p>Ask for the total cost, not the fee. Add the build weeks, the ongoing maintenance, the dunning recovery you would have to rebuild, and the PCI exposure of touching card data. Put that next to half a percent of recurring revenue. If the numbers still favor building, it is a real edge case. Usually they do not.</p>
+
+    </div>
+    <div class="article-body">
+      <div class="author-card reveal">
+        <span class="ac-av">F</span>
+        <div>
+          <div class="ac-name">The founder of Fraction</div>
+          <div class="ac-bio">Built engineering teams from 2 to 30. Killed more bad rebuilds than I've greenlit. <a href="about.html" class="link-grow" style="font-size:0.96rem">More about me <span class="arrow">&rarr;</span></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" style="padding-top:clamp(32px,5vw,56px)">
+  <div class="wrap">
+    <div class="callout reveal" style="text-align:center">
+      <h3 style="margin-left:auto;margin-right:auto;max-width:22ch">Not sure the call you're about to make is the right one?</h3>
+      <p style="margin:0 auto 26px">That's exactly what a 20-minute fit call is for &mdash; or a two-week Teardown if you'd rather start with a written verdict.</p>
+      <div class="ph-cta" style="justify-content:center">
+        <a href="book-a-call.html" class="btn btn-accent">Book a fit call <span class="arrow">&rarr;</span></a>
+        <a href="teardown.html" class="link-grow" style="color:#fff">Start with a Teardown <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap-wide">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#14140F"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+        <p style="color:var(--grey-2); max-width:30ch; margin-top:18px; font-size:0.96rem; line-height:1.5">Senior technical leadership for founders who aren't ready for a full-time CTO — and shouldn't hire one yet.</p>
+      </div>
+      <div><h5>Service</h5><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="comparison.html">Fractional vs full-time</a></li><li><a href="teardown.html">The Tech Teardown</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="blog.html">Writing</a></li><li><a href="book-a-call.html">Book a call</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+      <div><h5>Start here</h5><ul><li><a href="book-a-call.html">Book a 20-min fit call</a></li><li><a href="teardown.html">Start with a Teardown</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Fraction · <a href="https://getfractioncto.com">getfractioncto.com</a> — no contract, no equity, cancel anytime.</span>
+      <span>Built on judgment, not hours.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="motion.js"></script>
+</body>
+</html>

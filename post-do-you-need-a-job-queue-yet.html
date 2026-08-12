@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Do you need a job queue yet, or will cron do? — Fraction</title>
+  <meta name="description" content="Do you need a background job queue yet, or is a cron enough? The trigger that says it is time, and the operational cost a queue adds." />
+  <meta name="theme-color" content="#FAFAF9" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Fraction" />
+  <meta property="og:title" content="Do you need a job queue yet, or will cron do? — Fraction" />
+  <meta property="og:description" content="Do you need a background job queue yet, or is a cron enough? The trigger that says it is time, and the operational cost a queue adds." />
+  <meta property="og:url" content="https://getfractioncto.com/post-do-you-need-a-job-queue-yet" />
+  <meta property="og:image" content="https://getfractioncto.com/og-image.png" />
+  <meta property="article:published_time" content="2026-08-12T09:20:00.000Z" />
+  <meta property="article:author" content="The founder of Fraction" />
+  <meta property="article:section" content="Decisions" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Do you need a job queue yet, or will cron do? — Fraction" />
+  <meta name="twitter:description" content="Do you need a background job queue yet, or is a cron enough? The trigger that says it is time, and the operational cost a queue adds." />
+  <meta name="twitter:image" content="https://getfractioncto.com/og-image.png" />
+  <link rel="canonical" href="https://getfractioncto.com/post-do-you-need-a-job-queue-yet" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script src="/analytics.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Do you need a job queue yet, or will cron do?",
+  "description": "Do you need a background job queue yet, or is a cron enough? The trigger that says it is time, and the operational cost a queue adds.",
+  "datePublished": "2026-08-12T09:20:00.000Z",
+  "dateModified": "2026-08-12T09:20:00.000Z",
+  "author": {
+    "@type": "Person",
+    "name": "The founder of Fraction",
+    "url": "https://getfractioncto.com/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fraction",
+    "url": "https://getfractioncto.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://getfractioncto.com/og-image.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://getfractioncto.com/post-do-you-need-a-job-queue-yet"
+  },
+  "image": "https://getfractioncto.com/og-image.png",
+  "articleSection": "Decisions",
+  "wordCount": 1134,
+  "inLanguage": "en",
+  "isAccessibleForFree": true
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home",   "item": "https://getfractioncto.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Writing","item": "https://getfractioncto.com/blog" },
+    { "@type": "ListItem", "position": 3, "name": "Do you need a job queue yet, or will cron do?", "item": "https://getfractioncto.com/post-do-you-need-a-job-queue-yet" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Fraction home"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <ul class="nav-links">
+      <li><a href="how-it-works.html">How it works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="comparison.html">Compare</a></li>
+      <li><a href="blog.html" class="active">Writing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="teardown.html">The Teardown <span class="accent-dot"></span></a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke-linecap="round"/></svg></button>
+      <button class="icon-btn" aria-label="Toggle theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M21.5 12h-2.2M4.7 12H2.5M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6M18.4 18.4l-1.6-1.6M7.2 7.2 5.6 5.6" stroke-linecap="round"/></svg></button>
+      <a href="book-a-call.html" class="btn btn-primary nav-cta">Book a fit call</a>
+      <button class="icon-btn menu-btn" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu">
+  <div class="mm-top">
+    <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <button class="icon-btn menu-btn" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg></button>
+  </div>
+  <nav>
+    <a href="how-it-works.html">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="comparison.html">Compare</a>
+    <a href="blog.html">Writing</a>
+    <a href="about.html">About</a>
+    <a href="teardown.html">The Teardown</a>
+  </nav>
+  <div class="mm-cta">
+    <a href="teardown.html" class="btn btn-ghost">Start with a Teardown</a>
+    <a href="book-a-call.html" class="btn btn-primary">Book a 20-min fit call</a>
+  </div>
+</div>
+
+<main>
+<section class="page-hero center" style="padding-bottom:clamp(24px,4vw,40px)">
+  <div class="wrap">
+    <div class="article-hero">
+      <span class="post-cat">Decisions</span>
+      <h1>Do you need a job queue yet, or will cron do?</h1>
+      <div class="post-meta"><span>Aug 2026</span><span class="sep"></span><span>5 min read</span><span class="sep"></span><span>by The founder of Fraction</span></div>
+    </div>
+  </div>
+</section>
+<section class="section-tight" style="padding-top:8px">
+  <div class="wrap">
+    <div class="article-body reveal">
+<p>An engineer wants to add a job queue. The pitch sounds mature: background workers, retries, a proper message broker. What it actually adds is a Redis instance, a worker process to keep alive, and a broker to configure and monitor, all of which someone now operates at 2am when it breaks. Sometimes that cost is worth paying. Often the humble cron job you already have is the right tool for another year.</p>
+<p>The mistake is treating a queue as a sign of seriousness rather than a response to a specific problem. Here is how I tell which one you actually have.</p>
+<h2>Start with cron, and do not apologize for it</h2>
+<p>For scheduled work in a single process with low stakes, a cron is not a shortcut. It is the correct design. A nightly cleanup of expired sessions, a weekly digest email, an hourly cache refresh: these have a visible schedule, a predictable trigger, and no moving parts to keep alive. There is no worker to monitor, no broker to configure, and no new infrastructure bill.</p>
+<p>The reason this matters is that every piece of infrastructure you add is something you operate forever. A queue is not free once you install it. It is a service that can fall behind, lose messages if misconfigured, and page you when the worker dies. Adding it for work a cron handles fine is the same premature-optimization reflex I described in <a href="/post-premature-scaling">scaling infrastructure you do not need yet</a>, just wearing a different costume. The question is never whether a queue is more powerful. It is whether your problem needs that power today.</p>
+<p>Most early products are lighter than their engineers assume. If the total volume of background work is a few thousand jobs a day and nothing is latency-critical, a cron and a simple database-backed task table will carry you a long way.</p>
+<h2>The trigger that means cron has run out of road</h2>
+<p>Cron breaks in specific, recognizable ways, and the reach for a queue is right when you hit them, not before.</p>
+<p>The first is overlap. A cron fires on a clock, so if a job takes longer than the gap between runs, the next run starts while the last one is still going. A five-minute cron running a seven-minute job will pile instances on top of each other until something falls over. If you are adding locks and &quot;is it already running&quot; checks to a cron, you have outgrown it.</p>
+<p>The second is retries. Cron has no memory. If a scheduled job fails halfway through, it does not retry the failed part; it just runs again on the next tick and hopes. For work where a failure needs to be caught, retried with backoff, and eventually parked in a dead-letter place a human can inspect, you want a queue that tracks each job&#39;s state. Bolting retry semantics onto a cron by hand is how you rebuild a worse queue accidentally.</p>
+<p>The third, and the clearest, is event-driven work triggered by a user or a webhook rather than a clock. When a payment webhook fires and you need to create an order, update a CRM, and send a confirmation email, any one of those steps can fail independently, and you are probably running more than one app instance. That combination, work triggered by an event, needing per-step retries and deduplication, running across multiple processes, is what a queue is built for. A cron cannot express it cleanly.</p>
+<p>The fastest way to sort a task is to name its trigger. Time-based work usually starts life as a cron. Request-driven or event-driven work that must not be lost usually starts life as a queue. Most teams have a mix, and the honest move is to keep the cron for the clock work and introduce a queue only for the event work that has earned it.</p>
+<h2>The middle step people skip</h2>
+<p>The jump is not cron straight to Redis and a fleet of workers. If you are already running Postgres, a database-backed queue, where jobs are rows and a worker polls for them, gives you retries, visibility, and deduplication with no new infrastructure to run. For modest volume it is often all you need, and you can see the backlog with a query instead of a dashboard. Reach for a dedicated broker when the volume or the concurrency genuinely exceeds what a database poll handles, not as the default first move. This is the same buy-what-you-need discipline as <a href="/post-build-buy">the build, buy, or wait decision tree</a>: match the tool to the load in front of you.</p>
+<h2>How to decide without a meeting</h2>
+<p>Ask four things about the work in question. Is it triggered by a clock or by an event? Does a failure need to be retried and inspected, or is running again next tick good enough? Can two runs safely overlap, or do you need exactly-once behavior? And what is the real volume, in jobs per minute, not jobs you imagine at scale?</p>
+<p>If the answers are clock, good-enough, safe-to-overlap, and low volume, keep the cron and spend the week on the product. If they are event, must-retry, must-not-overlap, and rising volume, a queue is a clean win, and start with the database-backed version before you stand up a broker. The honest failure I see most is a team that installed a full queue for three nightly jobs, then spent months operating infrastructure that a ten-line cron would have handled. Add the moving part when the problem demands it, not to look ready. If you are unsure which side of that line your workload falls on, that is a short call worth having before you provision anything, which is what a <a href="/book-a-call">technical gut-check call</a> is for.</p>
+<h2>FAQ</h2>
+<h3>Can I just run background jobs inside my web process?</h3>
+<p>For very light work, yes, but it couples your request latency to your background work and dies with the web process on a deploy. A cron or a small worker separates them without much added complexity. Move to a real queue when the work needs retries or must survive a restart.</p>
+<h3>Is a database-backed queue a real queue?</h3>
+<p>For most early-stage volume, yes. Jobs as rows with a status column, a worker that claims and processes them, and retry-on-failure logic covers a surprising amount. You give up some throughput and some fancy features, and you gain one fewer piece of infrastructure to run. Graduate to a dedicated broker when the volume or concurrency outgrows the database.</p>
+<h3>How do I know I have outgrown cron?</h3>
+<p>You are writing locks to stop overlapping runs, adding hand-rolled retry logic, or trying to react to user events on a schedule instead of on the event. Any one of those is the signal. Until then, the cron is doing its job.</p>
+
+    </div>
+    <div class="article-body">
+      <div class="author-card reveal">
+        <span class="ac-av">F</span>
+        <div>
+          <div class="ac-name">The founder of Fraction</div>
+          <div class="ac-bio">Built engineering teams from 2 to 30. Killed more bad rebuilds than I've greenlit. <a href="about.html" class="link-grow" style="font-size:0.96rem">More about me <span class="arrow">&rarr;</span></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" style="padding-top:clamp(32px,5vw,56px)">
+  <div class="wrap">
+    <div class="callout reveal" style="text-align:center">
+      <h3 style="margin-left:auto;margin-right:auto;max-width:22ch">Not sure the call you're about to make is the right one?</h3>
+      <p style="margin:0 auto 26px">That's exactly what a 20-minute fit call is for &mdash; or a two-week Teardown if you'd rather start with a written verdict.</p>
+      <div class="ph-cta" style="justify-content:center">
+        <a href="book-a-call.html" class="btn btn-accent">Book a fit call <span class="arrow">&rarr;</span></a>
+        <a href="teardown.html" class="link-grow" style="color:#fff">Start with a Teardown <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap-wide">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#14140F"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+        <p style="color:var(--grey-2); max-width:30ch; margin-top:18px; font-size:0.96rem; line-height:1.5">Senior technical leadership for founders who aren't ready for a full-time CTO — and shouldn't hire one yet.</p>
+      </div>
+      <div><h5>Service</h5><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="comparison.html">Fractional vs full-time</a></li><li><a href="teardown.html">The Tech Teardown</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="blog.html">Writing</a></li><li><a href="book-a-call.html">Book a call</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+      <div><h5>Start here</h5><ul><li><a href="book-a-call.html">Book a 20-min fit call</a></li><li><a href="teardown.html">Start with a Teardown</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Fraction · <a href="https://getfractioncto.com">getfractioncto.com</a> — no contract, no equity, cancel anytime.</span>
+      <span>Built on judgment, not hours.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="motion.js"></script>
+</body>
+</html>
