@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Your agency won&#39;t give you the code while they build — Fraction</title>
+  <meta name="description" content="Why you should have commit-level access to your codebase from day one of an agency build, what the lack of it hides, and how to insist on it." />
+  <meta name="theme-color" content="#FAFAF9" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Fraction" />
+  <meta property="og:title" content="Your agency won&#39;t give you the code while they build — Fraction" />
+  <meta property="og:description" content="Why you should have commit-level access to your codebase from day one of an agency build, what the lack of it hides, and how to insist on it." />
+  <meta property="og:url" content="https://getfractioncto.com/post-agency-repo-access-during-build" />
+  <meta property="og:image" content="https://getfractioncto.com/og-image.png" />
+  <meta property="article:published_time" content="2026-08-14T09:15:00.000Z" />
+  <meta property="article:author" content="The founder of Fraction" />
+  <meta property="article:section" content="Vendors" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Your agency won&#39;t give you the code while they build — Fraction" />
+  <meta name="twitter:description" content="Why you should have commit-level access to your codebase from day one of an agency build, what the lack of it hides, and how to insist on it." />
+  <meta name="twitter:image" content="https://getfractioncto.com/og-image.png" />
+  <link rel="canonical" href="https://getfractioncto.com/post-agency-repo-access-during-build" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script src="/analytics.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Your agency won&#39;t give you the code while they build",
+  "description": "Why you should have commit-level access to your codebase from day one of an agency build, what the lack of it hides, and how to insist on it.",
+  "datePublished": "2026-08-14T09:15:00.000Z",
+  "dateModified": "2026-08-14T09:15:00.000Z",
+  "author": {
+    "@type": "Person",
+    "name": "The founder of Fraction",
+    "url": "https://getfractioncto.com/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fraction",
+    "url": "https://getfractioncto.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://getfractioncto.com/og-image.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://getfractioncto.com/post-agency-repo-access-during-build"
+  },
+  "image": "https://getfractioncto.com/og-image.png",
+  "articleSection": "Vendors",
+  "wordCount": 1139,
+  "inLanguage": "en",
+  "isAccessibleForFree": true
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home",   "item": "https://getfractioncto.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Writing","item": "https://getfractioncto.com/blog" },
+    { "@type": "ListItem", "position": 3, "name": "Your agency won&#39;t give you the code while they build", "item": "https://getfractioncto.com/post-agency-repo-access-during-build" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Fraction home"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <ul class="nav-links">
+      <li><a href="how-it-works.html">How it works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="comparison.html">Compare</a></li>
+      <li><a href="blog.html" class="active">Writing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="teardown.html">The Teardown <span class="accent-dot"></span></a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke-linecap="round"/></svg></button>
+      <button class="icon-btn" aria-label="Toggle theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M21.5 12h-2.2M4.7 12H2.5M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6M18.4 18.4l-1.6-1.6M7.2 7.2 5.6 5.6" stroke-linecap="round"/></svg></button>
+      <a href="book-a-call.html" class="btn btn-primary nav-cta">Book a fit call</a>
+      <button class="icon-btn menu-btn" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu">
+  <div class="mm-top">
+    <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <button class="icon-btn menu-btn" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg></button>
+  </div>
+  <nav>
+    <a href="how-it-works.html">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="comparison.html">Compare</a>
+    <a href="blog.html">Writing</a>
+    <a href="about.html">About</a>
+    <a href="teardown.html">The Teardown</a>
+  </nav>
+  <div class="mm-cta">
+    <a href="teardown.html" class="btn btn-ghost">Start with a Teardown</a>
+    <a href="book-a-call.html" class="btn btn-primary">Book a 20-min fit call</a>
+  </div>
+</div>
+
+<main>
+<section class="page-hero center" style="padding-bottom:clamp(24px,4vw,40px)">
+  <div class="wrap">
+    <div class="article-hero">
+      <span class="post-cat">Vendors</span>
+      <h1>Your agency won&#39;t give you the code while they build</h1>
+      <div class="post-meta"><span>Aug 2026</span><span class="sep"></span><span>5 min read</span><span class="sep"></span><span>by The founder of Fraction</span></div>
+    </div>
+  </div>
+</section>
+<section class="section-tight" style="padding-top:8px">
+  <div class="wrap">
+    <div class="article-body reveal">
+<p>A founder tells me the build is going well. Three months in, a large deposit paid, weekly demos that look promising. I ask a simple question: can you log into the repository right now and see the code? There is a pause. No. The agency shows them progress in demos, but the actual codebase lives in the agency&#39;s accounts, and the founder has never had access to it. That gap sounds like a formality. It is not. It is where the two most expensive agency failures hide, and both of them are invisible from a demo.</p>
+<p>You should have read access to your codebase from the first week, and ownership of the repository from the first commit. Not at handoff. Not when the invoice clears. From the start. An agency that resists this is either disorganized or is keeping something a demo cannot show you, and neither is a reason to wait.</p>
+<h2>A demo shows you the surface. The repo shows you the truth</h2>
+<p>A demo is a performance. It shows the happy path, on the agency&#39;s schedule, framed to look finished. It cannot show you whether the code behind it is maintainable, whether tests exist, whether the git history reflects steady work or a panic the night before, or whether a real team is building your product or a subcontractor you were never told about. All of those live in the repository, and all of them are things you are paying for whether or not you can see them.</p>
+<p>The subcontracting case is the one I have watched burn founders hardest. You hire a shop, and the commits are authored by names you do not recognize, working from time zones the agency never mentioned, because the work was quietly passed to a cheaper third party. From a demo you would never know. From the commit history you would know in five minutes. I wrote about how that arrangement stays hidden in <a href="/post-agency-subcontracting">your agency subcontracted your product and you would not know</a>, and the single thing that exposes it is exactly the access you are being denied.</p>
+<p>The other case is slower and just as costly. Steady, reassuring demos can sit on top of a codebase that is quietly rotting, and the gap between how done a product looks and how done it actually is only reveals itself when you finally get the keys. That is the same illusion I described in <a href="/post-agency-status-report-theater">your agency sends busy status reports, but is anything shipping</a>. Demos and status reports are what an agency chooses to show you. The repository is what is actually there.</p>
+<h2>What real-time access protects that a handoff does not</h2>
+<p>The common counterargument is that you will get everything at the end, so why fight for it during the build. Because at the end the leverage is gone and the damage is done. Access during the build is not about reading code you cannot evaluate. It is about four protections that only work if they happen continuously.</p>
+<p>It protects continuity, because if code lands in your repository every week, then the day the relationship ends, for any reason, you already have everything, and a handoff is a formality rather than a negotiation. That is the difference between a clean exit and the scramble I described in <a href="/post-agency-handoff-plan">can your team take over the code when the agency is done</a>. It protects against lock-in, because a codebase that lives only in the agency&#39;s accounts is leverage they hold over you, and a billing dispute becomes a hostage situation over your own product. It lets an independent engineer glance at the work while it is being built, when problems are cheap to fix, instead of after launch when they are not. And it keeps the agency honest, because people build differently when they know the actual code, not just the demo, is being watched.</p>
+<h2>How to insist on it without wrecking the relationship</h2>
+<p>You do not need to micromanage commits to get the protection. You need ownership and visibility, and you can ask for both without implying distrust. Own the accounts from day one. The version control organization, the cloud hosting, and the domain should be created under your company&#39;s ownership, with the agency added as collaborators, not the other way around. This is cheap to do at the start and painful to unwind later, and it is the operational side of the ownership problem I covered in <a href="/post-who-owns-your-code">you paid for the code, you might not own it</a>.</p>
+<p>Require that work lands in your repository continuously, not in a private one that gets transferred at the end. Ask for read access for yourself and for any technical advisor you bring in. Frame it plainly: this is standard practice, it protects both sides, and a professional shop expects it. The reaction tells you a great deal. A confident, well-run agency says yes without friction because they have nothing to hide and they would rather you own the accounts anyway. Resistance, stalling, or a lecture about how it is easier for everyone if they hold the keys is itself the finding. The agencies most reluctant to let you see the code during the build are, in my experience, the ones you most need to be able to see. If you are being kept at demo distance and are not sure how hard to push, that is worth a short conversation before you pay the next milestone, which is what a <a href="/book-a-call">call before your next milestone</a> is for.</p>
+<h2>FAQ</h2>
+<h3>Isn&#39;t it normal for an agency to hold the code until final payment?</h3>
+<p>It is common, but common is not the same as good, and it is not in your interest. IP assignment tied to full payment is reasonable. Withholding all visibility and account ownership during the build is a different thing, and it converts a payment dispute into a situation where the agency controls your product. Own the accounts from the start and tie the legal assignment to payment separately.</p>
+<h3>I can&#39;t read code. What good is repository access to me?</h3>
+<p>You do not have to read it to benefit. Access lets a technical advisor review the work while fixes are cheap, ensures you already hold everything if the relationship ends, and lets anyone check whether the commit authors match the team you hired. The value is ownership and the option to have someone look, not you personally reading every line.</p>
+<h3>What is the single most important thing to own from day one?</h3>
+<p>The accounts. Create the version control organization, the cloud hosting, and the domain under your own company and add the agency as collaborators. Doing this on day one costs nothing. Reversing it after a build is done under the agency&#39;s accounts is slow, undignified, and occasionally leaves you negotiating for access to your own product.</p>
+
+    </div>
+    <div class="article-body">
+      <div class="author-card reveal">
+        <span class="ac-av">F</span>
+        <div>
+          <div class="ac-name">The founder of Fraction</div>
+          <div class="ac-bio">Built engineering teams from 2 to 30. Killed more bad rebuilds than I've greenlit. <a href="about.html" class="link-grow" style="font-size:0.96rem">More about me <span class="arrow">&rarr;</span></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" style="padding-top:clamp(32px,5vw,56px)">
+  <div class="wrap">
+    <div class="callout reveal" style="text-align:center">
+      <h3 style="margin-left:auto;margin-right:auto;max-width:22ch">Not sure the call you're about to make is the right one?</h3>
+      <p style="margin:0 auto 26px">That's exactly what a 20-minute fit call is for &mdash; or a two-week Teardown if you'd rather start with a written verdict.</p>
+      <div class="ph-cta" style="justify-content:center">
+        <a href="book-a-call.html" class="btn btn-accent">Book a fit call <span class="arrow">&rarr;</span></a>
+        <a href="teardown.html" class="link-grow" style="color:#fff">Start with a Teardown <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap-wide">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#14140F"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+        <p style="color:var(--grey-2); max-width:30ch; margin-top:18px; font-size:0.96rem; line-height:1.5">Senior technical leadership for founders who aren't ready for a full-time CTO — and shouldn't hire one yet.</p>
+      </div>
+      <div><h5>Service</h5><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="comparison.html">Fractional vs full-time</a></li><li><a href="teardown.html">The Tech Teardown</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="blog.html">Writing</a></li><li><a href="book-a-call.html">Book a call</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+      <div><h5>Start here</h5><ul><li><a href="book-a-call.html">Book a 20-min fit call</a></li><li><a href="teardown.html">Start with a Teardown</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Fraction · <a href="https://getfractioncto.com">getfractioncto.com</a> — no contract, no equity, cancel anytime.</span>
+      <span>Built on judgment, not hours.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="motion.js"></script>
+</body>
+</html>
