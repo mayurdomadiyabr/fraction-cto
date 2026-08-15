@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Diligence asks about test coverage. Which number? — Fraction</title>
+  <meta name="description" content="What a technical diligence reviewer really wants when they ask about test coverage, why the percentage matters less than what is covered, and how to answer." />
+  <meta name="theme-color" content="#FAFAF9" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Fraction" />
+  <meta property="og:title" content="Diligence asks about test coverage. Which number? — Fraction" />
+  <meta property="og:description" content="What a technical diligence reviewer really wants when they ask about test coverage, why the percentage matters less than what is covered, and how to answer." />
+  <meta property="og:url" content="https://getfractioncto.com/post-test-coverage-diligence" />
+  <meta property="og:image" content="https://getfractioncto.com/og-image.png" />
+  <meta property="article:published_time" content="2026-08-15T09:30:00.000Z" />
+  <meta property="article:author" content="The founder of Fraction" />
+  <meta property="article:section" content="Fundraising" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Diligence asks about test coverage. Which number? — Fraction" />
+  <meta name="twitter:description" content="What a technical diligence reviewer really wants when they ask about test coverage, why the percentage matters less than what is covered, and how to answer." />
+  <meta name="twitter:image" content="https://getfractioncto.com/og-image.png" />
+  <link rel="canonical" href="https://getfractioncto.com/post-test-coverage-diligence" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script src="/analytics.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Diligence asks about test coverage. Which number?",
+  "description": "What a technical diligence reviewer really wants when they ask about test coverage, why the percentage matters less than what is covered, and how to answer.",
+  "datePublished": "2026-08-15T09:30:00.000Z",
+  "dateModified": "2026-08-15T09:30:00.000Z",
+  "author": {
+    "@type": "Person",
+    "name": "The founder of Fraction",
+    "url": "https://getfractioncto.com/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fraction",
+    "url": "https://getfractioncto.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://getfractioncto.com/og-image.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://getfractioncto.com/post-test-coverage-diligence"
+  },
+  "image": "https://getfractioncto.com/og-image.png",
+  "articleSection": "Fundraising",
+  "wordCount": 988,
+  "inLanguage": "en",
+  "isAccessibleForFree": true
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home",   "item": "https://getfractioncto.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Writing","item": "https://getfractioncto.com/blog" },
+    { "@type": "ListItem", "position": 3, "name": "Diligence asks about test coverage. Which number?", "item": "https://getfractioncto.com/post-test-coverage-diligence" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Fraction home"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <ul class="nav-links">
+      <li><a href="how-it-works.html">How it works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="comparison.html">Compare</a></li>
+      <li><a href="blog.html" class="active">Writing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="teardown.html">The Teardown <span class="accent-dot"></span></a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke-linecap="round"/></svg></button>
+      <button class="icon-btn" aria-label="Toggle theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M21.5 12h-2.2M4.7 12H2.5M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6M18.4 18.4l-1.6-1.6M7.2 7.2 5.6 5.6" stroke-linecap="round"/></svg></button>
+      <a href="book-a-call.html" class="btn btn-primary nav-cta">Book a fit call</a>
+      <button class="icon-btn menu-btn" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu">
+  <div class="mm-top">
+    <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <button class="icon-btn menu-btn" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg></button>
+  </div>
+  <nav>
+    <a href="how-it-works.html">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="comparison.html">Compare</a>
+    <a href="blog.html">Writing</a>
+    <a href="about.html">About</a>
+    <a href="teardown.html">The Teardown</a>
+  </nav>
+  <div class="mm-cta">
+    <a href="teardown.html" class="btn btn-ghost">Start with a Teardown</a>
+    <a href="book-a-call.html" class="btn btn-primary">Book a 20-min fit call</a>
+  </div>
+</div>
+
+<main>
+<section class="page-hero center" style="padding-bottom:clamp(24px,4vw,40px)">
+  <div class="wrap">
+    <div class="article-hero">
+      <span class="post-cat">Fundraising</span>
+      <h1>Diligence asks about test coverage. Which number?</h1>
+      <div class="post-meta"><span>Aug 2026</span><span class="sep"></span><span>4 min read</span><span class="sep"></span><span>by The founder of Fraction</span></div>
+    </div>
+  </div>
+</section>
+<section class="section-tight" style="padding-top:8px">
+  <div class="wrap">
+    <div class="article-body reveal">
+<p>A technical reviewer asks for your test coverage number and you feel the floor drop, because you know it is 40 percent and you are sure that fails. It probably does not. The percentage is the least interesting part of the question, and a founder who answers with a single number is answering the wrong question. What a reviewer wants to know is whether the parts of your system that would cost you money or customers if they broke are the parts you actually test.</p>
+<p>I get asked to sanity-check testing before a raise, and the conversation is never really about hitting a number. It is about whether the team knows which code is dangerous and covered it accordingly.</p>
+<h2>What the coverage question is really testing</h2>
+<p>Coverage percentage is a proxy, and a weak one. A team can hit 80 percent by testing getters and setters while the payment flow and the data-integrity logic run untested. A reviewer knows this, so the number is a starting point, not the answer.</p>
+<h3>What is covered matters more than how much</h3>
+<p>The guidance reviewers actually apply in 2026 is that critical paths should sit above roughly 60 percent, and core business logic ideally above 70 percent, but the emphasis is on where the tests are. Tests need to exist where a bug is expensive: the revenue path, data integrity, the integrations that other systems depend on. A codebase at 45 percent overall with the payment flow, the billing math, and the auth boundary all well covered is in better shape than one at 75 percent that got there by testing the parts that never fail. When the reviewer asks for the number, follow it immediately with where that coverage sits.</p>
+<h3>They are measuring maturity, not just tests</h3>
+<p>The deeper question behind coverage is whether testing is part of how the team ships or an afterthought bolted on for the demo. Reviewers look at whether tests run in your pipeline on every change, whether a failing test actually blocks a merge, and whether the suite spans unit tests through the end-to-end workflows that matter. A modest coverage number attached to a real pipeline that gates merges reads as a disciplined team. A high number attached to tests nobody runs reads as theater. The habit is the signal.</p>
+<h2>How to answer without overpromising</h2>
+<p>The worst answer to the coverage question is a defensive one, or a made-up target you cannot back up. Reviewers verify. They will run static analysis and sample the code themselves.</p>
+<h3>Lead with the critical paths</h3>
+<p>Say what you protect and why. &quot;Coverage is around 45 percent overall. The payment flow, the billing calculations, and the auth layer are above 80 percent because those are the places a bug costs us real money or a customer. The marketing site and admin tooling are lightly tested on purpose.&quot; That answer tells a reviewer you made deliberate decisions about risk, which is exactly the judgment they are trying to assess. A bare &quot;45 percent&quot; tells them nothing except a number that sounds low.</p>
+<h3>Name the gaps and the plan</h3>
+<p>If there is a critical area that is thin, say so and say what you are doing about it, the same way you would surface any known weakness before a reviewer finds it. A team that says &quot;our integration tests are weaker than I want and here is the sprint that fixes it&quot; reads as in control. A team that claims everything is covered and gets caught by a code sample reads as either careless or dishonest, and that lands in the report. Reviewers also cross-check against your incident record, so your testing story should line up with your <a href="/post-incident-history-diligence">incident history as a diligence document</a>.</p>
+<h3>Know that the bar depends on your stage</h3>
+<p>How hard the reviewer leans on testing depends on where you are raising. A pre-seed team is not expected to have the coverage of a Series A company with paying enterprise customers, and reviewers calibrate accordingly. Understanding how the <a href="/post-diligence-depth-seed-series-a">depth of technical diligence differs between seed and Series A</a> tells you how much this question will actually weigh, so you can invest in coverage at the level your round demands rather than chasing a number that does not fit your stage. Early on, the honest answer about <a href="/post-how-much-testing-early">how much testing you need before you have users</a> is often less than founders fear.</p>
+<p>The test coverage question is not a trap and the percentage is not the point. The founders who answer it well are the ones who tested the code that would hurt them if it broke, and can say exactly which code that is. If you are not sure whether your coverage sits where it should before a raise, that is a quick thing to check, and it is part of what a <a href="/teardown">technical review</a> covers.</p>
+<h2>FAQ</h2>
+<h3>Is there a coverage number that automatically fails diligence?</h3>
+<p>No single number fails on its own. A very low overall figure invites scrutiny, but a reviewer cares far more about whether your revenue path, data integrity, and integrations are tested. Strong coverage where it counts beats a high average spread thinly.</p>
+<h3>Should I rush to raise coverage before a raise?</h3>
+<p>Only in the right places. Rushing to inflate the overall percentage by testing trivial code is wasted effort a reviewer will see through. If you have time, spend it hardening the critical paths and wiring tests into your pipeline so they actually gate merges. That is what moves the assessment.</p>
+<h3>What if we have almost no automated tests?</h3>
+<p>Then be honest about it, explain how you currently catch regressions, and show a credible plan. At the earliest stages a light suite can be a reasonable tradeoff. What damages you is claiming coverage you do not have, because reviewers verify with their own tools and a caught overstatement colors the whole report.</p>
+
+    </div>
+    <div class="article-body">
+      <div class="author-card reveal">
+        <span class="ac-av">F</span>
+        <div>
+          <div class="ac-name">The founder of Fraction</div>
+          <div class="ac-bio">Built engineering teams from 2 to 30. Killed more bad rebuilds than I've greenlit. <a href="about.html" class="link-grow" style="font-size:0.96rem">More about me <span class="arrow">&rarr;</span></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" style="padding-top:clamp(32px,5vw,56px)">
+  <div class="wrap">
+    <div class="callout reveal" style="text-align:center">
+      <h3 style="margin-left:auto;margin-right:auto;max-width:22ch">Not sure the call you're about to make is the right one?</h3>
+      <p style="margin:0 auto 26px">That's exactly what a 20-minute fit call is for &mdash; or a two-week Teardown if you'd rather start with a written verdict.</p>
+      <div class="ph-cta" style="justify-content:center">
+        <a href="book-a-call.html" class="btn btn-accent">Book a fit call <span class="arrow">&rarr;</span></a>
+        <a href="teardown.html" class="link-grow" style="color:#fff">Start with a Teardown <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap-wide">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#14140F"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+        <p style="color:var(--grey-2); max-width:30ch; margin-top:18px; font-size:0.96rem; line-height:1.5">Senior technical leadership for founders who aren't ready for a full-time CTO — and shouldn't hire one yet.</p>
+      </div>
+      <div><h5>Service</h5><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="comparison.html">Fractional vs full-time</a></li><li><a href="teardown.html">The Tech Teardown</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="blog.html">Writing</a></li><li><a href="book-a-call.html">Book a call</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+      <div><h5>Start here</h5><ul><li><a href="book-a-call.html">Book a 20-min fit call</a></li><li><a href="teardown.html">Start with a Teardown</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Fraction · <a href="https://getfractioncto.com">getfractioncto.com</a> — no contract, no equity, cancel anytime.</span>
+      <span>Built on judgment, not hours.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="motion.js"></script>
+</body>
+</html>
