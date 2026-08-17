@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>When does your startup actually need on-call? — Fraction</title>
+  <meta name="description" content="When does a startup need an on-call rotation? The signals you have crossed the line, and the minimum setup that is enough." />
+  <meta name="theme-color" content="#FAFAF9" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Fraction" />
+  <meta property="og:title" content="When does your startup actually need on-call? — Fraction" />
+  <meta property="og:description" content="When does a startup need an on-call rotation? The signals you have crossed the line, and the minimum setup that is enough." />
+  <meta property="og:url" content="https://getfractioncto.com/post-when-do-you-need-on-call" />
+  <meta property="og:image" content="https://getfractioncto.com/og-image.png" />
+  <meta property="article:published_time" content="2026-08-17T11:59:24.244Z" />
+  <meta property="article:author" content="The founder of Fraction" />
+  <meta property="article:section" content="Knowing when" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="When does your startup actually need on-call? — Fraction" />
+  <meta name="twitter:description" content="When does a startup need an on-call rotation? The signals you have crossed the line, and the minimum setup that is enough." />
+  <meta name="twitter:image" content="https://getfractioncto.com/og-image.png" />
+  <link rel="canonical" href="https://getfractioncto.com/post-when-do-you-need-on-call" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script src="/analytics.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "When does your startup actually need on-call?",
+  "description": "When does a startup need an on-call rotation? The signals you have crossed the line, and the minimum setup that is enough.",
+  "datePublished": "2026-08-17T11:59:24.244Z",
+  "dateModified": "2026-08-17T11:59:24.244Z",
+  "author": {
+    "@type": "Person",
+    "name": "The founder of Fraction",
+    "url": "https://getfractioncto.com/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fraction",
+    "url": "https://getfractioncto.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://getfractioncto.com/og-image.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://getfractioncto.com/post-when-do-you-need-on-call"
+  },
+  "image": "https://getfractioncto.com/og-image.png",
+  "articleSection": "Knowing when",
+  "wordCount": 1153,
+  "inLanguage": "en",
+  "isAccessibleForFree": true
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home",   "item": "https://getfractioncto.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Writing","item": "https://getfractioncto.com/blog" },
+    { "@type": "ListItem", "position": 3, "name": "When does your startup actually need on-call?", "item": "https://getfractioncto.com/post-when-do-you-need-on-call" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Fraction home"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <ul class="nav-links">
+      <li><a href="how-it-works.html">How it works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="comparison.html">Compare</a></li>
+      <li><a href="blog.html" class="active">Writing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="teardown.html">The Teardown <span class="accent-dot"></span></a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke-linecap="round"/></svg></button>
+      <button class="icon-btn" aria-label="Toggle theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M21.5 12h-2.2M4.7 12H2.5M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6M18.4 18.4l-1.6-1.6M7.2 7.2 5.6 5.6" stroke-linecap="round"/></svg></button>
+      <a href="book-a-call.html" class="btn btn-primary nav-cta">Book a fit call</a>
+      <button class="icon-btn menu-btn" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu">
+  <div class="mm-top">
+    <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <button class="icon-btn menu-btn" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg></button>
+  </div>
+  <nav>
+    <a href="how-it-works.html">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="comparison.html">Compare</a>
+    <a href="blog.html">Writing</a>
+    <a href="about.html">About</a>
+    <a href="teardown.html">The Teardown</a>
+  </nav>
+  <div class="mm-cta">
+    <a href="teardown.html" class="btn btn-ghost">Start with a Teardown</a>
+    <a href="book-a-call.html" class="btn btn-primary">Book a 20-min fit call</a>
+  </div>
+</div>
+
+<main>
+<section class="page-hero center" style="padding-bottom:clamp(24px,4vw,40px)">
+  <div class="wrap">
+    <div class="article-hero">
+      <span class="post-cat">Knowing when</span>
+      <h1>When does your startup actually need on-call?</h1>
+      <div class="post-meta"><span>Aug 2026</span><span class="sep"></span><span>5 min read</span><span class="sep"></span><span>by The founder of Fraction</span></div>
+    </div>
+  </div>
+</section>
+<section class="section-tight" style="padding-top:8px">
+  <div class="wrap">
+    <div class="article-body reveal">
+<p>&quot;Should we set up on-call?&quot; A founder asked me this after a single midnight outage rattled the team. The honest answer, for a three-person startup with forty customers, was no. What they needed was not a rotation and a paging tool. They needed to know that the one incident they had was rare, and to stop treating a rare event like a permanent condition.</p>
+<p>On-call is one of those things founders reach for too early because it feels responsible, and then avoid too long once it is actually justified. The trick is knowing which side of the line you are on.</p>
+<h2>What on-call actually is, and what it is not</h2>
+<p>On-call is a promise: someone is responsible for production right now, they will notice when it breaks, and they know what to do. That is three separate things, and most early teams have none of them formalized because they do not need to yet.</p>
+<p>At two engineers, &quot;on-call&quot; is really just &quot;whoever sees the Slack message first.&quot; That works, and it is not a failure of discipline. It is the correct amount of process for a system that few people depend on. The mistake is copying the shape of a 200-person engineering org, spinning up a paging tool, and building a weekly rotation before anyone would actually be paged. That is process as costume. It adds coordination overhead, handoff rituals, and a tool bill, and it protects customers you do not have yet.</p>
+<p>So the question is not whether on-call is a good practice. It is whether the cost of not having it has started to exceed the cost of having it.</p>
+<h2>The signals that you have crossed the line</h2>
+<p>The decision flips when a production problem stops being an inconvenience you handle whenever you notice and starts being a trust event with a customer on the other end. Watch for these.</p>
+<h3>You have customers who would notice at 2am</h3>
+<p>The clearest trigger is a customer whose business runs on your product while your team sleeps. If you sell to other businesses in different time zones, or anyone who has an uptime expectation written into a contract, an outage that runs unattended for six hours is no longer an internal event. It is churn in slow motion. Once a night of downtime can cost you a reference customer, the cost of not being paged is real money.</p>
+<h3>Nobody can reliably say who owns production right now</h3>
+<p>The lightweight version of on-call is a spreadsheet or a Slack message that says &quot;Alice has infra this week, Bob has frontend.&quot; That works until it does not. The signal that you have outgrown it: during your last incident, the first ten minutes were spent figuring out who was supposed to be handling it. If &quot;who is on call right now&quot; is itself a question you have to answer during an outage, the informal system has failed.</p>
+<h3>Your reliability depends on one person always being reachable</h3>
+<p>If production is only safe because one specific engineer happens to check their phone, you do not have on-call, you have a single point of failure with a pulse. This is the same <a href="/post-key-person-codebase-risk">key-person risk that lives in your codebase</a> showing up in your operations. The day that person takes a real vacation, or leaves, the promise evaporates. A rotation is how you spread that responsibility so no one human is the uptime plan.</p>
+<h3>You keep finding out about outages from customers</h3>
+<p>On-call without visibility is just anxiety. If your team learns about outages from customer emails rather than from your own systems, the problem to solve first is not scheduling, it is instrumentation. Knowing when to pay for that is its own decision, and I have written about <a href="/post-flying-blind-in-prod-when-to-pay-for-observability">when observability stops being optional</a>. On-call and observability arrive together: a rotation is only useful if the person on it can actually tell what broke.</p>
+<h2>What &quot;enough&quot; looks like when you cross it</h2>
+<p>Founders overestimate this because they picture a full incident-management program. The minimum viable version is small.</p>
+<p>Start with three things. A single alerting path that reaches a human reliably, so a real outage does not depend on someone happening to look. A one-week rotation among the two or three engineers who can actually fix production, so the responsibility is shared and predictable. And a short written runbook covering the handful of failures you have actually seen, so the person paged at 2am is reading rather than guessing.</p>
+<p>That is it. You do not need a dedicated paging platform on day one. A shared schedule plus a reliable alert plus a page of notes covers most early-stage teams. Add sophistication only when a specific painful incident justifies it, the same way you should add a <a href="/post-staging-environment-yet">staging environment only once a bad deploy can cost you a customer</a>. The rotation length matters more than the tooling: a week is long enough to avoid constant handoffs and short enough that nobody burns out carrying the pager.</p>
+<p>The failure mode on the other side is real too. Teams that set this up too early train everyone to ignore alerts, because the alerts are for problems that do not matter. By the time a real one fires, the muscle to respond has atrophied. Introduce on-call when you have something to protect, not before, and make the first alerts loud precisely because they are rare.</p>
+<h2>FAQ</h2>
+<h3>We are a two-person team with a few users. Do we need on-call?</h3>
+<p>Almost certainly not. At that size, &quot;whoever sees the alert first&quot; is the correct amount of process, and building a formal rotation is premature. Keep a reliable alert going to a shared channel, and revisit this the moment you have customers who would be hurt by an unattended overnight outage.</p>
+<h3>What is the single clearest trigger to start a rotation?</h3>
+<p>A paying customer whose usage does not stop when your team sleeps, especially one in another time zone or with an uptime commitment. That is the point where an unattended outage stops being an inconvenience and starts costing you money and trust.</p>
+<h3>Do we need PagerDuty or a paid paging tool to start?</h3>
+<p>No. Most early teams can start with a shared weekly schedule and a single reliable alert to a phone. Dedicated paging platforms earn their cost once you have multiple services, complex schedules, or genuine 24/7 obligations, not before.</p>
+<h3>How do we set up on-call without burning the team out?</h3>
+<p>Keep the rotation to a week so responsibility does not bounce around, make sure alerts only fire for things that genuinely need a human, and write down the fixes for problems you have already seen so the person on call is not solving from scratch at 2am. If you are unsure whether your reliability setup matches the risk you are carrying, a <a href="/teardown">technical teardown</a> can tell you where the real gaps are.</p>
+
+    </div>
+    <div class="article-body">
+      <div class="author-card reveal">
+        <span class="ac-av">F</span>
+        <div>
+          <div class="ac-name">The founder of Fraction</div>
+          <div class="ac-bio">Built engineering teams from 2 to 30. Killed more bad rebuilds than I've greenlit. <a href="about.html" class="link-grow" style="font-size:0.96rem">More about me <span class="arrow">&rarr;</span></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" style="padding-top:clamp(32px,5vw,56px)">
+  <div class="wrap">
+    <div class="callout reveal" style="text-align:center">
+      <h3 style="margin-left:auto;margin-right:auto;max-width:22ch">Not sure the call you're about to make is the right one?</h3>
+      <p style="margin:0 auto 26px">That's exactly what a 20-minute fit call is for &mdash; or a two-week Teardown if you'd rather start with a written verdict.</p>
+      <div class="ph-cta" style="justify-content:center">
+        <a href="book-a-call.html" class="btn btn-accent">Book a fit call <span class="arrow">&rarr;</span></a>
+        <a href="teardown.html" class="link-grow" style="color:#fff">Start with a Teardown <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap-wide">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#14140F"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+        <p style="color:var(--grey-2); max-width:30ch; margin-top:18px; font-size:0.96rem; line-height:1.5">Senior technical leadership for founders who aren't ready for a full-time CTO — and shouldn't hire one yet.</p>
+      </div>
+      <div><h5>Service</h5><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="comparison.html">Fractional vs full-time</a></li><li><a href="teardown.html">The Tech Teardown</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="blog.html">Writing</a></li><li><a href="book-a-call.html">Book a call</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+      <div><h5>Start here</h5><ul><li><a href="book-a-call.html">Book a 20-min fit call</a></li><li><a href="teardown.html">Start with a Teardown</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Fraction · <a href="https://getfractioncto.com">getfractioncto.com</a> — no contract, no equity, cancel anytime.</span>
+      <span>Built on judgment, not hours.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="motion.js"></script>
+</body>
+</html>
