@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Build email sending yourself, or buy a provider? — Fraction</title>
+  <meta name="description" content="Build your own email sending or buy a provider like SES or Postmark? A practitioner build-vs-buy call for early-stage startups." />
+  <meta name="theme-color" content="#FAFAF9" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Fraction" />
+  <meta property="og:title" content="Build email sending yourself, or buy a provider? — Fraction" />
+  <meta property="og:description" content="Build your own email sending or buy a provider like SES or Postmark? A practitioner build-vs-buy call for early-stage startups." />
+  <meta property="og:url" content="https://getfractioncto.com/post-build-email-sending-or-buy" />
+  <meta property="og:image" content="https://getfractioncto.com/og-image.png" />
+  <meta property="article:published_time" content="2026-08-26T02:37:10.997Z" />
+  <meta property="article:author" content="The founder of Fraction" />
+  <meta property="article:section" content="Decisions" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Build email sending yourself, or buy a provider? — Fraction" />
+  <meta name="twitter:description" content="Build your own email sending or buy a provider like SES or Postmark? A practitioner build-vs-buy call for early-stage startups." />
+  <meta name="twitter:image" content="https://getfractioncto.com/og-image.png" />
+  <link rel="canonical" href="https://getfractioncto.com/post-build-email-sending-or-buy" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script src="/analytics.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Build email sending yourself, or buy a provider?",
+  "description": "Build your own email sending or buy a provider like SES or Postmark? A practitioner build-vs-buy call for early-stage startups.",
+  "datePublished": "2026-08-26T02:37:10.997Z",
+  "dateModified": "2026-08-26T02:37:10.997Z",
+  "author": {
+    "@type": "Person",
+    "name": "The founder of Fraction",
+    "url": "https://getfractioncto.com/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fraction",
+    "url": "https://getfractioncto.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://getfractioncto.com/og-image.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://getfractioncto.com/post-build-email-sending-or-buy"
+  },
+  "image": "https://getfractioncto.com/og-image.png",
+  "articleSection": "Decisions",
+  "wordCount": 1068,
+  "inLanguage": "en",
+  "isAccessibleForFree": true
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home",   "item": "https://getfractioncto.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Writing","item": "https://getfractioncto.com/blog" },
+    { "@type": "ListItem", "position": 3, "name": "Build email sending yourself, or buy a provider?", "item": "https://getfractioncto.com/post-build-email-sending-or-buy" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Fraction home"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <ul class="nav-links">
+      <li><a href="how-it-works.html">How it works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="comparison.html">Compare</a></li>
+      <li><a href="blog.html" class="active">Writing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="teardown.html">The Teardown <span class="accent-dot"></span></a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke-linecap="round"/></svg></button>
+      <button class="icon-btn" aria-label="Toggle theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M21.5 12h-2.2M4.7 12H2.5M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6M18.4 18.4l-1.6-1.6M7.2 7.2 5.6 5.6" stroke-linecap="round"/></svg></button>
+      <a href="book-a-call.html" class="btn btn-primary nav-cta">Book a fit call</a>
+      <button class="icon-btn menu-btn" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu">
+  <div class="mm-top">
+    <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <button class="icon-btn menu-btn" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg></button>
+  </div>
+  <nav>
+    <a href="how-it-works.html">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="comparison.html">Compare</a>
+    <a href="blog.html">Writing</a>
+    <a href="about.html">About</a>
+    <a href="teardown.html">The Teardown</a>
+  </nav>
+  <div class="mm-cta">
+    <a href="teardown.html" class="btn btn-ghost">Start with a Teardown</a>
+    <a href="book-a-call.html" class="btn btn-primary">Book a 20-min fit call</a>
+  </div>
+</div>
+
+<main>
+<section class="page-hero center" style="padding-bottom:clamp(24px,4vw,40px)">
+  <div class="wrap">
+    <div class="article-hero">
+      <span class="post-cat">Decisions</span>
+      <h1>Build email sending yourself, or buy a provider?</h1>
+      <div class="post-meta"><span>Aug 2026</span><span class="sep"></span><span>5 min read</span><span class="sep"></span><span>by The founder of Fraction</span></div>
+    </div>
+  </div>
+</section>
+<section class="section-tight" style="padding-top:8px">
+  <div class="wrap">
+    <div class="article-body reveal">
+<p>Sending transactional email is one of those jobs that looks trivial until you are in it. A founder asks me every few months whether they should &quot;just send email from our own server&quot; to save money. The short answer: no. Buy a provider. Run your own SMTP only if email delivery is the actual product you sell. For everyone else, the cost of a provider is a rounding error next to the cost of your messages landing in spam.</p>
+<p>This is a build-vs-buy call where the buy side wins by a wide margin, and it is worth understanding why so you also choose the right provider.</p>
+<h2>What you are actually deciding</h2>
+<p>&quot;Build email sending&quot; does not mean writing a for-loop that opens an SMTP socket. That part is easy. The hard part is everything that makes the message arrive: warming up sending IPs, publishing and rotating SPF, DKIM, and DMARC records, handling bounces and complaints, staying off blocklists, and reacting when a mailbox provider quietly starts throttling you. Deliverability is an operational discipline, not a feature you ship once.</p>
+<p>So the real decision is: do you want to own that discipline, or rent a team that already does it? For a pre-seed to Series A company, renting is almost always correct. Your engineers should be building the thing customers pay for, not babysitting IP reputation.</p>
+<h3>The cost argument does not hold up</h3>
+<p>Founders reach for self-hosting because a provider looks like a recurring bill. Let us put real numbers on it. Amazon SES charges about $0.10 per 1,000 emails. Postmark runs roughly $15 a month for 10,000 emails and about $245 for 500,000. Even at half a million messages a month, you are talking a few hundred dollars.</p>
+<p>Now price the alternative. One engineer spending two days setting up deliverability, plus a few hours a month firefighting, plus the revenue you lose every time a password-reset email does not arrive, dwarfs that bill. The &quot;savings&quot; from self-hosting are negative once you count the engineering time and the silent churn from missed messages. This is the same trap I wrote about in <a href="/post-build-your-own-auth">building your own auth versus buying it</a> and <a href="/post-build-billing-or-use-stripe">building billing versus using Stripe</a>: the naive build looks cheaper because you are only pricing the visible 20 percent.</p>
+<h2>Which provider to buy</h2>
+<p>Once you accept that you are buying, the choice narrows to a spectrum with cost on one end and out-of-the-box deliverability on the other.</p>
+<p>Amazon SES is the cheapest by far and the most hands-off in terms of price, but it hands you the raw pipe. You still manage your own reputation, and its default inbox placement is weaker until you configure and warm it properly. In one 2026 placement test, SES landed around 77 percent in the inbox with a notably higher spam rate, while Postmark measured around 83 percent inbox with a spam rate near one percent. SES is excellent once you know what you are doing, or if you are sending high volume and have someone who owns email.</p>
+<p>Providers like Postmark, Resend, or SendGrid cost more per message but do more of the deliverability work for you and give you better defaults, clearer analytics, and faster support when a domain gets flagged. For a small team, paying the premium buys back exactly the operational hours you did not want to spend.</p>
+<h3>A simple rule</h3>
+<ul>
+<li>Sending under a few hundred thousand messages a month and you have no email specialist: pick a managed provider with strong defaults. The premium is cheaper than the distraction.</li>
+<li>High volume, cost-sensitive, and you have someone who will own reputation: SES, configured properly, is hard to beat on price.</li>
+<li>You are a two-person team shipping your first product: pick the provider with the least setup and move on. You can migrate later; email providers are a reversible decision.</li>
+</ul>
+<h2>Separate your streams early</h2>
+<p>One thing that is genuinely worth doing regardless of provider: keep transactional email (password resets, receipts, alerts) separate from marketing email (newsletters, promotions). Send them from different subdomains or different providers. Marketing mail has higher complaint rates, and if it shares reputation with your receipts, a bad campaign can start sending your password resets to spam. This costs almost nothing to set up on day one and is expensive to untangle later.</p>
+<h2>When self-hosting is actually right</h2>
+<p>To be fair to the build side: there are cases. If email deliverability is a core part of what you sell, if you are running at a volume where per-message cost genuinely moves your margin, or if you have compliance constraints that forbid third parties from touching message content, then owning the stack can make sense. But notice the shape of those cases. They are about email being the product, or scale you do not have yet. If you are asking the question at pre-seed, you are not in them.</p>
+<h2>FAQ</h2>
+<h3>Is it cheaper to run our own email server?</h3>
+<p>On the visible bill, yes. In total cost, no. You trade a few hundred dollars a month for engineering time, deliverability risk, and the revenue lost when messages do not arrive. For an early-stage team the provider is cheaper once you count everything.</p>
+<h3>How do we avoid our emails going to spam?</h3>
+<p>Authenticate your domain with SPF, DKIM, and DMARC, warm up new sending domains gradually, keep bounce and complaint rates low, and separate marketing mail from transactional mail. A managed provider handles most of this for you, which is the main reason to buy one.</p>
+<h3>SES or a managed provider like Postmark?</h3>
+<p>SES if you have high volume and someone who will own reputation and setup. A managed provider if you want strong deliverability defaults with minimal work. For most early teams, the managed option is worth the premium.</p>
+<h3>Can we switch providers later?</h3>
+<p>Yes. Email sending is a reversible decision as long as you keep your sending behind a thin internal interface. Verify your domain with the new provider, warm it up, and cut over. Do not let fear of lock-in push you into building it yourself.</p>
+<p>If you are weighing a stack of these build-versus-buy calls at once and want a second opinion on which ones are worth your team&#39;s time, that is exactly the kind of triage a fractional CTO does. You can <a href="/book-a-call">book a call</a> to walk through your list.</p>
+
+    </div>
+    <div class="article-body">
+      <div class="author-card reveal">
+        <span class="ac-av">F</span>
+        <div>
+          <div class="ac-name">The founder of Fraction</div>
+          <div class="ac-bio">Built engineering teams from 2 to 30. Killed more bad rebuilds than I've greenlit. <a href="about.html" class="link-grow" style="font-size:0.96rem">More about me <span class="arrow">&rarr;</span></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" style="padding-top:clamp(32px,5vw,56px)">
+  <div class="wrap">
+    <div class="callout reveal" style="text-align:center">
+      <h3 style="margin-left:auto;margin-right:auto;max-width:22ch">Not sure the call you're about to make is the right one?</h3>
+      <p style="margin:0 auto 26px">That's exactly what a 20-minute fit call is for &mdash; or a two-week Teardown if you'd rather start with a written verdict.</p>
+      <div class="ph-cta" style="justify-content:center">
+        <a href="book-a-call.html" class="btn btn-accent">Book a fit call <span class="arrow">&rarr;</span></a>
+        <a href="teardown.html" class="link-grow" style="color:#fff">Start with a Teardown <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap-wide">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#14140F"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+        <p style="color:var(--grey-2); max-width:30ch; margin-top:18px; font-size:0.96rem; line-height:1.5">Senior technical leadership for founders who aren't ready for a full-time CTO — and shouldn't hire one yet.</p>
+      </div>
+      <div><h5>Service</h5><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="comparison.html">Fractional vs full-time</a></li><li><a href="teardown.html">The Tech Teardown</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="blog.html">Writing</a></li><li><a href="book-a-call.html">Book a call</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+      <div><h5>Start here</h5><ul><li><a href="book-a-call.html">Book a 20-min fit call</a></li><li><a href="teardown.html">Start with a Teardown</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Fraction · <a href="https://getfractioncto.com">getfractioncto.com</a> — no contract, no equity, cancel anytime.</span>
+      <span>Built on judgment, not hours.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="motion.js"></script>
+</body>
+</html>
