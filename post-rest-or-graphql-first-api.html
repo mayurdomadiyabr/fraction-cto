@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>REST or GraphQL for your first API? — Fraction</title>
+  <meta name="description" content="Why REST is the right default for most early-stage APIs, and the narrow cases where GraphQL earns its complexity, from a fractional CTO." />
+  <meta name="theme-color" content="#FAFAF9" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Fraction" />
+  <meta property="og:title" content="REST or GraphQL for your first API? — Fraction" />
+  <meta property="og:description" content="Why REST is the right default for most early-stage APIs, and the narrow cases where GraphQL earns its complexity, from a fractional CTO." />
+  <meta property="og:url" content="https://getfractioncto.com/post-rest-or-graphql-first-api" />
+  <meta property="og:image" content="https://getfractioncto.com/og-image.png" />
+  <meta property="article:published_time" content="2026-09-02T02:38:35.792Z" />
+  <meta property="article:author" content="The founder of Fraction" />
+  <meta property="article:section" content="Decisions" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="REST or GraphQL for your first API? — Fraction" />
+  <meta name="twitter:description" content="Why REST is the right default for most early-stage APIs, and the narrow cases where GraphQL earns its complexity, from a fractional CTO." />
+  <meta name="twitter:image" content="https://getfractioncto.com/og-image.png" />
+  <link rel="canonical" href="https://getfractioncto.com/post-rest-or-graphql-first-api" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script src="/analytics.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "REST or GraphQL for your first API?",
+  "description": "Why REST is the right default for most early-stage APIs, and the narrow cases where GraphQL earns its complexity, from a fractional CTO.",
+  "datePublished": "2026-09-02T02:38:35.792Z",
+  "dateModified": "2026-09-02T02:38:35.792Z",
+  "author": {
+    "@type": "Person",
+    "name": "The founder of Fraction",
+    "url": "https://getfractioncto.com/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fraction",
+    "url": "https://getfractioncto.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://getfractioncto.com/og-image.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://getfractioncto.com/post-rest-or-graphql-first-api"
+  },
+  "image": "https://getfractioncto.com/og-image.png",
+  "articleSection": "Decisions",
+  "wordCount": 991,
+  "inLanguage": "en",
+  "isAccessibleForFree": true
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home",   "item": "https://getfractioncto.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Writing","item": "https://getfractioncto.com/blog" },
+    { "@type": "ListItem", "position": 3, "name": "REST or GraphQL for your first API?", "item": "https://getfractioncto.com/post-rest-or-graphql-first-api" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Fraction home"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <ul class="nav-links">
+      <li><a href="how-it-works.html">How it works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="comparison.html">Compare</a></li>
+      <li><a href="blog.html" class="active">Writing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="teardown.html">The Teardown <span class="accent-dot"></span></a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke-linecap="round"/></svg></button>
+      <button class="icon-btn" aria-label="Toggle theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M21.5 12h-2.2M4.7 12H2.5M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6M18.4 18.4l-1.6-1.6M7.2 7.2 5.6 5.6" stroke-linecap="round"/></svg></button>
+      <a href="book-a-call.html" class="btn btn-primary nav-cta">Book a fit call</a>
+      <button class="icon-btn menu-btn" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu">
+  <div class="mm-top">
+    <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <button class="icon-btn menu-btn" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg></button>
+  </div>
+  <nav>
+    <a href="how-it-works.html">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="comparison.html">Compare</a>
+    <a href="blog.html">Writing</a>
+    <a href="about.html">About</a>
+    <a href="teardown.html">The Teardown</a>
+  </nav>
+  <div class="mm-cta">
+    <a href="teardown.html" class="btn btn-ghost">Start with a Teardown</a>
+    <a href="book-a-call.html" class="btn btn-primary">Book a 20-min fit call</a>
+  </div>
+</div>
+
+<main>
+<section class="page-hero center" style="padding-bottom:clamp(24px,4vw,40px)">
+  <div class="wrap">
+    <div class="article-hero">
+      <span class="post-cat">Decisions</span>
+      <h1>REST or GraphQL for your first API?</h1>
+      <div class="post-meta"><span>Sep 2026</span><span class="sep"></span><span>5 min read</span><span class="sep"></span><span>by The founder of Fraction</span></div>
+    </div>
+  </div>
+</section>
+<section class="section-tight" style="padding-top:8px">
+  <div class="wrap">
+    <div class="article-body reveal">
+<p>Founders bring me this one framed as old versus new: REST is the boring incumbent, GraphQL is the modern choice, so surely the modern choice is better. That framing will cost you weeks. The right question is not which is newer. It is which one your team can ship, document, and debug fastest at your current size.</p>
+<p>For most early-stage teams, that answer is REST. Not because GraphQL is bad, but because GraphQL solves a problem you probably do not have yet, and it charges you upfront for the privilege.</p>
+<h2>What each one is actually good at</h2>
+<p>REST is the default for a reason. The overwhelming majority of public APIs are REST, every web developer you hire already knows it, it documents cleanly with OpenAPI, and it gets free caching from the ordinary web infrastructure between your server and your users. There is nothing to learn and nothing exotic to operate. You ship endpoints, you move on.</p>
+<p>GraphQL shines in one specific situation: a client that needs to pull varied, nested data from many sources in a single round trip, and needs to shape that data differently across different screens. A complex dashboard, a mobile app assembling one view from a dozen underlying resources, a rich front end where over-fetching and under-fetching are genuine pain, these are where GraphQL earns its complexity. If that is your product, GraphQL can be the right call even early.</p>
+<p>The cost is real. GraphQL brings a schema, resolvers, a type system, and its own caching story, because you lose the simple HTTP caching that REST gets for free. For a small team on an MVP, that is a meaningful learning curve and a meaningful pile of new operational surface, spent before you have proven anyone wants the product.</p>
+<h2>The question underneath the question</h2>
+<p>Notice the trap. Before you argue REST versus GraphQL, confirm you should be <a href="/post-should-you-build-an-api">building a formal API at all</a>. Plenty of early products expose an API because it feels like the professional thing to do, not because a real consumer needs it. If your front end and back end are one team shipping one product, you may not need a public contract yet. Do not take on API-design overhead to serve a consumer who does not exist.</p>
+<p>If you do need one, the deciding input is your data-fetching shape. Ask what your primary client actually does. If it fetches fairly flat resources with predictable shapes, forms, lists, records, CRUD, REST is simpler and you should use it. If your primary client is a mobile app or a complex dashboard stitching one view together from many sources, GraphQL&#39;s single flexible query starts to pay for itself. Most pre-seed to Series A products are in the first bucket.</p>
+<p>There is also a full-stack-TypeScript path worth naming. If your team is all TypeScript across front and back, a typed RPC layer gives you end-to-end type safety with far less ceremony than GraphQL, and it is worth considering before you reach for a full schema-and-resolver stack. That is a genuine third option, not a footnote.</p>
+<h2>You are not choosing forever</h2>
+<p>The most important thing to understand is that this is a reversible decision, and the reversible direction is REST first. The established pattern is to start with REST and introduce GraphQL later, as an aggregation layer in front of your existing REST services, only once complexity actually demands it. You do not have to bet the company on the first version of your API.</p>
+<p>That is the same logic I apply to nearly every <a href="/post-build-buy">build-versus-buy call</a>: take the option that is cheap to reverse, ship it, and let real usage tell you whether you have outgrown it. Choosing GraphQL upfront to avoid a hypothetical future migration is paying today for a problem you may never have. Choosing REST and layering GraphQL in later, if and when your clients get complex, keeps your options open at a fraction of the cost.</p>
+<h2>How I would decide today</h2>
+<p>If you are a small team shipping an MVP with fairly standard data needs, use REST with OpenAPI and stop debating. If your whole stack is TypeScript, look hard at a typed RPC layer before anything heavier. Reach for GraphQL from day one only if your core client is genuinely a mobile app or complex dashboard assembling views from many sources, and you can name that need concretely rather than gesturing at it.</p>
+<p>The wrong move is adopting GraphQL because it signals sophistication. It signals it right up until your two-person team is debugging resolver performance instead of shipping the feature a customer asked for. Pick the layer that gets you to real usage fastest, and let that usage decide what comes next.</p>
+<h2>FAQ</h2>
+<h3>Is GraphQL better than REST?</h3>
+<p>Neither is better in the abstract. GraphQL is better when a client needs to pull varied, nested data from many sources in one flexible query. REST is better for simpler, flatter data and for shipping fast with a small team. Match the tool to your data-fetching shape.</p>
+<h3>Can we start with REST and add GraphQL later?</h3>
+<p>Yes, and that is the recommended path. The common pattern is REST first, then a GraphQL aggregation layer in front of your existing services once client complexity justifies it. Starting simple keeps the decision reversible.</p>
+<h3>What about typed RPC instead of either one?</h3>
+<p>If your team is full-stack TypeScript, a typed RPC layer gives you end-to-end type safety with much less overhead than GraphQL. It is a legitimate third option and often the fastest to ship for a small, all-TypeScript team.</p>
+<h3>How do I know if this decision is being made for the wrong reasons?</h3>
+<p>If the argument for GraphQL is that it is more modern rather than that a specific client needs flexible nested queries, it is being made for the wrong reasons. If you want a neutral read on your particular case, <a href="/book-a-call">book a call</a>.</p>
+
+    </div>
+    <div class="article-body">
+      <div class="author-card reveal">
+        <span class="ac-av">F</span>
+        <div>
+          <div class="ac-name">The founder of Fraction</div>
+          <div class="ac-bio">Built engineering teams from 2 to 30. Killed more bad rebuilds than I've greenlit. <a href="about.html" class="link-grow" style="font-size:0.96rem">More about me <span class="arrow">&rarr;</span></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" style="padding-top:clamp(32px,5vw,56px)">
+  <div class="wrap">
+    <div class="callout reveal" style="text-align:center">
+      <h3 style="margin-left:auto;margin-right:auto;max-width:22ch">Not sure the call you're about to make is the right one?</h3>
+      <p style="margin:0 auto 26px">That's exactly what a 20-minute fit call is for &mdash; or a two-week Teardown if you'd rather start with a written verdict.</p>
+      <div class="ph-cta" style="justify-content:center">
+        <a href="book-a-call.html" class="btn btn-accent">Book a fit call <span class="arrow">&rarr;</span></a>
+        <a href="teardown.html" class="link-grow" style="color:#fff">Start with a Teardown <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap-wide">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#14140F"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+        <p style="color:var(--grey-2); max-width:30ch; margin-top:18px; font-size:0.96rem; line-height:1.5">Senior technical leadership for founders who aren't ready for a full-time CTO — and shouldn't hire one yet.</p>
+      </div>
+      <div><h5>Service</h5><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="comparison.html">Fractional vs full-time</a></li><li><a href="teardown.html">The Tech Teardown</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="blog.html">Writing</a></li><li><a href="book-a-call.html">Book a call</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+      <div><h5>Start here</h5><ul><li><a href="book-a-call.html">Book a 20-min fit call</a></li><li><a href="teardown.html">Start with a Teardown</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Fraction · <a href="https://getfractioncto.com">getfractioncto.com</a> — no contract, no equity, cancel anytime.</span>
+      <span>Built on judgment, not hours.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="motion.js"></script>
+</body>
+</html>
