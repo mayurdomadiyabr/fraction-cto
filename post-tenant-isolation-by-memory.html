@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Your customers share one database. What keeps their data apart? — Fraction</title>
+  <meta name="description" content="Shared tables are fine. Relying on every query to filter by account is not. How to enforce tenant isolation before a leak does it for you." />
+  <meta name="theme-color" content="#FAFAF9" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Fraction" />
+  <meta property="og:title" content="Your customers share one database. What keeps their data apart? — Fraction" />
+  <meta property="og:description" content="Shared tables are fine. Relying on every query to filter by account is not. How to enforce tenant isolation before a leak does it for you." />
+  <meta property="og:url" content="https://getfractioncto.com/post-tenant-isolation-by-memory" />
+  <meta property="og:image" content="https://getfractioncto.com/og-image.png" />
+  <meta property="article:published_time" content="2026-09-22T04:31:13.651Z" />
+  <meta property="article:author" content="The founder of Fraction" />
+  <meta property="article:section" content="Pattern recognition" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Your customers share one database. What keeps their data apart? — Fraction" />
+  <meta name="twitter:description" content="Shared tables are fine. Relying on every query to filter by account is not. How to enforce tenant isolation before a leak does it for you." />
+  <meta name="twitter:image" content="https://getfractioncto.com/og-image.png" />
+  <link rel="canonical" href="https://getfractioncto.com/post-tenant-isolation-by-memory" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script src="/analytics.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Your customers share one database. What keeps their data apart?",
+  "description": "Shared tables are fine. Relying on every query to filter by account is not. How to enforce tenant isolation before a leak does it for you.",
+  "datePublished": "2026-09-22T04:31:13.651Z",
+  "dateModified": "2026-09-22T04:31:13.651Z",
+  "author": {
+    "@type": "Person",
+    "name": "The founder of Fraction",
+    "url": "https://getfractioncto.com/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fraction",
+    "url": "https://getfractioncto.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://getfractioncto.com/og-image.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://getfractioncto.com/post-tenant-isolation-by-memory"
+  },
+  "image": "https://getfractioncto.com/og-image.png",
+  "articleSection": "Pattern recognition",
+  "wordCount": 1457,
+  "inLanguage": "en",
+  "isAccessibleForFree": true
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home",   "item": "https://getfractioncto.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Writing","item": "https://getfractioncto.com/blog" },
+    { "@type": "ListItem", "position": 3, "name": "Your customers share one database. What keeps their data apart?", "item": "https://getfractioncto.com/post-tenant-isolation-by-memory" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Fraction home"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <ul class="nav-links">
+      <li><a href="how-it-works.html">How it works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="comparison.html">Compare</a></li>
+      <li><a href="blog.html" class="active">Writing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="teardown.html">The Teardown <span class="accent-dot"></span></a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke-linecap="round"/></svg></button>
+      <button class="icon-btn" aria-label="Toggle theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M21.5 12h-2.2M4.7 12H2.5M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6M18.4 18.4l-1.6-1.6M7.2 7.2 5.6 5.6" stroke-linecap="round"/></svg></button>
+      <a href="book-a-call.html" class="btn btn-primary nav-cta">Book a fit call</a>
+      <button class="icon-btn menu-btn" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu">
+  <div class="mm-top">
+    <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <button class="icon-btn menu-btn" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg></button>
+  </div>
+  <nav>
+    <a href="how-it-works.html">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="comparison.html">Compare</a>
+    <a href="blog.html">Writing</a>
+    <a href="about.html">About</a>
+    <a href="teardown.html">The Teardown</a>
+  </nav>
+  <div class="mm-cta">
+    <a href="teardown.html" class="btn btn-ghost">Start with a Teardown</a>
+    <a href="book-a-call.html" class="btn btn-primary">Book a 20-min fit call</a>
+  </div>
+</div>
+
+<main>
+<section class="page-hero center" style="padding-bottom:clamp(24px,4vw,40px)">
+  <div class="wrap">
+    <div class="article-hero">
+      <span class="post-cat">Pattern recognition</span>
+      <h1>Your customers share one database. What keeps their data apart?</h1>
+      <div class="post-meta"><span>Sep 2026</span><span class="sep"></span><span>7 min read</span><span class="sep"></span><span>by The founder of Fraction</span></div>
+    </div>
+  </div>
+</section>
+<section class="section-tight" style="padding-top:8px">
+  <div class="wrap">
+    <div class="article-body reveal">
+<p>Here is a pattern I see in almost every early B2B product I review. Every customer&#39;s data lives in the same database, in the same tables, and the only thing keeping Customer A from seeing Customer B&#39;s invoices is a <code>WHERE account_id = ?</code> clause that a developer has to remember to type. Hundreds of queries. Every one of them hand-written or generated, every one of them a chance to forget.</p>
+<p>Nobody decided this was the security model. It just happened, one endpoint at a time. And it holds right up until the day a new engineer ships a reporting endpoint on a Friday, forgets the filter, and a customer emails you a screenshot of another company&#39;s data.</p>
+<p>The short answer: shared tables are fine and usually the right call early on. What is not fine is leaving tenant isolation to memory. Make the database, or one enforced layer of your code, refuse to return rows from the wrong account, and test that refusal like it is a feature.</p>
+<h2>Why this pattern is so common</h2>
+<p>Almost every SaaS product starts as a single-customer app. The first version had one pilot customer, maybe two, and nobody thought of &quot;tenant&quot; as a concept. Then a second customer signed, someone added an <code>account_id</code> column to the users table, and the team started filtering by it wherever it seemed to matter.</p>
+<p>The problem is the phrase &quot;wherever it seemed to matter&quot;. Isolation that depends on judgment at every call site degrades as the codebase grows, for predictable reasons:</p>
+<ul>
+<li>New engineers do not know which tables are tenant-scoped and which are global.</li>
+<li>Admin and reporting endpoints are written quickly, often by the founder, often late.</li>
+<li>Background jobs and exports run outside the request context that normally carries the account.</li>
+<li>AI coding tools will happily generate a query that fetches a record by ID alone, because the prompt said &quot;get invoice by ID&quot;.</li>
+</ul>
+<p>That last one matters more every quarter. Fetching a record by its ID without checking who owns it is the textbook insecure direct object reference, and broken access control has sat at number one on the <a href="https://owasp.org/Top10/2025/">OWASP Top 10</a> in both the 2021 and 2025 editions. It is the most common serious flaw in web applications, not an exotic one.</p>
+<h2>What it costs when it breaks</h2>
+<p>A cross-tenant leak is not an ordinary bug. It is a disclosure. Depending on what leaked and where your customers are, you may have contractual notification duties, privacy-law obligations, and a customer whose own security team now wants a call with yours.</p>
+<p>The commercial cost is usually bigger than the technical one. I have watched an anonymized version of this play out more than once: a mid-sized customer finds another company&#39;s records in an export, their procurement team pauses renewal pending a security review, and the enterprise deal you were counting on for the quarter goes quiet while their security team reads your answers. The fix took an afternoon. The trust took two quarters.</p>
+<p>It also shows up in diligence. A reviewer who spends twenty minutes in your codebase will check how tenant isolation works, because it is one of the fastest ways to tell whether the team thinks about security structurally or by habit. It is on my own list of <a href="/post-architecture-smells">architecture smells I look for in a short review</a>, and it is one of the <a href="/post-diligence-red-flags">diligence red flags that slow a round</a>.</p>
+<h2>Three ways to enforce isolation, from cheapest to strongest</h2>
+<p>You do not need to re-platform to fix this. You need to move isolation from &quot;every developer remembers&quot; to &quot;the system enforces it&quot;. Pick the lightest option that actually enforces.</p>
+<h3>1. One scoped data-access layer</h3>
+<p>Route every tenant-scoped query through one layer that injects the account filter automatically. Most ORMs support this with default scopes, query hooks, or a repository pattern. Developers stop writing <code>WHERE account_id</code> because the layer does it, and raw queries that bypass the layer get flagged in code review or by a lint rule.</p>
+<p>This is cheap and it removes most of the risk. Its weakness is that it is still application code, so a raw SQL query in a background job can walk right around it.</p>
+<h3>2. Database row-level security</h3>
+<p>If you are on Postgres, row-level security (RLS) lets the database itself decide which rows a session can see. You enable it per table, write a policy that compares <code>account_id</code> to a session setting, and set that setting at the start of every request. A query that forgets the filter returns nothing from other tenants instead of everything.</p>
+<p>Two practical traps to know before you start. First, table owners and superusers bypass RLS by default, so your application should connect as a separate, non-owner role, or you should use <code>FORCE ROW LEVEL SECURITY</code>. Second, if you use a connection pool, set the tenant with a transaction-scoped setting, so the next request on that pooled connection does not inherit the previous tenant&#39;s context. The <a href="https://www.postgresql.org/docs/current/ddl-rowsecurity.html">Postgres documentation on row security</a> covers the mechanics.</p>
+<p>RLS is the option I recommend most often for B2B products on Postgres with sensitive data, because it keeps working when someone makes a mistake.</p>
+<h3>3. Separate databases or schemas per tenant</h3>
+<p>Some customers, usually large ones in regulated industries, will ask for physical isolation. Separate databases give you that and make per-customer backup, restore, and deletion easy. They also multiply your migration, monitoring, and cost overhead with every tenant. For most seed-stage products this is a sales accommodation for a handful of accounts, not a default architecture. If a customer asks for it, treat it like <a href="/post-customer-wants-self-host">a request to self-host</a>: price the operational cost before you say yes.</p>
+<h2>How to find out where you stand this week</h2>
+<p>You can assess this without being technical. Ask your lead engineer these four questions and listen for specifics:</p>
+<ol>
+<li>&quot;If a developer writes a new query and forgets the account filter, what stops it?&quot; A good answer names a mechanism. &quot;We review carefully&quot; is not a mechanism.</li>
+<li>&quot;Which tables are tenant-scoped, and where is that written down?&quot;</li>
+<li>&quot;Do our background jobs, exports, and admin screens use the same protection as the main app?&quot;</li>
+<li>&quot;Is there an automated test that logs in as one account and tries to read another account&#39;s records?&quot;</li>
+</ol>
+<p>That fourth question is the one that separates teams. A cross-tenant test suite is simple to write: create two accounts, and for every endpoint that takes an ID, confirm Account A gets a 404 or 403 for Account B&#39;s record. Once it exists, it runs on every deploy and catches the Friday-afternoon mistake before a customer does.</p>
+<h2>What a sensible fix looks like in practice</h2>
+<p>For a typical seed-stage team with one Postgres database and a few dozen tables, the path I usually recommend is:</p>
+<ul>
+<li>Week one: inventory tenant-scoped tables and write the cross-tenant test for the highest-risk endpoints, meaning anything that returns files, invoices, messages, or personal data.</li>
+<li>Week two: move queries onto one scoped access layer and add a lint or review rule against bypassing it.</li>
+<li>Next: turn on row-level security for the most sensitive tables, then expand table by table.</li>
+</ul>
+<p>None of this requires a rewrite, and none of it needs to stop feature work for long. It is exactly the kind of change that is cheap now and painful later, which puts it firmly in the list of <a href="/post-reversible-decisions">early decisions you cannot cheaply undo</a> if you wait.</p>
+<h2>FAQ</h2>
+<h3>Is a shared database with an account_id column a bad architecture?</h3>
+<p>No. Shared tables are the most common and usually the most sensible model for early SaaS. The risk is not the shared database. It is relying on every developer to remember the filter on every query.</p>
+<h3>Does row-level security slow down my database?</h3>
+<p>It adds a condition to every query, so you need an index that leads with <code>account_id</code> on large tenant tables. With that index in place, the overhead is usually small. Without it, performance can suffer badly.</p>
+<h3>Will investors actually check this?</h3>
+<p>A technical reviewer often will, because it is a fast signal of how the team handles security. Having a clear answer and a test suite turns a potential red flag into a strength.</p>
+<h3>We already had a leak. What do we do first?</h3>
+<p>Contain it, find the root cause, and check your contractual and legal notification duties with counsel before you talk to customers. Then fix the class of bug, not just the one endpoint.</p>
+<p>If you want an outside read on how your product isolates customer data, a <a href="/teardown">technical teardown</a> covers exactly this, or you can <a href="/book-a-call">book a call</a> and we can talk it through.</p>
+
+    </div>
+    <div class="article-body">
+      <div class="author-card reveal">
+        <span class="ac-av">F</span>
+        <div>
+          <div class="ac-name">The founder of Fraction</div>
+          <div class="ac-bio">Built engineering teams from 2 to 30. Killed more bad rebuilds than I've greenlit. <a href="about.html" class="link-grow" style="font-size:0.96rem">More about me <span class="arrow">&rarr;</span></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" style="padding-top:clamp(32px,5vw,56px)">
+  <div class="wrap">
+    <div class="callout reveal" style="text-align:center">
+      <h3 style="margin-left:auto;margin-right:auto;max-width:22ch">Not sure the call you're about to make is the right one?</h3>
+      <p style="margin:0 auto 26px">That's exactly what a 20-minute fit call is for &mdash; or a two-week Teardown if you'd rather start with a written verdict.</p>
+      <div class="ph-cta" style="justify-content:center">
+        <a href="book-a-call.html" class="btn btn-accent">Book a fit call <span class="arrow">&rarr;</span></a>
+        <a href="teardown.html" class="link-grow" style="color:#fff">Start with a Teardown <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap-wide">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#14140F"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+        <p style="color:var(--grey-2); max-width:30ch; margin-top:18px; font-size:0.96rem; line-height:1.5">Senior technical leadership for founders who aren't ready for a full-time CTO — and shouldn't hire one yet.</p>
+      </div>
+      <div><h5>Service</h5><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="comparison.html">Fractional vs full-time</a></li><li><a href="teardown.html">The Tech Teardown</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="blog.html">Writing</a></li><li><a href="book-a-call.html">Book a call</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+      <div><h5>Start here</h5><ul><li><a href="book-a-call.html">Book a 20-min fit call</a></li><li><a href="teardown.html">Start with a Teardown</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Fraction · <a href="https://getfractioncto.com">getfractioncto.com</a> — no contract, no equity, cancel anytime.</span>
+      <span>Built on judgment, not hours.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="motion.js"></script>
+</body>
+</html>

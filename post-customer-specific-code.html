@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The if-statement for one customer that became your product — Fraction</title>
+  <meta name="description" content="Customer-specific code branches slow every change and hide bugs. A test for when to allow them and a four-step cleanup plan." />
+  <meta name="theme-color" content="#FAFAF9" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Fraction" />
+  <meta property="og:title" content="The if-statement for one customer that became your product — Fraction" />
+  <meta property="og:description" content="Customer-specific code branches slow every change and hide bugs. A test for when to allow them and a four-step cleanup plan." />
+  <meta property="og:url" content="https://getfractioncto.com/post-customer-specific-code" />
+  <meta property="og:image" content="https://getfractioncto.com/og-image.png" />
+  <meta property="article:published_time" content="2026-09-22T04:31:14.055Z" />
+  <meta property="article:author" content="The founder of Fraction" />
+  <meta property="article:section" content="Pattern recognition" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="The if-statement for one customer that became your product — Fraction" />
+  <meta name="twitter:description" content="Customer-specific code branches slow every change and hide bugs. A test for when to allow them and a four-step cleanup plan." />
+  <meta name="twitter:image" content="https://getfractioncto.com/og-image.png" />
+  <link rel="canonical" href="https://getfractioncto.com/post-customer-specific-code" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script src="/analytics.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "The if-statement for one customer that became your product",
+  "description": "Customer-specific code branches slow every change and hide bugs. A test for when to allow them and a four-step cleanup plan.",
+  "datePublished": "2026-09-22T04:31:14.055Z",
+  "dateModified": "2026-09-22T04:31:14.055Z",
+  "author": {
+    "@type": "Person",
+    "name": "The founder of Fraction",
+    "url": "https://getfractioncto.com/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fraction",
+    "url": "https://getfractioncto.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://getfractioncto.com/og-image.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://getfractioncto.com/post-customer-specific-code"
+  },
+  "image": "https://getfractioncto.com/og-image.png",
+  "articleSection": "Pattern recognition",
+  "wordCount": 1271,
+  "inLanguage": "en",
+  "isAccessibleForFree": true
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home",   "item": "https://getfractioncto.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Writing","item": "https://getfractioncto.com/blog" },
+    { "@type": "ListItem", "position": 3, "name": "The if-statement for one customer that became your product", "item": "https://getfractioncto.com/post-customer-specific-code" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Fraction home"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <ul class="nav-links">
+      <li><a href="how-it-works.html">How it works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="comparison.html">Compare</a></li>
+      <li><a href="blog.html" class="active">Writing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="teardown.html">The Teardown <span class="accent-dot"></span></a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke-linecap="round"/></svg></button>
+      <button class="icon-btn" aria-label="Toggle theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M21.5 12h-2.2M4.7 12H2.5M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6M18.4 18.4l-1.6-1.6M7.2 7.2 5.6 5.6" stroke-linecap="round"/></svg></button>
+      <a href="book-a-call.html" class="btn btn-primary nav-cta">Book a fit call</a>
+      <button class="icon-btn menu-btn" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu">
+  <div class="mm-top">
+    <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <button class="icon-btn menu-btn" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg></button>
+  </div>
+  <nav>
+    <a href="how-it-works.html">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="comparison.html">Compare</a>
+    <a href="blog.html">Writing</a>
+    <a href="about.html">About</a>
+    <a href="teardown.html">The Teardown</a>
+  </nav>
+  <div class="mm-cta">
+    <a href="teardown.html" class="btn btn-ghost">Start with a Teardown</a>
+    <a href="book-a-call.html" class="btn btn-primary">Book a 20-min fit call</a>
+  </div>
+</div>
+
+<main>
+<section class="page-hero center" style="padding-bottom:clamp(24px,4vw,40px)">
+  <div class="wrap">
+    <div class="article-hero">
+      <span class="post-cat">Pattern recognition</span>
+      <h1>The if-statement for one customer that became your product</h1>
+      <div class="post-meta"><span>Sep 2026</span><span class="sep"></span><span>6 min read</span><span class="sep"></span><span>by The founder of Fraction</span></div>
+    </div>
+  </div>
+</section>
+<section class="section-tight" style="padding-top:8px">
+  <div class="wrap">
+    <div class="article-body reveal">
+<p>Search your codebase for a customer&#39;s name or account ID. In most early B2B products I review, you will find it. Something like <code>if account.id == 42: skip_approval_step()</code>, or a config flag called <code>acme_mode</code>, or a separate export format that exists because one customer&#39;s finance team asked for it in their second month.</p>
+<p>Each of those lines made sense when it was written. A customer needed something, a deal depended on it, and a two-line branch was faster than a design discussion. The problem is not any single one. It is what happens when there are forty of them and nobody can say which customers depend on which behavior.</p>
+<p>The short answer: customer-specific code is sometimes the right trade to win or keep a deal, but it needs a ceiling and a paper trail. Turn one-off branches into named, documented settings any customer could use, retire the ones nobody needs, and make adding a new one a deliberate decision with a cost attached.</p>
+<h2>How the pattern grows</h2>
+<p>It usually starts with your best early customer. They are paying, they are patient, they give good feedback, and they occasionally need something slightly different. Saying yes feels like good customer development, and often it is.</p>
+<p>Then the pattern compounds:</p>
+<ul>
+<li>Sales learns that engineering can accommodate special requests, so special requests become part of closing.</li>
+<li>Each branch is small, so none of them triggers a real design conversation.</li>
+<li>The engineer who wrote a branch leaves, and the knowledge of why it exists leaves with them.</li>
+<li>Nobody deletes branches, because nobody is sure whether the customer still relies on them.</li>
+</ul>
+<p>This is the code-level cousin of a roadmap problem I have written about before: <a href="/post-biggest-customer-roadmap">when your biggest customer is writing your roadmap</a>. The roadmap version is visible in planning meetings. The code version is invisible until it starts slowing everything down.</p>
+<h2>The costs show up in three places</h2>
+<h3>Every change gets slower</h3>
+<p>A developer changing the approval flow now has to reason about every customer-specific branch that touches it. Tests multiply, or more often do not exist for the rare paths. A change that should take a day takes a week, and the team starts to describe the codebase as &quot;fragile&quot; without being able to say exactly why. This is one of the quieter forms of <a href="/post-triage-technical-debt">the technical debt that actually matters</a>, because it taxes every future feature.</p>
+<h3>Bugs hide in paths nobody runs</h3>
+<p>The main flow is exercised by every customer, every day, so its bugs surface fast. A branch used by one account might run once a month, during their billing cycle. When it breaks, you find out from an angry email, and the person who understands it is gone. Some of the worst incidents I have seen in small companies came from a rarely-run customer path after an unrelated refactor.</p>
+<h3>You cannot price or sell the product cleanly</h3>
+<p>If every customer is running a slightly different product, you cannot say what you sell. Onboarding a new customer means deciding which of the special behaviors they get. Support cannot reproduce issues. And a diligence reviewer who finds a long list of hardcoded account IDs will reasonably ask whether you have a product or a set of custom projects, which affects how they think about your margins.</p>
+<h2>Expensive necessity or expensive mistake</h2>
+<p>I do not tell founders to never do this. Early on, a custom accommodation that keeps a major logo, or wins the reference customer that unlocks your next five deals, can be exactly the right trade. The distinction is the one I use for most early spending decisions: <a href="/post-expensive-mistake-or-necessity">is this an expensive necessity or an expensive mistake</a>?</p>
+<p>A useful test for any new customer-specific request:</p>
+<ol>
+<li>Would at least a few other customers plausibly want this within a year? If yes, build it as a general setting, not a branch.</li>
+<li>Is the customer paying enough, or strategic enough, to carry the ongoing cost of maintaining it? If not, the answer is probably no, or a paid customization with a price that reflects the upkeep.</li>
+<li>Is there a clear owner and a written reason? If you cannot name who maintains it and why it exists, do not add it.</li>
+</ol>
+<h2>How to clean it up without breaking customers</h2>
+<p>You do not need to rip everything out at once. A steady approach works better.</p>
+<h3>Step 1: Take inventory</h3>
+<p>Have an engineer list every place the code behaves differently for a specific customer, account, or plan: hardcoded IDs, customer-named flags, special-case config, and forked templates. For each one, record which customer, what it does, when it was added if the history shows it, and whether that customer is still active.</p>
+<p>That list alone is usually eye-opening. Founders are often surprised to learn how many exist and how many belong to customers who churned.</p>
+<h3>Step 2: Delete the dead ones</h3>
+<p>Branches for churned customers can usually go immediately. Branches whose behavior the customer no longer needs can go after a short confirmation with the account owner. This is often a third or more of the list, and removing it makes the rest easier to reason about.</p>
+<h3>Step 3: Promote the useful ones into settings</h3>
+<p>Where a special behavior is genuinely useful, turn it into a named, documented account setting, such as &quot;require manager approval over a threshold&quot;, that any customer could turn on. Now it is a feature. It can be tested, sold, and explained.</p>
+<h3>Step 4: Put a gate on new ones</h3>
+<p>Agree on a simple rule: new customer-specific behavior needs a written reason, an owner, and a decision from whoever owns the product. Some teams also set a cap on how many can exist at once. The point is not bureaucracy. It is making the cost visible at the moment the decision is made.</p>
+<h2>What to ask your team this week</h2>
+<p>If you are not technical, three questions will tell you a lot:</p>
+<ol>
+<li>&quot;How many places in the code behave differently for a specific customer?&quot; If nobody knows, that is the first finding.</li>
+<li>&quot;Which of those belong to customers who have left?&quot;</li>
+<li>&quot;If we signed a customer tomorrow who wanted the same thing as our top account, could we turn it on with a setting, or would it need code?&quot;</li>
+</ol>
+<p>The answers usually tell you whether this is a minor tidy-up or something that is quietly eating a large share of your engineering time.</p>
+<h2>FAQ</h2>
+<h3>Is customer-specific code always technical debt?</h3>
+<p>Not always. It is a trade. It becomes debt when it is undocumented, unowned, and never revisited. A small number of well-documented accommodations is normal for early B2B.</p>
+<h3>Should we charge for custom work?</h3>
+<p>Often, yes. If a customer needs behavior no one else wants, a paid customization priced to include ongoing maintenance is fairer to you and makes the trade explicit.</p>
+<h3>How is this different from feature flags?</h3>
+<p>Feature flags are usually temporary switches for rolling out changes safely. Customer branches are usually permanent and tied to one account. Using a flag system to manage customer settings is fine, as long as the settings are named, documented, and tested like features.</p>
+<h3>Who should own the decision to add a new one?</h3>
+<p>Whoever owns the product, with input from engineering on the cost. It should not be decided by sales alone or by a developer under deadline pressure.</p>
+<p>If you want an outside view of how much custom code is slowing your team down, a <a href="/teardown">technical teardown</a> will map it, or <a href="/book-a-call">book a call</a> to talk it through.</p>
+
+    </div>
+    <div class="article-body">
+      <div class="author-card reveal">
+        <span class="ac-av">F</span>
+        <div>
+          <div class="ac-name">The founder of Fraction</div>
+          <div class="ac-bio">Built engineering teams from 2 to 30. Killed more bad rebuilds than I've greenlit. <a href="about.html" class="link-grow" style="font-size:0.96rem">More about me <span class="arrow">&rarr;</span></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" style="padding-top:clamp(32px,5vw,56px)">
+  <div class="wrap">
+    <div class="callout reveal" style="text-align:center">
+      <h3 style="margin-left:auto;margin-right:auto;max-width:22ch">Not sure the call you're about to make is the right one?</h3>
+      <p style="margin:0 auto 26px">That's exactly what a 20-minute fit call is for &mdash; or a two-week Teardown if you'd rather start with a written verdict.</p>
+      <div class="ph-cta" style="justify-content:center">
+        <a href="book-a-call.html" class="btn btn-accent">Book a fit call <span class="arrow">&rarr;</span></a>
+        <a href="teardown.html" class="link-grow" style="color:#fff">Start with a Teardown <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap-wide">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#14140F"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+        <p style="color:var(--grey-2); max-width:30ch; margin-top:18px; font-size:0.96rem; line-height:1.5">Senior technical leadership for founders who aren't ready for a full-time CTO — and shouldn't hire one yet.</p>
+      </div>
+      <div><h5>Service</h5><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="comparison.html">Fractional vs full-time</a></li><li><a href="teardown.html">The Tech Teardown</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="blog.html">Writing</a></li><li><a href="book-a-call.html">Book a call</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+      <div><h5>Start here</h5><ul><li><a href="book-a-call.html">Book a 20-min fit call</a></li><li><a href="teardown.html">Start with a Teardown</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Fraction · <a href="https://getfractioncto.com">getfractioncto.com</a> — no contract, no equity, cancel anytime.</span>
+      <span>Built on judgment, not hours.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="motion.js"></script>
+</body>
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Everyone on your team logs in as admin — Fraction</title>
+  <meta name="description" content="Why shared admin and root credentials hurt startups at offboarding, incidents, and diligence, and a five-step fix a small team can do." />
+  <meta name="theme-color" content="#FAFAF9" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Fraction" />
+  <meta property="og:title" content="Everyone on your team logs in as admin — Fraction" />
+  <meta property="og:description" content="Why shared admin and root credentials hurt startups at offboarding, incidents, and diligence, and a five-step fix a small team can do." />
+  <meta property="og:url" content="https://getfractioncto.com/post-shared-admin-logins" />
+  <meta property="og:image" content="https://getfractioncto.com/og-image.png" />
+  <meta property="article:published_time" content="2026-09-22T04:31:14.233Z" />
+  <meta property="article:author" content="The founder of Fraction" />
+  <meta property="article:section" content="Pattern recognition" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Everyone on your team logs in as admin — Fraction" />
+  <meta name="twitter:description" content="Why shared admin and root credentials hurt startups at offboarding, incidents, and diligence, and a five-step fix a small team can do." />
+  <meta name="twitter:image" content="https://getfractioncto.com/og-image.png" />
+  <link rel="canonical" href="https://getfractioncto.com/post-shared-admin-logins" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script src="/analytics.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Everyone on your team logs in as admin",
+  "description": "Why shared admin and root credentials hurt startups at offboarding, incidents, and diligence, and a five-step fix a small team can do.",
+  "datePublished": "2026-09-22T04:31:14.233Z",
+  "dateModified": "2026-09-22T04:31:14.233Z",
+  "author": {
+    "@type": "Person",
+    "name": "The founder of Fraction",
+    "url": "https://getfractioncto.com/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fraction",
+    "url": "https://getfractioncto.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://getfractioncto.com/og-image.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://getfractioncto.com/post-shared-admin-logins"
+  },
+  "image": "https://getfractioncto.com/og-image.png",
+  "articleSection": "Pattern recognition",
+  "wordCount": 1232,
+  "inLanguage": "en",
+  "isAccessibleForFree": true
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home",   "item": "https://getfractioncto.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Writing","item": "https://getfractioncto.com/blog" },
+    { "@type": "ListItem", "position": 3, "name": "Everyone on your team logs in as admin", "item": "https://getfractioncto.com/post-shared-admin-logins" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Fraction home"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <ul class="nav-links">
+      <li><a href="how-it-works.html">How it works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="comparison.html">Compare</a></li>
+      <li><a href="blog.html" class="active">Writing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="teardown.html">The Teardown <span class="accent-dot"></span></a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke-linecap="round"/></svg></button>
+      <button class="icon-btn" aria-label="Toggle theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M21.5 12h-2.2M4.7 12H2.5M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6M18.4 18.4l-1.6-1.6M7.2 7.2 5.6 5.6" stroke-linecap="round"/></svg></button>
+      <a href="book-a-call.html" class="btn btn-primary nav-cta">Book a fit call</a>
+      <button class="icon-btn menu-btn" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu">
+  <div class="mm-top">
+    <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <button class="icon-btn menu-btn" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg></button>
+  </div>
+  <nav>
+    <a href="how-it-works.html">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="comparison.html">Compare</a>
+    <a href="blog.html">Writing</a>
+    <a href="about.html">About</a>
+    <a href="teardown.html">The Teardown</a>
+  </nav>
+  <div class="mm-cta">
+    <a href="teardown.html" class="btn btn-ghost">Start with a Teardown</a>
+    <a href="book-a-call.html" class="btn btn-primary">Book a 20-min fit call</a>
+  </div>
+</div>
+
+<main>
+<section class="page-hero center" style="padding-bottom:clamp(24px,4vw,40px)">
+  <div class="wrap">
+    <div class="article-hero">
+      <span class="post-cat">Pattern recognition</span>
+      <h1>Everyone on your team logs in as admin</h1>
+      <div class="post-meta"><span>Sep 2026</span><span class="sep"></span><span>6 min read</span><span class="sep"></span><span>by The founder of Fraction</span></div>
+    </div>
+  </div>
+</section>
+<section class="section-tight" style="padding-top:8px">
+  <div class="wrap">
+    <div class="article-body reveal">
+<p>In a lot of early startups, there is one login that everyone uses. The cloud account&#39;s root user, shared in a password manager or a chat message. One admin account for the payment dashboard. One production database password that every engineer, contractor, and the agency from last year has had at some point.</p>
+<p>It works. It is fast. Nobody has to wait for access. And it is one of the most predictable problems I find when I look under the hood of a seed-stage company, because the cost of fixing it rises every month you wait, and the cost of not fixing it arrives all at once.</p>
+<p>The short answer: give every person their own named account with the access their job needs, lock the root and owner credentials away with strong multi-factor authentication, and make removing someone&#39;s access a checklist you can finish in an hour. This is a few days of work for most small teams, not a security program.</p>
+<h2>Why shared logins happen</h2>
+<p>Nobody chooses shared credentials as a policy. They accumulate:</p>
+<ul>
+<li>The founder set up the cloud account on day one with a personal email and never created separate users.</li>
+<li>A contractor needed access urgently, and sharing the existing login was faster than working out permissions.</li>
+<li>An agency built the first version and set up the accounts under their own logins, which is a related problem I have covered in <a href="/post-your-agency-hosts-your-product-on-their-servers">when your agency hosts your product on their servers</a>.</li>
+<li>Somebody pasted a database password into a config file or a chat channel, and from then on it was effectively shared with everyone who could read either.</li>
+</ul>
+<p>Each step was reasonable in the moment. The result is that you no longer know who can reach your production systems.</p>
+<h2>What goes wrong</h2>
+<h3>You cannot remove anyone cleanly</h3>
+<p>When an engineer or contractor leaves, removing their access means changing a shared password and redistributing it to everyone else, and updating every system that uses it. So in practice it often does not happen. I regularly find former contractors whose access was never revoked, not out of negligence, but because revoking it would have broken something.</p>
+<h3>You cannot tell who did what</h3>
+<p>If five people use the same admin account, the audit log says &quot;admin&quot; did it. When a customer&#39;s record is changed, a setting is flipped, or data is deleted, you cannot tell whether it was a mistake, a misunderstanding, or something worse. The first time you need to investigate an incident, this is the gap that hurts.</p>
+<h3>One leak exposes everything</h3>
+<p>A shared credential has the widest possible blast radius. If it leaks, from a laptop, a chat export, or a file committed to your repository, the attacker gets everything that account can do. AWS is explicit here: its <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/root-user-best-practices.html">root user best practices</a> say not to use the root user for everyday tasks, to protect it with MFA, and to avoid creating access keys for it. Everyday work should happen through separate users or roles with narrower permissions.</p>
+<h3>It comes up when you sell and when you raise</h3>
+<p>Enterprise customers will ask about it directly. &quot;Do all users have unique accounts?&quot; and &quot;How quickly is access removed when staff leave?&quot; are standard lines in a vendor security questionnaire, and a vague answer is one way <a href="/post-security-questionnaire-deal">a security questionnaire stalls your biggest deal</a>. A technical reviewer in diligence will often ask the same thing, alongside checking for <a href="/post-secrets-in-git-history-diligence">secrets sitting in your git history</a>.</p>
+<h2>A practical fix for a small team</h2>
+<p>You do not need a dedicated security hire for this. Here is the order I usually recommend.</p>
+<h3>1. List every system that matters</h3>
+<p>Start with the systems where a bad actor could do real damage: cloud provider, code hosting, production database, domain registrar and DNS, payment processor, email provider, and your main customer data tools. For each, write down who has access and how they log in. This inventory is often the most revealing step.</p>
+<h3>2. Secure the owner accounts</h3>
+<p>For each critical system, make sure the top-level owner account uses a company-controlled email address, not a personal one, has strong MFA turned on, and is used only for the rare tasks that require it. Store its credentials where at least two trusted people can reach them in an emergency. Losing the only login to your domain registrar is its own kind of outage.</p>
+<h3>3. Give everyone their own account</h3>
+<p>Create a named account for each person with the permissions their role needs. Engineers usually do not need owner-level access to billing. Contractors usually do not need access to everything. Most major providers support this directly, and many support single sign-on so you can manage access in one place as you grow.</p>
+<h3>4. Rotate what was shared</h3>
+<p>Once individual accounts exist, change every password and key that was previously shared, and remove old access keys that are no longer used. Assume anything that has been pasted into chat or email is known to more people than you think.</p>
+<h3>5. Write the offboarding checklist</h3>
+<p>Write a short list of every system to remove a departing person from, and use it every time. If you already use single sign-on, most of this becomes one action. The same discipline applies to service accounts and tokens, including the ones your AI tools use, which I covered in <a href="/post-ai-agent-offboarding">every AI agent you add is a hire you never offboard</a>.</p>
+<h2>How to check where you stand</h2>
+<p>If you are not technical, ask your lead engineer:</p>
+<ol>
+<li>&quot;If a contractor left today, how long would it take to remove all their access, and how would we know we got everything?&quot;</li>
+<li>&quot;Who can log into our cloud account as the owner or root user, and when was it last used?&quot;</li>
+<li>&quot;Is there any password or key that more than one person uses?&quot;</li>
+</ol>
+<p>The honest answer to the third question is often yes. That is fine as a starting point. What matters is having a plan and a date to fix it.</p>
+<p>It also connects to a broader risk. If only one person knows how all these accounts fit together, you have both a security problem and a <a href="/post-key-person-codebase-risk">key-person risk</a>. Writing down the inventory solves part of both.</p>
+<h2>FAQ</h2>
+<h3>We are three people. Is this really necessary?</h3>
+<p>The full version can wait, but the basics cannot: MFA on owner accounts, separate logins for each person, and no shared production passwords. These take a day or two at your size and are much harder to retrofit at twenty people.</p>
+<h3>Do we need single sign-on?</h3>
+<p>Not on day one. It becomes worth it once you have enough people and tools that manual offboarding gets error-prone, or when enterprise customers start asking for it.</p>
+<h3>What about the agency that built our product?</h3>
+<p>Make sure the accounts are owned by your company, not the agency, and that their access is individual and removable. Remove it when the engagement ends.</p>
+<h3>Is a password manager enough?</h3>
+<p>A password manager is a good way to store the few credentials that must be shared, like emergency owner access. It is not a substitute for individual accounts.</p>
+<p>If you want an outside check on who can reach your production systems, a <a href="/teardown">technical teardown</a> covers access and ownership, or <a href="/book-a-call">book a call</a> to talk it through.</p>
+
+    </div>
+    <div class="article-body">
+      <div class="author-card reveal">
+        <span class="ac-av">F</span>
+        <div>
+          <div class="ac-name">The founder of Fraction</div>
+          <div class="ac-bio">Built engineering teams from 2 to 30. Killed more bad rebuilds than I've greenlit. <a href="about.html" class="link-grow" style="font-size:0.96rem">More about me <span class="arrow">&rarr;</span></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" style="padding-top:clamp(32px,5vw,56px)">
+  <div class="wrap">
+    <div class="callout reveal" style="text-align:center">
+      <h3 style="margin-left:auto;margin-right:auto;max-width:22ch">Not sure the call you're about to make is the right one?</h3>
+      <p style="margin:0 auto 26px">That's exactly what a 20-minute fit call is for &mdash; or a two-week Teardown if you'd rather start with a written verdict.</p>
+      <div class="ph-cta" style="justify-content:center">
+        <a href="book-a-call.html" class="btn btn-accent">Book a fit call <span class="arrow">&rarr;</span></a>
+        <a href="teardown.html" class="link-grow" style="color:#fff">Start with a Teardown <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap-wide">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#14140F"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+        <p style="color:var(--grey-2); max-width:30ch; margin-top:18px; font-size:0.96rem; line-height:1.5">Senior technical leadership for founders who aren't ready for a full-time CTO — and shouldn't hire one yet.</p>
+      </div>
+      <div><h5>Service</h5><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="comparison.html">Fractional vs full-time</a></li><li><a href="teardown.html">The Tech Teardown</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="blog.html">Writing</a></li><li><a href="book-a-call.html">Book a call</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+      <div><h5>Start here</h5><ul><li><a href="book-a-call.html">Book a 20-min fit call</a></li><li><a href="teardown.html">Start with a Teardown</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Fraction · <a href="https://getfractioncto.com">getfractioncto.com</a> — no contract, no equity, cancel anytime.</span>
+      <span>Built on judgment, not hours.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="motion.js"></script>
+</body>
+</html>
