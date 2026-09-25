@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Two vendors, one bug, and each blames the other — Fraction</title>
+  <meta name="description" content="How to end vendor finger-pointing: name one owner, trace one failing request end to end, settle cost later, and make integration someone&#39;s job." />
+  <meta name="theme-color" content="#FAFAF9" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Fraction" />
+  <meta property="og:title" content="Two vendors, one bug, and each blames the other — Fraction" />
+  <meta property="og:description" content="How to end vendor finger-pointing: name one owner, trace one failing request end to end, settle cost later, and make integration someone&#39;s job." />
+  <meta property="og:url" content="https://getfractioncto.com/post-vendors-blaming-each-other" />
+  <meta property="og:image" content="https://getfractioncto.com/og-image.png" />
+  <meta property="article:published_time" content="2026-09-25T02:44:35.599Z" />
+  <meta property="article:author" content="The founder of Fraction" />
+  <meta property="article:section" content="Vendors" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Two vendors, one bug, and each blames the other — Fraction" />
+  <meta name="twitter:description" content="How to end vendor finger-pointing: name one owner, trace one failing request end to end, settle cost later, and make integration someone&#39;s job." />
+  <meta name="twitter:image" content="https://getfractioncto.com/og-image.png" />
+  <link rel="canonical" href="https://getfractioncto.com/post-vendors-blaming-each-other" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script src="/analytics.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Two vendors, one bug, and each blames the other",
+  "description": "How to end vendor finger-pointing: name one owner, trace one failing request end to end, settle cost later, and make integration someone&#39;s job.",
+  "datePublished": "2026-09-25T02:44:35.599Z",
+  "dateModified": "2026-09-25T02:44:35.599Z",
+  "author": {
+    "@type": "Person",
+    "name": "The founder of Fraction",
+    "url": "https://getfractioncto.com/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fraction",
+    "url": "https://getfractioncto.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://getfractioncto.com/og-image.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://getfractioncto.com/post-vendors-blaming-each-other"
+  },
+  "image": "https://getfractioncto.com/og-image.png",
+  "articleSection": "Vendors",
+  "wordCount": 1276,
+  "inLanguage": "en",
+  "isAccessibleForFree": true
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home",   "item": "https://getfractioncto.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Writing","item": "https://getfractioncto.com/blog" },
+    { "@type": "ListItem", "position": 3, "name": "Two vendors, one bug, and each blames the other", "item": "https://getfractioncto.com/post-vendors-blaming-each-other" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Fraction home"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <ul class="nav-links">
+      <li><a href="how-it-works.html">How it works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="comparison.html">Compare</a></li>
+      <li><a href="blog.html" class="active">Writing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="teardown.html">The Teardown <span class="accent-dot"></span></a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke-linecap="round"/></svg></button>
+      <button class="icon-btn" aria-label="Toggle theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M21.5 12h-2.2M4.7 12H2.5M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6M18.4 18.4l-1.6-1.6M7.2 7.2 5.6 5.6" stroke-linecap="round"/></svg></button>
+      <a href="book-a-call.html" class="btn btn-primary nav-cta">Book a fit call</a>
+      <button class="icon-btn menu-btn" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu">
+  <div class="mm-top">
+    <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <button class="icon-btn menu-btn" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg></button>
+  </div>
+  <nav>
+    <a href="how-it-works.html">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="comparison.html">Compare</a>
+    <a href="blog.html">Writing</a>
+    <a href="about.html">About</a>
+    <a href="teardown.html">The Teardown</a>
+  </nav>
+  <div class="mm-cta">
+    <a href="teardown.html" class="btn btn-ghost">Start with a Teardown</a>
+    <a href="book-a-call.html" class="btn btn-primary">Book a 20-min fit call</a>
+  </div>
+</div>
+
+<main>
+<section class="page-hero center" style="padding-bottom:clamp(24px,4vw,40px)">
+  <div class="wrap">
+    <div class="article-hero">
+      <span class="post-cat">Vendors</span>
+      <h1>Two vendors, one bug, and each blames the other</h1>
+      <div class="post-meta"><span>Sep 2026</span><span class="sep"></span><span>6 min read</span><span class="sep"></span><span>by The founder of Fraction</span></div>
+    </div>
+  </div>
+</section>
+<section class="section-tight" style="padding-top:8px">
+  <div class="wrap">
+    <div class="article-body reveal">
+<p>Checkout has been failing for about 4 percent of customers for two weeks. Your agency says the problem is the payment provider. The payment provider&#39;s support says their API is responding normally. The freelancer who built the mobile app says the backend is returning bad data. Everyone has a screenshot showing it is not them. You are paying all three, and the bug is still there.</p>
+<p>This is one of the most common and most expensive patterns I see in startups that run on outside vendors. It is not usually dishonesty. Each vendor sees only its own piece, and from inside that piece it really does look like someone else&#39;s problem. The gap is that nobody owns the whole system. Here is how to close it.</p>
+<h2>Why finger-pointing happens</h2>
+<p>Three things combine.</p>
+<p>First, contracts define each vendor&#39;s scope and nothing else. Your agency is paid to build the backend. The mobile freelancer is paid to build the app. Nobody is paid to own the space where they connect, so nobody does.</p>
+<p>Second, each vendor&#39;s evidence is honest but partial. The payment provider really does see successful API calls. The agency really does see its code returning a response. The failure is in how those pieces behave together, under real conditions, and that view does not live in any one vendor&#39;s logs.</p>
+<p>Third, admitting fault has a cost. If the fix is billable, whoever owns the bug may not get paid for fixing it, and may face a warranty claim. That makes everyone slower to look hard at their own side.</p>
+<h2>Name one owner for the whole problem</h2>
+<p>The single most useful move is to name one person who owns the bug end to end. Not the fix, necessarily. The investigation. This person&#39;s job is to collect evidence from every side, reconstruct what actually happens to one failing request, and decide who fixes what.</p>
+<p>In an early startup with no engineering lead, that owner is often you by default, and you are poorly placed for it if you cannot read logs. The options are:</p>
+<ul>
+<li>Give it to the vendor with the widest view, usually the backend agency, and make it explicit that they are paid to investigate across boundaries, not just defend their code.</li>
+<li>Bring in someone independent for a few days, whose only job is the diagnosis. I explain why this gap exists in the first place in <a href="/post-non-technical-founder-bottleneck">when every technical decision waits on you</a>.</li>
+</ul>
+<p>Either works. What does not work is three vendors in a group chat, each waiting for the others to find it.</p>
+<h2>Get to one failing request</h2>
+<p>Arguments about &quot;the system&quot; go nowhere. Arguments about one specific failing transaction end quickly. Ask the owner to trace a single failure from start to finish:</p>
+<ol>
+<li>A real failed attempt, with a timestamp and user or order ID.</li>
+<li>What the app sent, from the app&#39;s logs.</li>
+<li>What the backend received and returned, from the backend&#39;s logs.</li>
+<li>What the backend sent to the provider, and what came back, from both sides.</li>
+</ol>
+<p>Somewhere in that chain the story stops matching. That is where the bug lives, and once it is on the table, the finger-pointing usually stops on its own. In my experience the cause is most often in a boundary nobody specified: a timeout set differently on two sides, a retry that sends a duplicate, a field one side treats as optional and the other treats as required.</p>
+<p>If a vendor cannot produce its part of that trace because it has no logging, that is a finding in itself. It is worth reading <a href="/post-flying-blind-in-prod-when-to-pay-for-observability">flying blind in prod</a> on when basic observability pays for itself.</p>
+<h2>Decide the money separately from the fix</h2>
+<p>Once the cause is clear, fix first and argue about cost second. Tell every vendor that up front: the goal this week is working checkout, and who pays will be settled from the trace, not from who shouts loudest.</p>
+<p>Then settle it using your contracts. If the cause is a defect in work a vendor delivered, your warranty clause should cover it, see <a href="/post-agency-defect-warranty">who fixes the bugs after your agency delivers</a>. If the cause is a boundary nobody specified, it is usually fair to pay for the fix and treat it as a lesson for the next contract.</p>
+<h2>Prevent the next round</h2>
+<p>The long-term fix is to make the boundaries someone&#39;s job before anything breaks.</p>
+<h3>Write down the interfaces</h3>
+<p>For every place two vendors&#39; work meets, a short written contract: what gets sent, in what format, what counts as an error, what the timeouts and retries are. It does not need to be formal. It needs to exist, and both sides need to have agreed to it.</p>
+<h3>Give one vendor integration responsibility</h3>
+<p>If one vendor is clearly the center, usually the backend, add integration and end-to-end testing to their scope and pay for it. Owning the joins is real work and should be priced as such.</p>
+<h3>Keep shared visibility</h3>
+<p>Error tracking and logs that every vendor can see, owned by you, not by any one of them. When everyone looks at the same dashboard, it is much harder for each side to see only its own clean picture.</p>
+<h3>Keep the number of vendors small</h3>
+<p>Every extra vendor adds more boundaries. Three vendors have three pairwise joins; five have ten. Sometimes splitting work is right, but it has a coordination cost that nobody writes on the invoice. The broader case is in <a href="/post-integration-sprawl">the integration sprawl nobody decided to build</a>.</p>
+<h2>An illustrative example</h2>
+<p>A composite case: a consumer app with a backend agency, a freelance mobile developer, and a third-party payment provider. Failed checkouts ran for three weeks with each party pointing elsewhere. An independent engineer spent two days tracing ten failing orders. All ten had the same shape: the mobile app timed out after 10 seconds, the backend waited up to 30 for the payment provider, and when the app retried, the backend created a duplicate order that the provider then declined as a duplicate charge.</p>
+<p>No single vendor was wrong by its own spec. The app&#39;s timeout was reasonable. The backend&#39;s was reasonable. Nobody had matched them, and nobody had made the order creation safe to retry. The fix took the agency about a day. The three weeks before that were the real cost.</p>
+<h2>When to get help</h2>
+<p>If you are paying several vendors and nobody owns how their work fits together, that is a leadership gap, not a vendor problem. A short independent review can map the boundaries and name the risks before the next outage does. Look at what a <a href="/teardown">teardown</a> covers, or <a href="/book-a-call">book a call</a> to talk it through.</p>
+<h2>FAQ</h2>
+<h3>Who should own integration between vendors?</h3>
+<p>One named party. Either the vendor whose system sits in the middle, with integration explicitly in its paid scope, or someone on your side or an independent technical lead.</p>
+<h3>How do I tell which vendor is at fault if I cannot read code?</h3>
+<p>Ask for a trace of one specific failing request through every system, with timestamps. You do not need to read the code to see where the stories stop matching.</p>
+<h3>Should I withhold payment until the bug is fixed?</h3>
+<p>Usually not as an opening move. It hardens positions and slows the fix. Use your contract&#39;s warranty and acceptance terms once the cause is clear.</p>
+<h3>Is it better to use one agency for everything?</h3>
+<p>It removes boundaries, which reduces finger-pointing, but it increases dependence on one vendor. For many early startups one primary vendor plus clear ownership of integration is the best balance.</p>
+
+    </div>
+    <div class="article-body">
+      <div class="author-card reveal">
+        <span class="ac-av">F</span>
+        <div>
+          <div class="ac-name">The founder of Fraction</div>
+          <div class="ac-bio">Built engineering teams from 2 to 30. Killed more bad rebuilds than I've greenlit. <a href="about.html" class="link-grow" style="font-size:0.96rem">More about me <span class="arrow">&rarr;</span></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" style="padding-top:clamp(32px,5vw,56px)">
+  <div class="wrap">
+    <div class="callout reveal" style="text-align:center">
+      <h3 style="margin-left:auto;margin-right:auto;max-width:22ch">Not sure the call you're about to make is the right one?</h3>
+      <p style="margin:0 auto 26px">That's exactly what a 20-minute fit call is for &mdash; or a two-week Teardown if you'd rather start with a written verdict.</p>
+      <div class="ph-cta" style="justify-content:center">
+        <a href="book-a-call.html" class="btn btn-accent">Book a fit call <span class="arrow">&rarr;</span></a>
+        <a href="teardown.html" class="link-grow" style="color:#fff">Start with a Teardown <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap-wide">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#14140F"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+        <p style="color:var(--grey-2); max-width:30ch; margin-top:18px; font-size:0.96rem; line-height:1.5">Senior technical leadership for founders who aren't ready for a full-time CTO — and shouldn't hire one yet.</p>
+      </div>
+      <div><h5>Service</h5><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="comparison.html">Fractional vs full-time</a></li><li><a href="teardown.html">The Tech Teardown</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="blog.html">Writing</a></li><li><a href="book-a-call.html">Book a call</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+      <div><h5>Start here</h5><ul><li><a href="book-a-call.html">Book a 20-min fit call</a></li><li><a href="teardown.html">Start with a Teardown</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Fraction · <a href="https://getfractioncto.com">getfractioncto.com</a> — no contract, no equity, cancel anytime.</span>
+      <span>Built on judgment, not hours.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="motion.js"></script>
+</body>
+</html>
