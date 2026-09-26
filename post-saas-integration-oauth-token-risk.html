@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Your integration holds your customers&#39; OAuth tokens. Attackers know — Fraction</title>
+  <meta name="description" content="Attackers now steal OAuth tokens from small SaaS integration vendors. Six controls to shrink scopes, protect storage, and revoke fast." />
+  <meta name="theme-color" content="#FAFAF9" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Fraction" />
+  <meta property="og:title" content="Your integration holds your customers&#39; OAuth tokens. Attackers know — Fraction" />
+  <meta property="og:description" content="Attackers now steal OAuth tokens from small SaaS integration vendors. Six controls to shrink scopes, protect storage, and revoke fast." />
+  <meta property="og:url" content="https://getfractioncto.com/post-saas-integration-oauth-token-risk" />
+  <meta property="og:image" content="https://getfractioncto.com/og-image.png" />
+  <meta property="article:published_time" content="2026-09-26T04:01:13.817Z" />
+  <meta property="article:author" content="The founder of Fraction" />
+  <meta property="article:section" content="Pattern recognition" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Your integration holds your customers&#39; OAuth tokens. Attackers know — Fraction" />
+  <meta name="twitter:description" content="Attackers now steal OAuth tokens from small SaaS integration vendors. Six controls to shrink scopes, protect storage, and revoke fast." />
+  <meta name="twitter:image" content="https://getfractioncto.com/og-image.png" />
+  <link rel="canonical" href="https://getfractioncto.com/post-saas-integration-oauth-token-risk" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script src="/analytics.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Your integration holds your customers&#39; OAuth tokens. Attackers know",
+  "description": "Attackers now steal OAuth tokens from small SaaS integration vendors. Six controls to shrink scopes, protect storage, and revoke fast.",
+  "datePublished": "2026-09-26T04:01:13.817Z",
+  "dateModified": "2026-09-26T04:01:13.817Z",
+  "author": {
+    "@type": "Person",
+    "name": "The founder of Fraction",
+    "url": "https://getfractioncto.com/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fraction",
+    "url": "https://getfractioncto.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://getfractioncto.com/og-image.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://getfractioncto.com/post-saas-integration-oauth-token-risk"
+  },
+  "image": "https://getfractioncto.com/og-image.png",
+  "articleSection": "Pattern recognition",
+  "wordCount": 1486,
+  "inLanguage": "en",
+  "isAccessibleForFree": true
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home",   "item": "https://getfractioncto.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Writing","item": "https://getfractioncto.com/blog" },
+    { "@type": "ListItem", "position": 3, "name": "Your integration holds your customers&#39; OAuth tokens. Attackers know", "item": "https://getfractioncto.com/post-saas-integration-oauth-token-risk" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Fraction home"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <ul class="nav-links">
+      <li><a href="how-it-works.html">How it works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="comparison.html">Compare</a></li>
+      <li><a href="blog.html" class="active">Writing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="teardown.html">The Teardown <span class="accent-dot"></span></a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke-linecap="round"/></svg></button>
+      <button class="icon-btn" aria-label="Toggle theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M21.5 12h-2.2M4.7 12H2.5M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6M18.4 18.4l-1.6-1.6M7.2 7.2 5.6 5.6" stroke-linecap="round"/></svg></button>
+      <a href="book-a-call.html" class="btn btn-primary nav-cta">Book a fit call</a>
+      <button class="icon-btn menu-btn" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu">
+  <div class="mm-top">
+    <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <button class="icon-btn menu-btn" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg></button>
+  </div>
+  <nav>
+    <a href="how-it-works.html">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="comparison.html">Compare</a>
+    <a href="blog.html">Writing</a>
+    <a href="about.html">About</a>
+    <a href="teardown.html">The Teardown</a>
+  </nav>
+  <div class="mm-cta">
+    <a href="teardown.html" class="btn btn-ghost">Start with a Teardown</a>
+    <a href="book-a-call.html" class="btn btn-primary">Book a 20-min fit call</a>
+  </div>
+</div>
+
+<main>
+<section class="page-hero center" style="padding-bottom:clamp(24px,4vw,40px)">
+  <div class="wrap">
+    <div class="article-hero">
+      <span class="post-cat">Pattern recognition</span>
+      <h1>Your integration holds your customers&#39; OAuth tokens. Attackers know</h1>
+      <div class="post-meta"><span>Sep 2026</span><span class="sep"></span><span>7 min read</span><span class="sep"></span><span>by The founder of Fraction</span></div>
+    </div>
+  </div>
+</section>
+<section class="section-tight" style="padding-top:8px">
+  <div class="wrap">
+    <div class="article-body reveal">
+<p>If your product connects to your customers&#39; Salesforce, Google Workspace, Slack, HubSpot, or GitHub, you are holding keys to their systems. The SaaS breaches of the last year show that attackers have noticed. They no longer need to break into a large company directly. They break into a small vendor that integrates with it, take the stored OAuth tokens, and walk in through the front door with valid credentials that skip MFA. For an early-stage integration company, the practical answer is to treat your token store as the most sensitive thing you own: hold fewer tokens, with narrower scopes, for less time, and make sure you can revoke all of them in an hour.</p>
+<p>This post is for founders whose product integrates with other people&#39;s SaaS. It covers what changed, why small vendors are now the preferred target, and the controls I would put in place in the next month, in order.</p>
+<h2>What happened, and why it keeps happening</h2>
+<p>Two incidents set the pattern.</p>
+<p>In August 2025, an actor Google tracks as UNC6395 used stolen OAuth tokens belonging to the Salesloft Drift integration to pull data from a large number of corporate Salesforce instances. <a href="https://cloud.google.com/blog/topics/threat-intelligence/data-theft-salesforce-instances-via-salesloft-drift">Google&#39;s threat intelligence write-up</a> describes the attacker querying objects such as Cases, Accounts, and Opportunities, then searching the stolen data for secrets like AWS access keys, passwords, and Snowflake tokens that people had pasted into support tickets and notes. The scope later widened to other Drift integrations.</p>
+<p>In June 2026, the competitive-intelligence vendor Klue reported that attackers had used compromised legacy service-account credentials to get into its infrastructure, deployed code to harvest customer OAuth tokens, and used those tokens to query customers&#39; Salesforce data through the API. Salesforce disabled Klue&#39;s app connections in response. <a href="https://www.threatlocker.com/blog/klue-saas-supply-chain-compromise-through-long-lived-oauth-tokens">ThreatLocker&#39;s summary of the Klue incident</a> lists the recommended clean-up: revoke tokens, rotate service credentials, and audit connected instances.</p>
+<p>The common thread is simple. A vendor holding long-lived tokens with broad access to many customers is a far better target than any one of those customers. One break-in, hundreds of doors.</p>
+<h2>Why your startup is the easier target</h2>
+<p>Big platforms have large security teams. The vendor that integrates with them often has five engineers and a token table in the main application database. From an attacker&#39;s point of view:</p>
+<ul>
+<li><strong>Your tokens are valid.</strong> They pass the platform&#39;s authentication and usually bypass the customer&#39;s MFA and login alerts, because the integration is expected to make API calls.</li>
+<li><strong>Your scopes are often broad.</strong> It was easier during the build to request full read access than to work out the minimum set.</li>
+<li><strong>Your tokens rarely expire in practice.</strong> Refresh tokens can keep working until someone revokes them, and nobody does.</li>
+<li><strong>Your old credentials are still around.</strong> A service account from a 2022 prototype, a test integration an intern set up, a CI key nobody rotated. In the Klue case, the entry point was reported as legacy credentials.</li>
+</ul>
+<p>None of this is unusual. It is what normal early engineering looks like when nobody has owned integration security yet. We covered the related pattern of unowned access in <a href="/post-shared-admin-logins">the shared admin login problem</a> and in <a href="/post-ai-agent-access-scope">scoping what AI agents can touch</a>.</p>
+<h2>What your customers will now ask</h2>
+<p>Expect this in security questionnaires and in enterprise procurement, often before you hear about it from an investor. Typical questions:</p>
+<ol>
+<li>Which scopes does your integration request, and why each one?</li>
+<li>Where are our tokens stored, and who can read them?</li>
+<li>Are tokens encrypted with a key separate from the database?</li>
+<li>How quickly can you revoke every token for every customer if you are compromised?</li>
+<li>Do you log every API call you make on our behalf, and can we see it?</li>
+<li>When did you last review service accounts and remove unused ones?</li>
+</ol>
+<p>If you are preparing for a raise, technical diligence increasingly asks the same things, especially for companies whose whole product is an integration. See <a href="/post-security-questionnaire-deal">the security questionnaire that stalls a deal</a> for how to handle these without derailing a sale.</p>
+<h2>The controls, in the order I would do them</h2>
+<p>This is sized for a seed to Series A company with a small team. None of it requires a security hire, though it does need one named owner.</p>
+<h3>1. Inventory every credential that touches a customer system</h3>
+<p>List every OAuth app you have registered, every service account, every API key your product or your team uses to reach customer data. Include test and staging apps. Anything nobody can explain, disable it and see who complains. This is usually the week with the biggest risk reduction.</p>
+<h3>2. Cut scopes to the minimum</h3>
+<p>Go through each integration and compare the scopes you request with the API calls you actually make. Most teams find they asked for write access they never use, or organization-wide read when they only need a few objects. Narrower scopes limit what a stolen token can do. Re-consent is a small customer-facing cost for a large reduction in blast radius.</p>
+<h3>3. Move tokens out of the main database</h3>
+<p>Tokens should be encrypted with a key managed outside the application database, ideally in your cloud provider&#39;s key management service or a secrets manager, and decrypted only by the service that makes the API calls. Then a database dump, a leaked backup, or a SQL injection bug does not hand over usable tokens.</p>
+<h3>4. Make mass revocation a tested button</h3>
+<p>Write the script that revokes every customer&#39;s tokens, and run it in staging. Know how you would tell customers to reconnect. If the answer today is &quot;we would figure it out,&quot; that is the gap. In both incidents above, the speed of revocation shaped how bad things got.</p>
+<h3>5. Log and alert on unusual API volume</h3>
+<p>You know what normal looks like for each customer: a sync every few minutes, a few hundred records. A token suddenly enumerating every object or exporting everything is visible if you log calls per token. A simple alert on volume or new object types catches the pattern these attackers used.</p>
+<h3>6. Rotate and expire what you control</h3>
+<p>Use short-lived access tokens where the platform supports them, rotate client secrets and service credentials on a schedule, and set a review date on every service account. Old credentials are where these breaches started.</p>
+<h2>A note on the secrets inside your own tools</h2>
+<p>The Salesforce incidents had a second lesson that applies to every startup, integration or not. The attackers searched stolen CRM data for credentials that staff had pasted into support tickets and notes. If your team shares API keys with customers or each other through tickets, chat, or CRM fields, those tools are a credential store nobody inventoried. Pick a secrets tool, tell the team where secrets go, and search your support and CRM history for key patterns. The same logic applies to your codebase; see <a href="/post-secrets-in-git-history-diligence">the secrets diligence finds in git history</a>.</p>
+<h2>An example</h2>
+<p>Here is a composite of what this looks like in practice. A seven-person company syncs sales data from customers&#39; CRMs. Their integration requested full read and write access because the first version had a write-back feature that was later removed. Tokens lived in a column in Postgres, encrypted with a key stored in the same application&#39;s environment variables. There were three registered OAuth apps, one of which was a hackathon prototype still holding tokens for four early customers.</p>
+<p>Two weeks of work changed the picture: the prototype app was deleted and its tokens revoked, scopes were reduced to read-only on the three objects actually used, tokens moved to a separate service with a managed key, a revocation script was tested, and per-token call volume went into their existing monitoring. The next enterprise questionnaire took a day instead of a month.</p>
+<p>If you want help sizing this for your product, a <a href="/teardown">short technical teardown</a> will find the old credentials and broad scopes before an attacker or a customer&#39;s security team does. Or <a href="/book-a-call">book a call</a> and we will go through your integrations together.</p>
+<h2>FAQ</h2>
+<h3>Are OAuth tokens safer than storing passwords?</h3>
+<p>Yes, because they can be scoped and revoked. But a stolen token works like a password with MFA already passed, so storage and scope still matter.</p>
+<h3>Do we need a security hire to fix this?</h3>
+<p>Usually not at seed or Series A. You need one named owner, a few weeks of engineering time, and a checklist like the one above.</p>
+<h3>How often should we review our integration scopes?</h3>
+<p>At least every quarter, and whenever you remove a feature. Scopes tend to outlive the features that needed them.</p>
+<h3>What should we do first if we think a token was stolen?</h3>
+<p>Revoke the affected tokens, rotate the related client secrets and service credentials, check the logs for what was accessed, and tell affected customers promptly. Get counsel involved early on notification duties.</p>
+
+    </div>
+    <div class="article-body">
+      <div class="author-card reveal">
+        <span class="ac-av">F</span>
+        <div>
+          <div class="ac-name">The founder of Fraction</div>
+          <div class="ac-bio">Built engineering teams from 2 to 30. Killed more bad rebuilds than I've greenlit. <a href="about.html" class="link-grow" style="font-size:0.96rem">More about me <span class="arrow">&rarr;</span></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" style="padding-top:clamp(32px,5vw,56px)">
+  <div class="wrap">
+    <div class="callout reveal" style="text-align:center">
+      <h3 style="margin-left:auto;margin-right:auto;max-width:22ch">Not sure the call you're about to make is the right one?</h3>
+      <p style="margin:0 auto 26px">That's exactly what a 20-minute fit call is for &mdash; or a two-week Teardown if you'd rather start with a written verdict.</p>
+      <div class="ph-cta" style="justify-content:center">
+        <a href="book-a-call.html" class="btn btn-accent">Book a fit call <span class="arrow">&rarr;</span></a>
+        <a href="teardown.html" class="link-grow" style="color:#fff">Start with a Teardown <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap-wide">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#14140F"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+        <p style="color:var(--grey-2); max-width:30ch; margin-top:18px; font-size:0.96rem; line-height:1.5">Senior technical leadership for founders who aren't ready for a full-time CTO — and shouldn't hire one yet.</p>
+      </div>
+      <div><h5>Service</h5><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="comparison.html">Fractional vs full-time</a></li><li><a href="teardown.html">The Tech Teardown</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="blog.html">Writing</a></li><li><a href="book-a-call.html">Book a call</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+      <div><h5>Start here</h5><ul><li><a href="book-a-call.html">Book a 20-min fit call</a></li><li><a href="teardown.html">Start with a Teardown</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Fraction · <a href="https://getfractioncto.com">getfractioncto.com</a> — no contract, no equity, cancel anytime.</span>
+      <span>Built on judgment, not hours.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="motion.js"></script>
+</body>
+</html>
