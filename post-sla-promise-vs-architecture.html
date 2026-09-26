@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Your contract promises 99.99% uptime. Your stack can&#39;t deliver it — Fraction</title>
+  <meta name="description" content="Your SLA promises 99.99% but your stack delivers 99.9%. The downtime math, why diligence checks it, and how to renegotiate the promise." />
+  <meta name="theme-color" content="#FAFAF9" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Fraction" />
+  <meta property="og:title" content="Your contract promises 99.99% uptime. Your stack can&#39;t deliver it — Fraction" />
+  <meta property="og:description" content="Your SLA promises 99.99% but your stack delivers 99.9%. The downtime math, why diligence checks it, and how to renegotiate the promise." />
+  <meta property="og:url" content="https://getfractioncto.com/post-sla-promise-vs-architecture" />
+  <meta property="og:image" content="https://getfractioncto.com/og-image.png" />
+  <meta property="article:published_time" content="2026-09-26T03:59:11.333Z" />
+  <meta property="article:author" content="The founder of Fraction" />
+  <meta property="article:section" content="Fundraising" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Your contract promises 99.99% uptime. Your stack can&#39;t deliver it — Fraction" />
+  <meta name="twitter:description" content="Your SLA promises 99.99% but your stack delivers 99.9%. The downtime math, why diligence checks it, and how to renegotiate the promise." />
+  <meta name="twitter:image" content="https://getfractioncto.com/og-image.png" />
+  <link rel="canonical" href="https://getfractioncto.com/post-sla-promise-vs-architecture" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script src="/analytics.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Your contract promises 99.99% uptime. Your stack can&#39;t deliver it",
+  "description": "Your SLA promises 99.99% but your stack delivers 99.9%. The downtime math, why diligence checks it, and how to renegotiate the promise.",
+  "datePublished": "2026-09-26T03:59:11.333Z",
+  "dateModified": "2026-09-26T03:59:11.333Z",
+  "author": {
+    "@type": "Person",
+    "name": "The founder of Fraction",
+    "url": "https://getfractioncto.com/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fraction",
+    "url": "https://getfractioncto.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://getfractioncto.com/og-image.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://getfractioncto.com/post-sla-promise-vs-architecture"
+  },
+  "image": "https://getfractioncto.com/og-image.png",
+  "articleSection": "Fundraising",
+  "wordCount": 1216,
+  "inLanguage": "en",
+  "isAccessibleForFree": true
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home",   "item": "https://getfractioncto.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Writing","item": "https://getfractioncto.com/blog" },
+    { "@type": "ListItem", "position": 3, "name": "Your contract promises 99.99% uptime. Your stack can&#39;t deliver it", "item": "https://getfractioncto.com/post-sla-promise-vs-architecture" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Fraction home"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <ul class="nav-links">
+      <li><a href="how-it-works.html">How it works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="comparison.html">Compare</a></li>
+      <li><a href="blog.html" class="active">Writing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="teardown.html">The Teardown <span class="accent-dot"></span></a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke-linecap="round"/></svg></button>
+      <button class="icon-btn" aria-label="Toggle theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M21.5 12h-2.2M4.7 12H2.5M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6M18.4 18.4l-1.6-1.6M7.2 7.2 5.6 5.6" stroke-linecap="round"/></svg></button>
+      <a href="book-a-call.html" class="btn btn-primary nav-cta">Book a fit call</a>
+      <button class="icon-btn menu-btn" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu">
+  <div class="mm-top">
+    <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <button class="icon-btn menu-btn" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg></button>
+  </div>
+  <nav>
+    <a href="how-it-works.html">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="comparison.html">Compare</a>
+    <a href="blog.html">Writing</a>
+    <a href="about.html">About</a>
+    <a href="teardown.html">The Teardown</a>
+  </nav>
+  <div class="mm-cta">
+    <a href="teardown.html" class="btn btn-ghost">Start with a Teardown</a>
+    <a href="book-a-call.html" class="btn btn-primary">Book a 20-min fit call</a>
+  </div>
+</div>
+
+<main>
+<section class="page-hero center" style="padding-bottom:clamp(24px,4vw,40px)">
+  <div class="wrap">
+    <div class="article-hero">
+      <span class="post-cat">Fundraising</span>
+      <h1>Your contract promises 99.99% uptime. Your stack can&#39;t deliver it</h1>
+      <div class="post-meta"><span>Sep 2026</span><span class="sep"></span><span>6 min read</span><span class="sep"></span><span>by The founder of Fraction</span></div>
+    </div>
+  </div>
+</section>
+<section class="section-tight" style="padding-top:8px">
+  <div class="wrap">
+    <div class="article-body reveal">
+<p>Your biggest customer contract promises 99.99% uptime. Your product runs on one database instance, deploys by hand, and has no one on call at night. That gap is common, it is usually invisible until something breaks, and it is exactly the kind of thing technical diligence now checks. The fix is rarely to rebuild the architecture. It is to make the promise match what you can actually deliver, and to know the numbers before someone else calculates them for you.</p>
+<p>This post explains what an uptime number actually commits you to, how to work out what your current setup can realistically deliver, and what to do when sales has promised more than engineering can keep.</p>
+<h2>What the nines actually mean</h2>
+<p>Uptime percentages sound close together. They are not. Here is the downtime each one allows, using a 30-day month.</p>
+<table>
+<thead>
+<tr>
+<th>Commitment</th>
+<th>Allowed downtime per month</th>
+<th>Per year</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>99.5%</td>
+<td>about 3.6 hours</td>
+<td>about 43.8 hours</td>
+</tr>
+<tr>
+<td>99.9%</td>
+<td>about 43 minutes</td>
+<td>about 8.8 hours</td>
+</tr>
+<tr>
+<td>99.95%</td>
+<td>about 22 minutes</td>
+<td>about 4.4 hours</td>
+</tr>
+<tr>
+<td>99.99%</td>
+<td>about 4.3 minutes</td>
+<td>about 53 minutes</td>
+</tr>
+</tbody></table>
+<p>A 99.99% promise means a single bad deploy that takes 15 minutes to roll back has already breached the month. So has one database failover that nobody notices until a customer emails. If nobody is paged at 3am, 99.99% is not a target you can hit. You would just be lucky.</p>
+<h2>Your ceiling is set by what you depend on</h2>
+<p>Most early products sit on top of a chain of services: a cloud database, a hosting platform, an auth provider, a payment processor, an email service. If any link in that chain being down means your product is down, their availability limits yours.</p>
+<p>A rough way to see it: if your product needs three services that each deliver 99.95%, and any one of them failing takes you down, the best you can expect is roughly 0.9995 x 0.9995 x 0.9995, which is about 99.85%. That is before counting your own bugs and deploys.</p>
+<p>Your providers publish what they commit to. For example, <a href="https://aws.amazon.com/rds/sla/">Amazon&#39;s RDS service level agreement</a> commits to 99.95% monthly uptime for Multi-AZ deployments and 99.5% for a single instance. If your production database is a single instance, your own contract promising 99.99% is promising something your database provider does not promise you. And their remedy for a miss is a service credit on your AWS bill, not coverage for the credits you owe your customers.</p>
+<h2>Why diligence cares about this now</h2>
+<p>Investors and acquirers increasingly read your largest customer contracts, and they hand the technical clauses to whoever is doing the technical review. The reviewer then compares the promise to three things:</p>
+<ul>
+<li><strong>The architecture.</strong> Single points of failure, single region, single database instance, manual deploys.</li>
+<li><strong>The operations.</strong> Is anyone on call? Is there monitoring that would notice an outage before a customer does? We covered the threshold for this in <a href="/post-when-do-you-need-on-call">when a startup actually needs on-call</a>.</li>
+<li><strong>The history.</strong> Your incident log and status page. If you have had four hours of downtime this year and a contract that allows 53 minutes, the reviewer will ask whether you paid the credits. See <a href="/post-incident-history-diligence">why incident history is now a diligence document</a>.</li>
+</ul>
+<p>The finding is rarely dramatic on its own. But it is a clean example of sales and engineering not talking to each other, which is what reviewers are really looking for. It also puts a number on your exposure: how much in credits, or which termination rights, could you owe this year?</p>
+<h2>How the gap happens</h2>
+<p>In almost every case I have seen, nobody lied. It goes like this. A large prospect sends its standard vendor paper. It includes an SLA schedule with 99.99% because that is what their procurement template says. The founder is closing their biggest deal, the clause looks like boilerplate, and no engineer reads it. Six months later the same number is copied into the next enterprise contract because &quot;we already agreed to it once.&quot;</p>
+<p>The same pattern shows up with response times (&quot;critical issues acknowledged within 15 minutes, 24/7&quot;) and with recovery commitments (&quot;data restored within one hour&quot;) that nobody has ever tested. We wrote about testing the recovery half in <a href="/post-disaster-recovery-diligence">can you get your database back at 2am</a>.</p>
+<h2>What to do about it</h2>
+<h3>Measure what you actually deliver</h3>
+<p>Before you negotiate anything, get a real number. Put an external uptime check on the paths customers actually use, not just the homepage, and look at the last few months of incidents. Most early products honestly land somewhere between 99.5% and 99.9%. That is fine for a lot of customers, as long as the contract says so.</p>
+<h3>Define the terms before you change the number</h3>
+<p>Much of the risk is in the definitions, not the percentage. A reasonable SLA usually:</p>
+<ul>
+<li>Excludes scheduled maintenance with notice.</li>
+<li>Excludes outages caused by the customer or by upstream internet problems.</li>
+<li>Defines downtime as the core service being unavailable, not a single slow page.</li>
+<li>Measures monthly, not per incident.</li>
+<li>Caps the remedy at service credits, with the credits as the sole remedy.</li>
+</ul>
+<p>Have counsel review the final wording. This is not legal advice, but those five points come up in nearly every negotiation I sit in on.</p>
+<h3>Offer tiers instead of one promise</h3>
+<p>If an enterprise customer truly needs 99.95% or better, price it as a separate tier that funds the work: redundant database, multiple availability zones, on-call rotation, tested failover. Then the promise and the architecture move together, and the customer paying for it is funding it.</p>
+<h3>Renegotiate at renewal, not in a crisis</h3>
+<p>For contracts already signed, the natural moment is renewal. Bring the measured number, the proposed definitions, and a clear explanation. Most procurement teams accept a realistic SLA with clear definitions over a heroic one that the vendor cannot keep.</p>
+<h3>Keep one list</h3>
+<p>Put every technical commitment from every contract in one place: uptime, response times, recovery times, data residency, deletion windows. Have an engineer mark each as met, at risk, or not met. That list is the thing a reviewer will build anyway. It is better if you built it first. If you are preparing for a raise, it belongs in your <a href="/post-tech-memo-investors">technical memo for investors</a>.</p>
+<h2>FAQ</h2>
+<h3>What uptime should an early-stage SaaS promise?</h3>
+<p>Most seed to Series A products can defend 99.5% to 99.9% with clear exclusions. Only promise more if you have redundancy, monitoring, and on-call to back it up.</p>
+<h3>Does my cloud provider&#39;s SLA cover my customer credits?</h3>
+<p>No. Provider credits usually reduce your own bill with that provider, typically after you file a claim. They do not pay the credits you owe your customers.</p>
+<h3>Is a missed SLA a diligence deal-breaker?</h3>
+<p>Rarely on its own. It becomes a problem when it shows unpaid credits, termination rights, or a pattern of commitments nobody tracked.</p>
+<h3>Who should read the SLA before we sign?</h3>
+<p>Someone who can say whether the system can deliver it. If you do not have that person, a short <a href="/book-a-call">review call</a> before a large contract is cheaper than a year of credits.</p>
+
+    </div>
+    <div class="article-body">
+      <div class="author-card reveal">
+        <span class="ac-av">F</span>
+        <div>
+          <div class="ac-name">The founder of Fraction</div>
+          <div class="ac-bio">Built engineering teams from 2 to 30. Killed more bad rebuilds than I've greenlit. <a href="about.html" class="link-grow" style="font-size:0.96rem">More about me <span class="arrow">&rarr;</span></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" style="padding-top:clamp(32px,5vw,56px)">
+  <div class="wrap">
+    <div class="callout reveal" style="text-align:center">
+      <h3 style="margin-left:auto;margin-right:auto;max-width:22ch">Not sure the call you're about to make is the right one?</h3>
+      <p style="margin:0 auto 26px">That's exactly what a 20-minute fit call is for &mdash; or a two-week Teardown if you'd rather start with a written verdict.</p>
+      <div class="ph-cta" style="justify-content:center">
+        <a href="book-a-call.html" class="btn btn-accent">Book a fit call <span class="arrow">&rarr;</span></a>
+        <a href="teardown.html" class="link-grow" style="color:#fff">Start with a Teardown <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap-wide">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#14140F"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+        <p style="color:var(--grey-2); max-width:30ch; margin-top:18px; font-size:0.96rem; line-height:1.5">Senior technical leadership for founders who aren't ready for a full-time CTO — and shouldn't hire one yet.</p>
+      </div>
+      <div><h5>Service</h5><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="comparison.html">Fractional vs full-time</a></li><li><a href="teardown.html">The Tech Teardown</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="blog.html">Writing</a></li><li><a href="book-a-call.html">Book a call</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+      <div><h5>Start here</h5><ul><li><a href="book-a-call.html">Book a 20-min fit call</a></li><li><a href="teardown.html">Start with a Teardown</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Fraction · <a href="https://getfractioncto.com">getfractioncto.com</a> — no contract, no equity, cancel anytime.</span>
+      <span>Built on judgment, not hours.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="motion.js"></script>
+</body>
+</html>
