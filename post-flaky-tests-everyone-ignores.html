@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Your tests fail at random, so your team ignores them — Fraction</title>
+  <meta name="description" content="How flaky tests erode trust in a startup test suite, the usual causes, and a four-rule policy a small team can use to fix it." />
+  <meta name="theme-color" content="#FAFAF9" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Fraction" />
+  <meta property="og:title" content="Your tests fail at random, so your team ignores them — Fraction" />
+  <meta property="og:description" content="How flaky tests erode trust in a startup test suite, the usual causes, and a four-rule policy a small team can use to fix it." />
+  <meta property="og:url" content="https://getfractioncto.com/post-flaky-tests-everyone-ignores" />
+  <meta property="og:image" content="https://getfractioncto.com/og-image.png" />
+  <meta property="article:published_time" content="2026-09-29T14:27:20.799Z" />
+  <meta property="article:author" content="The founder of Fraction" />
+  <meta property="article:section" content="Pattern recognition" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Your tests fail at random, so your team ignores them — Fraction" />
+  <meta name="twitter:description" content="How flaky tests erode trust in a startup test suite, the usual causes, and a four-rule policy a small team can use to fix it." />
+  <meta name="twitter:image" content="https://getfractioncto.com/og-image.png" />
+  <link rel="canonical" href="https://getfractioncto.com/post-flaky-tests-everyone-ignores" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script src="/analytics.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Your tests fail at random, so your team ignores them",
+  "description": "How flaky tests erode trust in a startup test suite, the usual causes, and a four-rule policy a small team can use to fix it.",
+  "datePublished": "2026-09-29T14:27:20.799Z",
+  "dateModified": "2026-09-29T14:27:20.799Z",
+  "author": {
+    "@type": "Person",
+    "name": "The founder of Fraction",
+    "url": "https://getfractioncto.com/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fraction",
+    "url": "https://getfractioncto.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://getfractioncto.com/og-image.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://getfractioncto.com/post-flaky-tests-everyone-ignores"
+  },
+  "image": "https://getfractioncto.com/og-image.png",
+  "articleSection": "Pattern recognition",
+  "wordCount": 1296,
+  "inLanguage": "en",
+  "isAccessibleForFree": true
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home",   "item": "https://getfractioncto.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Writing","item": "https://getfractioncto.com/blog" },
+    { "@type": "ListItem", "position": 3, "name": "Your tests fail at random, so your team ignores them", "item": "https://getfractioncto.com/post-flaky-tests-everyone-ignores" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Fraction home"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <ul class="nav-links">
+      <li><a href="how-it-works.html">How it works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="comparison.html">Compare</a></li>
+      <li><a href="blog.html" class="active">Writing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="teardown.html">The Teardown <span class="accent-dot"></span></a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke-linecap="round"/></svg></button>
+      <button class="icon-btn" aria-label="Toggle theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M21.5 12h-2.2M4.7 12H2.5M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6M18.4 18.4l-1.6-1.6M7.2 7.2 5.6 5.6" stroke-linecap="round"/></svg></button>
+      <a href="book-a-call.html" class="btn btn-primary nav-cta">Book a fit call</a>
+      <button class="icon-btn menu-btn" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu">
+  <div class="mm-top">
+    <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <button class="icon-btn menu-btn" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg></button>
+  </div>
+  <nav>
+    <a href="how-it-works.html">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="comparison.html">Compare</a>
+    <a href="blog.html">Writing</a>
+    <a href="about.html">About</a>
+    <a href="teardown.html">The Teardown</a>
+  </nav>
+  <div class="mm-cta">
+    <a href="teardown.html" class="btn btn-ghost">Start with a Teardown</a>
+    <a href="book-a-call.html" class="btn btn-primary">Book a 20-min fit call</a>
+  </div>
+</div>
+
+<main>
+<section class="page-hero center" style="padding-bottom:clamp(24px,4vw,40px)">
+  <div class="wrap">
+    <div class="article-hero">
+      <span class="post-cat">Pattern recognition</span>
+      <h1>Your tests fail at random, so your team ignores them</h1>
+      <div class="post-meta"><span>Sep 2026</span><span class="sep"></span><span>6 min read</span><span class="sep"></span><span>by The founder of Fraction</span></div>
+    </div>
+  </div>
+</section>
+<section class="section-tight" style="padding-top:8px">
+  <div class="wrap">
+    <div class="article-body reveal">
+<p>Here is a conversation I hear in almost every early engineering team that has had tests for more than a year. The build is red. Someone asks if it is a real failure. Someone else says, &quot;that one fails sometimes, just rerun it.&quot; The rerun passes, the change merges, and nobody thinks about it again.</p>
+<p>That test is flaky: it passes and fails on the same code. One flaky test is an annoyance. A handful of them quietly change how the team treats every failure, and once engineers learn that a red build probably means nothing, the test suite stops protecting you. You are paying to run tests that nobody believes.</p>
+<h2>How common this is</h2>
+<p>Flakiness is not a sign of a bad team. It shows up at every scale. Google wrote about it in detail on its <a href="https://testing.googleblog.com/2016/05/flaky-tests-at-google-and-how-we.html">testing blog</a>, reporting that about 1.5% of its test runs were flaky and that almost 16% of its tests showed some level of flakiness. Google has dedicated teams and tooling for this. A seed-stage company has none, so the same problem just accumulates.</p>
+<p>What makes it a pattern worth naming is the way it spreads. It does not stay at one test.</p>
+<h2>How a test suite loses the team&#39;s trust</h2>
+<h3>Stage 1: one test is &quot;known flaky&quot;</h3>
+<p>A test that depends on timing, a shared database, or an outside service fails every so often. Rather than fix it, the team learns its name and reruns the build. That feels efficient.</p>
+<h3>Stage 2: rerunning becomes the reflex</h3>
+<p>After a few more of these, the habit changes. Any red build gets a rerun first, whatever test failed. Some CI setups make this automatic with retries, which hides the problem entirely.</p>
+<h3>Stage 3: real failures slip through</h3>
+<p>Eventually a test fails for a real reason, someone assumes it is the usual noise, reruns it, and gets lucky on timing, or merges anyway. The bug reaches production. Afterwards someone notices the test had been failing correctly the whole time.</p>
+<h3>Stage 4: the suite becomes a tax</h3>
+<p>At this point, tests cost time to write, time to run, and time to rerun, while catching less and less. Some teams respond by deleting tests or turning CI checks off, which removes the cost and the protection together.</p>
+<h2>What usually causes flaky tests</h2>
+<p>In the small codebases I review, the causes are predictable:</p>
+<ul>
+<li><strong>Timing assumptions.</strong> Tests that sleep for a fixed time and hope a background task is done, or that assert something happens &quot;within one second&quot; on a busy CI machine.</li>
+<li><strong>Shared state.</strong> Tests that depend on data left behind by other tests, so they pass or fail depending on the order they run in.</li>
+<li><strong>Real outside services.</strong> Tests that call a live payment sandbox, email provider, or third-party API that is sometimes slow or down.</li>
+<li><strong>Dates and time zones.</strong> Tests that break at midnight UTC, at month end, or when the CI server is in a different zone from the developer&#39;s laptop.</li>
+<li><strong>Randomness.</strong> Generated test data that occasionally produces an edge case the test did not expect.</li>
+</ul>
+<p>Almost none of these are hard to fix once someone looks. The problem is that nobody is assigned to look.</p>
+<h2>A policy that works for a small team</h2>
+<p>You do not need special tooling to get a test suite back to trustworthy. You need a rule and an owner.</p>
+<h3>Rule 1: a flaky test gets fixed or quarantined within a week</h3>
+<p>When a test is confirmed flaky, it goes on a short list. Within a week it is either fixed or moved out of the blocking suite into a quarantine that still runs but does not block merges. A quarantined test has an owner and a deadline. If it is not fixed by then, delete it and write a better one, because a test nobody trusts is worse than no test.</p>
+<h3>Rule 2: no silent retries</h3>
+<p>Automatic retries in CI can be useful as a temporary measure, but they must be visible. If a test only passed on its second try, the build should say so, and that test should land on the flaky list. Silent retries are how a suite rots without anyone noticing.</p>
+<h3>Rule 3: red means stop</h3>
+<p>Once the flaky tests are quarantined, a failing build means a real problem and the change does not merge. This is the whole point. The team has to be able to believe the signal again.</p>
+<h3>Rule 4: someone looks at the trend</h3>
+<p>Once a month, someone spends thirty minutes on how often builds fail, which tests fail most, and how long the suite takes. On a small team that is usually the most senior engineer, or a <a href="/pricing">fractional CTO</a> if you have one. The goal is to catch the slide from Stage 1 to Stage 2 before it becomes a habit.</p>
+<h2>How much testing you should have in the first place</h2>
+<p>A lot of flaky suites come from writing too many slow, end-to-end tests too early. A small, reliable suite that covers the paths that move money or lose data beats a large one nobody trusts. I lay out where to focus in <a href="/post-how-much-testing-early">how much testing you need before you have users</a>, and when a dedicated tester starts to make sense in <a href="/post-qa-engineer-yet">do you need a QA engineer yet</a>.</p>
+<p>This matters more now that more code is AI-assisted. When code is produced faster than people can read it, a trustworthy test suite is one of the few automated checks that still works, which is part of why <a href="/post-ai-review-bottleneck">review becomes the bottleneck</a> on AI-heavy teams. A flaky suite removes that check at exactly the moment you need it.</p>
+<h2>A quick way to check your own suite</h2>
+<p>Ask your engineers three questions:</p>
+<ul>
+<li>When the build fails, what is the first thing you do?</li>
+<li>Which tests do you consider &quot;known flaky&quot;, and how long have they been that way?</li>
+<li>Has a bug reached production in the last six months that a test should have caught, and did that test fail before the bug shipped?</li>
+</ul>
+<p>If the answer to the first is &quot;rerun it&quot;, you are at Stage 2. It is a cheap fix now and an expensive one later. The state of the test suite is one of the first things I look at in a <a href="/teardown">technical teardown</a>, because it shows whether the team&#39;s safety net is real. If you want a second pair of eyes on yours, <a href="/book-a-call">book a call</a>.</p>
+<h2>FAQ</h2>
+<h3>Is a small amount of flakiness acceptable?</h3>
+<p>A test that fails once in a very long while may not be worth hours of work, but it should still be known, tracked, and owned. The danger is not one flaky test; it is the team learning to ignore red builds. Keep the list short and visible.</p>
+<h3>Should we just delete flaky tests?</h3>
+<p>Sometimes, yes. If a test is flaky, slow, and covers something better tested elsewhere, deleting it is the right call. If it protects something important, like payments or permissions, fix it or replace it with a more reliable test before you delete it.</p>
+<h3>Can we use automatic retries in CI?</h3>
+<p>As a short-term measure, with visibility. Retries that hide failures make the suite look healthy while it decays. If you use them, make sure every retry is reported and feeds your flaky list.</p>
+<h3>How do I know if this is a problem if I am not technical?</h3>
+<p>Ask how often the build is red and what people do about it. If the answer involves rerunning until it passes, or checks that were turned off to unblock work, the suite is not protecting you as much as the team thinks.</p>
+
+    </div>
+    <div class="article-body">
+      <div class="author-card reveal">
+        <span class="ac-av">F</span>
+        <div>
+          <div class="ac-name">The founder of Fraction</div>
+          <div class="ac-bio">Built engineering teams from 2 to 30. Killed more bad rebuilds than I've greenlit. <a href="about.html" class="link-grow" style="font-size:0.96rem">More about me <span class="arrow">&rarr;</span></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" style="padding-top:clamp(32px,5vw,56px)">
+  <div class="wrap">
+    <div class="callout reveal" style="text-align:center">
+      <h3 style="margin-left:auto;margin-right:auto;max-width:22ch">Not sure the call you're about to make is the right one?</h3>
+      <p style="margin:0 auto 26px">That's exactly what a 20-minute fit call is for &mdash; or a two-week Teardown if you'd rather start with a written verdict.</p>
+      <div class="ph-cta" style="justify-content:center">
+        <a href="book-a-call.html" class="btn btn-accent">Book a fit call <span class="arrow">&rarr;</span></a>
+        <a href="teardown.html" class="link-grow" style="color:#fff">Start with a Teardown <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap-wide">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#14140F"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+        <p style="color:var(--grey-2); max-width:30ch; margin-top:18px; font-size:0.96rem; line-height:1.5">Senior technical leadership for founders who aren't ready for a full-time CTO — and shouldn't hire one yet.</p>
+      </div>
+      <div><h5>Service</h5><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="comparison.html">Fractional vs full-time</a></li><li><a href="teardown.html">The Tech Teardown</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="blog.html">Writing</a></li><li><a href="book-a-call.html">Book a call</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+      <div><h5>Start here</h5><ul><li><a href="book-a-call.html">Book a 20-min fit call</a></li><li><a href="teardown.html">Start with a Teardown</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Fraction · <a href="https://getfractioncto.com">getfractioncto.com</a> — no contract, no equity, cancel anytime.</span>
+      <span>Built on judgment, not hours.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="motion.js"></script>
+</body>
+</html>

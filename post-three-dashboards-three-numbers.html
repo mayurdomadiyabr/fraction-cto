@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Three dashboards, three customer counts, and no one trusts any — Fraction</title>
+  <meta name="description" content="Why startup metrics disagree across billing, analytics and spreadsheets, and how to define your core numbers so the team trusts them again." />
+  <meta name="theme-color" content="#FAFAF9" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Fraction" />
+  <meta property="og:title" content="Three dashboards, three customer counts, and no one trusts any — Fraction" />
+  <meta property="og:description" content="Why startup metrics disagree across billing, analytics and spreadsheets, and how to define your core numbers so the team trusts them again." />
+  <meta property="og:url" content="https://getfractioncto.com/post-three-dashboards-three-numbers" />
+  <meta property="og:image" content="https://getfractioncto.com/og-image.png" />
+  <meta property="article:published_time" content="2026-09-29T14:27:20.465Z" />
+  <meta property="article:author" content="The founder of Fraction" />
+  <meta property="article:section" content="Pattern recognition" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Three dashboards, three customer counts, and no one trusts any — Fraction" />
+  <meta name="twitter:description" content="Why startup metrics disagree across billing, analytics and spreadsheets, and how to define your core numbers so the team trusts them again." />
+  <meta name="twitter:image" content="https://getfractioncto.com/og-image.png" />
+  <link rel="canonical" href="https://getfractioncto.com/post-three-dashboards-three-numbers" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script src="/analytics.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Three dashboards, three customer counts, and no one trusts any",
+  "description": "Why startup metrics disagree across billing, analytics and spreadsheets, and how to define your core numbers so the team trusts them again.",
+  "datePublished": "2026-09-29T14:27:20.465Z",
+  "dateModified": "2026-09-29T14:27:20.465Z",
+  "author": {
+    "@type": "Person",
+    "name": "The founder of Fraction",
+    "url": "https://getfractioncto.com/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fraction",
+    "url": "https://getfractioncto.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://getfractioncto.com/og-image.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://getfractioncto.com/post-three-dashboards-three-numbers"
+  },
+  "image": "https://getfractioncto.com/og-image.png",
+  "articleSection": "Pattern recognition",
+  "wordCount": 1238,
+  "inLanguage": "en",
+  "isAccessibleForFree": true
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home",   "item": "https://getfractioncto.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Writing","item": "https://getfractioncto.com/blog" },
+    { "@type": "ListItem", "position": 3, "name": "Three dashboards, three customer counts, and no one trusts any", "item": "https://getfractioncto.com/post-three-dashboards-three-numbers" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Fraction home"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <ul class="nav-links">
+      <li><a href="how-it-works.html">How it works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="comparison.html">Compare</a></li>
+      <li><a href="blog.html" class="active">Writing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="teardown.html">The Teardown <span class="accent-dot"></span></a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke-linecap="round"/></svg></button>
+      <button class="icon-btn" aria-label="Toggle theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M21.5 12h-2.2M4.7 12H2.5M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6M18.4 18.4l-1.6-1.6M7.2 7.2 5.6 5.6" stroke-linecap="round"/></svg></button>
+      <a href="book-a-call.html" class="btn btn-primary nav-cta">Book a fit call</a>
+      <button class="icon-btn menu-btn" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu">
+  <div class="mm-top">
+    <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <button class="icon-btn menu-btn" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg></button>
+  </div>
+  <nav>
+    <a href="how-it-works.html">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="comparison.html">Compare</a>
+    <a href="blog.html">Writing</a>
+    <a href="about.html">About</a>
+    <a href="teardown.html">The Teardown</a>
+  </nav>
+  <div class="mm-cta">
+    <a href="teardown.html" class="btn btn-ghost">Start with a Teardown</a>
+    <a href="book-a-call.html" class="btn btn-primary">Book a 20-min fit call</a>
+  </div>
+</div>
+
+<main>
+<section class="page-hero center" style="padding-bottom:clamp(24px,4vw,40px)">
+  <div class="wrap">
+    <div class="article-hero">
+      <span class="post-cat">Pattern recognition</span>
+      <h1>Three dashboards, three customer counts, and no one trusts any</h1>
+      <div class="post-meta"><span>Sep 2026</span><span class="sep"></span><span>6 min read</span><span class="sep"></span><span>by The founder of Fraction</span></div>
+    </div>
+  </div>
+</section>
+<section class="section-tight" style="padding-top:8px">
+  <div class="wrap">
+    <div class="article-body reveal">
+<p>The board meeting is in two days. The founder asks for the number of active customers. The payments dashboard says 412. The product analytics tool says 530. The spreadsheet the ops lead maintains says 388. Everyone is sure their number is right, and the next two hours go to reconciling them instead of deciding anything.</p>
+<p>This happens at almost every startup that reaches a few hundred customers without a single definition of its core numbers. It looks like a data problem. It is really a decisions problem: when nobody trusts the numbers, the company either stops using them or uses whichever one supports the argument in the room.</p>
+<h2>Why the numbers disagree</h2>
+<p>Usually no one is wrong. Each tool is correctly answering a different question.</p>
+<h3>Each system defines the word differently</h3>
+<p>&quot;Active customer&quot; in the payments system might mean an account with a non-cancelled subscription, including one whose card failed last week. In product analytics it might mean any account where someone logged in during the last 30 days, including free trials. In the ops spreadsheet it might mean accounts that have finished onboarding. Three reasonable definitions, three different numbers, one label.</p>
+<h3>Each system has its own gaps</h3>
+<p>Analytics tools miss users who block trackers or who use a part of the product nobody instrumented. Payment systems count test accounts and internal accounts unless someone filters them. Spreadsheets depend on whoever last updated them. Time zones, refunds, upgrades, and merged accounts each shift the totals a little.</p>
+<h3>Nobody owns the definition</h3>
+<p>The deeper cause is that the definition was never decided. The first engineer wired up an analytics event, the finance contractor built a revenue report, and a product manager built a funnel, each with a local meaning. No one ever wrote down &quot;this is what we mean by active customer, and this is the system of record for it.&quot;</p>
+<h2>What it costs</h2>
+<p>The obvious cost is time. Reconciling numbers before every board meeting, investor update, or pricing discussion burns hours of the most expensive people in the company. The less obvious costs are worse.</p>
+<h3>Decisions get made on the convenient number</h3>
+<p>When three numbers exist, each team quotes the one that flatters its plan. Growth is measured one way in marketing and another in finance. Nobody is lying, but the company is no longer steering by a shared instrument.</p>
+<h3>Investors notice the inconsistency</h3>
+<p>If your deck says one thing, your data room says another, and your investor update says a third, a diligence reviewer will ask why. It is rarely fatal, but it forces you to explain your own numbers under pressure. Anything on the deck you may have to <a href="/post-prove-the-technical-claim">prove in diligence</a> should already have one definition and one source.</p>
+<h3>People stop looking</h3>
+<p>The quietest cost is that the team stops using data at all. If every dashboard might be wrong, gut feel wins by default.</p>
+<h2>The fix is mostly writing things down</h2>
+<p>You do not need a data team or a warehouse to solve most of this. At a few hundred customers, the fix is a short document and a few rules.</p>
+<h3>Pick the five numbers that run the company</h3>
+<p>Most early-stage companies really steer by five to eight numbers: something like signups, activated accounts, paying customers, revenue, churn, and one usage measure that predicts retention. Start there. Do not try to define everything.</p>
+<h3>Write one definition per number</h3>
+<p>For each number, write a single paragraph that answers: what exactly counts, what is excluded (test accounts, internal users, refunds, free trials), what time window applies, and which system is the source of truth. For example: &quot;Paying customer: an account with at least one paid invoice in the last 35 days, excluding internal and test accounts. Source: the billing system. Owner: finance.&quot;</p>
+<h3>Name an owner for each</h3>
+<p>Every number needs one person who decides its definition and answers questions about it. The owner does not have to be technical; they have to be responsible.</p>
+<h3>Make every dashboard say which definition it uses</h3>
+<p>When a chart is labelled &quot;Active customers&quot;, it should use the written definition or be renamed to what it actually shows, like &quot;Accounts with a login in last 30 days&quot;. This one habit removes most of the confusion without changing any data.</p>
+<h3>Reconcile once, then explain the gap</h3>
+<p>Run the numbers side by side once, understand why they differ, and write down the expected gap. &quot;Analytics shows about 20% more active accounts than billing because it includes trials.&quot; Now a difference is information, not an argument.</p>
+<h2>When the tools do need to change</h2>
+<p>Sometimes the definition is fine but the data is not. Events are missing, IDs do not match between systems, or someone has to export three CSVs and join them by hand every week. That is when an engineering fix is worth it: consistent user and account IDs across tools, tracking events added deliberately, and eventually a single place where the numbers are computed.</p>
+<p>Most teams reach for a data warehouse too early. Often a scheduled query on your production database or a read replica is enough for a long time; I lay out the trade-offs in <a href="/post-do-you-need-a-data-warehouse-yet">do you need a data warehouse yet</a> and in <a href="/post-first-data-hire-yet">whether you need a data hire yet</a>. The definitions come first. A warehouse full of undefined numbers is just a faster way to disagree.</p>
+<h2>A useful test</h2>
+<p>Ask three people on your team, separately, how many paying customers you have and where that number comes from. If you get the same answer and the same source, you are in good shape. If you get three answers, or one answer and three sources, you have found the pattern.</p>
+<p>This is one of the things I look at when a founder asks for a <a href="/teardown">technical teardown</a> before a raise, because inconsistent numbers usually point to inconsistent systems underneath. If your board prep keeps turning into a reconciliation exercise, <a href="/book-a-call">book a call</a> and we can sort out which numbers matter and where they should come from.</p>
+<h2>FAQ</h2>
+<h3>Which tool should be the source of truth?</h3>
+<p>For anything involving money, use the billing or payments system, because it is the one that has to be right for accounting. For usage and engagement, use your own production database where possible, since analytics tools can miss events. Use the analytics tool for funnels and behavior, and label it that way.</p>
+<h3>Do we need a data engineer to fix this?</h3>
+<p>Usually not at this stage. Most of the fix is agreeing definitions and labelling dashboards, which a founder or ops lead can drive. You need engineering help when IDs do not match across systems or the numbers depend on manual exports.</p>
+<h3>How often should we review the definitions?</h3>
+<p>Look at them when your business model changes, such as new pricing, a new plan type, or a new product line, and otherwise about once or twice a year. Definitions that change silently cause the same problem all over again, so record the date and reason for any change.</p>
+<h3>Our numbers differ by only a few percent. Does it matter?</h3>
+<p>A small, explained, stable gap is fine. What matters is that you know why it exists and that it is not growing. An unexplained gap, even a small one, often hides a real issue like double-counted accounts or failed payments being counted as revenue.</p>
+
+    </div>
+    <div class="article-body">
+      <div class="author-card reveal">
+        <span class="ac-av">F</span>
+        <div>
+          <div class="ac-name">The founder of Fraction</div>
+          <div class="ac-bio">Built engineering teams from 2 to 30. Killed more bad rebuilds than I've greenlit. <a href="about.html" class="link-grow" style="font-size:0.96rem">More about me <span class="arrow">&rarr;</span></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" style="padding-top:clamp(32px,5vw,56px)">
+  <div class="wrap">
+    <div class="callout reveal" style="text-align:center">
+      <h3 style="margin-left:auto;margin-right:auto;max-width:22ch">Not sure the call you're about to make is the right one?</h3>
+      <p style="margin:0 auto 26px">That's exactly what a 20-minute fit call is for &mdash; or a two-week Teardown if you'd rather start with a written verdict.</p>
+      <div class="ph-cta" style="justify-content:center">
+        <a href="book-a-call.html" class="btn btn-accent">Book a fit call <span class="arrow">&rarr;</span></a>
+        <a href="teardown.html" class="link-grow" style="color:#fff">Start with a Teardown <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap-wide">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#14140F"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+        <p style="color:var(--grey-2); max-width:30ch; margin-top:18px; font-size:0.96rem; line-height:1.5">Senior technical leadership for founders who aren't ready for a full-time CTO — and shouldn't hire one yet.</p>
+      </div>
+      <div><h5>Service</h5><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="comparison.html">Fractional vs full-time</a></li><li><a href="teardown.html">The Tech Teardown</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="blog.html">Writing</a></li><li><a href="book-a-call.html">Book a call</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+      <div><h5>Start here</h5><ul><li><a href="book-a-call.html">Book a 20-min fit call</a></li><li><a href="teardown.html">Start with a Teardown</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Fraction · <a href="https://getfractioncto.com">getfractioncto.com</a> — no contract, no equity, cancel anytime.</span>
+      <span>Built on judgment, not hours.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="motion.js"></script>
+</body>
+</html>

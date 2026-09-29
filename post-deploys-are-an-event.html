@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Deploys are a big event at your startup. That is the problem. — Fraction</title>
+  <meta name="description" content="Why infrequent manual deploys cause more incidents at startups, the warning signs, and five steps to make small, frequent deploys routine." />
+  <meta name="theme-color" content="#FAFAF9" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Fraction" />
+  <meta property="og:title" content="Deploys are a big event at your startup. That is the problem. — Fraction" />
+  <meta property="og:description" content="Why infrequent manual deploys cause more incidents at startups, the warning signs, and five steps to make small, frequent deploys routine." />
+  <meta property="og:url" content="https://getfractioncto.com/post-deploys-are-an-event" />
+  <meta property="og:image" content="https://getfractioncto.com/og-image.png" />
+  <meta property="article:published_time" content="2026-09-29T14:27:20.050Z" />
+  <meta property="article:author" content="The founder of Fraction" />
+  <meta property="article:section" content="Pattern recognition" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Deploys are a big event at your startup. That is the problem. — Fraction" />
+  <meta name="twitter:description" content="Why infrequent manual deploys cause more incidents at startups, the warning signs, and five steps to make small, frequent deploys routine." />
+  <meta name="twitter:image" content="https://getfractioncto.com/og-image.png" />
+  <link rel="canonical" href="https://getfractioncto.com/post-deploys-are-an-event" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script src="/analytics.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Deploys are a big event at your startup. That is the problem.",
+  "description": "Why infrequent manual deploys cause more incidents at startups, the warning signs, and five steps to make small, frequent deploys routine.",
+  "datePublished": "2026-09-29T14:27:20.050Z",
+  "dateModified": "2026-09-29T14:27:20.050Z",
+  "author": {
+    "@type": "Person",
+    "name": "The founder of Fraction",
+    "url": "https://getfractioncto.com/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fraction",
+    "url": "https://getfractioncto.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://getfractioncto.com/og-image.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://getfractioncto.com/post-deploys-are-an-event"
+  },
+  "image": "https://getfractioncto.com/og-image.png",
+  "articleSection": "Pattern recognition",
+  "wordCount": 1344,
+  "inLanguage": "en",
+  "isAccessibleForFree": true
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home",   "item": "https://getfractioncto.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Writing","item": "https://getfractioncto.com/blog" },
+    { "@type": "ListItem", "position": 3, "name": "Deploys are a big event at your startup. That is the problem.", "item": "https://getfractioncto.com/post-deploys-are-an-event" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Fraction home"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <ul class="nav-links">
+      <li><a href="how-it-works.html">How it works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="comparison.html">Compare</a></li>
+      <li><a href="blog.html" class="active">Writing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="teardown.html">The Teardown <span class="accent-dot"></span></a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke-linecap="round"/></svg></button>
+      <button class="icon-btn" aria-label="Toggle theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M21.5 12h-2.2M4.7 12H2.5M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6M18.4 18.4l-1.6-1.6M7.2 7.2 5.6 5.6" stroke-linecap="round"/></svg></button>
+      <a href="book-a-call.html" class="btn btn-primary nav-cta">Book a fit call</a>
+      <button class="icon-btn menu-btn" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu">
+  <div class="mm-top">
+    <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <button class="icon-btn menu-btn" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg></button>
+  </div>
+  <nav>
+    <a href="how-it-works.html">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="comparison.html">Compare</a>
+    <a href="blog.html">Writing</a>
+    <a href="about.html">About</a>
+    <a href="teardown.html">The Teardown</a>
+  </nav>
+  <div class="mm-cta">
+    <a href="teardown.html" class="btn btn-ghost">Start with a Teardown</a>
+    <a href="book-a-call.html" class="btn btn-primary">Book a 20-min fit call</a>
+  </div>
+</div>
+
+<main>
+<section class="page-hero center" style="padding-bottom:clamp(24px,4vw,40px)">
+  <div class="wrap">
+    <div class="article-hero">
+      <span class="post-cat">Pattern recognition</span>
+      <h1>Deploys are a big event at your startup. That is the problem.</h1>
+      <div class="post-meta"><span>Sep 2026</span><span class="sep"></span><span>6 min read</span><span class="sep"></span><span>by The founder of Fraction</span></div>
+    </div>
+  </div>
+</section>
+<section class="section-tight" style="padding-top:8px">
+  <div class="wrap">
+    <div class="article-body reveal">
+<p>At some startups, shipping code is an occasion. Someone announces it in the team channel. The deploy happens on a Tuesday afternoon, never a Friday, and only when the one engineer who knows the steps is online. It bundles two or three weeks of changes. Afterwards, everyone watches the error logs for an hour, and about one time in four something breaks and has to be patched by hand.</p>
+<p>If that sounds familiar, the problem is not that your team is careless. The problem is that deploying is rare and manual, and rare, manual deploys are riskier than frequent, boring ones. This is one of the most reliable patterns I see in early-stage engineering teams, and it is one of the cheapest to fix.</p>
+<h2>Why rare deploys are the risky ones</h2>
+<p>The instinct is backwards. When deploys go wrong, teams slow down to be careful: fewer releases, more changes per release, more ceremony. That feels safer. It is not.</p>
+<h3>Big batches hide the cause</h3>
+<p>A deploy with three weeks of changes might contain forty commits from four people. When something breaks, nobody knows which change did it, so debugging becomes a search. A deploy with one small change that breaks has an obvious suspect. The research behind the <a href="https://dora.dev/guides/dora-metrics-four-keys/">DORA metrics</a> has found for years that speed and stability tend to move together: the teams that deploy most often also tend to have lower change failure rates and recover faster, not the other way round.</p>
+<h3>Manual steps drift</h3>
+<p>If deploying means running six commands in a specific order, plus a database migration someone runs from their laptop, then every deploy is a small chance of a skipped step. The steps also change over time and live in one person&#39;s head, which is the same <a href="/post-key-person-codebase-risk">key-person risk</a> that shows up everywhere else in a young codebase.</p>
+<h3>Fear slows the whole company</h3>
+<p>When deploys hurt, engineers sit on finished work. Product feedback loops stretch from days to weeks. Sales promises a fix &quot;in the next release&quot;, which is a date nobody controls. The cost is not only the incident; it is every week a finished feature waits for the next scary deploy.</p>
+<h2>The signs you are in this pattern</h2>
+<p>You do not need metrics to diagnose it. Look for these:</p>
+<ul>
+<li>Deploys are scheduled, announced, or avoided on certain days.</li>
+<li>Only one or two people are able or allowed to deploy.</li>
+<li>The deploy involves steps that are not in a script, especially database changes run by hand.</li>
+<li>Releases contain more than a week of work.</li>
+<li>A bad deploy means fixing forward in a hurry, because rolling back is not really possible.</li>
+<li>Engineers ask &quot;is it safe to merge this now?&quot;</li>
+</ul>
+<p>Two or more of these and deploys have become an event.</p>
+<h2>What boring deploys look like at a small company</h2>
+<p>The goal is not an elaborate pipeline. The goal is that shipping a small change is so routine that nobody mentions it. For a team of two to eight engineers, that usually means five things.</p>
+<h3>One command, or none</h3>
+<p>Deploying should be a single command or, better, an automatic result of merging to the main branch. If a human has to remember steps, write the steps into a script first, then automate the trigger. Most hosting platforms and CI services make this a few hours of work for a typical web app.</p>
+<h3>Small changes, merged often</h3>
+<p>The deploy pipeline only helps if changes are small. Encourage pull requests that can be reviewed in minutes, and merge them the same day. If you are worried about unfinished features reaching users, that is what a simple flag is for. I cover when that is worth it in <a href="/post-do-you-need-feature-flags-yet-or-just-a-deploy">feature flags versus just a deploy</a>.</p>
+<h3>Migrations that are part of the deploy</h3>
+<p>Database changes are where hand-run steps hurt most. Put migrations in the repository, run them automatically as part of the deploy, and prefer changes that are backward compatible for one release: add the new column, ship code that uses it, remove the old one later. That single habit removes most of the &quot;we cannot roll back&quot; problem.</p>
+<h3>A rollback you have actually tried</h3>
+<p>A rollback plan you have never tested is a hope. Once a quarter, deploy something harmless and roll it back on purpose. If it takes more than a few minutes, fix that before you need it.</p>
+<h3>A quick check after every deploy</h3>
+<p>You do not need a full observability stack on day one, but you need to know within minutes if a deploy broke login, checkout, or the main page. A basic health check plus error alerts covers most of it. If you are still deciding how much to spend here, see <a href="/post-flying-blind-in-prod-when-to-pay-for-observability">when to pay for observability</a>.</p>
+<h2>Where to start this week</h2>
+<p>If your deploys are an event today, do these in order:</p>
+<ol>
+<li><strong>Write the current deploy steps down exactly</strong>, including the ones people &quot;just know&quot;. Commit them to the repo.</li>
+<li><strong>Turn that list into one script</strong> and have a second engineer run it.</li>
+<li><strong>Move database migrations into the same script.</strong></li>
+<li><strong>Trigger the script from CI on merge to main</strong>, with a manual approval step if the team is nervous at first.</li>
+<li><strong>Shrink the batch.</strong> Deploy daily for two weeks and watch what happens to incident count.</li>
+</ol>
+<p>Most teams find that the incident rate drops within a month, and the team starts shipping noticeably more, simply because shipping stopped costing an afternoon.</p>
+<h2>What this is not</h2>
+<p>Frequent deploys do not mean skipping review or testing. A small team still needs the lightweight checks described in <a href="/post-how-much-testing-early">how much testing you need early</a>. And it does not require a staging environment on day one; that has its own trigger points, covered in <a href="/post-staging-environment-yet">do you need staging yet</a>. It means removing the ceremony and manual risk from getting reviewed code to users.</p>
+<h2>Why this matters beyond engineering</h2>
+<p>Deploy frequency is one of the clearest signals of a healthy engineering team, and an investor&#39;s technical reviewer will often ask how you ship and how you recover. More importantly, it sets the speed at which your company can learn from customers. A team that ships ten small changes a week learns faster than a team that ships one big one every three weeks, even with the same headcount.</p>
+<p>When I do a <a href="/teardown">technical teardown</a>, the deploy process is one of the first things I look at, because it tells me more about a team&#39;s day-to-day reality than the architecture diagram does. If shipping feels heavier than it should at your company, <a href="/book-a-call">book a call</a> and we can work out where the friction is.</p>
+<h2>FAQ</h2>
+<h3>Is it really safe to deploy on Fridays?</h3>
+<p>If a deploy is small, automated, and easy to roll back, it is about as safe on Friday as on Tuesday. The Friday rule is a symptom: it exists because deploys are risky. Fix the risk and the rule stops mattering, though it is still reasonable to avoid big risky changes right before nobody is around to watch.</p>
+<h3>How often should a small startup deploy?</h3>
+<p>There is no magic number, but aim for small changes going out at least daily when there is work to ship. The number matters less than the batch size: each deploy should be small enough that if it breaks, the cause is obvious.</p>
+<h3>We only have one engineer. Does any of this apply?</h3>
+<p>Yes, and it matters more. A solo engineer with a manual deploy process is your whole release capability in one person&#39;s memory. A scripted deploy is also what lets a second engineer or a contractor ship safely later.</p>
+<h3>What about mobile apps, where we cannot deploy instantly?</h3>
+<p>App store review adds delay, but the same principles apply to the backend and to how you build the app. Keep backend deploys small and automated, keep API changes backward compatible with older app versions, and automate the build and submission of the app itself.</p>
+
+    </div>
+    <div class="article-body">
+      <div class="author-card reveal">
+        <span class="ac-av">F</span>
+        <div>
+          <div class="ac-name">The founder of Fraction</div>
+          <div class="ac-bio">Built engineering teams from 2 to 30. Killed more bad rebuilds than I've greenlit. <a href="about.html" class="link-grow" style="font-size:0.96rem">More about me <span class="arrow">&rarr;</span></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" style="padding-top:clamp(32px,5vw,56px)">
+  <div class="wrap">
+    <div class="callout reveal" style="text-align:center">
+      <h3 style="margin-left:auto;margin-right:auto;max-width:22ch">Not sure the call you're about to make is the right one?</h3>
+      <p style="margin:0 auto 26px">That's exactly what a 20-minute fit call is for &mdash; or a two-week Teardown if you'd rather start with a written verdict.</p>
+      <div class="ph-cta" style="justify-content:center">
+        <a href="book-a-call.html" class="btn btn-accent">Book a fit call <span class="arrow">&rarr;</span></a>
+        <a href="teardown.html" class="link-grow" style="color:#fff">Start with a Teardown <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap-wide">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#14140F"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+        <p style="color:var(--grey-2); max-width:30ch; margin-top:18px; font-size:0.96rem; line-height:1.5">Senior technical leadership for founders who aren't ready for a full-time CTO — and shouldn't hire one yet.</p>
+      </div>
+      <div><h5>Service</h5><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="comparison.html">Fractional vs full-time</a></li><li><a href="teardown.html">The Tech Teardown</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="blog.html">Writing</a></li><li><a href="book-a-call.html">Book a call</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+      <div><h5>Start here</h5><ul><li><a href="book-a-call.html">Book a 20-min fit call</a></li><li><a href="teardown.html">Start with a Teardown</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Fraction · <a href="https://getfractioncto.com">getfractioncto.com</a> — no contract, no equity, cancel anytime.</span>
+      <span>Built on judgment, not hours.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="motion.js"></script>
+</body>
+</html>
