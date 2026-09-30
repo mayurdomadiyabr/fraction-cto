@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ChatGPT, Claude and Grok went down the same morning. Were you ready? — Fraction</title>
+  <meta name="description" content="After the September 2026 AI outages: timeouts, degraded modes, and when a fallback model provider is worth the cost for a startup." />
+  <meta name="theme-color" content="#FAFAF9" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Fraction" />
+  <meta property="og:title" content="ChatGPT, Claude and Grok went down the same morning. Were you ready? — Fraction" />
+  <meta property="og:description" content="After the September 2026 AI outages: timeouts, degraded modes, and when a fallback model provider is worth the cost for a startup." />
+  <meta property="og:url" content="https://getfractioncto.com/post-ai-provider-outage-fallback" />
+  <meta property="og:image" content="https://getfractioncto.com/og-image.png" />
+  <meta property="article:published_time" content="2026-09-30T04:30:42.529Z" />
+  <meta property="article:author" content="The founder of Fraction" />
+  <meta property="article:section" content="Decisions" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="ChatGPT, Claude and Grok went down the same morning. Were you ready? — Fraction" />
+  <meta name="twitter:description" content="After the September 2026 AI outages: timeouts, degraded modes, and when a fallback model provider is worth the cost for a startup." />
+  <meta name="twitter:image" content="https://getfractioncto.com/og-image.png" />
+  <link rel="canonical" href="https://getfractioncto.com/post-ai-provider-outage-fallback" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script src="/analytics.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "ChatGPT, Claude and Grok went down the same morning. Were you ready?",
+  "description": "After the September 2026 AI outages: timeouts, degraded modes, and when a fallback model provider is worth the cost for a startup.",
+  "datePublished": "2026-09-30T04:30:42.529Z",
+  "dateModified": "2026-09-30T04:30:42.529Z",
+  "author": {
+    "@type": "Person",
+    "name": "The founder of Fraction",
+    "url": "https://getfractioncto.com/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fraction",
+    "url": "https://getfractioncto.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://getfractioncto.com/og-image.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://getfractioncto.com/post-ai-provider-outage-fallback"
+  },
+  "image": "https://getfractioncto.com/og-image.png",
+  "articleSection": "Decisions",
+  "wordCount": 1567,
+  "inLanguage": "en",
+  "isAccessibleForFree": true
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home",   "item": "https://getfractioncto.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Writing","item": "https://getfractioncto.com/blog" },
+    { "@type": "ListItem", "position": 3, "name": "ChatGPT, Claude and Grok went down the same morning. Were you ready?", "item": "https://getfractioncto.com/post-ai-provider-outage-fallback" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Fraction home"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <ul class="nav-links">
+      <li><a href="how-it-works.html">How it works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="comparison.html">Compare</a></li>
+      <li><a href="blog.html" class="active">Writing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="teardown.html">The Teardown <span class="accent-dot"></span></a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke-linecap="round"/></svg></button>
+      <button class="icon-btn" aria-label="Toggle theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M21.5 12h-2.2M4.7 12H2.5M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6M18.4 18.4l-1.6-1.6M7.2 7.2 5.6 5.6" stroke-linecap="round"/></svg></button>
+      <a href="book-a-call.html" class="btn btn-primary nav-cta">Book a fit call</a>
+      <button class="icon-btn menu-btn" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu">
+  <div class="mm-top">
+    <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <button class="icon-btn menu-btn" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg></button>
+  </div>
+  <nav>
+    <a href="how-it-works.html">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="comparison.html">Compare</a>
+    <a href="blog.html">Writing</a>
+    <a href="about.html">About</a>
+    <a href="teardown.html">The Teardown</a>
+  </nav>
+  <div class="mm-cta">
+    <a href="teardown.html" class="btn btn-ghost">Start with a Teardown</a>
+    <a href="book-a-call.html" class="btn btn-primary">Book a 20-min fit call</a>
+  </div>
+</div>
+
+<main>
+<section class="page-hero center" style="padding-bottom:clamp(24px,4vw,40px)">
+  <div class="wrap">
+    <div class="article-hero">
+      <span class="post-cat">Decisions</span>
+      <h1>ChatGPT, Claude and Grok went down the same morning. Were you ready?</h1>
+      <div class="post-meta"><span>Sep 2026</span><span class="sep"></span><span>7 min read</span><span class="sep"></span><span>by The founder of Fraction</span></div>
+    </div>
+  </div>
+</section>
+<section class="section-tight" style="padding-top:8px">
+  <div class="wrap">
+    <div class="article-body reveal">
+<p>On the morning of September 3, 2026, ChatGPT, Claude and Grok all had outages within the same few hours. OpenAI blamed a routing error, Anthropic an infrastructure issue, and <a href="https://www.theregister.com/ai-and-ml/2026/09/03/chatgpt-claude-and-grok-all-had-outages-at-the-same-time/5294322">The Register&#39;s write-up</a> notes Claude&#39;s lasted just over three hours, with the API affected as well as the chat app. If your product has an AI feature, that morning was a free fire drill. The question is what your customers saw.</p>
+<p>The short answer: most seed-stage products do not need a second model provider wired in and running. They do need a decided, tested answer to &quot;what happens when the model is down,&quot; and for the features customers depend on, that answer should be a graceful degraded mode, not an error page. A second provider is worth the cost only for features where an outage stops the customer&#39;s work, and only if you actually test the switch.</p>
+<h2>What an AI outage actually does to your product</h2>
+<p>When a model API fails, your product does not fail in one clean way. It fails in several messy ones at once, and it helps to know which ones you have.</p>
+<ul>
+<li><strong>Hard errors.</strong> The request returns a 5xx or times out, and your UI shows a generic error, or worse, a spinner that never ends.</li>
+<li><strong>Slow failures.</strong> The provider is degraded rather than down. Requests take 60 seconds and then fail, holding your server&#39;s request threads the whole time and slowing unrelated pages.</li>
+<li><strong>Retry storms.</strong> Your code retries on failure, every client retries at once, and you burn rate limits and money the moment the provider recovers.</li>
+<li><strong>Silent corruption.</strong> A background job that summarizes, tags or classifies records fails halfway, and nobody notices that a batch of records now has empty fields.</li>
+<li><strong>Broken core flows.</strong> The worst case: the AI step sits in the middle of something the customer must finish, like onboarding, checkout, or submitting a document, and the whole flow stops.</li>
+</ul>
+<p>The first three are engineering hygiene. The last two are product decisions, and they are the ones founders should own.</p>
+<h2>Sort your AI features by what an outage costs</h2>
+<p>Before anyone writes failover code, list every place your product calls a model and put each one in one of three buckets.</p>
+<h3>Nice to have</h3>
+<p>Suggestions, auto-generated titles, a &quot;summarize this&quot; button. If the model is down, hide the button or show a short message. Nobody&#39;s work stops. The fix is a timeout and a clean empty state, which is an afternoon of work.</p>
+<h3>Important but deferrable</h3>
+<p>Background enrichment, tagging, search indexing, drafting emails a human reviews later. If the model is down, queue the work and process it when the provider recovers. The fix is a job queue with retries and backoff, which many teams already have. If you do not, I wrote about <a href="/post-do-you-need-a-job-queue-yet">when cron stops being enough</a>.</p>
+<h3>Blocking</h3>
+<p>The AI step is on the critical path of something the customer is paying you to do right now: a support agent that answers your customers&#39; customers, a document pipeline with an SLA, a voice agent on live calls. Here an outage is your outage, and this is the only bucket where a second provider starts to earn its cost.</p>
+<p>Most products I review have one blocking feature at most. Many have none, and discover on a day like September 3 that they have been treating a nice-to-have as if it were critical, or the reverse.</p>
+<h2>The cheap fixes every team should have</h2>
+<p>Whatever bucket a feature is in, these are low-cost and high-value, and they are what I check first in a <a href="/teardown">technical teardown</a> of any AI product.</p>
+<ol>
+<li><strong>Timeouts on every model call.</strong> Pick a number based on the feature, often 20 to 30 seconds for generation and less for classification, and fail fast after it. A call without a timeout is a slow failure waiting to happen.</li>
+<li><strong>Bounded retries with backoff and jitter.</strong> Two or three attempts, spaced out and randomized, then stop. Unbounded retries turn a provider outage into your own.</li>
+<li><strong>A circuit breaker.</strong> After a run of failures, stop calling the provider for a minute and serve the degraded mode directly. This protects your servers and your bill.</li>
+<li><strong>A written degraded mode for each feature.</strong> Hide it, queue it, or fall back to a non-AI path. Decide in advance, not during the incident.</li>
+<li><strong>An alert that fires on model error rate.</strong> You should learn about the outage from your monitoring, not from a customer email.</li>
+<li><strong>A status line in your product.</strong> One sentence saying the AI feature is temporarily unavailable beats a broken spinner every time.</li>
+</ol>
+<p>None of these require a second vendor. Together they turn a provider outage from an incident into an inconvenience.</p>
+<h2>When a second provider is worth it</h2>
+<p>A multi-provider setup sounds like simple insurance. In practice it is a second product surface you maintain. Prompts tuned for one model often behave differently on another. Output formats, tool-calling behavior, context limits and safety filters all differ. If your feature depends on structured output, the fallback model may return something your parser rejects, which means the fallback fails exactly when you need it.</p>
+<p>So the bar for a live second provider is specific:</p>
+<ul>
+<li><strong>The feature is blocking</strong> and an hour of downtime has a real cost you can name: lost revenue, SLA credits, or a customer who churns.</li>
+<li><strong>You have evals</strong> that let you check the fallback model produces acceptable output for your actual prompts. Without them you are guessing. I covered <a href="/post-ai-feature-evals">how to know if an AI feature is good</a>.</li>
+<li><strong>You test the switch regularly.</strong> A fallback path that has never carried production traffic should be assumed broken.</li>
+<li><strong>Your contracts promise uptime</strong> that your single provider does not promise you. If they do, the gap is the same one I described in <a href="/post-sla-promise-vs-architecture">the uptime promise your architecture cannot keep</a>.</li>
+</ul>
+<p>If you meet that bar, the practical shape is modest: one thin routing layer in your code, a primary and a secondary model per blocking feature, prompts maintained for both, and a switch that is either automatic on error rate or a flag an engineer can flip in seconds. Keep the layer thin. The trap of building an elaborate abstraction to avoid lock-in is its own problem, covered in <a href="/post-vendor-abstraction-layer">wrapping your vendor to avoid lock-in</a>.</p>
+<h2>Correlated risk is the new part</h2>
+<p>The lesson of September 3 is not that providers go down. They always have. It is that several went down on the same morning, for causes the companies described differently. If your plan was &quot;we use Provider A, and if it fails we switch to Provider B,&quot; it is worth checking whether A and B share a cloud region, a hosting partner, or a gateway service in front of both. Many teams route every model call through a single third-party gateway or proxy for convenience, which quietly turns two providers into one point of failure.</p>
+<p>The same thinking applies to self-hosting an open-weight model as a fallback. It removes one dependency and adds GPU capacity you now have to run, patch and pay for during the 99% of hours when it sits idle. For most early teams that trade does not pencil out, though the cost math has shifted, and I looked at it in <a href="/post-switch-to-open-weight-model">switching to an open-weight model</a>.</p>
+<h2>What investors will ask</h2>
+<p>Diligence on AI products increasingly includes a resilience question: what happens to the product when the model provider is unavailable? A clear answer is short. &quot;These two features degrade to a hidden state, this one queues, and this one fails over to a second provider we test monthly.&quot; That answer signals a team that has thought about operations, not just prompts. A vague answer, or discovering the question during the call, is the kind of gap a <a href="/book-a-call">short call</a> beforehand can close.</p>
+<h2>FAQ</h2>
+<h3>Should we switch providers because ours went down?</h3>
+<p>Not on the strength of one outage. Every major provider has had incidents, and September 3 showed several can fail on the same day. Choose on quality, cost and fit for your use case, and invest in degraded modes rather than chasing whichever vendor had the most recent good month.</p>
+<h3>How long should our AI call timeout be?</h3>
+<p>It depends on the feature and how long a normal response takes. Measure your typical latency, set the timeout comfortably above your slow-but-healthy responses, and fail fast beyond it. A timeout set at several times your normal latency is usually a reasonable start.</p>
+<h3>Do we need to tell customers when the AI provider is down?</h3>
+<p>Tell them what they need to know: that a feature is temporarily unavailable and whether their work is safe. Naming your vendor is optional. What matters is that the product explains itself instead of failing silently.</p>
+<h3>Is a model gateway a good idea?</h3>
+<p>Gateways are useful for logging, cost tracking and switching models. Just treat the gateway as a dependency in its own right, with its own uptime, and make sure your fallback path does not run through the same single point.</p>
+<h3>How often should we test a fallback provider?</h3>
+<p>If a feature depends on it, at least monthly, with real traffic or a realistic replay. A fallback that has not been exercised recently is a plan on paper, not a working system.</p>
+
+    </div>
+    <div class="article-body">
+      <div class="author-card reveal">
+        <span class="ac-av">F</span>
+        <div>
+          <div class="ac-name">The founder of Fraction</div>
+          <div class="ac-bio">Built engineering teams from 2 to 30. Killed more bad rebuilds than I've greenlit. <a href="about.html" class="link-grow" style="font-size:0.96rem">More about me <span class="arrow">&rarr;</span></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" style="padding-top:clamp(32px,5vw,56px)">
+  <div class="wrap">
+    <div class="callout reveal" style="text-align:center">
+      <h3 style="margin-left:auto;margin-right:auto;max-width:22ch">Not sure the call you're about to make is the right one?</h3>
+      <p style="margin:0 auto 26px">That's exactly what a 20-minute fit call is for &mdash; or a two-week Teardown if you'd rather start with a written verdict.</p>
+      <div class="ph-cta" style="justify-content:center">
+        <a href="book-a-call.html" class="btn btn-accent">Book a fit call <span class="arrow">&rarr;</span></a>
+        <a href="teardown.html" class="link-grow" style="color:#fff">Start with a Teardown <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap-wide">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#14140F"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+        <p style="color:var(--grey-2); max-width:30ch; margin-top:18px; font-size:0.96rem; line-height:1.5">Senior technical leadership for founders who aren't ready for a full-time CTO — and shouldn't hire one yet.</p>
+      </div>
+      <div><h5>Service</h5><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="comparison.html">Fractional vs full-time</a></li><li><a href="teardown.html">The Tech Teardown</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="blog.html">Writing</a></li><li><a href="book-a-call.html">Book a call</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+      <div><h5>Start here</h5><ul><li><a href="book-a-call.html">Book a 20-min fit call</a></li><li><a href="teardown.html">Start with a Teardown</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Fraction · <a href="https://getfractioncto.com">getfractioncto.com</a> — no contract, no equity, cancel anytime.</span>
+      <span>Built on judgment, not hours.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="motion.js"></script>
+</body>
+</html>
