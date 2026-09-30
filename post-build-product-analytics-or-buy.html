@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Build your own product analytics, or pay for PostHog? — Fraction</title>
+  <meta name="description" content="Should a startup build product analytics or buy PostHog, Amplitude or Mixpanel? Costs, when building makes sense, and the tracking plan that matters." />
+  <meta name="theme-color" content="#FAFAF9" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Fraction" />
+  <meta property="og:title" content="Build your own product analytics, or pay for PostHog? — Fraction" />
+  <meta property="og:description" content="Should a startup build product analytics or buy PostHog, Amplitude or Mixpanel? Costs, when building makes sense, and the tracking plan that matters." />
+  <meta property="og:url" content="https://getfractioncto.com/post-build-product-analytics-or-buy" />
+  <meta property="og:image" content="https://getfractioncto.com/og-image.png" />
+  <meta property="article:published_time" content="2026-09-30T04:28:26.505Z" />
+  <meta property="article:author" content="The founder of Fraction" />
+  <meta property="article:section" content="Decisions" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Build your own product analytics, or pay for PostHog? — Fraction" />
+  <meta name="twitter:description" content="Should a startup build product analytics or buy PostHog, Amplitude or Mixpanel? Costs, when building makes sense, and the tracking plan that matters." />
+  <meta name="twitter:image" content="https://getfractioncto.com/og-image.png" />
+  <link rel="canonical" href="https://getfractioncto.com/post-build-product-analytics-or-buy" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script src="/analytics.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Build your own product analytics, or pay for PostHog?",
+  "description": "Should a startup build product analytics or buy PostHog, Amplitude or Mixpanel? Costs, when building makes sense, and the tracking plan that matters.",
+  "datePublished": "2026-09-30T04:28:26.505Z",
+  "dateModified": "2026-09-30T04:28:26.505Z",
+  "author": {
+    "@type": "Person",
+    "name": "The founder of Fraction",
+    "url": "https://getfractioncto.com/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fraction",
+    "url": "https://getfractioncto.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://getfractioncto.com/og-image.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://getfractioncto.com/post-build-product-analytics-or-buy"
+  },
+  "image": "https://getfractioncto.com/og-image.png",
+  "articleSection": "Decisions",
+  "wordCount": 1313,
+  "inLanguage": "en",
+  "isAccessibleForFree": true
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home",   "item": "https://getfractioncto.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Writing","item": "https://getfractioncto.com/blog" },
+    { "@type": "ListItem", "position": 3, "name": "Build your own product analytics, or pay for PostHog?", "item": "https://getfractioncto.com/post-build-product-analytics-or-buy" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Fraction home"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <ul class="nav-links">
+      <li><a href="how-it-works.html">How it works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="comparison.html">Compare</a></li>
+      <li><a href="blog.html" class="active">Writing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="teardown.html">The Teardown <span class="accent-dot"></span></a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke-linecap="round"/></svg></button>
+      <button class="icon-btn" aria-label="Toggle theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M21.5 12h-2.2M4.7 12H2.5M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6M18.4 18.4l-1.6-1.6M7.2 7.2 5.6 5.6" stroke-linecap="round"/></svg></button>
+      <a href="book-a-call.html" class="btn btn-primary nav-cta">Book a fit call</a>
+      <button class="icon-btn menu-btn" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu">
+  <div class="mm-top">
+    <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <button class="icon-btn menu-btn" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg></button>
+  </div>
+  <nav>
+    <a href="how-it-works.html">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="comparison.html">Compare</a>
+    <a href="blog.html">Writing</a>
+    <a href="about.html">About</a>
+    <a href="teardown.html">The Teardown</a>
+  </nav>
+  <div class="mm-cta">
+    <a href="teardown.html" class="btn btn-ghost">Start with a Teardown</a>
+    <a href="book-a-call.html" class="btn btn-primary">Book a 20-min fit call</a>
+  </div>
+</div>
+
+<main>
+<section class="page-hero center" style="padding-bottom:clamp(24px,4vw,40px)">
+  <div class="wrap">
+    <div class="article-hero">
+      <span class="post-cat">Decisions</span>
+      <h1>Build your own product analytics, or pay for PostHog?</h1>
+      <div class="post-meta"><span>Sep 2026</span><span class="sep"></span><span>6 min read</span><span class="sep"></span><span>by The founder of Fraction</span></div>
+    </div>
+  </div>
+</section>
+<section class="section-tight" style="padding-top:8px">
+  <div class="wrap">
+    <div class="article-body reveal">
+<p>Somewhere around the first hundred active users, a founder asks the team a simple question: which features do people actually use? The honest answer is usually &quot;we don&#39;t know,&quot; and the engineer&#39;s instinct is to fix that by writing an events table, a little logging helper, and a dashboard. It feels cheap. It is one of the more reliably expensive small decisions I see at seed stage.</p>
+<p>The short answer: for almost every startup before Series A, buy product analytics and spend your engineering time on deciding what to track. The free tiers of the hosted tools cover far more volume than most early products generate, and the part that is hard is not storing events. It is funnels, retention cohorts, identity merging, and a schema that still makes sense a year from now.</p>
+<h2>Why the homemade version looks cheap</h2>
+<p>The first version really is cheap. An <code>events</code> table with a user id, an event name, a timestamp and a JSON blob of properties takes an afternoon. Counting signups per day is one SQL query. For a week, the founder has numbers and the engineer has a win.</p>
+<p>Then the questions get better, which is the point of having numbers at all:</p>
+<ul>
+<li>What percentage of people who start onboarding finish it, and where do the rest drop?</li>
+<li>Of the users who signed up in March, how many are still active in June?</li>
+<li>Did the new pricing page change conversion, or did the traffic mix change?</li>
+<li>Is this the same person on their phone and their laptop?</li>
+</ul>
+<p>Each of these is a real feature, not a query. Funnels need ordered event sequences per user with time windows. Retention needs cohort math that is easy to get subtly wrong. Identity merging, stitching the anonymous visitor to the logged-in account, is a small data-engineering problem of its own. None of it is impossible. All of it is time your one or two engineers are not spending on the product customers pay for.</p>
+<h2>What buying costs in 2026</h2>
+<p>The pricing of hosted analytics has moved firmly in the founder&#39;s favor. PostHog, as one example, gives the first one million events per month free on its <a href="https://posthog.com/pricing">published pricing</a>, with per-event rates that start at fractions of a cent above that. Most seed-stage products with a few thousand active users sit comfortably inside that allowance if they track deliberately rather than logging every click.</p>
+<p>Amplitude and Mixpanel also have free plans aimed at early teams. The exact limits change, so check the current page before you commit, but the pattern holds: at your stage, the software bill for analytics is close to zero. The real cost of buying is an afternoon of integration and the discipline to name events consistently.</p>
+<p>Compare that to the build. Even a modest homemade setup, the events table, a funnel view, a retention chart and identity stitching, is a few weeks of a senior engineer&#39;s time up front and a slow drip of maintenance afterwards. At a loaded cost of a senior engineer, that is real money, and more importantly it is weeks of roadmap. I use the same test here as in any <a href="/post-build-buy">build, buy, or wait decision</a>: is this capability what customers choose you for? Analytics almost never is.</p>
+<h2>When building is the right call</h2>
+<p>There are three situations where I will back a team that wants to own the pipeline.</p>
+<h3>The data cannot leave your infrastructure</h3>
+<p>Healthcare, some fintech, and contracts with strict data-residency clauses can make sending behavioral data to a third party a non-starter. Even then, check first whether a self-hosted or region-pinned option from an existing vendor solves it before writing your own. Often it does.</p>
+<h3>Analytics is the product</h3>
+<p>If you are shipping usage dashboards to your customers, the events are a product surface, not an internal tool. That is core, and you should build it with the same care as anything else customers see. Even here, keep your internal product analytics on a bought tool so the two concerns do not tangle.</p>
+<h3>Your volume has made the bill absurd</h3>
+<p>At tens or hundreds of millions of events a month, per-event pricing can become a line item worth an engineer&#39;s attention. By then you should have the team, and possibly the warehouse, to do it properly. Before that point, it is a problem you are lucky to have, not one to solve in advance. If you are wondering whether you need a warehouse at all, I wrote about <a href="/post-do-you-need-a-data-warehouse-yet">when Postgres stops being enough</a>.</p>
+<h2>The part you cannot buy: a tracking plan</h2>
+<p>The failure I see more often than a bad build-or-buy call is buying the tool and then tracking chaos. Autocapture turns on, every button click becomes an event, three engineers name the same action <code>signup</code>, <code>sign_up</code> and <code>user_registered</code>, and six months later nobody trusts the numbers. The tool was never the problem.</p>
+<p>A tracking plan fixes this and it fits on one page:</p>
+<ol>
+<li><strong>Pick the 10 to 20 events that map to your business questions.</strong> Signup started, signup completed, first key action, invite sent, upgrade, cancel. Not every click.</li>
+<li><strong>Name them in one convention and write it down.</strong> Object then action, past tense, lowercase: <code>project_created</code>, <code>invite_sent</code>. Put the list in the repo.</li>
+<li><strong>Define the properties that matter.</strong> Plan tier, acquisition source, company size. Keep them stable once chosen.</li>
+<li><strong>Identify users the same way everywhere.</strong> One user id, set at login, on web and mobile.</li>
+<li><strong>Review it monthly.</strong> Delete events nobody looked at. Add the one the founder keeps asking about.</li>
+</ol>
+<p>This is an hour of thinking and it is the difference between analytics that answer questions and analytics that generate arguments. It is also the kind of thing a <a href="/how-it-works">fractional CTO</a> sets up in the first few weeks, because every later decision leans on it.</p>
+<h2>A pattern from the room</h2>
+<p>The version I see most is not a team that built analytics badly. It is a team that built it well enough to keep, and then kept paying for it. A homegrown events table becomes the source for a board metric, the board metric gets questioned in a raise, and suddenly an engineer spends two weeks reconciling the homemade funnel with Stripe revenue. In diligence, &quot;we rolled our own analytics&quot; is not a red flag by itself, but numbers that do not tie out are. If you want a second opinion on whether your current setup would survive that conversation, a <a href="/teardown">technical teardown</a> covers it.</p>
+<h2>FAQ</h2>
+<h3>Is Google Analytics enough for product analytics?</h3>
+<p>For a marketing site, often yes. For a logged-in product, usually not. Web analytics is built around sessions and pages, while product questions are about users and actions over weeks. Most teams end up running one for the site and a product analytics tool inside the app.</p>
+<h3>Should we self-host an open-source analytics tool to save money?</h3>
+<p>Only if data residency forces it. Self-hosting trades a small or zero bill for operational work: upgrades, backups, scaling the database behind it. At seed stage that is usually a worse trade than it looks.</p>
+<h3>Can we switch tools later if we buy now?</h3>
+<p>Yes, and it is much easier if you route events through one thin wrapper in your code and keep a written tracking plan. Switching then means changing one destination, not hunting down tracking calls across the codebase.</p>
+<h3>How many events should we track at the start?</h3>
+<p>Fewer than you think. Ten to twenty well-named events that answer real questions beat two hundred that nobody reads. You can always add events; cleaning up a polluted history is much harder.</p>
+<p>If you are about to assign an engineer to build an analytics system, it is worth a <a href="/book-a-call">short call first</a> to check whether that is the best use of the next month.</p>
+
+    </div>
+    <div class="article-body">
+      <div class="author-card reveal">
+        <span class="ac-av">F</span>
+        <div>
+          <div class="ac-name">The founder of Fraction</div>
+          <div class="ac-bio">Built engineering teams from 2 to 30. Killed more bad rebuilds than I've greenlit. <a href="about.html" class="link-grow" style="font-size:0.96rem">More about me <span class="arrow">&rarr;</span></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" style="padding-top:clamp(32px,5vw,56px)">
+  <div class="wrap">
+    <div class="callout reveal" style="text-align:center">
+      <h3 style="margin-left:auto;margin-right:auto;max-width:22ch">Not sure the call you're about to make is the right one?</h3>
+      <p style="margin:0 auto 26px">That's exactly what a 20-minute fit call is for &mdash; or a two-week Teardown if you'd rather start with a written verdict.</p>
+      <div class="ph-cta" style="justify-content:center">
+        <a href="book-a-call.html" class="btn btn-accent">Book a fit call <span class="arrow">&rarr;</span></a>
+        <a href="teardown.html" class="link-grow" style="color:#fff">Start with a Teardown <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap-wide">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#14140F"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+        <p style="color:var(--grey-2); max-width:30ch; margin-top:18px; font-size:0.96rem; line-height:1.5">Senior technical leadership for founders who aren't ready for a full-time CTO — and shouldn't hire one yet.</p>
+      </div>
+      <div><h5>Service</h5><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="comparison.html">Fractional vs full-time</a></li><li><a href="teardown.html">The Tech Teardown</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="blog.html">Writing</a></li><li><a href="book-a-call.html">Book a call</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+      <div><h5>Start here</h5><ul><li><a href="book-a-call.html">Book a 20-min fit call</a></li><li><a href="teardown.html">Start with a Teardown</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Fraction · <a href="https://getfractioncto.com">getfractioncto.com</a> — no contract, no equity, cancel anytime.</span>
+      <span>Built on judgment, not hours.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="motion.js"></script>
+</body>
+</html>

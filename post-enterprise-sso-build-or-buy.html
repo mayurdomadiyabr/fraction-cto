@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>An enterprise customer wants SSO. Build SAML or buy it? — Fraction</title>
+  <meta name="description" content="Build SAML SSO yourself or buy WorkOS or Auth0? What enterprise SSO requires, what it costs per connection, and a decision rule for startups." />
+  <meta name="theme-color" content="#FAFAF9" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Fraction" />
+  <meta property="og:title" content="An enterprise customer wants SSO. Build SAML or buy it? — Fraction" />
+  <meta property="og:description" content="Build SAML SSO yourself or buy WorkOS or Auth0? What enterprise SSO requires, what it costs per connection, and a decision rule for startups." />
+  <meta property="og:url" content="https://getfractioncto.com/post-enterprise-sso-build-or-buy" />
+  <meta property="og:image" content="https://getfractioncto.com/og-image.png" />
+  <meta property="article:published_time" content="2026-09-30T04:28:26.682Z" />
+  <meta property="article:author" content="The founder of Fraction" />
+  <meta property="article:section" content="Decisions" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="An enterprise customer wants SSO. Build SAML or buy it? — Fraction" />
+  <meta name="twitter:description" content="Build SAML SSO yourself or buy WorkOS or Auth0? What enterprise SSO requires, what it costs per connection, and a decision rule for startups." />
+  <meta name="twitter:image" content="https://getfractioncto.com/og-image.png" />
+  <link rel="canonical" href="https://getfractioncto.com/post-enterprise-sso-build-or-buy" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script src="/analytics.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "An enterprise customer wants SSO. Build SAML or buy it?",
+  "description": "Build SAML SSO yourself or buy WorkOS or Auth0? What enterprise SSO requires, what it costs per connection, and a decision rule for startups.",
+  "datePublished": "2026-09-30T04:28:26.682Z",
+  "dateModified": "2026-09-30T04:28:26.682Z",
+  "author": {
+    "@type": "Person",
+    "name": "The founder of Fraction",
+    "url": "https://getfractioncto.com/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fraction",
+    "url": "https://getfractioncto.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://getfractioncto.com/og-image.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://getfractioncto.com/post-enterprise-sso-build-or-buy"
+  },
+  "image": "https://getfractioncto.com/og-image.png",
+  "articleSection": "Decisions",
+  "wordCount": 1167,
+  "inLanguage": "en",
+  "isAccessibleForFree": true
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home",   "item": "https://getfractioncto.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Writing","item": "https://getfractioncto.com/blog" },
+    { "@type": "ListItem", "position": 3, "name": "An enterprise customer wants SSO. Build SAML or buy it?", "item": "https://getfractioncto.com/post-enterprise-sso-build-or-buy" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Fraction home"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <ul class="nav-links">
+      <li><a href="how-it-works.html">How it works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="comparison.html">Compare</a></li>
+      <li><a href="blog.html" class="active">Writing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="teardown.html">The Teardown <span class="accent-dot"></span></a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke-linecap="round"/></svg></button>
+      <button class="icon-btn" aria-label="Toggle theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M21.5 12h-2.2M4.7 12H2.5M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6M18.4 18.4l-1.6-1.6M7.2 7.2 5.6 5.6" stroke-linecap="round"/></svg></button>
+      <a href="book-a-call.html" class="btn btn-primary nav-cta">Book a fit call</a>
+      <button class="icon-btn menu-btn" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu">
+  <div class="mm-top">
+    <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <button class="icon-btn menu-btn" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg></button>
+  </div>
+  <nav>
+    <a href="how-it-works.html">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="comparison.html">Compare</a>
+    <a href="blog.html">Writing</a>
+    <a href="about.html">About</a>
+    <a href="teardown.html">The Teardown</a>
+  </nav>
+  <div class="mm-cta">
+    <a href="teardown.html" class="btn btn-ghost">Start with a Teardown</a>
+    <a href="book-a-call.html" class="btn btn-primary">Book a 20-min fit call</a>
+  </div>
+</div>
+
+<main>
+<section class="page-hero center" style="padding-bottom:clamp(24px,4vw,40px)">
+  <div class="wrap">
+    <div class="article-hero">
+      <span class="post-cat">Decisions</span>
+      <h1>An enterprise customer wants SSO. Build SAML or buy it?</h1>
+      <div class="post-meta"><span>Sep 2026</span><span class="sep"></span><span>5 min read</span><span class="sep"></span><span>by The founder of Fraction</span></div>
+    </div>
+  </div>
+</section>
+<section class="section-tight" style="padding-top:8px">
+  <div class="wrap">
+    <div class="article-body reveal">
+<p>The first enterprise deal usually arrives with a line in the security review that says &quot;SAML SSO required.&quot; Your product has email and password, maybe Google sign-in. The customer is large enough to matter, the contract is worth more than your last three combined, and procurement will not sign until their employees can log in through Okta or Microsoft Entra ID. Now you have to decide, quickly, whether to build it or buy it.</p>
+<p>The short answer: for your first handful of enterprise customers, buy SSO from a provider and ship it in days, not weeks. Building SAML yourself is possible, but the protocol is old, the edge cases are specific to each identity provider, and a mistake is a security hole in the exact place your biggest customer is looking hardest. Revisit the decision when the per-connection bill becomes a meaningful share of what those customers pay you.</p>
+<h2>What the customer is actually asking for</h2>
+<p>&quot;SSO&quot; in an enterprise contract usually means more than one thing, and it helps to separate them before you price anything.</p>
+<ul>
+<li><strong>SAML or OIDC single sign-on.</strong> Their employees log in through the company identity provider instead of a password you store. This is the must-have.</li>
+<li><strong>Directory sync, usually via SCIM.</strong> When someone joins or leaves the company, their account in your product is created or disabled automatically. Security teams care a lot about the leaving part.</li>
+<li><strong>Enforced SSO.</strong> Once SSO is on for their domain, password login is blocked for those users.</li>
+<li><strong>Audit logs.</strong> A record of who logged in and changed what, exportable on request.</li>
+</ul>
+<p>Read the security questionnaire carefully. Many first deals only require the first item and ask about the others as &quot;roadmap.&quot; Knowing which is which changes the scope from a quarter to a week. I wrote more about getting through that document in <a href="/post-security-questionnaire-deal">the security questionnaire that stalls your biggest deal</a>.</p>
+<h2>Why building SAML is harder than it looks</h2>
+<p>SAML is an XML-based standard from the mid-2000s. A basic integration against one identity provider is a few days of work with a good library. The trouble is everything after the first one.</p>
+<p>Each customer&#39;s identity provider is configured by their IT team, and they configure it differently. Attribute names vary. Some send email in the NameID, some in a custom attribute. Certificates rotate on their schedule, not yours, and when one expires the customer&#39;s whole company is locked out of your product until someone notices. Clock skew between servers causes intermittent login failures that are painful to debug remotely.</p>
+<p>Then there is security. XML signature validation has a long history of subtle vulnerabilities, including signature-wrapping attacks where a crafted response passes validation but asserts a different user. Well-maintained libraries handle this, but you are now responsible for keeping them patched and configured correctly. This is the same reasoning I use for <a href="/post-build-your-own-auth">whether to build your own login at all</a>: authentication is a place where &quot;mostly works&quot; is not good enough.</p>
+<p>Finally, there is the support tail. Every new enterprise customer means a setup call with their IT admin, exchanging metadata, testing, and troubleshooting. If you build, your engineers run those calls. If you buy, most providers give the customer&#39;s admin a self-serve setup flow.</p>
+<h2>What buying costs</h2>
+<p>The per-connection model is the norm. WorkOS, one of the common choices for startups, lists SSO at $125 per connection per month for the first 15 connections on its <a href="https://workos.com/pricing">public pricing</a>, with volume discounts after that. Directory sync is priced as a separate product on the same kind of table, so a customer that needs both costs roughly double. Auth0, Clerk, Stytch and others bundle SSO in different ways, often gated to higher plans, so compare the total for your expected first ten customers rather than the headline rate.</p>
+<p>Now do the arithmetic that actually matters. If an enterprise customer pays you $30,000 a year and SSO plus directory sync costs you $250 a month, that is $3,000 a year, 10% of the contract. That is worth paying to close the deal in a week. If your enterprise tier is priced at $5,000 a year, the same bill is 60% of revenue, and you have a pricing problem, not an SSO problem.</p>
+<h2>A decision rule that holds up</h2>
+<h3>Buy when</h3>
+<ul>
+<li>You have fewer than about 20 enterprise customers who need SSO.</li>
+<li>Your enterprise contracts are large relative to the per-connection cost.</li>
+<li>You do not have an engineer who has shipped and operated SAML before.</li>
+<li>The deal has a deadline measured in weeks.</li>
+</ul>
+<h3>Consider building when</h3>
+<ul>
+<li>You have dozens of SSO customers and the provider bill is a real line in your gross margin.</li>
+<li>You have in-house identity experience and someone who will own it long term.</li>
+<li>Your product is itself in the identity or security space, where owning this is part of your credibility.</li>
+</ul>
+<p>Even then, many teams keep the provider for new customers and only move the largest accounts. There is no prize for owning SAML.</p>
+<h2>Charge for it</h2>
+<p>The most common mistake I see is not build versus buy. It is giving SSO away on every plan. SSO is a feature enterprises expect to pay for, and gating it to an enterprise tier is standard across the industry. If it costs you per connection, price it into the tier that includes it, so each new SSO customer improves your margin instead of eroding it. If you are unsure how to structure that tier, it is a good question for a <a href="/book-a-call">short call</a>, and the same thinking applies to how we <a href="/pricing">price our own work</a>: charge for the value, not the hours.</p>
+<h2>FAQ</h2>
+<h3>Can we just offer Google and Microsoft sign-in instead of SAML?</h3>
+<p>Sometimes. Some mid-sized companies accept OIDC login through Google Workspace or Microsoft Entra ID. Larger ones typically want SAML through their identity provider, plus enforced SSO and deprovisioning. Ask the customer what their policy requires before you assume.</p>
+<h3>How long does it take to add SSO with a provider?</h3>
+<p>For a team with a clean auth layer, a basic integration is usually days, not weeks. Most of the time goes into your own account model: how organizations, domains and roles map to the identity provider&#39;s users.</p>
+<h3>What happens if we switch providers later?</h3>
+<p>Each customer&#39;s IT admin will likely need to update their configuration, which is a coordination cost. Keep the provider behind a thin interface in your code so the engineering side of a switch stays small.</p>
+<h3>Is SSO required for SOC 2?</h3>
+<p>No. SOC 2 is about your controls, not a checklist of product features. But customers who ask for SOC 2 usually also ask for SSO, so the two tend to arrive together.</p>
+<p>If a deal is waiting on SSO and you are unsure which parts of the questionnaire are real requirements, a <a href="/teardown">technical teardown</a> will sort the must-haves from the roadmap items before you commit engineering time.</p>
+
+    </div>
+    <div class="article-body">
+      <div class="author-card reveal">
+        <span class="ac-av">F</span>
+        <div>
+          <div class="ac-name">The founder of Fraction</div>
+          <div class="ac-bio">Built engineering teams from 2 to 30. Killed more bad rebuilds than I've greenlit. <a href="about.html" class="link-grow" style="font-size:0.96rem">More about me <span class="arrow">&rarr;</span></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" style="padding-top:clamp(32px,5vw,56px)">
+  <div class="wrap">
+    <div class="callout reveal" style="text-align:center">
+      <h3 style="margin-left:auto;margin-right:auto;max-width:22ch">Not sure the call you're about to make is the right one?</h3>
+      <p style="margin:0 auto 26px">That's exactly what a 20-minute fit call is for &mdash; or a two-week Teardown if you'd rather start with a written verdict.</p>
+      <div class="ph-cta" style="justify-content:center">
+        <a href="book-a-call.html" class="btn btn-accent">Book a fit call <span class="arrow">&rarr;</span></a>
+        <a href="teardown.html" class="link-grow" style="color:#fff">Start with a Teardown <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap-wide">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#14140F"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+        <p style="color:var(--grey-2); max-width:30ch; margin-top:18px; font-size:0.96rem; line-height:1.5">Senior technical leadership for founders who aren't ready for a full-time CTO — and shouldn't hire one yet.</p>
+      </div>
+      <div><h5>Service</h5><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="comparison.html">Fractional vs full-time</a></li><li><a href="teardown.html">The Tech Teardown</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="blog.html">Writing</a></li><li><a href="book-a-call.html">Book a call</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+      <div><h5>Start here</h5><ul><li><a href="book-a-call.html">Book a 20-min fit call</a></li><li><a href="teardown.html">Start with a Teardown</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Fraction · <a href="https://getfractioncto.com">getfractioncto.com</a> — no contract, no equity, cancel anytime.</span>
+      <span>Built on judgment, not hours.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="motion.js"></script>
+</body>
+</html>
