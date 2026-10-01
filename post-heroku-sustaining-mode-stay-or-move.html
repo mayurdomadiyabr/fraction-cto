@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Heroku is in sustaining mode. Should your startup move? — Fraction</title>
+  <meta name="description" content="Heroku moved to sustaining engineering in 2026. How founders should decide whether to stay or migrate, and how to make leaving cheap." />
+  <meta name="theme-color" content="#FAFAF9" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Fraction" />
+  <meta property="og:title" content="Heroku is in sustaining mode. Should your startup move? — Fraction" />
+  <meta property="og:description" content="Heroku moved to sustaining engineering in 2026. How founders should decide whether to stay or migrate, and how to make leaving cheap." />
+  <meta property="og:url" content="https://getfractioncto.com/post-heroku-sustaining-mode-stay-or-move" />
+  <meta property="og:image" content="https://getfractioncto.com/og-image.png" />
+  <meta property="article:published_time" content="2026-10-01T04:16:30.077Z" />
+  <meta property="article:author" content="The founder of Fraction" />
+  <meta property="article:section" content="Decisions" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Heroku is in sustaining mode. Should your startup move? — Fraction" />
+  <meta name="twitter:description" content="Heroku moved to sustaining engineering in 2026. How founders should decide whether to stay or migrate, and how to make leaving cheap." />
+  <meta name="twitter:image" content="https://getfractioncto.com/og-image.png" />
+  <link rel="canonical" href="https://getfractioncto.com/post-heroku-sustaining-mode-stay-or-move" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script src="/analytics.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Heroku is in sustaining mode. Should your startup move?",
+  "description": "Heroku moved to sustaining engineering in 2026. How founders should decide whether to stay or migrate, and how to make leaving cheap.",
+  "datePublished": "2026-10-01T04:16:30.077Z",
+  "dateModified": "2026-10-01T04:16:30.077Z",
+  "author": {
+    "@type": "Person",
+    "name": "The founder of Fraction",
+    "url": "https://getfractioncto.com/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fraction",
+    "url": "https://getfractioncto.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://getfractioncto.com/og-image.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://getfractioncto.com/post-heroku-sustaining-mode-stay-or-move"
+  },
+  "image": "https://getfractioncto.com/og-image.png",
+  "articleSection": "Decisions",
+  "wordCount": 1548,
+  "inLanguage": "en",
+  "isAccessibleForFree": true
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home",   "item": "https://getfractioncto.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Writing","item": "https://getfractioncto.com/blog" },
+    { "@type": "ListItem", "position": 3, "name": "Heroku is in sustaining mode. Should your startup move?", "item": "https://getfractioncto.com/post-heroku-sustaining-mode-stay-or-move" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Fraction home"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <ul class="nav-links">
+      <li><a href="how-it-works.html">How it works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="comparison.html">Compare</a></li>
+      <li><a href="blog.html" class="active">Writing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="teardown.html">The Teardown <span class="accent-dot"></span></a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke-linecap="round"/></svg></button>
+      <button class="icon-btn" aria-label="Toggle theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M21.5 12h-2.2M4.7 12H2.5M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6M18.4 18.4l-1.6-1.6M7.2 7.2 5.6 5.6" stroke-linecap="round"/></svg></button>
+      <a href="book-a-call.html" class="btn btn-primary nav-cta">Book a fit call</a>
+      <button class="icon-btn menu-btn" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu">
+  <div class="mm-top">
+    <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <button class="icon-btn menu-btn" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg></button>
+  </div>
+  <nav>
+    <a href="how-it-works.html">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="comparison.html">Compare</a>
+    <a href="blog.html">Writing</a>
+    <a href="about.html">About</a>
+    <a href="teardown.html">The Teardown</a>
+  </nav>
+  <div class="mm-cta">
+    <a href="teardown.html" class="btn btn-ghost">Start with a Teardown</a>
+    <a href="book-a-call.html" class="btn btn-primary">Book a 20-min fit call</a>
+  </div>
+</div>
+
+<main>
+<section class="page-hero center" style="padding-bottom:clamp(24px,4vw,40px)">
+  <div class="wrap">
+    <div class="article-hero">
+      <span class="post-cat">Decisions</span>
+      <h1>Heroku is in sustaining mode. Should your startup move?</h1>
+      <div class="post-meta"><span>Oct 2026</span><span class="sep"></span><span>7 min read</span><span class="sep"></span><span>by The founder of Fraction</span></div>
+    </div>
+  </div>
+</section>
+<section class="section-tight" style="padding-top:8px">
+  <div class="wrap">
+    <div class="article-body reveal">
+<p>If your product runs on Heroku, you have probably seen the headlines: Heroku is in &quot;sustaining engineering&quot; mode, and a stream of vendor blogs is telling you to migrate now. Before you put a migration on the roadmap, look at what was actually announced and what it means for a company your size.</p>
+<p>The short answer: for most seed and Series A startups on Heroku, nothing has to move this quarter. Heroku said current customers see no change in pricing, billing or service, and that it is focusing on stability, security and support. What changed is the long-term bet. A platform that is no longer adding features is a platform you should be able to leave on your own schedule. So the right move today is not a migration. It is making sure you could migrate in weeks rather than months, and deciding the trigger that would make you do it.</p>
+<h2>What Heroku actually said</h2>
+<p>On February 6, 2026, Heroku&#39;s chief product officer published <a href="https://www.heroku.com/blog/an-update-on-heroku/">An Update on Heroku</a>. The key points, from the post itself:</p>
+<ul>
+<li>Heroku is moving to a sustaining engineering model focused on stability, security, reliability and support, rather than new capabilities.</li>
+<li>Customers paying by credit card see no change to pricing, billing, service or day-to-day operations.</li>
+<li>New enterprise account contracts are no longer offered. Existing enterprise subscriptions and support contracts are honoured and can renew.</li>
+<li>Salesforce is directing product investment towards other areas, including enterprise AI.</li>
+</ul>
+<p>That is a much narrower statement than &quot;Heroku is shutting down,&quot; which is how some of the coverage reads. The platform is still running and still supported. What has ended is the expectation that it will keep getting better.</p>
+<h2>Why &quot;no change&quot; is still a change</h2>
+<p>A platform in maintenance mode is not an emergency. It is a slow shift in risk, and founders tend to underreact to slow shifts until one becomes urgent.</p>
+<p>Here is what that shift looks like in practice.</p>
+<p><strong>The gap between you and the market widens.</strong> New capabilities in hosting, such as better autoscaling, cheaper compute options, built-in observability or AI-related runtime features, will arrive on other platforms first, if not only there. Each year you stay, the distance between what you have and what you could have grows.</p>
+<p><strong>Your negotiating position weakens if you are larger.</strong> New enterprise contracts are no longer offered. If you were planning to graduate from a credit-card account to an enterprise agreement as you grew, that path is gone for new customers. Check what your current plan and contract actually say before assuming.</p>
+<p><strong>Talent and tooling drift away.</strong> Engineers you hire will increasingly have experience on other platforms. Third-party tools and integrations follow where the growth is. None of this breaks your app; it just makes everything around it slightly harder each year.</p>
+<p><strong>A future announcement is more likely than it was.</strong> We have no information about Heroku&#39;s future plans beyond the published post, and we are not predicting one. But a platform that has stopped investing is, by definition, closer to a pricing change or a sunset than one that is growing. The cheapest time to prepare is before any second announcement.</p>
+<h2>The question that matters: how stuck are you?</h2>
+<p>The decision is not really &quot;Heroku or not.&quot; It is &quot;how long would it take us to leave, and is that acceptable?&quot; You can answer that in an afternoon.</p>
+<p>Walk through your setup and score each item as portable, moderate, or sticky.</p>
+<p><strong>The app itself.</strong> If your app runs from a standard buildpack or a Dockerfile, reads configuration from environment variables, and keeps no state on the dyno&#39;s filesystem, it is portable. Most twelve-factor apps move to another container platform with modest work.</p>
+<p><strong>The database.</strong> This is usually the biggest piece. A managed Postgres database can be moved, but you need a plan for the data copy, the cutover window and the connection changes. A few gigabytes is an evening; hundreds of gigabytes with tight downtime limits is a project.</p>
+<p><strong>Add-ons.</strong> List every add-on: Redis, queues, search, logging, email, scheduling. Each one needs a replacement and a migration. This list is often longer than founders expect, and each item carries its own configuration and credentials.</p>
+<p><strong>Platform-specific features.</strong> Review apps, pipelines, release phase commands, scheduler jobs, and any custom buildpacks are conveniences that need an equivalent elsewhere. None is hard alone; together they make up the long tail of a migration.</p>
+<p><strong>Knowledge.</strong> Who on the team knows how the deployment actually works? If the honest answer is &quot;the contractor who set it up two years ago,&quot; you have a <a href="/post-server-nobody-can-rebuild">server nobody can rebuild</a> problem, and that matters more than which platform you are on.</p>
+<p>If most items are portable and your database is small, you are in a strong position: you can stay, and leave in a few weeks if you ever need to. If several items are sticky, your real risk is not Heroku. It is that you cannot move quickly from anywhere.</p>
+<h2>Three reasonable paths</h2>
+<p><strong>Stay and prepare.</strong> For most early-stage companies this is the right default. Keep running on Heroku, but spend a few days removing the sticky parts: containerise the app with a Dockerfile, document the deploy and every add-on, make sure database backups can be restored somewhere else, and write down the steps a migration would take. You get optionality for a small cost.</p>
+<p><strong>Move on your own schedule.</strong> If you were already outgrowing Heroku on cost or capability, the announcement is a good reason to stop deferring. Plan it so it does not become a <a href="/post-stalled-migration-finish-or-roll-back">migration that stalls halfway</a>: move one service first, run old and new in parallel, cut over the database last, and set a firm date to switch off the old setup so you do not end up running both.</p>
+<p><strong>Move now.</strong> Only when there is a concrete trigger: you need an enterprise contract you can no longer get, a compliance requirement the platform will not meet, a capability you need that is not coming, or a cost curve that already hurts. Moving because of a headline, in the middle of a fundraise or a big customer launch, is the expensive version.</p>
+<p>Whichever path you choose, decide the destination by your team&#39;s skills and your workload, not by which vendor blog was most persuasive. A managed container platform, a different PaaS, or a cloud provider&#39;s own services can all be right. Our posts on <a href="/post-self-host-or-managed">whether to self-host or pay for managed</a> and <a href="/post-migrate-or-stay-tool">when leaving a tool is worth the cost</a> go deeper on the trade-offs.</p>
+<h2>A composite example</h2>
+<p>A seed-stage SaaS company with two engineers ran on Heroku with Postgres, Redis, a scheduler and a logging add-on. After the announcement, the founder asked whether to migrate. We scored the setup: the app was already containerised, the database was around 20 GB, and the add-ons were standard. The verdict was &quot;stay, and spend three days making it portable.&quot; The engineers documented the deploy, tested a database restore on another provider, and wrote a one-page migration plan with the trigger: migrate if the bill crosses a set monthly figure or if the company signs a customer that needs an enterprise hosting agreement. Total cost: under a week of engineering time, and the risk was no longer open-ended.</p>
+<p>That is an illustrative composite, but the pattern is common. The value is in turning a vague worry into a written trigger.</p>
+<h2>What to tell investors and customers</h2>
+<p>If the question comes up in diligence or a security review, answer it directly: you are on Heroku, the platform is in sustaining mode, you have assessed your portability, and here is your plan and trigger. That answer reads as competent. &quot;We have not thought about it&quot; reads as a risk, and so does an unplanned migration in the middle of a raise.</p>
+<h2>Where outside help fits</h2>
+<p>If you are a non-technical founder, the hard part is judging how sticky your setup really is. A <a href="/teardown">technical teardown</a> can score your hosting, database and add-ons, and give you a stay-or-move recommendation with a concrete trigger. If you want to talk it through, <a href="/book-a-call">book a call</a>.</p>
+<h2>Frequently asked questions</h2>
+<h3>Is Heroku shutting down?</h3>
+<p>No. On February 6, 2026, Heroku announced a sustaining engineering model focused on stability, security, reliability and support. It said credit-card customers see no change, and existing enterprise contracts are honoured and can renew. New enterprise contracts are no longer offered.</p>
+<h3>Do I need to migrate off Heroku right now?</h3>
+<p>Usually not. Most early-stage startups should stay, make their setup portable, and write down the trigger that would make them move. Migrate now only if you need something Heroku will no longer provide, such as a new enterprise contract.</p>
+<h3>What is the hardest part of leaving Heroku?</h3>
+<p>For most apps it is the database cutover and the long tail of add-ons and platform features like scheduled jobs and review apps. The application code itself is usually the easiest part if it already runs in a container.</p>
+<h3>How do I make my app easier to move later?</h3>
+<p>Containerise it with a Dockerfile, keep all configuration in environment variables, document every add-on, test restoring your database backups on another provider, and make sure more than one person knows how deploys work.</p>
+
+    </div>
+    <div class="article-body">
+      <div class="author-card reveal">
+        <span class="ac-av">F</span>
+        <div>
+          <div class="ac-name">The founder of Fraction</div>
+          <div class="ac-bio">Built engineering teams from 2 to 30. Killed more bad rebuilds than I've greenlit. <a href="about.html" class="link-grow" style="font-size:0.96rem">More about me <span class="arrow">&rarr;</span></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" style="padding-top:clamp(32px,5vw,56px)">
+  <div class="wrap">
+    <div class="callout reveal" style="text-align:center">
+      <h3 style="margin-left:auto;margin-right:auto;max-width:22ch">Not sure the call you're about to make is the right one?</h3>
+      <p style="margin:0 auto 26px">That's exactly what a 20-minute fit call is for &mdash; or a two-week Teardown if you'd rather start with a written verdict.</p>
+      <div class="ph-cta" style="justify-content:center">
+        <a href="book-a-call.html" class="btn btn-accent">Book a fit call <span class="arrow">&rarr;</span></a>
+        <a href="teardown.html" class="link-grow" style="color:#fff">Start with a Teardown <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap-wide">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#14140F"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+        <p style="color:var(--grey-2); max-width:30ch; margin-top:18px; font-size:0.96rem; line-height:1.5">Senior technical leadership for founders who aren't ready for a full-time CTO — and shouldn't hire one yet.</p>
+      </div>
+      <div><h5>Service</h5><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="comparison.html">Fractional vs full-time</a></li><li><a href="teardown.html">The Tech Teardown</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="blog.html">Writing</a></li><li><a href="book-a-call.html">Book a call</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+      <div><h5>Start here</h5><ul><li><a href="book-a-call.html">Book a 20-min fit call</a></li><li><a href="teardown.html">Start with a Teardown</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Fraction · <a href="https://getfractioncto.com">getfractioncto.com</a> — no contract, no equity, cancel anytime.</span>
+      <span>Built on judgment, not hours.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="motion.js"></script>
+</body>
+</html>
