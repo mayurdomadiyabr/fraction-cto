@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Your enterprise customer wants source code escrow. Now what? — Fraction</title>
+  <meta name="description" content="What source code escrow means for a SaaS startup: what to deposit, release conditions to negotiate, use rights, verification and who pays." />
+  <meta name="theme-color" content="#FAFAF9" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Fraction" />
+  <meta property="og:title" content="Your enterprise customer wants source code escrow. Now what? — Fraction" />
+  <meta property="og:description" content="What source code escrow means for a SaaS startup: what to deposit, release conditions to negotiate, use rights, verification and who pays." />
+  <meta property="og:url" content="https://getfractioncto.com/post-customer-wants-source-code-escrow" />
+  <meta property="og:image" content="https://getfractioncto.com/og-image.png" />
+  <meta property="article:published_time" content="2026-10-02T15:01:58.108Z" />
+  <meta property="article:author" content="The founder of Fraction" />
+  <meta property="article:section" content="Vendors" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Your enterprise customer wants source code escrow. Now what? — Fraction" />
+  <meta name="twitter:description" content="What source code escrow means for a SaaS startup: what to deposit, release conditions to negotiate, use rights, verification and who pays." />
+  <meta name="twitter:image" content="https://getfractioncto.com/og-image.png" />
+  <link rel="canonical" href="https://getfractioncto.com/post-customer-wants-source-code-escrow" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script src="/analytics.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Your enterprise customer wants source code escrow. Now what?",
+  "description": "What source code escrow means for a SaaS startup: what to deposit, release conditions to negotiate, use rights, verification and who pays.",
+  "datePublished": "2026-10-02T15:01:58.108Z",
+  "dateModified": "2026-10-02T15:01:58.108Z",
+  "author": {
+    "@type": "Person",
+    "name": "The founder of Fraction",
+    "url": "https://getfractioncto.com/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fraction",
+    "url": "https://getfractioncto.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://getfractioncto.com/og-image.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://getfractioncto.com/post-customer-wants-source-code-escrow"
+  },
+  "image": "https://getfractioncto.com/og-image.png",
+  "articleSection": "Vendors",
+  "wordCount": 1269,
+  "inLanguage": "en",
+  "isAccessibleForFree": true
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home",   "item": "https://getfractioncto.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Writing","item": "https://getfractioncto.com/blog" },
+    { "@type": "ListItem", "position": 3, "name": "Your enterprise customer wants source code escrow. Now what?", "item": "https://getfractioncto.com/post-customer-wants-source-code-escrow" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Fraction home"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <ul class="nav-links">
+      <li><a href="how-it-works.html">How it works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="comparison.html">Compare</a></li>
+      <li><a href="blog.html" class="active">Writing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="teardown.html">The Teardown <span class="accent-dot"></span></a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke-linecap="round"/></svg></button>
+      <button class="icon-btn" aria-label="Toggle theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M21.5 12h-2.2M4.7 12H2.5M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6M18.4 18.4l-1.6-1.6M7.2 7.2 5.6 5.6" stroke-linecap="round"/></svg></button>
+      <a href="book-a-call.html" class="btn btn-primary nav-cta">Book a fit call</a>
+      <button class="icon-btn menu-btn" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu">
+  <div class="mm-top">
+    <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <button class="icon-btn menu-btn" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg></button>
+  </div>
+  <nav>
+    <a href="how-it-works.html">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="comparison.html">Compare</a>
+    <a href="blog.html">Writing</a>
+    <a href="about.html">About</a>
+    <a href="teardown.html">The Teardown</a>
+  </nav>
+  <div class="mm-cta">
+    <a href="teardown.html" class="btn btn-ghost">Start with a Teardown</a>
+    <a href="book-a-call.html" class="btn btn-primary">Book a 20-min fit call</a>
+  </div>
+</div>
+
+<main>
+<section class="page-hero center" style="padding-bottom:clamp(24px,4vw,40px)">
+  <div class="wrap">
+    <div class="article-hero">
+      <span class="post-cat">Vendors</span>
+      <h1>Your enterprise customer wants source code escrow. Now what?</h1>
+      <div class="post-meta"><span>Oct 2026</span><span class="sep"></span><span>6 min read</span><span class="sep"></span><span>by The founder of Fraction</span></div>
+    </div>
+  </div>
+</section>
+<section class="section-tight" style="padding-top:8px">
+  <div class="wrap">
+    <div class="article-body reveal">
+<p>A large prospect is ready to sign. Then procurement sends one more line: &quot;Vendor will deposit source code with an independent escrow agent.&quot; You are a twelve-person SaaS company. You have never heard of an escrow agent, your lawyer has opinions, and your engineer is worried about handing the codebase to anyone.</p>
+<p>The short answer: source code escrow is a normal enterprise request, and saying yes is usually cheaper than losing the deal. What matters is what you agree to deposit, what events release it, and whether you can keep the deposit current without it becoming a second job. Negotiate those three things and escrow becomes a line item, not a risk.</p>
+<h2>Why enterprise buyers ask for escrow</h2>
+<p>The buyer is not trying to steal your code. They are managing one specific fear: that they build a business process on your product, and then you disappear. Startups fail, get acquired, or quietly stop maintaining a product. A bank, insurer, or hospital system that depends on you has to show its own risk committee a plan for that day.</p>
+<p>Escrow is that plan. An independent third party holds a copy of the materials needed to keep the product running. If an agreed event happens, such as insolvency, ceasing to trade, or failing to support the product as contracted, the agent releases the materials to the customer. Until then, nobody sees anything.</p>
+<p>It shows up most often in regulated industries and in deals where your product sits in the middle of a critical workflow. If you are selling a small add-on tool, push back. If you are becoming the system of record for a large customer, expect it.</p>
+<h2>Why plain source code escrow does not work for SaaS</h2>
+<p>The traditional model came from on-premise software: the customer already ran the binaries, so the source code alone let them maintain it. SaaS is different. If you vanish, your customer does not have your servers, your cloud account, your deployment pipeline, or your data. A zip file of source code would not give them a running service. Specialist escrow providers say this openly, and many now offer SaaS-specific arrangements that include deployment scripts, infrastructure configuration, and recovery documentation, not just code (<a href="https://www.escode.com/saas-escrow/">Escode on SaaS escrow</a>).</p>
+<p>So the useful question is not &quot;will we deposit code?&quot; It is &quot;what would someone need to rebuild and run this service without us?&quot; That usually means:</p>
+<ul>
+<li>Source code for every service the customer relies on, plus any internal libraries</li>
+<li>Infrastructure as code, or written build and deployment instructions if you do not have it</li>
+<li>A list of third-party services and how to replace your accounts with theirs</li>
+<li>Database schema and a description of how their data is stored</li>
+<li>Enough documentation for a competent engineering team to stand it up</li>
+</ul>
+<p>If writing that list makes you nervous, that is information. Our post on <a href="/post-server-nobody-can-rebuild">the server nobody can rebuild</a> covers why a startup should be able to do this anyway, escrow or not.</p>
+<h2>The three terms that matter in negotiation</h2>
+<h3>Release conditions</h3>
+<p>This is the clause that decides whether escrow is harmless or dangerous for you. Good release conditions are objective and narrow: bankruptcy or insolvency, ceasing to trade, or failing to fix a serious support failure within a defined cure period after written notice. Avoid vague triggers such as &quot;vendor fails to perform&quot; or &quot;customer reasonably believes support is inadequate.&quot; Legal guidance on escrow notes that ambiguous triggers are one of the most common reasons these arrangements fail in practice (<a href="https://oziellaw.ca/escrow-saas-agreements/">Oziel Law on escrow in SaaS agreements</a>).</p>
+<p>Watch for an acquisition trigger. Some buyers want release if you are acquired. A narrower version, release only if the acquirer discontinues the product or support, is usually acceptable. A trigger on any change of control can complicate a future sale, so get legal advice before agreeing to it.</p>
+<h3>Use rights after release</h3>
+<p>If materials are released, what can the customer do with them? The reasonable answer is: use and maintain the software for their own internal operations, for the remaining term of the contract or a defined period. Not resell it, not offer it as a service to others. Write that down.</p>
+<h3>Deposit frequency and verification</h3>
+<p>Escrow providers offer levels of verification, from simply confirming that a deposit arrived to fully building the code and testing that it runs. Higher verification costs more and takes more of your engineers&#39; time. For an early company, agree a sensible cadence, such as a deposit each quarter or after each major release, and the lightest verification the customer will accept. Automate the deposit from your repository if the provider supports it, so it does not depend on someone remembering.</p>
+<h2>Who pays, and how to price it</h2>
+<p>Escrow has real costs: the agent&#39;s annual fee, any verification fees, and engineering time to prepare and maintain deposits. Fees vary by provider and verification level, so get quotes rather than guessing. The common pattern is that the customer who asks for it pays, either directly or through a line in your pricing. If you are offering escrow to several enterprise customers, a multi-beneficiary arrangement where one deposit serves many customers is usually cheaper than one agreement per customer.</p>
+<p>Do not absorb the cost silently. A customer that demands escrow is a customer whose deal size should carry it.</p>
+<h2>What escrow tells you about your own house</h2>
+<p>Preparing a first escrow deposit is an excellent forcing function. Founders often discover that the deploy depends on one engineer&#39;s laptop, that a critical service lives in a personal cloud account, or that nobody can say which third-party keys the product needs. Those are business risks whether or not anyone ever opens the escrow.</p>
+<p>The same gaps come up in a <a href="/post-security-questionnaire-deal">security questionnaire for a big deal</a> and in technical diligence when you raise. Fixing them once pays off three times.</p>
+<h2>Where a senior technical voice helps</h2>
+<p>The legal terms belong to your lawyer. The technical scope, what goes in the deposit, what &quot;able to run&quot; really means for your stack, and how much verification your team can sustain, needs someone who can read both the contract and the codebase. A <a href="/teardown">technical teardown</a> will tell you how far you are from a deposit that would actually work. If a deal is waiting on this clause, <a href="/book-a-call">book a call</a> and we will go through the escrow schedule with you.</p>
+<h2>Frequently asked questions</h2>
+<h3>Does source code escrow mean the customer sees our code?</h3>
+<p>No. The escrow agent holds the materials. The customer only receives them if an agreed release condition happens, such as insolvency or a sustained failure to support the product.</p>
+<h3>Should a startup agree to source code escrow?</h3>
+<p>For a large enterprise deal where your product is critical to the customer, usually yes, on narrow and objective release conditions with limited use rights after release. For small deals, it is reasonable to decline or to ask the customer to cover the cost.</p>
+<h3>What should a SaaS escrow deposit include?</h3>
+<p>Enough for a competent team to rebuild and run the service: source code, infrastructure configuration or build instructions, a list of third-party dependencies, the database schema, and operating documentation.</p>
+<h3>Who pays for software escrow?</h3>
+<p>Commonly the customer who requests it, either directly or through pricing. Costs depend on the provider and how much verification is required, so get quotes before you agree to absorb it.</p>
+<h3>Is this legal advice?</h3>
+<p>No. Escrow agreements are contracts with real consequences. Use this to prepare the technical side, and have a lawyer review the terms.</p>
+
+    </div>
+    <div class="article-body">
+      <div class="author-card reveal">
+        <span class="ac-av">F</span>
+        <div>
+          <div class="ac-name">The founder of Fraction</div>
+          <div class="ac-bio">Built engineering teams from 2 to 30. Killed more bad rebuilds than I've greenlit. <a href="about.html" class="link-grow" style="font-size:0.96rem">More about me <span class="arrow">&rarr;</span></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" style="padding-top:clamp(32px,5vw,56px)">
+  <div class="wrap">
+    <div class="callout reveal" style="text-align:center">
+      <h3 style="margin-left:auto;margin-right:auto;max-width:22ch">Not sure the call you're about to make is the right one?</h3>
+      <p style="margin:0 auto 26px">That's exactly what a 20-minute fit call is for &mdash; or a two-week Teardown if you'd rather start with a written verdict.</p>
+      <div class="ph-cta" style="justify-content:center">
+        <a href="book-a-call.html" class="btn btn-accent">Book a fit call <span class="arrow">&rarr;</span></a>
+        <a href="teardown.html" class="link-grow" style="color:#fff">Start with a Teardown <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap-wide">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#14140F"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+        <p style="color:var(--grey-2); max-width:30ch; margin-top:18px; font-size:0.96rem; line-height:1.5">Senior technical leadership for founders who aren't ready for a full-time CTO — and shouldn't hire one yet.</p>
+      </div>
+      <div><h5>Service</h5><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="comparison.html">Fractional vs full-time</a></li><li><a href="teardown.html">The Tech Teardown</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="blog.html">Writing</a></li><li><a href="book-a-call.html">Book a call</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+      <div><h5>Start here</h5><ul><li><a href="book-a-call.html">Book a 20-min fit call</a></li><li><a href="teardown.html">Start with a Teardown</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Fraction · <a href="https://getfractioncto.com">getfractioncto.com</a> — no contract, no equity, cancel anytime.</span>
+      <span>Built on judgment, not hours.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="motion.js"></script>
+</body>
+</html>
