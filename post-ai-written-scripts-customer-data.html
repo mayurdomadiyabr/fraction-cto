@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Your ops team writes code with AI now. Who reviews it? — Fraction</title>
+  <meta name="description" content="Non-engineers now ship AI-written scripts against customer data. What Singapore&#39;s first AI-linked breach teaches and the review rule to adopt." />
+  <meta name="theme-color" content="#FAFAF9" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Fraction" />
+  <meta property="og:title" content="Your ops team writes code with AI now. Who reviews it? — Fraction" />
+  <meta property="og:description" content="Non-engineers now ship AI-written scripts against customer data. What Singapore&#39;s first AI-linked breach teaches and the review rule to adopt." />
+  <meta property="og:url" content="https://getfractioncto.com/post-ai-written-scripts-customer-data" />
+  <meta property="og:image" content="https://getfractioncto.com/og-image.png" />
+  <meta property="article:published_time" content="2026-10-02T15:03:57.123Z" />
+  <meta property="article:author" content="The founder of Fraction" />
+  <meta property="article:section" content="Pattern recognition" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Your ops team writes code with AI now. Who reviews it? — Fraction" />
+  <meta name="twitter:description" content="Non-engineers now ship AI-written scripts against customer data. What Singapore&#39;s first AI-linked breach teaches and the review rule to adopt." />
+  <meta name="twitter:image" content="https://getfractioncto.com/og-image.png" />
+  <link rel="canonical" href="https://getfractioncto.com/post-ai-written-scripts-customer-data" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script src="/analytics.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Your ops team writes code with AI now. Who reviews it?",
+  "description": "Non-engineers now ship AI-written scripts against customer data. What Singapore&#39;s first AI-linked breach teaches and the review rule to adopt.",
+  "datePublished": "2026-10-02T15:03:57.123Z",
+  "dateModified": "2026-10-02T15:03:57.123Z",
+  "author": {
+    "@type": "Person",
+    "name": "The founder of Fraction",
+    "url": "https://getfractioncto.com/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fraction",
+    "url": "https://getfractioncto.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://getfractioncto.com/og-image.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://getfractioncto.com/post-ai-written-scripts-customer-data"
+  },
+  "image": "https://getfractioncto.com/og-image.png",
+  "articleSection": "Pattern recognition",
+  "wordCount": 1467,
+  "inLanguage": "en",
+  "isAccessibleForFree": true
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home",   "item": "https://getfractioncto.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Writing","item": "https://getfractioncto.com/blog" },
+    { "@type": "ListItem", "position": 3, "name": "Your ops team writes code with AI now. Who reviews it?", "item": "https://getfractioncto.com/post-ai-written-scripts-customer-data" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Fraction home"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <ul class="nav-links">
+      <li><a href="how-it-works.html">How it works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="comparison.html">Compare</a></li>
+      <li><a href="blog.html" class="active">Writing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="teardown.html">The Teardown <span class="accent-dot"></span></a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke-linecap="round"/></svg></button>
+      <button class="icon-btn" aria-label="Toggle theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M21.5 12h-2.2M4.7 12H2.5M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6M18.4 18.4l-1.6-1.6M7.2 7.2 5.6 5.6" stroke-linecap="round"/></svg></button>
+      <a href="book-a-call.html" class="btn btn-primary nav-cta">Book a fit call</a>
+      <button class="icon-btn menu-btn" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu">
+  <div class="mm-top">
+    <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <button class="icon-btn menu-btn" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg></button>
+  </div>
+  <nav>
+    <a href="how-it-works.html">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="comparison.html">Compare</a>
+    <a href="blog.html">Writing</a>
+    <a href="about.html">About</a>
+    <a href="teardown.html">The Teardown</a>
+  </nav>
+  <div class="mm-cta">
+    <a href="teardown.html" class="btn btn-ghost">Start with a Teardown</a>
+    <a href="book-a-call.html" class="btn btn-primary">Book a 20-min fit call</a>
+  </div>
+</div>
+
+<main>
+<section class="page-hero center" style="padding-bottom:clamp(24px,4vw,40px)">
+  <div class="wrap">
+    <div class="article-hero">
+      <span class="post-cat">Pattern recognition</span>
+      <h1>Your ops team writes code with AI now. Who reviews it?</h1>
+      <div class="post-meta"><span>Oct 2026</span><span class="sep"></span><span>7 min read</span><span class="sep"></span><span>by The founder of Fraction</span></div>
+    </div>
+  </div>
+</section>
+<section class="section-tight" style="padding-top:8px">
+  <div class="wrap">
+    <div class="article-body reveal">
+<p>Your customer success lead needed to email every customer about a price change. Instead of waiting for engineering, they asked an AI assistant to write a small script, pointed it at an export of the customer list, and ran it. It worked. Next month, someone in finance does the same for invoice reminders. Nobody in engineering has seen either script.</p>
+<p>The short answer: AI has turned non-engineers into people who ship working code, and that code often touches customer data with no review at all. You do not need to ban it. You need a short list of actions that always require a second pair of eyes, a safe place for these tools to live, and someone technical who owns the rules. The cost of skipping this became very concrete in Singapore in September 2026.</p>
+<h2>The case that made it real</h2>
+<p>On 30 September 2026, Singapore media reported that the country&#39;s data protection regulator had received its first breach notification linked to AI use. The incident itself happened in April. An employee at Bee Cheng Hiang, a well-known food company, had used a generative AI tool to write a program to send emails in batches. The program did not hide recipients from each other, so customers in each batch could see one another&#39;s email addresses. More than 95,000 customer email addresses were exposed. Reports noted the difference between correct and incorrect code came down to a small detail, and that it was the first time the company had used an AI tool in its operations (<a href="https://sg.news.yahoo.com/singapore-sees-first-data-breach-linked-to-ai-use-st-reports-002640437.html">Straits Times via Yahoo News</a>; <a href="https://oecd.ai/en/incidents/2026-09-30-1509">OECD AI incident record</a>). The company&#39;s fix was a rule that at least two staff members check every bulk email before it goes out.</p>
+<p>Notice what this was not. It was not a sophisticated attack, a model going rogue, or a vulnerability in the AI tool. It was an ordinary person, trying to do their job faster, running unreviewed code against real customer data. That pattern exists in most startups right now.</p>
+<h2>Why this is a startup problem, not just a big-company one</h2>
+<p>Large companies have change management, security teams and approval workflows, however slow. A twenty-person startup has none of that outside the engineering team, and the engineering team usually has no idea what ops, sales and finance are running.</p>
+<p>Three things make this risk higher at startups:</p>
+<p><strong>The people writing scripts have the most access.</strong> Early operators often have admin access to the CRM, the email platform, the billing system and sometimes the production database, because nobody set up roles. Our post on <a href="/post-shared-admin-logins">shared admin logins</a> covers how that happens.</p>
+<p><strong>The tasks are exactly the dangerous ones.</strong> Bulk emails, bulk updates to customer records, data exports, refunds, account clean-ups. One bad loop or a wrong filter touches every customer at once.</p>
+<p><strong>AI-written code looks finished.</strong> It runs, it is tidy, it has comments. A non-engineer has no way to tell that a recipient field is wrong or that a filter will match everyone. Neither, sometimes, does the AI. We cover the general version of this in <a href="/post-ai-code-security-holes">the security holes AI-written code tends to have</a>.</p>
+<p>This is different from the problem of staff pasting company data into personal AI tools, which we wrote about in <a href="/post-shadow-ai-startup-policy">who wrote your shadow AI rule</a>. That is data leaving the building. This is new code acting on your data, with nobody checking it.</p>
+<h2>The actions that should always need a second person</h2>
+<p>You do not need a review process for every spreadsheet formula. You need one for a short list of actions where a single mistake reaches many customers or cannot be undone. A practical list:</p>
+<ul>
+<li>Sending email or messages to more than a handful of customers at once</li>
+<li>Bulk updates or deletes on customer records in any system</li>
+<li>Exports of customer data that leave your core systems</li>
+<li>Anything that moves money: refunds, credits, invoice changes, payouts</li>
+<li>Anything that writes to the production database directly</li>
+<li>Changing permissions or access for customers or staff</li>
+</ul>
+<p>Write this list down, keep it to one page, and share it with every team. The rule is simple: if your script or automation does one of these things, a second person checks it before it runs on real data. For the riskiest items, that second person should be an engineer.</p>
+<h2>Give these tools a safe place to live</h2>
+<p>Banning AI-written scripts will not work. People will keep writing them, just more quietly. The better move is to make the safe path the easy one.</p>
+<h3>Use the tool&#39;s built-in features first</h3>
+<p>Most email platforms, CRMs and billing tools already have bulk-send, segmentation and bulk-edit features that handle the dangerous parts correctly. A marketing tool&#39;s campaign feature will not expose recipients to each other. Before anyone writes a script, ask whether the product you already pay for does it. Our post on <a href="/post-build-email-sending-or-buy">whether to build email sending or buy it</a> makes the same point for product email.</p>
+<h3>Test on fake data, then a small batch</h3>
+<p>Every script that touches customers should run first against test records, then on a small real batch, such as ten customers or your own team, before the full list. This single habit would have stopped the Singapore case at the first batch.</p>
+<h3>Give scripts limited access</h3>
+<p>Scripts should use credentials with the minimum access they need: read-only when they only read, scoped API keys rather than an admin login. If your tools do not support that, it is a sign you need <a href="/post-build-or-buy-internal-admin">a proper internal admin tool</a> for repeated operations.</p>
+<h3>Keep them somewhere visible</h3>
+<p>A shared repository or folder for operational scripts, even a simple one, means engineering can see what exists and spot the dangerous ones. Scripts living on individual laptops are invisible until something goes wrong.</p>
+<h2>What this means when you raise or sell to enterprises</h2>
+<p>Enterprise security questionnaires increasingly ask how you control access to customer data and what change control you have. Investors doing technical diligence ask similar questions. &quot;Engineering reviews all code&quot; is not true if ops is running AI-written scripts against production. A one-page rule, a small list of reviewed scripts and scoped credentials give you an honest answer.</p>
+<p>Breach notification rules also vary by country and by what data was exposed. If a script does go wrong and touches personal data, get legal advice quickly; this post is not legal advice.</p>
+<h2>A quick self-check for this week</h2>
+<p>Ask each team lead two questions: what scripts or automations has your team written or run in the last three months, and which of them touch customer data? Then check:</p>
+<ol>
+<li>Does any of them send bulk messages, change records in bulk, or move money?</li>
+<li>Was any of them run without someone else looking at it first?</li>
+<li>What credentials do they use, and could those be narrower?</li>
+</ol>
+<p>If you find even one unreviewed script on the high-risk list, you have found the gap before your customers did.</p>
+<h2>Where outside help fits</h2>
+<p>Most early startups do not have anyone whose job is to set these rules and check them across teams. A fractional CTO can write the one-page list, review the existing scripts, set up scoped access and a safe home for operational tools, usually in a few days of work. A <a href="/teardown">technical teardown</a> will surface the risky ones alongside the rest of your stack. See <a href="/pricing">pricing</a> for how that works, or <a href="/book-a-call">book a call</a> if you suspect your team is already running code nobody has read.</p>
+<h2>Frequently asked questions</h2>
+<h3>Should startups stop non-engineers from writing code with AI?</h3>
+<p>No. Banning it pushes it underground. Instead, define the small set of high-risk actions that always need review, give people safe tools and limited access, and keep scripts somewhere engineering can see them.</p>
+<h3>What happened in Singapore&#39;s first AI-linked data breach?</h3>
+<p>An employee at Bee Cheng Hiang used a generative AI tool to write a bulk email program that did not hide recipients from each other. More than 95,000 customer email addresses were exposed. The company now requires two staff members to check every bulk email.</p>
+<h3>Was the AI tool at fault?</h3>
+<p>Reports attributed it to how the tool was used rather than a malfunction. The deeper cause was that unreviewed code ran against real customer data with no test batch and no second check.</p>
+<h3>Which scripts are most dangerous?</h3>
+<p>Ones that send bulk messages, change or delete customer records in bulk, export customer data, move money, write to the production database, or change access permissions.</p>
+<h3>How do I find out what scripts my team is running?</h3>
+<p>Ask each team lead directly what scripts and automations their team has used in the last three months, then review the ones that touch customer data or money first.</p>
+
+    </div>
+    <div class="article-body">
+      <div class="author-card reveal">
+        <span class="ac-av">F</span>
+        <div>
+          <div class="ac-name">The founder of Fraction</div>
+          <div class="ac-bio">Built engineering teams from 2 to 30. Killed more bad rebuilds than I've greenlit. <a href="about.html" class="link-grow" style="font-size:0.96rem">More about me <span class="arrow">&rarr;</span></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" style="padding-top:clamp(32px,5vw,56px)">
+  <div class="wrap">
+    <div class="callout reveal" style="text-align:center">
+      <h3 style="margin-left:auto;margin-right:auto;max-width:22ch">Not sure the call you're about to make is the right one?</h3>
+      <p style="margin:0 auto 26px">That's exactly what a 20-minute fit call is for &mdash; or a two-week Teardown if you'd rather start with a written verdict.</p>
+      <div class="ph-cta" style="justify-content:center">
+        <a href="book-a-call.html" class="btn btn-accent">Book a fit call <span class="arrow">&rarr;</span></a>
+        <a href="teardown.html" class="link-grow" style="color:#fff">Start with a Teardown <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap-wide">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#14140F"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+        <p style="color:var(--grey-2); max-width:30ch; margin-top:18px; font-size:0.96rem; line-height:1.5">Senior technical leadership for founders who aren't ready for a full-time CTO — and shouldn't hire one yet.</p>
+      </div>
+      <div><h5>Service</h5><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="comparison.html">Fractional vs full-time</a></li><li><a href="teardown.html">The Tech Teardown</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="blog.html">Writing</a></li><li><a href="book-a-call.html">Book a call</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+      <div><h5>Start here</h5><ul><li><a href="book-a-call.html">Book a 20-min fit call</a></li><li><a href="teardown.html">Start with a Teardown</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Fraction · <a href="https://getfractioncto.com">getfractioncto.com</a> — no contract, no equity, cancel anytime.</span>
+      <span>Built on judgment, not hours.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="motion.js"></script>
+</body>
+</html>
