@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>A customer deleted their data by mistake. Can you undo it? — Fraction</title>
+  <meta name="description" content="Why accidental customer deletes turn into day-long backup restores, and how soft delete with a retention window fixes it." />
+  <meta name="theme-color" content="#FAFAF9" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Fraction" />
+  <meta property="og:title" content="A customer deleted their data by mistake. Can you undo it? — Fraction" />
+  <meta property="og:description" content="Why accidental customer deletes turn into day-long backup restores, and how soft delete with a retention window fixes it." />
+  <meta property="og:url" content="https://getfractioncto.com/post-customer-deleted-data-no-undo" />
+  <meta property="og:image" content="https://getfractioncto.com/og-image.png" />
+  <meta property="article:published_time" content="2026-10-06T03:16:52.347Z" />
+  <meta property="article:author" content="The founder of Fraction" />
+  <meta property="article:section" content="Pattern recognition" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="A customer deleted their data by mistake. Can you undo it? — Fraction" />
+  <meta name="twitter:description" content="Why accidental customer deletes turn into day-long backup restores, and how soft delete with a retention window fixes it." />
+  <meta name="twitter:image" content="https://getfractioncto.com/og-image.png" />
+  <link rel="canonical" href="https://getfractioncto.com/post-customer-deleted-data-no-undo" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script src="/analytics.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "A customer deleted their data by mistake. Can you undo it?",
+  "description": "Why accidental customer deletes turn into day-long backup restores, and how soft delete with a retention window fixes it.",
+  "datePublished": "2026-10-06T03:16:52.347Z",
+  "dateModified": "2026-10-06T03:16:52.347Z",
+  "author": {
+    "@type": "Person",
+    "name": "The founder of Fraction",
+    "url": "https://getfractioncto.com/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fraction",
+    "url": "https://getfractioncto.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://getfractioncto.com/og-image.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://getfractioncto.com/post-customer-deleted-data-no-undo"
+  },
+  "image": "https://getfractioncto.com/og-image.png",
+  "articleSection": "Pattern recognition",
+  "wordCount": 1268,
+  "inLanguage": "en",
+  "isAccessibleForFree": true
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home",   "item": "https://getfractioncto.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Writing","item": "https://getfractioncto.com/blog" },
+    { "@type": "ListItem", "position": 3, "name": "A customer deleted their data by mistake. Can you undo it?", "item": "https://getfractioncto.com/post-customer-deleted-data-no-undo" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Fraction home"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <ul class="nav-links">
+      <li><a href="how-it-works.html">How it works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="comparison.html">Compare</a></li>
+      <li><a href="blog.html" class="active">Writing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="teardown.html">The Teardown <span class="accent-dot"></span></a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke-linecap="round"/></svg></button>
+      <button class="icon-btn" aria-label="Toggle theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M21.5 12h-2.2M4.7 12H2.5M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6M18.4 18.4l-1.6-1.6M7.2 7.2 5.6 5.6" stroke-linecap="round"/></svg></button>
+      <a href="book-a-call.html" class="btn btn-primary nav-cta">Book a fit call</a>
+      <button class="icon-btn menu-btn" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu">
+  <div class="mm-top">
+    <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <button class="icon-btn menu-btn" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg></button>
+  </div>
+  <nav>
+    <a href="how-it-works.html">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="comparison.html">Compare</a>
+    <a href="blog.html">Writing</a>
+    <a href="about.html">About</a>
+    <a href="teardown.html">The Teardown</a>
+  </nav>
+  <div class="mm-cta">
+    <a href="teardown.html" class="btn btn-ghost">Start with a Teardown</a>
+    <a href="book-a-call.html" class="btn btn-primary">Book a 20-min fit call</a>
+  </div>
+</div>
+
+<main>
+<section class="page-hero center" style="padding-bottom:clamp(24px,4vw,40px)">
+  <div class="wrap">
+    <div class="article-hero">
+      <span class="post-cat">Pattern recognition</span>
+      <h1>A customer deleted their data by mistake. Can you undo it?</h1>
+      <div class="post-meta"><span>Oct 2026</span><span class="sep"></span><span>6 min read</span><span class="sep"></span><span>by The founder of Fraction</span></div>
+    </div>
+  </div>
+</section>
+<section class="section-tight" style="padding-top:8px">
+  <div class="wrap">
+    <div class="article-body reveal">
+<p>Sooner or later a customer emails support in a panic. Someone on their team deleted a project, a workspace or a few hundred records by mistake, and they want it back. In a lot of early products, the honest answer from engineering is: we can, but only by restoring the whole database from last night&#39;s backup, which would also wipe out everything every other customer did today.</p>
+<p>So the team does something painful instead. An engineer restores the backup to a separate server, finds the deleted rows by hand, works out which related records went with them, and copies them back into production with hand-written SQL. It takes a day, it is risky, and it is the same engineer who was supposed to be shipping the feature your biggest prospect asked for.</p>
+<p>The short answer: if your product lets customers delete things that matter to them, you need a way to undo that delete without touching a backup. For most early products that means soft delete with a retention window for the important objects, plus a real hard-delete path for when the data genuinely has to go.</p>
+<h2>Why this keeps catching teams out</h2>
+<p>Delete is usually one of the first features built and one of the least thought about. The framework makes it a one-liner. The row disappears, the foreign keys cascade, the UI refreshes. It works perfectly, which is the problem: nobody notices it is a one-way door until a customer walks through it by accident.</p>
+<p>Three things make it worse as the product grows:</p>
+<ul>
+<li><strong>Cascades.</strong> Deleting a project also deletes its tasks, comments, files and history. What looked like one row is now hundreds across six tables.</li>
+<li><strong>More users per account.</strong> Once a customer has ten people in a workspace, the odds that one of them deletes something they should not have go up sharply. The person deleting is rarely the person who will complain.</li>
+<li><strong>Backups are built for disasters, not for one customer.</strong> Your backup protects against losing the database. It is not designed to hand back one customer&#39;s project from Tuesday without affecting anyone else. I covered the whole-database case in <a href="/post-disaster-recovery-diligence">what happens when your database dies at 2am</a>; this is the smaller, far more frequent cousin.</li>
+</ul>
+<h2>How soft delete works, in plain terms</h2>
+<p>Instead of removing the row, you mark it. A column such as deleted_at gets a timestamp, and the application treats any marked row as gone. The customer sees it disappear. Support, or the customer themselves through a trash view, can clear the mark and it comes back with everything attached.</p>
+<p>Then, after a retention window, typically 14 to 30 days, a scheduled job removes the marked rows for real.</p>
+<p>That is the whole idea. The details are where teams go wrong.</p>
+<h3>Where soft delete goes wrong</h3>
+<p><strong>Forgetting the filter.</strong> Every query that lists or counts records now has to exclude deleted ones. Miss one and deleted items reappear in an export, a report or a search result. Most frameworks have a default scope or a global filter for this; use it rather than relying on each engineer to remember.</p>
+<p><strong>Unique constraints.</strong> If a customer deletes a project called &quot;Q3 Plan&quot; and then creates a new one with the same name, a unique index on name will reject it because the old row still exists. Make constraints conditional on not being deleted.</p>
+<p><strong>Treating soft delete as erasure.</strong> It is not. If a user asks you to delete their personal data under GDPR or a similar law, a deleted_at timestamp does not satisfy that. Guidance on <a href="https://sota.io/blog/schufa-shadow-database-gdpr-article-17-right-to-erasure-soft-delete-vs-hard-delete-developer-guide-2026">the right to erasure</a> and soft delete is consistent on this: you need a path that actually removes or anonymises personal data. This is not legal advice; have counsel confirm what applies to you.</p>
+<p><strong>Doing it everywhere.</strong> Not every table needs it. Soft-deleting log lines or session records just fills your database. Apply it to the objects customers create and care about.</p>
+<h2>What to protect first</h2>
+<p>You do not have to retrofit every table. Rank your objects by how much a customer would hurt if they lost one by accident:</p>
+<ol>
+<li>The top-level containers: workspaces, projects, accounts. Losing one of these takes everything inside with it.</li>
+<li>Anything that took the customer real effort to create: documents, configurations, imported data.</li>
+<li>Anything with money attached: invoices, orders, subscriptions.</li>
+</ol>
+<p>Start with the first group. Soft delete on the container, with the cascade turned into a &quot;mark everything inside&quot; operation, covers most of the panic emails you will ever get.</p>
+<h3>Give the customer the undo, not just support</h3>
+<p>If you can, expose it. A trash view with a restore button, and a clear note that items are removed for good after 30 days, turns a support ticket into a two-click fix the customer does themselves. It is also a small, visible signal of maturity that comes up in enterprise evaluations and <a href="/post-security-questionnaire-deal">security questionnaires</a>, which increasingly ask how you handle deletion and retention.</p>
+<h2>What it costs</h2>
+<p>For a typical early product, soft delete on the three or four most important objects is a few days to a week of work, mostly in finding every query that needs the filter and writing tests for it. The ongoing cost is small: a purge job and the discipline to use the default scope.</p>
+<p>Compare that with the alternative. Each manual restore from backup costs an engineer most of a day and carries the risk of corrupting live data. After the second or third, the soft-delete project has paid for itself, before you count the customer goodwill.</p>
+<h2>When you can skip it</h2>
+<p>If your product holds little that customers create, or deletion is rare and low-stakes, a confirmation dialog and a decent backup may be enough for now. The trigger to act is the first time support has to ask engineering to dig something out of a backup. Treat that as the signal, not a one-off.</p>
+<p>If you are unsure where your product sits, this is the kind of question a <a href="/teardown">technical teardown</a> answers quickly, alongside the other gaps that tend to appear at the same stage.</p>
+<h2>FAQ</h2>
+<h3>What is the difference between soft delete and hard delete?</h3>
+<p>A hard delete removes the record from the database permanently. A soft delete marks it as deleted so the application hides it, while the data stays in place and can be restored. Most products that use soft delete also hard-delete marked records after a retention window.</p>
+<h3>Can&#39;t we just restore from a backup when a customer deletes something?</h3>
+<p>You can, but backups restore the whole database to a point in time. Getting one customer&#39;s data back without rolling back everyone else means restoring to a separate server and copying records over by hand, which is slow and risky. Soft delete makes it a single update.</p>
+<h3>Does soft delete break GDPR or other privacy rules?</h3>
+<p>It can if it is your only deletion path. When someone exercises a right to erasure, you need to actually remove or anonymise their personal data. Keep soft delete for accidental deletes and build a separate, real erasure process. Check the specifics with a lawyer.</p>
+<h3>How long should deleted items be kept?</h3>
+<p>Fourteen to thirty days is common and long enough for most customers to notice a mistake. Pick a number, state it in the product and your terms, and make sure the purge job actually runs and is monitored.</p>
+<p>If your team is still restoring customer data from backups by hand, <a href="/book-a-call">book a call</a> and we can work out the smallest fix that stops it.</p>
+
+    </div>
+    <div class="article-body">
+      <div class="author-card reveal">
+        <span class="ac-av">F</span>
+        <div>
+          <div class="ac-name">The founder of Fraction</div>
+          <div class="ac-bio">Built engineering teams from 2 to 30. Killed more bad rebuilds than I've greenlit. <a href="about.html" class="link-grow" style="font-size:0.96rem">More about me <span class="arrow">&rarr;</span></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" style="padding-top:clamp(32px,5vw,56px)">
+  <div class="wrap">
+    <div class="callout reveal" style="text-align:center">
+      <h3 style="margin-left:auto;margin-right:auto;max-width:22ch">Not sure the call you're about to make is the right one?</h3>
+      <p style="margin:0 auto 26px">That's exactly what a 20-minute fit call is for &mdash; or a two-week Teardown if you'd rather start with a written verdict.</p>
+      <div class="ph-cta" style="justify-content:center">
+        <a href="book-a-call.html" class="btn btn-accent">Book a fit call <span class="arrow">&rarr;</span></a>
+        <a href="teardown.html" class="link-grow" style="color:#fff">Start with a Teardown <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap-wide">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#14140F"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+        <p style="color:var(--grey-2); max-width:30ch; margin-top:18px; font-size:0.96rem; line-height:1.5">Senior technical leadership for founders who aren't ready for a full-time CTO — and shouldn't hire one yet.</p>
+      </div>
+      <div><h5>Service</h5><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="comparison.html">Fractional vs full-time</a></li><li><a href="teardown.html">The Tech Teardown</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="blog.html">Writing</a></li><li><a href="book-a-call.html">Book a call</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+      <div><h5>Start here</h5><ul><li><a href="book-a-call.html">Book a 20-min fit call</a></li><li><a href="teardown.html">Start with a Teardown</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Fraction · <a href="https://getfractioncto.com">getfractioncto.com</a> — no contract, no equity, cancel anytime.</span>
+      <span>Built on judgment, not hours.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="motion.js"></script>
+</body>
+</html>

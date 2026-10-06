@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Your background jobs fail and nobody finds out — Fraction</title>
+  <meta name="description" content="Why startup background jobs and scheduled tasks fail silently, and the three signals (failures, queue age, heartbeat) that catch them." />
+  <meta name="theme-color" content="#FAFAF9" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Fraction" />
+  <meta property="og:title" content="Your background jobs fail and nobody finds out — Fraction" />
+  <meta property="og:description" content="Why startup background jobs and scheduled tasks fail silently, and the three signals (failures, queue age, heartbeat) that catch them." />
+  <meta property="og:url" content="https://getfractioncto.com/post-background-jobs-fail-silently" />
+  <meta property="og:image" content="https://getfractioncto.com/og-image.png" />
+  <meta property="article:published_time" content="2026-10-06T03:16:52.171Z" />
+  <meta property="article:author" content="The founder of Fraction" />
+  <meta property="article:section" content="Pattern recognition" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Your background jobs fail and nobody finds out — Fraction" />
+  <meta name="twitter:description" content="Why startup background jobs and scheduled tasks fail silently, and the three signals (failures, queue age, heartbeat) that catch them." />
+  <meta name="twitter:image" content="https://getfractioncto.com/og-image.png" />
+  <link rel="canonical" href="https://getfractioncto.com/post-background-jobs-fail-silently" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script src="/analytics.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Your background jobs fail and nobody finds out",
+  "description": "Why startup background jobs and scheduled tasks fail silently, and the three signals (failures, queue age, heartbeat) that catch them.",
+  "datePublished": "2026-10-06T03:16:52.171Z",
+  "dateModified": "2026-10-06T03:16:52.171Z",
+  "author": {
+    "@type": "Person",
+    "name": "The founder of Fraction",
+    "url": "https://getfractioncto.com/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fraction",
+    "url": "https://getfractioncto.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://getfractioncto.com/og-image.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://getfractioncto.com/post-background-jobs-fail-silently"
+  },
+  "image": "https://getfractioncto.com/og-image.png",
+  "articleSection": "Pattern recognition",
+  "wordCount": 1375,
+  "inLanguage": "en",
+  "isAccessibleForFree": true
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home",   "item": "https://getfractioncto.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Writing","item": "https://getfractioncto.com/blog" },
+    { "@type": "ListItem", "position": 3, "name": "Your background jobs fail and nobody finds out", "item": "https://getfractioncto.com/post-background-jobs-fail-silently" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Fraction home"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <ul class="nav-links">
+      <li><a href="how-it-works.html">How it works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="comparison.html">Compare</a></li>
+      <li><a href="blog.html" class="active">Writing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="teardown.html">The Teardown <span class="accent-dot"></span></a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke-linecap="round"/></svg></button>
+      <button class="icon-btn" aria-label="Toggle theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M21.5 12h-2.2M4.7 12H2.5M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6M18.4 18.4l-1.6-1.6M7.2 7.2 5.6 5.6" stroke-linecap="round"/></svg></button>
+      <a href="book-a-call.html" class="btn btn-primary nav-cta">Book a fit call</a>
+      <button class="icon-btn menu-btn" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu">
+  <div class="mm-top">
+    <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <button class="icon-btn menu-btn" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg></button>
+  </div>
+  <nav>
+    <a href="how-it-works.html">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="comparison.html">Compare</a>
+    <a href="blog.html">Writing</a>
+    <a href="about.html">About</a>
+    <a href="teardown.html">The Teardown</a>
+  </nav>
+  <div class="mm-cta">
+    <a href="teardown.html" class="btn btn-ghost">Start with a Teardown</a>
+    <a href="book-a-call.html" class="btn btn-primary">Book a 20-min fit call</a>
+  </div>
+</div>
+
+<main>
+<section class="page-hero center" style="padding-bottom:clamp(24px,4vw,40px)">
+  <div class="wrap">
+    <div class="article-hero">
+      <span class="post-cat">Pattern recognition</span>
+      <h1>Your background jobs fail and nobody finds out</h1>
+      <div class="post-meta"><span>Oct 2026</span><span class="sep"></span><span>6 min read</span><span class="sep"></span><span>by The founder of Fraction</span></div>
+    </div>
+  </div>
+</section>
+<section class="section-tight" style="padding-top:8px">
+  <div class="wrap">
+    <div class="article-body reveal">
+<p>Most early products have a second application hiding behind the one customers see. It sends the welcome emails, syncs data to the CRM, generates the nightly invoices, resizes uploads, retries failed payments and posts to webhooks. It runs as background jobs and scheduled tasks, and in most startups I review, nobody is watching it.</p>
+<p>The website is monitored. Someone gets paged if it goes down. The jobs are not, so when they stop, the first person to notice is usually a customer asking why their report never arrived, or a finance person asking why last week&#39;s invoices are missing. By then the failure is days old.</p>
+<p>The short version: a background job that fails is not an error your users see, so it does not get treated like one. Fix it with three signals on your most important queue (failures, waiting time and a heartbeat), not with a big monitoring project.</p>
+<h2>Why this happens to almost every team</h2>
+<p>It is not carelessness. It falls out of how the work gets built.</p>
+<p>The first jobs are written by whoever needed them, usually as a quick script on a schedule or a call to a queue library. They work on day one. The engineer checks the output once, sees the emails went out, and moves on. Nothing about that moment creates a habit of checking again.</p>
+<p>Then the failure modes arrive, and they are quiet ones:</p>
+<ul>
+<li>A worker process crashes after a deploy and nothing restarts it. The queue keeps accepting jobs. Nothing runs them.</li>
+<li>A third-party API starts timing out. The job retries five times, gives up, and the retry library logs it to a place nobody reads.</li>
+<li>A scheduled task depended on a server that got replaced. The new server never had the schedule. The task has simply not run since.</li>
+<li>A job runs but does nothing, because a query now returns zero rows after a schema change. It reports success every night.</li>
+</ul>
+<p>The last one is the nastiest. A job that &quot;succeeds&quot; while doing nothing will pass every check that only looks for errors.</p>
+<p>The monitoring guidance from vendors like <a href="https://last9.io/blog/what-is-asynchronous-job-monitoring.md">Last9</a> describes the same thing: the queue can be broken long before anyone notices, while the application itself looks perfectly healthy. That matches what I see. The web app&#39;s uptime chart says 99.9%, and meanwhile nothing has synced to the CRM since Thursday.</p>
+<h2>The cost is bigger than it looks</h2>
+<p>The direct cost is the broken work: missed emails, unsent invoices, stale data. The bigger cost is what it does to trust in the product.</p>
+<p>Here is a composite of a case I see in some form every few months. A B2B team&#39;s nightly usage sync to their billing system quietly stops for eleven days after an infrastructure move. Nobody notices until month-end, when a batch of customers are invoiced for almost nothing. Recovering the revenue means re-running the sync by hand, explaining corrected invoices to customers, and a week of a senior engineer&#39;s time reconstructing what should have happened. The fix for the root cause, a missing scheduled task, takes twenty minutes.</p>
+<p>That ratio is typical. Silent failures are cheap to catch and expensive to clean up, because the damage compounds every day they run undetected.</p>
+<p>There is also a diligence angle. When an investor or acquirer asks how you know your system is working, &quot;the site is up&quot; is not the answer they want. Your <a href="/post-incident-history-diligence">incident history</a> reads very differently when half the incidents were found by customers.</p>
+<h2>Three signals that catch most of it</h2>
+<p>You do not need a platform team or an observability budget for this. Pick the one queue or scheduled job that would hurt most if it stopped, usually anything touching money or customer-facing email, and add three signals.</p>
+<h3>1. Failures that reach a human</h3>
+<p>When a job exhausts its retries, it should land somewhere a person will see within a working day. That can be a dead-letter queue with an alert on it, or simply a message to a team channel. The point is that &quot;gave up after five tries&quot; stops being a log line and becomes a notification.</p>
+<h3>2. How long jobs are waiting</h3>
+<p>Measure the age of the oldest job in the queue. If workers are dead, this number climbs steadily even though no error is ever raised. An alert at &quot;oldest job older than 15 minutes&quot; (or whatever is normal for you, times a few) catches the crashed-worker case that error tracking cannot see.</p>
+<h3>3. A heartbeat for every scheduled task</h3>
+<p>This is the one most teams are missing. For each scheduled job, have it ping a check-in URL when it finishes. If the ping does not arrive on time, you get alerted. This is sometimes called a dead man&#39;s switch: you are alerted on the absence of a signal, not the presence of an error. Services like <a href="https://www.honeybadger.io/check-ins">Honeybadger check-ins</a> and several open-source tools do exactly this, and the setup is usually one line at the end of the job.</p>
+<p>To catch the &quot;succeeds but does nothing&quot; case, put the heartbeat after a sanity check. If the nightly sync processed zero records on a weekday, do not send the ping. Let the missing heartbeat raise the alarm.</p>
+<h2>What not to do</h2>
+<p>Do not try to monitor everything on day one. Teams that start with a dashboard of forty metrics end up with alerts nobody trusts, which is the same trap as <a href="/post-flaky-tests-everyone-ignores">tests everyone has learned to ignore</a>. Three signals on one critical queue beat forty on all of them.</p>
+<p>Do not route job alerts to the same place as everything else. If the channel already gets fifty automated messages a day, a failed invoice job is just one more.</p>
+<p>And do not assume your queue choice solves this. Moving from cron to a proper job queue, a decision I cover in <a href="/post-do-you-need-a-job-queue-yet">whether you need a job queue yet</a>, gives you retries and visibility tools, but someone still has to connect them to a human.</p>
+<h2>A one-week fix</h2>
+<p>If you recognise your team in this, here is the plan I give founders:</p>
+<ol>
+<li>Ask your engineers to list every background job and scheduled task, with what breaks if it stops. This list alone is usually a surprise.</li>
+<li>Mark the three that touch money, customer email or data customers see.</li>
+<li>Add a heartbeat to each scheduled one and a failure alert plus queue-age alert to each queued one.</li>
+<li>Name one person who owns those alerts each week.</li>
+</ol>
+<p>That is a few days of engineering, not a quarter. If you want a second pair of eyes on which of your jobs are actually load-bearing, it is a common first finding in a <a href="/teardown">technical teardown</a>.</p>
+<h2>FAQ</h2>
+<h3>How do I know if our background jobs are failing right now?</h3>
+<p>Ask when each scheduled task last ran successfully and how you know. If the answer requires someone to log into a server and read logs, you do not know. Check the oldest job in each queue and any dead-letter or failed-jobs table; a non-empty failed list that nobody has looked at is your answer.</p>
+<h3>Is error tracking enough to catch job failures?</h3>
+<p>No. Error tracking catches jobs that throw exceptions. It misses jobs that never start, workers that died, and jobs that complete while doing nothing. Those need queue-age and heartbeat checks, which alert on something missing rather than something going wrong.</p>
+<h3>Who should own background job alerts in a small team?</h3>
+<p>One named person per week, rotating if you have more than two engineers. Shared ownership of alerts in a small team means nobody acts on them. The owner does not have to fix every failure, only make sure each one is seen and assigned.</p>
+<h3>Does this need a dedicated tool?</h3>
+<p>Not at first. A dead-letter queue, a scheduled query on queue age and a free or cheap heartbeat service cover most of it. Buy a dedicated tool when you have enough queues that wiring each one by hand is the bottleneck.</p>
+<p>If you are not sure what is running behind your product or who would notice if it stopped, <a href="/book-a-call">book a call</a> and we can walk through it.</p>
+
+    </div>
+    <div class="article-body">
+      <div class="author-card reveal">
+        <span class="ac-av">F</span>
+        <div>
+          <div class="ac-name">The founder of Fraction</div>
+          <div class="ac-bio">Built engineering teams from 2 to 30. Killed more bad rebuilds than I've greenlit. <a href="about.html" class="link-grow" style="font-size:0.96rem">More about me <span class="arrow">&rarr;</span></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" style="padding-top:clamp(32px,5vw,56px)">
+  <div class="wrap">
+    <div class="callout reveal" style="text-align:center">
+      <h3 style="margin-left:auto;margin-right:auto;max-width:22ch">Not sure the call you're about to make is the right one?</h3>
+      <p style="margin:0 auto 26px">That's exactly what a 20-minute fit call is for &mdash; or a two-week Teardown if you'd rather start with a written verdict.</p>
+      <div class="ph-cta" style="justify-content:center">
+        <a href="book-a-call.html" class="btn btn-accent">Book a fit call <span class="arrow">&rarr;</span></a>
+        <a href="teardown.html" class="link-grow" style="color:#fff">Start with a Teardown <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap-wide">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#14140F"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+        <p style="color:var(--grey-2); max-width:30ch; margin-top:18px; font-size:0.96rem; line-height:1.5">Senior technical leadership for founders who aren't ready for a full-time CTO — and shouldn't hire one yet.</p>
+      </div>
+      <div><h5>Service</h5><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="comparison.html">Fractional vs full-time</a></li><li><a href="teardown.html">The Tech Teardown</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="blog.html">Writing</a></li><li><a href="book-a-call.html">Book a call</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+      <div><h5>Start here</h5><ul><li><a href="book-a-call.html">Book a 20-min fit call</a></li><li><a href="teardown.html">Start with a Teardown</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Fraction · <a href="https://getfractioncto.com">getfractioncto.com</a> — no contract, no equity, cancel anytime.</span>
+      <span>Built on judgment, not hours.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="motion.js"></script>
+</body>
+</html>
