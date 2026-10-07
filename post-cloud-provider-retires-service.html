@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AWS Proton shuts down today. Is your stack on a niche service? — Fraction</title>
+  <meta name="description" content="AWS Proton support ends 7 Oct 2026. Why cloud services get retired, and a four-step check so a retirement never stops your team shipping." />
+  <meta name="theme-color" content="#FAFAF9" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Fraction" />
+  <meta property="og:title" content="AWS Proton shuts down today. Is your stack on a niche service? — Fraction" />
+  <meta property="og:description" content="AWS Proton support ends 7 Oct 2026. Why cloud services get retired, and a four-step check so a retirement never stops your team shipping." />
+  <meta property="og:url" content="https://getfractioncto.com/post-cloud-provider-retires-service" />
+  <meta property="og:image" content="https://getfractioncto.com/og-image.png" />
+  <meta property="article:published_time" content="2026-10-07T02:45:58.062Z" />
+  <meta property="article:author" content="The founder of Fraction" />
+  <meta property="article:section" content="Decisions" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="AWS Proton shuts down today. Is your stack on a niche service? — Fraction" />
+  <meta name="twitter:description" content="AWS Proton support ends 7 Oct 2026. Why cloud services get retired, and a four-step check so a retirement never stops your team shipping." />
+  <meta name="twitter:image" content="https://getfractioncto.com/og-image.png" />
+  <link rel="canonical" href="https://getfractioncto.com/post-cloud-provider-retires-service" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script src="/analytics.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "AWS Proton shuts down today. Is your stack on a niche service?",
+  "description": "AWS Proton support ends 7 Oct 2026. Why cloud services get retired, and a four-step check so a retirement never stops your team shipping.",
+  "datePublished": "2026-10-07T02:45:58.062Z",
+  "dateModified": "2026-10-07T02:45:58.062Z",
+  "author": {
+    "@type": "Person",
+    "name": "The founder of Fraction",
+    "url": "https://getfractioncto.com/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fraction",
+    "url": "https://getfractioncto.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://getfractioncto.com/og-image.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://getfractioncto.com/post-cloud-provider-retires-service"
+  },
+  "image": "https://getfractioncto.com/og-image.png",
+  "articleSection": "Decisions",
+  "wordCount": 1349,
+  "inLanguage": "en",
+  "isAccessibleForFree": true
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home",   "item": "https://getfractioncto.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Writing","item": "https://getfractioncto.com/blog" },
+    { "@type": "ListItem", "position": 3, "name": "AWS Proton shuts down today. Is your stack on a niche service?", "item": "https://getfractioncto.com/post-cloud-provider-retires-service" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Fraction home"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <ul class="nav-links">
+      <li><a href="how-it-works.html">How it works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="comparison.html">Compare</a></li>
+      <li><a href="blog.html" class="active">Writing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="teardown.html">The Teardown <span class="accent-dot"></span></a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke-linecap="round"/></svg></button>
+      <button class="icon-btn" aria-label="Toggle theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M21.5 12h-2.2M4.7 12H2.5M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6M18.4 18.4l-1.6-1.6M7.2 7.2 5.6 5.6" stroke-linecap="round"/></svg></button>
+      <a href="book-a-call.html" class="btn btn-primary nav-cta">Book a fit call</a>
+      <button class="icon-btn menu-btn" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu">
+  <div class="mm-top">
+    <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <button class="icon-btn menu-btn" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg></button>
+  </div>
+  <nav>
+    <a href="how-it-works.html">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="comparison.html">Compare</a>
+    <a href="blog.html">Writing</a>
+    <a href="about.html">About</a>
+    <a href="teardown.html">The Teardown</a>
+  </nav>
+  <div class="mm-cta">
+    <a href="teardown.html" class="btn btn-ghost">Start with a Teardown</a>
+    <a href="book-a-call.html" class="btn btn-primary">Book a 20-min fit call</a>
+  </div>
+</div>
+
+<main>
+<section class="page-hero center" style="padding-bottom:clamp(24px,4vw,40px)">
+  <div class="wrap">
+    <div class="article-hero">
+      <span class="post-cat">Decisions</span>
+      <h1>AWS Proton shuts down today. Is your stack on a niche service?</h1>
+      <div class="post-meta"><span>Oct 2026</span><span class="sep"></span><span>6 min read</span><span class="sep"></span><span>by The founder of Fraction</span></div>
+    </div>
+  </div>
+</section>
+<section class="section-tight" style="padding-top:8px">
+  <div class="wrap">
+    <div class="article-body reveal">
+<p>Today, 7 October 2026, AWS ends support for AWS Proton, its managed service for platform teams to publish infrastructure templates and deployment pipelines that developers could self-serve. Infrastructure already deployed through it keeps running. The console, the Proton resources, and the pipelines that managed them do not.</p>
+<p>Short answer for founders: your cloud provider can retire a managed service just like any smaller vendor can, usually with about a year of notice. The risk is not the outage, it is the part of your delivery process nobody remembers depends on that service. Keep a one-page list of every cloud service you use, prefer widely used building blocks for anything critical, and make sure you can rebuild your infrastructure from code you own.</p>
+<h2>What actually happened with Proton</h2>
+<p>The timeline is a useful template for how these retirements tend to run. According to AWS&#39;s own deprecation guide, new customers could not sign up after 7 October 2025. Existing customers kept full use, with security patches and support, for one more year. From 7 October 2026 the console and Proton resources are gone. AWS&#39;s guidance is that deployed CloudFormation stacks and the resources they manage stay intact, and it points teams to CloudFormation Git Sync as an alternative way to let developers deploy from templates in a git repository.</p>
+<p>Two details matter for anyone building on a cloud platform.</p>
+<p>First, the running infrastructure survives, but the way you change it does not. A team that still relied on Proton pipelines this morning can see its servers running and still be unable to ship a change through the path it used yesterday.</p>
+<p>Second, the warning came a year early, and a year is plenty of time if somebody reads it. It is not enough if the person who set the service up has left and nobody else knows it is in the path.</p>
+<p>Proton is not unusual. All the large clouds publish deprecation notices for services and features from time to time. Retiring smaller, less used services is a normal part of how big providers manage their catalogues. It is not a sign of a provider in trouble.</p>
+<h2>Why this is a startup problem, not just an enterprise one</h2>
+<p>Founders often assume &quot;it is AWS&quot; or &quot;it is Google&quot; means permanent. The core services almost certainly are. Compute, object storage, managed databases, and queues have huge customer bases and long lives. The risk sits in the long tail: the niche managed service that solved a specific problem neatly when an engineer or agency picked it three years ago.</p>
+<p>In early-stage companies I see the same pattern repeatedly:</p>
+<ul>
+<li>An agency or early contractor chose a convenient managed service for deploys, builds, or environments.</li>
+<li>It worked, so nobody touched it.</li>
+<li>That person left. The service now sits in the critical path with nobody who understands it.</li>
+<li>The deprecation email went to an address nobody reads, often the agency&#39;s or a former employee&#39;s.</li>
+</ul>
+<p>This is the same failure as <a href="/post-server-nobody-can-rebuild">the server nobody can rebuild</a>, with a deadline attached. And it shows up in diligence: investors increasingly ask about <a href="/post-vendor-concentration-diligence">vendor concentration</a> and whether the team could rebuild its environment from scratch.</p>
+<h2>What to do this week</h2>
+<h3>1. List every cloud service you use</h3>
+<p>Not just the big ones. Pull the billing breakdown by service for the last three months; it lists everything you pay for, including the small line items that hint at forgotten services. For each, write one line: what it does for us, who owns it, and what breaks if it disappears.</p>
+<p>Most early-stage companies end up with ten to thirty lines. Doing this takes an hour or two and is worth repeating every six months.</p>
+<h3>2. Mark anything niche in a critical path</h3>
+<p>For each service, ask two questions. Is it in the path of deploying, running, or recovering the product? Is it a widely used core service, or something with a small user base? Anything that is both critical and niche goes on a short watch list.</p>
+<p>Deployment and pipeline tooling deserves special attention, because it is exactly what Proton was. When it goes, the product keeps running and the team loses the ability to change it safely.</p>
+<h3>3. Route the deprecation notices to a person</h3>
+<p>Check which email addresses receive your cloud account notifications and health alerts. Make sure at least one is a real person on the current team, ideally a shared engineering inbox that more than one person reads. On AWS, the Health Dashboard shows notices about services affecting your account; somebody should actually look at it.</p>
+<h3>4. Make sure your infrastructure is described in code you own</h3>
+<p>The strongest protection against any service retirement is infrastructure as code in your own repository. If your environment is defined in Terraform, CloudFormation, Pulumi, or similar, then replacing one managed service is a contained change. If it was built by clicking through consoles, every retirement becomes an archaeology project.</p>
+<h2>How to choose services so this hurts less next time</h2>
+<p>None of this means avoiding managed services. Managed services are usually the right call for a small team; we make that case in <a href="/post-self-host-or-managed">self-host or managed</a>. The aim is to pick them with an exit in mind.</p>
+<p>A few rules of thumb I use with founders:</p>
+<ul>
+<li><strong>Prefer boring for critical paths.</strong> For anything that deploys, runs, or recovers the product, favour services with large user bases and long track records. Save the novel service for places where losing it is an inconvenience, not an outage.</li>
+<li><strong>Ask what it would take to leave.</strong> Before adopting a service, write down in two sentences how you would replace it. If you cannot, that is a dependency worth discussing as a team.</li>
+<li><strong>Keep wrappers thin.</strong> You do not need an abstraction layer over every cloud service, which brings its own costs (see <a href="/post-vendor-abstraction-layer">the case against over-wrapping vendors</a>). You do need the knowledge of which services you use and how they connect.</li>
+<li><strong>Read the notices you get.</strong> The year of warning only helps if someone reads it in month one, not month eleven.</li>
+</ul>
+<h2>How this connects to the other vendor risks</h2>
+<p>This is one of several ways dependencies change under you. A platform can close free access, as Reddit is doing with its public API and RSS; we covered that in <a href="/post-platform-closing-free-api">when a platform closes the free API you depend on</a>. An AI provider can retire the model your product is tuned for. A critical vendor can be acquired. The response is the same each time: know what you depend on, know who owns it, and know your way out before you need it.</p>
+<p>If you inherited infrastructure from an agency or early contractor and are not sure what it depends on, mapping it is part of what we do in a <a href="/teardown">technical teardown</a>. If you want to talk through a specific migration, <a href="/book-a-call">book a call</a>.</p>
+<h2>FAQ</h2>
+<h3>Does AWS Proton ending support take down my running application?</h3>
+<p>According to AWS&#39;s deprecation guide, deployed CloudFormation stacks and the resources they manage remain intact. What goes away is the Proton console, Proton resources, and its delivery pipelines, so you lose the Proton way of changing that infrastructure, not the infrastructure itself. Check the guide for your specific setup.</p>
+<h3>How much notice do cloud providers usually give?</h3>
+<p>It varies by provider and service. Proton had a year between closing to new customers and ending support. Do not rely on any particular length; route notices to a real person so you see them on day one.</p>
+<h3>Should we avoid managed services to be safe?</h3>
+<p>No. For a small team, managed services are usually cheaper than running the same thing yourself. Prefer widely used services for critical paths, and keep your infrastructure defined in code so any single service can be replaced.</p>
+<h3>How often should we review our cloud dependencies?</h3>
+<p>Every six months is a reasonable rhythm for an early-stage company, plus whenever an engineer who set up infrastructure leaves. It is a short exercise once the first list exists.</p>
+
+    </div>
+    <div class="article-body">
+      <div class="author-card reveal">
+        <span class="ac-av">F</span>
+        <div>
+          <div class="ac-name">The founder of Fraction</div>
+          <div class="ac-bio">Built engineering teams from 2 to 30. Killed more bad rebuilds than I've greenlit. <a href="about.html" class="link-grow" style="font-size:0.96rem">More about me <span class="arrow">&rarr;</span></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" style="padding-top:clamp(32px,5vw,56px)">
+  <div class="wrap">
+    <div class="callout reveal" style="text-align:center">
+      <h3 style="margin-left:auto;margin-right:auto;max-width:22ch">Not sure the call you're about to make is the right one?</h3>
+      <p style="margin:0 auto 26px">That's exactly what a 20-minute fit call is for &mdash; or a two-week Teardown if you'd rather start with a written verdict.</p>
+      <div class="ph-cta" style="justify-content:center">
+        <a href="book-a-call.html" class="btn btn-accent">Book a fit call <span class="arrow">&rarr;</span></a>
+        <a href="teardown.html" class="link-grow" style="color:#fff">Start with a Teardown <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap-wide">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#14140F"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+        <p style="color:var(--grey-2); max-width:30ch; margin-top:18px; font-size:0.96rem; line-height:1.5">Senior technical leadership for founders who aren't ready for a full-time CTO — and shouldn't hire one yet.</p>
+      </div>
+      <div><h5>Service</h5><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="comparison.html">Fractional vs full-time</a></li><li><a href="teardown.html">The Tech Teardown</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="blog.html">Writing</a></li><li><a href="book-a-call.html">Book a call</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+      <div><h5>Start here</h5><ul><li><a href="book-a-call.html">Book a 20-min fit call</a></li><li><a href="teardown.html">Start with a Teardown</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Fraction · <a href="https://getfractioncto.com">getfractioncto.com</a> — no contract, no equity, cancel anytime.</span>
+      <span>Built on judgment, not hours.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="motion.js"></script>
+</body>
+</html>
