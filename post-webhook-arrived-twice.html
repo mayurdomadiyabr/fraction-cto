@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The webhook arrived twice and the customer got two orders — Fraction</title>
+  <meta name="description" content="Webhooks can arrive twice. How duplicate events create double orders and charges, and how to make your handlers idempotent." />
+  <meta name="theme-color" content="#FAFAF9" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Fraction" />
+  <meta property="og:title" content="The webhook arrived twice and the customer got two orders — Fraction" />
+  <meta property="og:description" content="Webhooks can arrive twice. How duplicate events create double orders and charges, and how to make your handlers idempotent." />
+  <meta property="og:url" content="https://getfractioncto.com/post-webhook-arrived-twice" />
+  <meta property="og:image" content="https://getfractioncto.com/og-image.png" />
+  <meta property="article:published_time" content="2026-10-13T15:30:06.623Z" />
+  <meta property="article:author" content="The founder of Fraction" />
+  <meta property="article:section" content="Pattern recognition" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="The webhook arrived twice and the customer got two orders — Fraction" />
+  <meta name="twitter:description" content="Webhooks can arrive twice. How duplicate events create double orders and charges, and how to make your handlers idempotent." />
+  <meta name="twitter:image" content="https://getfractioncto.com/og-image.png" />
+  <link rel="canonical" href="https://getfractioncto.com/post-webhook-arrived-twice" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script src="/analytics.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "The webhook arrived twice and the customer got two orders",
+  "description": "Webhooks can arrive twice. How duplicate events create double orders and charges, and how to make your handlers idempotent.",
+  "datePublished": "2026-10-13T15:30:06.623Z",
+  "dateModified": "2026-10-13T15:30:06.623Z",
+  "author": {
+    "@type": "Person",
+    "name": "The founder of Fraction",
+    "url": "https://getfractioncto.com/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fraction",
+    "url": "https://getfractioncto.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://getfractioncto.com/og-image.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://getfractioncto.com/post-webhook-arrived-twice"
+  },
+  "image": "https://getfractioncto.com/og-image.png",
+  "articleSection": "Pattern recognition",
+  "wordCount": 1188,
+  "inLanguage": "en",
+  "isAccessibleForFree": true
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home",   "item": "https://getfractioncto.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Writing","item": "https://getfractioncto.com/blog" },
+    { "@type": "ListItem", "position": 3, "name": "The webhook arrived twice and the customer got two orders", "item": "https://getfractioncto.com/post-webhook-arrived-twice" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Fraction home"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <ul class="nav-links">
+      <li><a href="how-it-works.html">How it works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="comparison.html">Compare</a></li>
+      <li><a href="blog.html" class="active">Writing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="teardown.html">The Teardown <span class="accent-dot"></span></a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke-linecap="round"/></svg></button>
+      <button class="icon-btn" aria-label="Toggle theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M21.5 12h-2.2M4.7 12H2.5M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6M18.4 18.4l-1.6-1.6M7.2 7.2 5.6 5.6" stroke-linecap="round"/></svg></button>
+      <a href="book-a-call.html" class="btn btn-primary nav-cta">Book a fit call</a>
+      <button class="icon-btn menu-btn" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu">
+  <div class="mm-top">
+    <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <button class="icon-btn menu-btn" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg></button>
+  </div>
+  <nav>
+    <a href="how-it-works.html">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="comparison.html">Compare</a>
+    <a href="blog.html">Writing</a>
+    <a href="about.html">About</a>
+    <a href="teardown.html">The Teardown</a>
+  </nav>
+  <div class="mm-cta">
+    <a href="teardown.html" class="btn btn-ghost">Start with a Teardown</a>
+    <a href="book-a-call.html" class="btn btn-primary">Book a 20-min fit call</a>
+  </div>
+</div>
+
+<main>
+<section class="page-hero center" style="padding-bottom:clamp(24px,4vw,40px)">
+  <div class="wrap">
+    <div class="article-hero">
+      <span class="post-cat">Pattern recognition</span>
+      <h1>The webhook arrived twice and the customer got two orders</h1>
+      <div class="post-meta"><span>Oct 2026</span><span class="sep"></span><span>5 min read</span><span class="sep"></span><span>by The founder of Fraction</span></div>
+    </div>
+  </div>
+</section>
+<section class="section-tight" style="padding-top:8px">
+  <div class="wrap">
+    <div class="article-body reveal">
+<p>A customer emails support: they were charged once but got two order confirmations, two shipments, and two invoices. The engineer looks at the logs and finds the payment provider sent the same &quot;payment succeeded&quot; event twice, eight seconds apart. The code handled both.</p>
+<p>Nothing was broken in the payment provider. This is how webhooks are designed to work. Most providers promise to deliver each event at least once, not exactly once. If your endpoint is slow, times out, or returns an error, they send it again. Sometimes they send it again even when you did respond. Code that assumes every webhook is new will, sooner or later, do the same thing twice.</p>
+<p>It is one of the most common bugs I find when I review an early-stage codebase that takes payments or connects to other SaaS tools.</p>
+<h2>Why duplicates happen</h2>
+<p>A webhook is the other company&#39;s server calling yours. They send an event, wait for a 2xx response, and if they do not get one in time, they mark it as failed and retry later. Stripe, for example, documents that in live mode it keeps retrying an undelivered event for up to three days with increasing gaps between attempts.</p>
+<p>Duplicates come from a few ordinary situations:</p>
+<ul>
+<li><strong>Your handler is slow.</strong> It does real work, calls another API, sends an email, and takes longer than the provider is willing to wait. The provider retries while the first attempt is still running.</li>
+<li><strong>Your server errored after doing the work.</strong> The order was created, then something later in the handler threw. The provider saw a 500 and retried. The order gets created again.</li>
+<li><strong>A deploy or restart</strong> cut off the response. The work happened, the acknowledgement did not.</li>
+<li><strong>The provider resent it</strong> for its own reasons, or someone on your team clicked &quot;resend&quot; in a dashboard while debugging.</li>
+</ul>
+<p>Any one of these is rare on a given day. Across thousands of events a month, they are certain.</p>
+<h2>What it looks like in the business</h2>
+<p>The damage depends on what the handler does:</p>
+<ul>
+<li>Duplicate orders, shipments, or license keys.</li>
+<li>Credits or account balances applied twice.</li>
+<li>Customers receiving the same welcome or receipt email two or three times.</li>
+<li>Usage counted twice, which flows into the next invoice.</li>
+<li>A CRM full of duplicate contacts because the form-submission webhook fired twice.</li>
+</ul>
+<p>The money cases get noticed fast because customers complain. The quieter cases, like double-counted usage or duplicate CRM records, can run for months and only show up when numbers stop matching, which is one of the root causes behind <a href="/post-three-dashboards-three-numbers">three dashboards showing three numbers</a>.</p>
+<h2>The fix: make handlers idempotent</h2>
+<p>Idempotent means running the handler twice with the same event has the same effect as running it once. The standard way to get there:</p>
+<h3>1. Record every event ID you process</h3>
+<p>Every serious provider includes a unique ID with each event. Create a table of processed event IDs with a unique constraint on the ID. When an event arrives, insert its ID first. If the insert fails because the ID already exists, you have seen this event: return 200 and stop.</p>
+<h3>2. Do the insert and the work together</h3>
+<p>The check and the side effect need to happen in the same database transaction. If you check &quot;have I seen this?&quot; and then do the work as two separate steps, two copies of the same event arriving close together can both pass the check. A unique constraint inside one transaction closes that gap.</p>
+<h3>3. Acknowledge fast, work later</h3>
+<p>Store the raw event, return 200 immediately, and do the real work in a background job. This removes the most common cause of retries, a slow handler, and it means you keep a copy of every event even if processing fails. If you do not have a job queue yet, <a href="/post-do-you-need-a-job-queue-yet">whether you need one</a> is worth deciding now, and the jobs need monitoring, because <a href="/post-background-jobs-fail-silently">background jobs fail silently</a> unless someone watches them.</p>
+<h3>4. Keep the records long enough</h3>
+<p>Keep processed event IDs for longer than the provider&#39;s retry window, with a margin. If you clean them up after a day and the provider retries on day two, you are back to duplicates.</p>
+<h3>5. Use idempotency keys going out, too</h3>
+<p>The same problem runs in the other direction. When your code calls a payment API to create a charge and the network drops before the response arrives, a naive retry creates a second charge. Payment APIs like Stripe accept an idempotency key with the request so that a retry returns the original result instead. Use one on every call that moves money or creates something.</p>
+<h2>Also handle events out of order</h2>
+<p>Related and just as common: events do not always arrive in the order they happened. A &quot;subscription updated&quot; can arrive before the &quot;subscription created&quot; it depends on. Handlers should check the current state, or fetch the latest object from the provider, rather than assuming the sequence. If you are building more of your billing logic yourself than you planned, <a href="/post-build-billing-or-use-stripe">whether to build billing or use Stripe</a> covers where that line usually sits.</p>
+<h2>How to find out if you have this problem</h2>
+<p>A quick check you can run this week:</p>
+<ol>
+<li>List every webhook endpoint in the app. Teams are often surprised by the count.</li>
+<li>For each, ask: what happens if this exact event arrives twice, one second apart?</li>
+<li>Look for a processed-events table or a unique constraint on the provider&#39;s event ID. If neither exists, the handler is almost certainly not idempotent.</li>
+<li>Search your data for duplicates the bug would create: two orders with the same payment reference, two contacts with the same email created within a minute.</li>
+</ol>
+<p>Step 4 often turns up a handful of past duplicates nobody connected to the cause.</p>
+<h2>FAQ</h2>
+<h3>Is this only a problem with Stripe?</h3>
+<p>No. Payment providers, e-commerce platforms, form tools, CRMs, and messaging services all use at-least-once delivery for webhooks. Treat every incoming webhook as possibly duplicated, whoever sends it.</p>
+<h3>Can we just check whether the order already exists?</h3>
+<p>Sometimes, if the order has a natural unique key such as the payment ID with a unique constraint on it. A check without a database constraint is not enough, because two copies arriving together can both see &quot;not found.&quot;</p>
+<h3>How long should we keep processed event IDs?</h3>
+<p>At least as long as the longest retry window of any provider you use, plus a margin. For most teams that means keeping them for a week or more. Storage is cheap; duplicate charges are not.</p>
+<h3>We send webhooks to our own customers. Does this apply?</h3>
+<p>Yes, in reverse. Your customers will receive duplicates from you, so document that events can repeat and include a stable event ID they can deduplicate on. More on that in <a href="/post-build-webhooks-or-buy">building webhooks or buying them</a>.</p>
+<p>If you want someone to walk through your payment and integration flows for this class of bug, it is part of every <a href="/teardown">technical teardown</a>. Or <a href="/book-a-call">book a call</a> and we can look at your handlers together.</p>
+
+    </div>
+    <div class="article-body">
+      <div class="author-card reveal">
+        <span class="ac-av">F</span>
+        <div>
+          <div class="ac-name">The founder of Fraction</div>
+          <div class="ac-bio">Built engineering teams from 2 to 30. Killed more bad rebuilds than I've greenlit. <a href="about.html" class="link-grow" style="font-size:0.96rem">More about me <span class="arrow">&rarr;</span></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" style="padding-top:clamp(32px,5vw,56px)">
+  <div class="wrap">
+    <div class="callout reveal" style="text-align:center">
+      <h3 style="margin-left:auto;margin-right:auto;max-width:22ch">Not sure the call you're about to make is the right one?</h3>
+      <p style="margin:0 auto 26px">That's exactly what a 20-minute fit call is for &mdash; or a two-week Teardown if you'd rather start with a written verdict.</p>
+      <div class="ph-cta" style="justify-content:center">
+        <a href="book-a-call.html" class="btn btn-accent">Book a fit call <span class="arrow">&rarr;</span></a>
+        <a href="teardown.html" class="link-grow" style="color:#fff">Start with a Teardown <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap-wide">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#14140F"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+        <p style="color:var(--grey-2); max-width:30ch; margin-top:18px; font-size:0.96rem; line-height:1.5">Senior technical leadership for founders who aren't ready for a full-time CTO — and shouldn't hire one yet.</p>
+      </div>
+      <div><h5>Service</h5><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="comparison.html">Fractional vs full-time</a></li><li><a href="teardown.html">The Tech Teardown</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="blog.html">Writing</a></li><li><a href="book-a-call.html">Book a call</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+      <div><h5>Start here</h5><ul><li><a href="book-a-call.html">Book a 20-min fit call</a></li><li><a href="teardown.html">Start with a Teardown</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Fraction · <a href="https://getfractioncto.com">getfractioncto.com</a> — no contract, no equity, cancel anytime.</span>
+      <span>Built on judgment, not hours.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="motion.js"></script>
+</body>
+</html>
