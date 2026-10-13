@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Switching to usage or credit pricing? It is an engineering project — Fraction</title>
+  <meta name="description" content="Moving to usage or credit pricing? Why it needs metering, plan versions and shadow billing before launch, and a realistic timeline." />
+  <meta name="theme-color" content="#FAFAF9" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Fraction" />
+  <meta property="og:title" content="Switching to usage or credit pricing? It is an engineering project — Fraction" />
+  <meta property="og:description" content="Moving to usage or credit pricing? Why it needs metering, plan versions and shadow billing before launch, and a realistic timeline." />
+  <meta property="og:url" content="https://getfractioncto.com/post-pricing-change-engineering-project" />
+  <meta property="og:image" content="https://getfractioncto.com/og-image.png" />
+  <meta property="article:published_time" content="2026-10-13T15:32:48.245Z" />
+  <meta property="article:author" content="The founder of Fraction" />
+  <meta property="article:section" content="Decisions" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Switching to usage or credit pricing? It is an engineering project — Fraction" />
+  <meta name="twitter:description" content="Moving to usage or credit pricing? Why it needs metering, plan versions and shadow billing before launch, and a realistic timeline." />
+  <meta name="twitter:image" content="https://getfractioncto.com/og-image.png" />
+  <link rel="canonical" href="https://getfractioncto.com/post-pricing-change-engineering-project" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script src="/analytics.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Switching to usage or credit pricing? It is an engineering project",
+  "description": "Moving to usage or credit pricing? Why it needs metering, plan versions and shadow billing before launch, and a realistic timeline.",
+  "datePublished": "2026-10-13T15:32:48.245Z",
+  "dateModified": "2026-10-13T15:32:48.245Z",
+  "author": {
+    "@type": "Person",
+    "name": "The founder of Fraction",
+    "url": "https://getfractioncto.com/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fraction",
+    "url": "https://getfractioncto.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://getfractioncto.com/og-image.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://getfractioncto.com/post-pricing-change-engineering-project"
+  },
+  "image": "https://getfractioncto.com/og-image.png",
+  "articleSection": "Decisions",
+  "wordCount": 1494,
+  "inLanguage": "en",
+  "isAccessibleForFree": true
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home",   "item": "https://getfractioncto.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Writing","item": "https://getfractioncto.com/blog" },
+    { "@type": "ListItem", "position": 3, "name": "Switching to usage or credit pricing? It is an engineering project", "item": "https://getfractioncto.com/post-pricing-change-engineering-project" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Fraction home"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <ul class="nav-links">
+      <li><a href="how-it-works.html">How it works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="comparison.html">Compare</a></li>
+      <li><a href="blog.html" class="active">Writing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="teardown.html">The Teardown <span class="accent-dot"></span></a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke-linecap="round"/></svg></button>
+      <button class="icon-btn" aria-label="Toggle theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M21.5 12h-2.2M4.7 12H2.5M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6M18.4 18.4l-1.6-1.6M7.2 7.2 5.6 5.6" stroke-linecap="round"/></svg></button>
+      <a href="book-a-call.html" class="btn btn-primary nav-cta">Book a fit call</a>
+      <button class="icon-btn menu-btn" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu">
+  <div class="mm-top">
+    <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <button class="icon-btn menu-btn" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg></button>
+  </div>
+  <nav>
+    <a href="how-it-works.html">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="comparison.html">Compare</a>
+    <a href="blog.html">Writing</a>
+    <a href="about.html">About</a>
+    <a href="teardown.html">The Teardown</a>
+  </nav>
+  <div class="mm-cta">
+    <a href="teardown.html" class="btn btn-ghost">Start with a Teardown</a>
+    <a href="book-a-call.html" class="btn btn-primary">Book a 20-min fit call</a>
+  </div>
+</div>
+
+<main>
+<section class="page-hero center" style="padding-bottom:clamp(24px,4vw,40px)">
+  <div class="wrap">
+    <div class="article-hero">
+      <span class="post-cat">Decisions</span>
+      <h1>Switching to usage or credit pricing? It is an engineering project</h1>
+      <div class="post-meta"><span>Oct 2026</span><span class="sep"></span><span>7 min read</span><span class="sep"></span><span>by The founder of Fraction</span></div>
+    </div>
+  </div>
+</section>
+<section class="section-tight" style="padding-top:8px">
+  <div class="wrap">
+    <div class="article-body reveal">
+<p>If you are moving from flat seat pricing to credits or usage-based pricing, treat it as an engineering project, not a pricing-page edit. The new model needs accurate metering, versioned plans, a way to move existing customers, and invoices customers can check. Budget weeks of engineering time and a test period before the announcement, or the first usage invoice becomes a support crisis.</p>
+<p>This is coming up in almost every founder conversation I have this quarter. AI products have real per-use costs, so flat seat pricing is giving way to a subscription plus credits, or pure usage pricing. Usage billing has turned into a category of its own, and Stripe bought Metronome, a usage-billing company, which tells you where the payment providers think this is going. Stripe&#39;s own pricing research also found that fast-growing companies change their pricing more often than slower ones. Changing pricing is now a normal, repeated event for a startup.</p>
+<p>What founders underestimate is that, for engineering, a new price is not a number. It is a set of systems.</p>
+<h2>Why a pricing change lands on engineering</h2>
+<p>With seat pricing, billing is simple: count users, multiply, charge monthly. Most early products can get away with a subscription in the payment provider and a plan field on the account.</p>
+<p>Usage or credit pricing changes what the product has to know about itself:</p>
+<ul>
+<li><strong>What counts as one unit.</strong> A &quot;credit&quot; has to map to something the system can measure exactly: a generation, a document, a minute of processing, a resolved ticket.</li>
+<li><strong>Who used it and when.</strong> Every unit has to be recorded against the right account and billing period, including retries, failures, and background jobs.</li>
+<li><strong>What the customer can see.</strong> People paying per use want to see their usage before the invoice, not after.</li>
+<li><strong>What happens at the limit.</strong> When credits run out, the product must block, warn, or allow overage, and do it consistently everywhere.</li>
+</ul>
+<p>None of that exists in a seat-based product. Someone has to build it, and it touches nearly every feature that does billable work.</p>
+<h2>The five pieces you will need</h2>
+<h3>1. A metering pipeline you trust</h3>
+<p>Every billable action writes a usage event: account, unit type, quantity, timestamp, and a unique ID so the same action is not counted twice. That last point matters more than it looks. Retries and duplicate events are normal in distributed systems, and if your meter counts them, you overcharge. I wrote about the same problem on the incoming side in <a href="/post-webhook-arrived-twice">the webhook that arrived twice</a>.</p>
+<p>Before you charge a single customer on the new model, run the meter in shadow mode for a few weeks: record usage, calculate what each customer would have paid, and compare it with what your logs and your own intuition say. Shadow mode is where you find the background job that counts every retry, or the feature that never reports usage at all.</p>
+<h3>2. Plan versions, not plan edits</h3>
+<p>The easiest mistake is editing the existing plan in place. Then you cannot tell which customers agreed to which terms, and you cannot honour the old price for anyone.</p>
+<p>Instead, create a new plan version and keep the old one. Each account points at the version it is on. This is what makes grandfathering possible, and it is what lets you answer a customer who asks &quot;what did I sign up for?&quot;</p>
+<h3>3. A migration path for existing customers</h3>
+<p>Decide this before you build, because it changes what you build:</p>
+<ul>
+<li><strong>Grandfather</strong> existing customers on the old plan indefinitely or for a fixed period.</li>
+<li><strong>Migrate on renewal,</strong> so nobody&#39;s price changes mid-term.</li>
+<li><strong>Migrate everyone on a date</strong> with notice, which is fastest but carries the most churn and support risk.</li>
+</ul>
+<p>Whatever you choose, the system has to support it, report on it, and handle the edge cases: annual contracts, custom enterprise deals, accounts with credits already prepaid. Contract terms can limit what you are allowed to change and when, so check your customer agreements before you pick a date.</p>
+<h3>4. Usage visibility for customers</h3>
+<p>A usage page in the product showing what has been consumed this period, what remains, and what the next invoice is likely to be. Plus alerts at sensible thresholds. Customers forgive a price. They do not forgive a surprise. If you want a sense of how a surprise bill feels from the other side, <a href="/post-surprise-usage-bill-first-48-hours">the first 48 hours after a surprise usage bill</a> is written for founders receiving one.</p>
+<h3>5. Internal reporting that matches the invoices</h3>
+<p>Finance and the founders need to see revenue by plan version, usage by customer, and margin per unit. If the numbers in your internal dashboard and the numbers on the invoices come from different calculations, they will drift. Use the same usage records for both.</p>
+<h2>Buy the billing engine, own the policy</h2>
+<p>You almost certainly should not build the invoicing and rating engine yourself. Payment providers and dedicated usage-billing tools handle proration, tax, invoices, credit notes, and dunning far better than a startup will. What stays yours is the policy: what counts as a unit, how retries are treated, what happens at the limit, and how existing customers move. That split is the same one I recommend in <a href="/post-build-billing-or-use-stripe">build your own billing, or let Stripe run it</a>.</p>
+<p>The trap is assuming the billing tool solves metering. It does not. It can only bill the usage events you send it. If your product counts wrong, the billing tool will invoice the wrong number very reliably.</p>
+<h2>How long it really takes</h2>
+<p>For a seed-stage product moving from seats to a subscription plus credits, a realistic shape is:</p>
+<ul>
+<li>One to two weeks to define units, instrument billable actions, and build the usage event pipeline.</li>
+<li>Two to four weeks of shadow metering, running alongside the old pricing.</li>
+<li>One to two weeks for plan versioning, the usage page, limits, and alerts.</li>
+<li>A staged rollout: new customers first, existing customers on the chosen migration path.</li>
+</ul>
+<p>That is six to eight weeks of calendar time in the cases I have seen, mostly because shadow metering cannot be rushed. Founders who announce the new pricing first and build second end up issuing credits and apologies for the first two billing cycles.</p>
+<h2>The questions I ask before any pricing change</h2>
+<p>When a founder tells me pricing is changing next month, these are the questions that decide whether that date is realistic:</p>
+<ol>
+<li>Can we name the single unit we charge for, and does every feature that consumes it report it today?</li>
+<li>If the same action is retried three times, how many units do we record?</li>
+<li>Can we show a customer their usage before we bill them?</li>
+<li>Which customers are on annual or custom terms, and what do their contracts allow?</li>
+<li>Can we run the new pricing in shadow mode for one full billing cycle?</li>
+<li>Who owns the meter after launch?</li>
+</ol>
+<p>If more than two of those get a shrug, the date moves. It is cheaper to move a launch date than to refund a month of invoices.</p>
+<h2>Who should own it</h2>
+<p>A pricing change sits between product, engineering, and finance, so it tends to be owned by nobody. In a startup without a senior technical leader, the founder ends up as the integration point, usually discovering the metering gaps when customers start asking questions. This is exactly the kind of cross-functional, high-stakes decision where a fractional CTO pays for itself: scope the metering, choose the build-versus-buy line, and sequence the rollout so nobody is surprised. You can see how that work is structured on the <a href="/pricing">pricing page</a>.</p>
+<h2>FAQ</h2>
+<h3>Can we switch to usage pricing with just a payment provider?</h3>
+<p>You can use the payment provider for invoicing and rating, and most teams should. You still need your own product to measure usage accurately and send those events, which is the part that takes the engineering time.</p>
+<h3>Should we grandfather existing customers?</h3>
+<p>Usually yes, at least until their next renewal. Moving customers mid-term on a model they did not agree to creates churn and support load, and contracts may not allow it. Plan versioning is what makes grandfathering possible.</p>
+<h3>How do we avoid overcharging customers on the new model?</h3>
+<p>Give every usage event a unique ID, deduplicate on it, and run the meter in shadow mode for at least one billing cycle before charging. Compare the shadow invoices against what you would expect for your largest accounts.</p>
+<h3>What is the most common mistake?</h3>
+<p>Announcing the new pricing before the metering exists. The announcement date then forces a rushed build, and the first real invoices carry every counting bug at once.</p>
+<p>If a pricing change is on your roadmap and you want a second opinion on the metering plan before it ships, <a href="/book-a-call">book a call</a>, or start with a <a href="/teardown">technical teardown</a> of the billing and usage paths.</p>
+
+    </div>
+    <div class="article-body">
+      <div class="author-card reveal">
+        <span class="ac-av">F</span>
+        <div>
+          <div class="ac-name">The founder of Fraction</div>
+          <div class="ac-bio">Built engineering teams from 2 to 30. Killed more bad rebuilds than I've greenlit. <a href="about.html" class="link-grow" style="font-size:0.96rem">More about me <span class="arrow">&rarr;</span></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" style="padding-top:clamp(32px,5vw,56px)">
+  <div class="wrap">
+    <div class="callout reveal" style="text-align:center">
+      <h3 style="margin-left:auto;margin-right:auto;max-width:22ch">Not sure the call you're about to make is the right one?</h3>
+      <p style="margin:0 auto 26px">That's exactly what a 20-minute fit call is for &mdash; or a two-week Teardown if you'd rather start with a written verdict.</p>
+      <div class="ph-cta" style="justify-content:center">
+        <a href="book-a-call.html" class="btn btn-accent">Book a fit call <span class="arrow">&rarr;</span></a>
+        <a href="teardown.html" class="link-grow" style="color:#fff">Start with a Teardown <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap-wide">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#14140F"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+        <p style="color:var(--grey-2); max-width:30ch; margin-top:18px; font-size:0.96rem; line-height:1.5">Senior technical leadership for founders who aren't ready for a full-time CTO — and shouldn't hire one yet.</p>
+      </div>
+      <div><h5>Service</h5><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="comparison.html">Fractional vs full-time</a></li><li><a href="teardown.html">The Tech Teardown</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="blog.html">Writing</a></li><li><a href="book-a-call.html">Book a call</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+      <div><h5>Start here</h5><ul><li><a href="book-a-call.html">Book a 20-min fit call</a></li><li><a href="teardown.html">Start with a Teardown</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Fraction · <a href="https://getfractioncto.com">getfractioncto.com</a> — no contract, no equity, cancel anytime.</span>
+      <span>Built on judgment, not hours.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="motion.js"></script>
+</body>
+</html>
