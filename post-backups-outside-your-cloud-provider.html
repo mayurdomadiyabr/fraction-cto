@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Your cloud provider gets hit. Are your backups somewhere else? — Fraction</title>
+  <meta name="description" content="Backups in the same cloud account as production will not save you from a provider incident or stolen admin keys. A cheap seed-stage setup." />
+  <meta name="theme-color" content="#FAFAF9" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Fraction" />
+  <meta property="og:title" content="Your cloud provider gets hit. Are your backups somewhere else? — Fraction" />
+  <meta property="og:description" content="Backups in the same cloud account as production will not save you from a provider incident or stolen admin keys. A cheap seed-stage setup." />
+  <meta property="og:url" content="https://getfractioncto.com/post-backups-outside-your-cloud-provider" />
+  <meta property="og:image" content="https://getfractioncto.com/og-image.png" />
+  <meta property="article:published_time" content="2026-10-14T03:49:08.846Z" />
+  <meta property="article:author" content="The founder of Fraction" />
+  <meta property="article:section" content="Decisions" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Your cloud provider gets hit. Are your backups somewhere else? — Fraction" />
+  <meta name="twitter:description" content="Backups in the same cloud account as production will not save you from a provider incident or stolen admin keys. A cheap seed-stage setup." />
+  <meta name="twitter:image" content="https://getfractioncto.com/og-image.png" />
+  <link rel="canonical" href="https://getfractioncto.com/post-backups-outside-your-cloud-provider" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script src="/analytics.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Your cloud provider gets hit. Are your backups somewhere else?",
+  "description": "Backups in the same cloud account as production will not save you from a provider incident or stolen admin keys. A cheap seed-stage setup.",
+  "datePublished": "2026-10-14T03:49:08.846Z",
+  "dateModified": "2026-10-14T03:49:08.846Z",
+  "author": {
+    "@type": "Person",
+    "name": "The founder of Fraction",
+    "url": "https://getfractioncto.com/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fraction",
+    "url": "https://getfractioncto.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://getfractioncto.com/og-image.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://getfractioncto.com/post-backups-outside-your-cloud-provider"
+  },
+  "image": "https://getfractioncto.com/og-image.png",
+  "articleSection": "Decisions",
+  "wordCount": 1324,
+  "inLanguage": "en",
+  "isAccessibleForFree": true
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home",   "item": "https://getfractioncto.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Writing","item": "https://getfractioncto.com/blog" },
+    { "@type": "ListItem", "position": 3, "name": "Your cloud provider gets hit. Are your backups somewhere else?", "item": "https://getfractioncto.com/post-backups-outside-your-cloud-provider" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Fraction home"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <ul class="nav-links">
+      <li><a href="how-it-works.html">How it works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="comparison.html">Compare</a></li>
+      <li><a href="blog.html" class="active">Writing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="teardown.html">The Teardown <span class="accent-dot"></span></a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke-linecap="round"/></svg></button>
+      <button class="icon-btn" aria-label="Toggle theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M21.5 12h-2.2M4.7 12H2.5M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6M18.4 18.4l-1.6-1.6M7.2 7.2 5.6 5.6" stroke-linecap="round"/></svg></button>
+      <a href="book-a-call.html" class="btn btn-primary nav-cta">Book a fit call</a>
+      <button class="icon-btn menu-btn" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu">
+  <div class="mm-top">
+    <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <button class="icon-btn menu-btn" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg></button>
+  </div>
+  <nav>
+    <a href="how-it-works.html">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="comparison.html">Compare</a>
+    <a href="blog.html">Writing</a>
+    <a href="about.html">About</a>
+    <a href="teardown.html">The Teardown</a>
+  </nav>
+  <div class="mm-cta">
+    <a href="teardown.html" class="btn btn-ghost">Start with a Teardown</a>
+    <a href="book-a-call.html" class="btn btn-primary">Book a 20-min fit call</a>
+  </div>
+</div>
+
+<main>
+<section class="page-hero center" style="padding-bottom:clamp(24px,4vw,40px)">
+  <div class="wrap">
+    <div class="article-hero">
+      <span class="post-cat">Decisions</span>
+      <h1>Your cloud provider gets hit. Are your backups somewhere else?</h1>
+      <div class="post-meta"><span>Oct 2026</span><span class="sep"></span><span>6 min read</span><span class="sep"></span><span>by The founder of Fraction</span></div>
+    </div>
+  </div>
+</section>
+<section class="section-tight" style="padding-top:8px">
+  <div class="wrap">
+    <div class="article-body reveal">
+<p>If your only backups live inside the same cloud account as your production data, they are not protecting you from the failure that would hurt most: losing that account or that provider. Keep at least one recent, tested copy of your critical data in a separate account, ideally with a different provider, that your production credentials cannot delete. For most seed-stage startups that is a few days of work and a small monthly bill.</p>
+<p>The reason this is worth writing about this week is a real event. On 7 October 2026, a ransomware attack on IDC Frontier, a SoftBank subsidiary, shut down virtual servers across four zones of its IDCF Cloud East Japan Region 1. According to <a href="https://ascii.jp/en/elem/000/004/441/4441355/">the provider&#39;s statements as reported by ASCII</a>, 495 companies and local governments were affected, recovering customer data in those zones was described as difficult, and customers were told to restore from their own backups. The management console was also taken offline while the investigation ran.</p>
+<p>Read that last part again from the point of view of a ten-person startup. The provider&#39;s snapshots, the provider&#39;s console and the provider&#39;s region were all part of the incident. The customers who could recover quickly were the ones holding a copy somewhere else.</p>
+<h2>The backup most startups actually have</h2>
+<p>When I review a young company&#39;s infrastructure, the backup setup usually looks like this:</p>
+<ul>
+<li>The managed database has automated snapshots turned on, kept for 7 days, in the same account and region.</li>
+<li>File storage is in a bucket in the same account, sometimes with versioning, often without.</li>
+<li>Someone once set up a nightly dump to another bucket. In the same account.</li>
+<li>Nobody has restored any of it in the last six months.</li>
+</ul>
+<p>This is fine for the most common failures: a bad migration, a deleted table, a corrupted record. It does nothing for the less common, much more damaging ones:</p>
+<ul>
+<li><strong>An attacker gets admin credentials to your cloud account.</strong> Whatever can delete production can usually delete the snapshots too. Ransomware groups go after backups first for exactly this reason.</li>
+<li><strong>The provider itself has a serious incident</strong>, as IDCF customers just found out.</li>
+<li><strong>Your account is suspended or locked</strong>, whether through a billing failure, a fraud flag or a policy dispute. Your data is fine, and you cannot reach it.</li>
+<li><strong>A well-meaning engineer runs a teardown script against the wrong environment</strong> with credentials that cover everything.</li>
+</ul>
+<p>These are rare. They are also the ones that end companies, because the recovery time is not hours, it is &quot;rebuild from whatever we can find&quot;.</p>
+<h2>What good enough looks like at seed stage</h2>
+<p>You do not need an enterprise disaster-recovery programme. You need one copy that survives the loss of your main account, and proof that you can use it.</p>
+<h3>One copy outside the blast radius</h3>
+<p>Send a regular copy of your database and critical files to storage that sits outside your production account. Best is another provider entirely. Second best is a separate account at the same provider, with no shared administrators and no standing access from production. The key test: if every credential in your production environment were stolen tonight, could the attacker delete this copy? If yes, it is not outside the blast radius.</p>
+<h3>Make it hard to delete</h3>
+<p>Most object storage services offer some form of write-once retention or object lock, which stops anyone, including you, from deleting a copy before its retention period ends. Use it for at least a short window. The production system should be able to write new backups but not delete old ones.</p>
+<h3>Decide what &quot;critical&quot; means</h3>
+<p>You do not need to copy everything. Production database, customer-uploaded files, and the secrets and configuration needed to stand the service back up are usually enough. Logs, caches and build artifacts can be regenerated. Your infrastructure-as-code repository, if you have one, already holds most of the rest, as long as it lives somewhere other than the account it describes.</p>
+<h3>Write down how to rebuild</h3>
+<p>A backup is only half the answer. The other half is a short runbook: where the copies are, who has access, the order to restore things, and which DNS, email and payment settings need changing to point at a new environment. Keep it somewhere you can reach if your cloud account and your company email are both down.</p>
+<h3>Restore it, for real, twice a year</h3>
+<p>Pick a quiet afternoon, spin up an empty environment from the outside copy only, and time how long it takes to get a working product. The first time usually reveals a missing secret, a forgotten bucket or a dump that has been failing for weeks. That is the point. I have made the general case for tested restores before in <a href="/post-disaster-recovery-diligence">what happens when your database dies at 2am</a>; the provider-level version is the same discipline with a bigger blast radius.</p>
+<h2>What it costs</h2>
+<p>For a typical seed-stage SaaS with a database of tens of gigabytes and a modest amount of file storage, an off-account, immutable copy usually costs tens of dollars a month in storage, plus a few days of engineering to set up and a day twice a year to test. Egress charges for copying data out of your main provider are the cost people forget, so check them before choosing how often to copy.</p>
+<p>Compare that with the alternative. A week of downtime for a B2B product is often the end of several customer relationships, and for some, a breach of contract. The asymmetry is enormous, which is why this is one of the first things I check in a <a href="/teardown">technical teardown</a>.</p>
+<h2>Questions to ask your team this week</h2>
+<p>These take a few minutes and tell you where you stand:</p>
+<ol>
+<li>Where is our most recent backup that is not in our production account, and how old is it?</li>
+<li>Which credentials can delete it?</li>
+<li>When did we last restore from it, and how long did it take?</li>
+<li>If our cloud console were unavailable for a week, what would we do on day one?</li>
+<li>Who besides the founders knows how to do it?</li>
+</ol>
+<p>If the answers are &quot;there isn&#39;t one&quot;, &quot;the same ones as production&quot;, &quot;never&quot;, &quot;not sure&quot; and &quot;nobody&quot;, you are in the same position as most startups. It is also among the cheapest real risks to fix.</p>
+<h2>The diligence angle</h2>
+<p>Investors and acquirers increasingly ask about this, and not only the large ones. &quot;Show me your last restore test&quot; is a simple question that separates teams that have a plan from teams that have a setting turned on. Having an off-account copy, a written runbook and a dated restore log turns a nervous conversation into a two-minute answer.</p>
+<p>If you want a second pair of eyes on whether your setup would survive a provider-level incident, <a href="/book-a-call">book a call</a> and we will walk through it with your actual architecture.</p>
+<h2>FAQ</h2>
+<h3>Are my cloud provider&#39;s automated snapshots enough?</h3>
+<p>They are enough for everyday mistakes like a bad migration or a deleted table. They are not enough for losing access to the account, a compromised admin, or a provider-level incident, because they usually live in the same place as the data they protect.</p>
+<h3>Do I need a second cloud provider for my whole stack?</h3>
+<p>No. Running production on two providers is expensive and complex. Keeping backups with a second provider is cheap and covers most of the risk.</p>
+<h3>How often should the outside copy be updated?</h3>
+<p>Match it to how much data you can afford to lose. Daily is a reasonable starting point for most early products; more frequent if losing a day of customer data would be serious.</p>
+<h3>What about ransomware that encrypts data before it is backed up?</h3>
+<p>That is why retention matters. Keep several older copies under write-once retention so you can roll back to a point before the encryption started.</p>
+
+    </div>
+    <div class="article-body">
+      <div class="author-card reveal">
+        <span class="ac-av">F</span>
+        <div>
+          <div class="ac-name">The founder of Fraction</div>
+          <div class="ac-bio">Built engineering teams from 2 to 30. Killed more bad rebuilds than I've greenlit. <a href="about.html" class="link-grow" style="font-size:0.96rem">More about me <span class="arrow">&rarr;</span></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" style="padding-top:clamp(32px,5vw,56px)">
+  <div class="wrap">
+    <div class="callout reveal" style="text-align:center">
+      <h3 style="margin-left:auto;margin-right:auto;max-width:22ch">Not sure the call you're about to make is the right one?</h3>
+      <p style="margin:0 auto 26px">That's exactly what a 20-minute fit call is for &mdash; or a two-week Teardown if you'd rather start with a written verdict.</p>
+      <div class="ph-cta" style="justify-content:center">
+        <a href="book-a-call.html" class="btn btn-accent">Book a fit call <span class="arrow">&rarr;</span></a>
+        <a href="teardown.html" class="link-grow" style="color:#fff">Start with a Teardown <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap-wide">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#14140F"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+        <p style="color:var(--grey-2); max-width:30ch; margin-top:18px; font-size:0.96rem; line-height:1.5">Senior technical leadership for founders who aren't ready for a full-time CTO — and shouldn't hire one yet.</p>
+      </div>
+      <div><h5>Service</h5><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="comparison.html">Fractional vs full-time</a></li><li><a href="teardown.html">The Tech Teardown</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="blog.html">Writing</a></li><li><a href="book-a-call.html">Book a call</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+      <div><h5>Start here</h5><ul><li><a href="book-a-call.html">Book a 20-min fit call</a></li><li><a href="teardown.html">Start with a Teardown</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Fraction · <a href="https://getfractioncto.com">getfractioncto.com</a> — no contract, no equity, cancel anytime.</span>
+      <span>Built on judgment, not hours.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="motion.js"></script>
+</body>
+</html>
