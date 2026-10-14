@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Merchant of record or Stripe Tax? Who should own your sales tax — Fraction</title>
+  <meta name="description" content="Merchant of record vs Stripe plus a tax engine: what each costs, who files VAT and sales tax, and how to choose for your startup." />
+  <meta name="theme-color" content="#FAFAF9" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Fraction" />
+  <meta property="og:title" content="Merchant of record or Stripe Tax? Who should own your sales tax — Fraction" />
+  <meta property="og:description" content="Merchant of record vs Stripe plus a tax engine: what each costs, who files VAT and sales tax, and how to choose for your startup." />
+  <meta property="og:url" content="https://getfractioncto.com/post-merchant-of-record-or-stripe-tax" />
+  <meta property="og:image" content="https://getfractioncto.com/og-image.png" />
+  <meta property="article:published_time" content="2026-10-14T03:47:12.197Z" />
+  <meta property="article:author" content="The founder of Fraction" />
+  <meta property="article:section" content="Decisions" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Merchant of record or Stripe Tax? Who should own your sales tax — Fraction" />
+  <meta name="twitter:description" content="Merchant of record vs Stripe plus a tax engine: what each costs, who files VAT and sales tax, and how to choose for your startup." />
+  <meta name="twitter:image" content="https://getfractioncto.com/og-image.png" />
+  <link rel="canonical" href="https://getfractioncto.com/post-merchant-of-record-or-stripe-tax" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script src="/analytics.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Merchant of record or Stripe Tax? Who should own your sales tax",
+  "description": "Merchant of record vs Stripe plus a tax engine: what each costs, who files VAT and sales tax, and how to choose for your startup.",
+  "datePublished": "2026-10-14T03:47:12.197Z",
+  "dateModified": "2026-10-14T03:47:12.197Z",
+  "author": {
+    "@type": "Person",
+    "name": "The founder of Fraction",
+    "url": "https://getfractioncto.com/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fraction",
+    "url": "https://getfractioncto.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://getfractioncto.com/og-image.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://getfractioncto.com/post-merchant-of-record-or-stripe-tax"
+  },
+  "image": "https://getfractioncto.com/og-image.png",
+  "articleSection": "Decisions",
+  "wordCount": 1421,
+  "inLanguage": "en",
+  "isAccessibleForFree": true
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home",   "item": "https://getfractioncto.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Writing","item": "https://getfractioncto.com/blog" },
+    { "@type": "ListItem", "position": 3, "name": "Merchant of record or Stripe Tax? Who should own your sales tax", "item": "https://getfractioncto.com/post-merchant-of-record-or-stripe-tax" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Fraction home"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <ul class="nav-links">
+      <li><a href="how-it-works.html">How it works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="comparison.html">Compare</a></li>
+      <li><a href="blog.html" class="active">Writing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="teardown.html">The Teardown <span class="accent-dot"></span></a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke-linecap="round"/></svg></button>
+      <button class="icon-btn" aria-label="Toggle theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M21.5 12h-2.2M4.7 12H2.5M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6M18.4 18.4l-1.6-1.6M7.2 7.2 5.6 5.6" stroke-linecap="round"/></svg></button>
+      <a href="book-a-call.html" class="btn btn-primary nav-cta">Book a fit call</a>
+      <button class="icon-btn menu-btn" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu">
+  <div class="mm-top">
+    <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <button class="icon-btn menu-btn" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg></button>
+  </div>
+  <nav>
+    <a href="how-it-works.html">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="comparison.html">Compare</a>
+    <a href="blog.html">Writing</a>
+    <a href="about.html">About</a>
+    <a href="teardown.html">The Teardown</a>
+  </nav>
+  <div class="mm-cta">
+    <a href="teardown.html" class="btn btn-ghost">Start with a Teardown</a>
+    <a href="book-a-call.html" class="btn btn-primary">Book a 20-min fit call</a>
+  </div>
+</div>
+
+<main>
+<section class="page-hero center" style="padding-bottom:clamp(24px,4vw,40px)">
+  <div class="wrap">
+    <div class="article-hero">
+      <span class="post-cat">Decisions</span>
+      <h1>Merchant of record or Stripe Tax? Who should own your sales tax</h1>
+      <div class="post-meta"><span>Oct 2026</span><span class="sep"></span><span>6 min read</span><span class="sep"></span><span>by The founder of Fraction</span></div>
+    </div>
+  </div>
+</section>
+<section class="section-tight" style="padding-top:8px">
+  <div class="wrap">
+    <div class="article-body reveal">
+<p>If you sell software to customers in more than a handful of countries or US states, you have two real options for sales tax and VAT. Use Stripe (or another processor) plus a tax engine and stay the legal seller, or use a merchant of record such as Paddle that resells your product and takes on the tax filing. The merchant of record costs more per sale. Stripe plus a tax tool is cheaper but leaves registrations and returns with you.</p>
+<p>I get asked this most often around the first international customer, or the first time an accountant mentions &quot;nexus&quot;. The founder usually thinks it is a payments question. It is a question about who carries tax and compliance work for the next three years, and it is much easier to answer before you have a thousand subscriptions on one setup.</p>
+<p>This is not tax advice. Tax rules depend on where you are incorporated, where your customers are, and whether they are businesses or consumers. Use what follows to frame the conversation with your accountant, not to replace it.</p>
+<h2>What a merchant of record actually does</h2>
+<p>A merchant of record (MoR) is the legal seller in the transaction. When a customer in Germany buys your product through Paddle, Paddle sells to the customer and you sell to Paddle. Paddle charges the right VAT, files the returns, handles refunds and chargebacks, and pays you the net amount.</p>
+<p>With Stripe on its own, you are the seller. Stripe moves the money. Stripe Tax can calculate the right tax on each invoice and tell you when you have crossed a registration threshold somewhere, but it does not register your company in that place or file the return. That work is still yours, or your accountant&#39;s, or a filing service you pay for separately.</p>
+<p>That is the whole difference. Everything else follows from who is legally on the hook.</p>
+<h2>The price gap, roughly</h2>
+<p>Check current pricing pages before you decide, because several providers changed their fees in 2026. As of this writing:</p>
+<ul>
+<li>Paddle lists an all-in rate of 5% plus 50 cents per transaction.</li>
+<li>Stripe&#39;s standard US card rate is 2.9% plus 30 cents, and Stripe Tax adds a percentage on top of transactions where tax is calculated. Billing, fraud tools and international cards add more.</li>
+<li>Lemon Squeezy, which Stripe acquired in 2024, also sits at 5% plus 50 cents, and Stripe now has its own merchant-of-record offering.</li>
+</ul>
+<p>On a 49 dollar monthly plan, the gap between a 5% plus 50 cents MoR and a Stripe setup around 3.5% all in is roughly a dollar a transaction. At 200 customers that is about 200 dollars a month. At 2,000 customers it is about 2,000 dollars a month, or 24,000 dollars a year. That is the number to compare against the cost of doing the compliance work yourself.</p>
+<h2>What the compliance work looks like if you stay the seller</h2>
+<p>Founders underestimate this side because nothing happens until it suddenly does.</p>
+<p><strong>EU VAT.</strong> If your company is outside the EU and you sell digital services to EU consumers, there is generally no minimum threshold. The 10,000 euro cross-border threshold you may have read about applies to sellers established in the EU. A non-EU seller can register once under the non-Union One Stop Shop scheme and file a single quarterly return covering all member states, but that is still a registration, a return every quarter, and records to keep. Sales to EU businesses usually fall under reverse charge, which means collecting and validating VAT numbers properly.</p>
+<p><strong>UK VAT.</strong> A separate registration from the EU since Brexit, with its own rules for digital services sold to UK consumers.</p>
+<p><strong>US sales tax.</strong> Since the 2018 Wayfair decision, states can require you to collect tax once you pass an economic threshold, often 100,000 dollars of sales into that state per year, with some large states setting higher figures. Whether SaaS is taxable at all varies by state. You need to track sales per state, register where you cross, and file on each state&#39;s schedule.</p>
+<p>None of this is hard on its own. Together it is a recurring workload that grows with every new market, and the cost of getting it wrong is back taxes plus penalties, which tend to surface at the worst moment: during diligence, when an acquirer or investor asks for proof that you collected tax where you should have. I have seen that question add weeks to a deal. It is one of the items in <a href="/post-acquirer-technical-diligence">what an acquirer checks in technical diligence</a>, even though it starts as a billing choice.</p>
+<h2>How I would decide</h2>
+<p>These are the questions I walk founders through.</p>
+<h3>Who are your customers?</h3>
+<p>If you sell mainly to businesses in your own country, a merchant of record buys you little. Reverse charge and B2B exemptions remove much of the consumer VAT burden, and your accountant can probably handle the rest. If you sell to consumers or small teams worldwide through a self-serve checkout, the MoR does far more for you.</p>
+<h3>How many jurisdictions, realistically, in two years?</h3>
+<p>Not the pitch-deck answer. Look at where your trial signups came from last quarter. If 90% are in one country, you have one tax problem. If they are spread over 40 countries, you have 40.</p>
+<h3>Who in the company would own filings?</h3>
+<p>At pre-seed this is usually the founder, which means it competes with sales. If nobody would own it, paying a merchant of record is often cheaper than the founder&#39;s time, and much cheaper than penalties.</p>
+<h3>What does your billing model need?</h3>
+<p>Merchants of record are built for standard subscriptions and one-off digital purchases. If you need invoiced annual contracts with custom terms, usage-based billing, or purchase orders, check carefully what the MoR supports. Some enterprise buyers will not accept an invoice from a third party they have never heard of, which matters as you move upmarket. We covered the wider build-or-buy side in <a href="/post-build-billing-or-use-stripe">whether to build billing or use Stripe</a>.</p>
+<h3>How hard will it be to leave?</h3>
+<p>This is the one most founders skip. Card details stored with one provider do not always move cleanly to another. Ask any provider in writing how a migration out works, whether they will export payment tokens to a new processor, and how long it takes. If the answer is vague, assume part of your base will need to re-enter card details when you switch.</p>
+<h2>A sensible default</h2>
+<p>For a self-serve product with customers in many countries and no dedicated finance person, I usually recommend starting with a merchant of record and putting a review on the calendar at a revenue level where the fee gap clearly exceeds the cost of a good accountant plus a tax tool. For a sales-led B2B product selling mainly into one or two countries, I usually recommend Stripe plus a tax engine from day one, with an accountant who already handles multi-state filings.</p>
+<p>Whichever you choose, keep your own records of customer location and VAT status, and keep billing logic behind a thin layer in your code so a later switch is a project, not a rewrite.</p>
+<p>If you are about to make this choice and want a second opinion on your mix of customers and markets, <a href="/book-a-call">book a call</a> and we will work through it with your actual numbers.</p>
+<h2>FAQ</h2>
+<h3>Is a merchant of record worth it for a US-only SaaS?</h3>
+<p>Usually less so. If all your customers are in the US, a tax engine plus an accountant who tracks state thresholds is often enough, and cheaper. The case for an MoR gets stronger once you have meaningful consumer sales abroad.</p>
+<h3>Does Stripe Tax file my returns?</h3>
+<p>Stripe Tax calculates tax and monitors thresholds. Registration and filing remain your responsibility unless you add a filing service. Check Stripe&#39;s current product pages, because what is offered has been changing.</p>
+<h3>Can I switch from a merchant of record to Stripe later?</h3>
+<p>Yes, and many companies do once revenue grows. The hard parts are moving saved payment methods and changing who appears on customer invoices. Ask about exporting payment data before you sign, not when you want to leave.</p>
+<h3>Do I need to charge VAT on my first EU sale?</h3>
+<p>If your company is outside the EU and the buyer is an EU consumer, generally yes. There is no minimum threshold for non-EU sellers of digital services. Confirm the details for your situation with a tax adviser.</p>
+
+    </div>
+    <div class="article-body">
+      <div class="author-card reveal">
+        <span class="ac-av">F</span>
+        <div>
+          <div class="ac-name">The founder of Fraction</div>
+          <div class="ac-bio">Built engineering teams from 2 to 30. Killed more bad rebuilds than I've greenlit. <a href="about.html" class="link-grow" style="font-size:0.96rem">More about me <span class="arrow">&rarr;</span></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" style="padding-top:clamp(32px,5vw,56px)">
+  <div class="wrap">
+    <div class="callout reveal" style="text-align:center">
+      <h3 style="margin-left:auto;margin-right:auto;max-width:22ch">Not sure the call you're about to make is the right one?</h3>
+      <p style="margin:0 auto 26px">That's exactly what a 20-minute fit call is for &mdash; or a two-week Teardown if you'd rather start with a written verdict.</p>
+      <div class="ph-cta" style="justify-content:center">
+        <a href="book-a-call.html" class="btn btn-accent">Book a fit call <span class="arrow">&rarr;</span></a>
+        <a href="teardown.html" class="link-grow" style="color:#fff">Start with a Teardown <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap-wide">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#14140F"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+        <p style="color:var(--grey-2); max-width:30ch; margin-top:18px; font-size:0.96rem; line-height:1.5">Senior technical leadership for founders who aren't ready for a full-time CTO — and shouldn't hire one yet.</p>
+      </div>
+      <div><h5>Service</h5><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="comparison.html">Fractional vs full-time</a></li><li><a href="teardown.html">The Tech Teardown</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="blog.html">Writing</a></li><li><a href="book-a-call.html">Book a call</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+      <div><h5>Start here</h5><ul><li><a href="book-a-call.html">Book a 20-min fit call</a></li><li><a href="teardown.html">Start with a Teardown</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Fraction · <a href="https://getfractioncto.com">getfractioncto.com</a> — no contract, no equity, cancel anytime.</span>
+      <span>Built on judgment, not hours.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="motion.js"></script>
+</body>
+</html>

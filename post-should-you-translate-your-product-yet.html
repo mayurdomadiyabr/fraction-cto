@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Should you translate your product yet? Build so you can, later — Fraction</title>
+  <meta name="description" content="When to localize your product, what being translation-ready means, and what it costs to retrofit i18n into a codebase later." />
+  <meta name="theme-color" content="#FAFAF9" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Fraction" />
+  <meta property="og:title" content="Should you translate your product yet? Build so you can, later — Fraction" />
+  <meta property="og:description" content="When to localize your product, what being translation-ready means, and what it costs to retrofit i18n into a codebase later." />
+  <meta property="og:url" content="https://getfractioncto.com/post-should-you-translate-your-product-yet" />
+  <meta property="og:image" content="https://getfractioncto.com/og-image.png" />
+  <meta property="article:published_time" content="2026-10-14T03:47:12.391Z" />
+  <meta property="article:author" content="The founder of Fraction" />
+  <meta property="article:section" content="Decisions" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Should you translate your product yet? Build so you can, later — Fraction" />
+  <meta name="twitter:description" content="When to localize your product, what being translation-ready means, and what it costs to retrofit i18n into a codebase later." />
+  <meta name="twitter:image" content="https://getfractioncto.com/og-image.png" />
+  <link rel="canonical" href="https://getfractioncto.com/post-should-you-translate-your-product-yet" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script src="/analytics.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Should you translate your product yet? Build so you can, later",
+  "description": "When to localize your product, what being translation-ready means, and what it costs to retrofit i18n into a codebase later.",
+  "datePublished": "2026-10-14T03:47:12.391Z",
+  "dateModified": "2026-10-14T03:47:12.391Z",
+  "author": {
+    "@type": "Person",
+    "name": "The founder of Fraction",
+    "url": "https://getfractioncto.com/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fraction",
+    "url": "https://getfractioncto.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://getfractioncto.com/og-image.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://getfractioncto.com/post-should-you-translate-your-product-yet"
+  },
+  "image": "https://getfractioncto.com/og-image.png",
+  "articleSection": "Decisions",
+  "wordCount": 1189,
+  "inLanguage": "en",
+  "isAccessibleForFree": true
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home",   "item": "https://getfractioncto.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Writing","item": "https://getfractioncto.com/blog" },
+    { "@type": "ListItem", "position": 3, "name": "Should you translate your product yet? Build so you can, later", "item": "https://getfractioncto.com/post-should-you-translate-your-product-yet" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Fraction home"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <ul class="nav-links">
+      <li><a href="how-it-works.html">How it works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="comparison.html">Compare</a></li>
+      <li><a href="blog.html" class="active">Writing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="teardown.html">The Teardown <span class="accent-dot"></span></a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke-linecap="round"/></svg></button>
+      <button class="icon-btn" aria-label="Toggle theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M21.5 12h-2.2M4.7 12H2.5M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6M18.4 18.4l-1.6-1.6M7.2 7.2 5.6 5.6" stroke-linecap="round"/></svg></button>
+      <a href="book-a-call.html" class="btn btn-primary nav-cta">Book a fit call</a>
+      <button class="icon-btn menu-btn" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu">
+  <div class="mm-top">
+    <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <button class="icon-btn menu-btn" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg></button>
+  </div>
+  <nav>
+    <a href="how-it-works.html">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="comparison.html">Compare</a>
+    <a href="blog.html">Writing</a>
+    <a href="about.html">About</a>
+    <a href="teardown.html">The Teardown</a>
+  </nav>
+  <div class="mm-cta">
+    <a href="teardown.html" class="btn btn-ghost">Start with a Teardown</a>
+    <a href="book-a-call.html" class="btn btn-primary">Book a 20-min fit call</a>
+  </div>
+</div>
+
+<main>
+<section class="page-hero center" style="padding-bottom:clamp(24px,4vw,40px)">
+  <div class="wrap">
+    <div class="article-hero">
+      <span class="post-cat">Decisions</span>
+      <h1>Should you translate your product yet? Build so you can, later</h1>
+      <div class="post-meta"><span>Oct 2026</span><span class="sep"></span><span>5 min read</span><span class="sep"></span><span>by The founder of Fraction</span></div>
+    </div>
+  </div>
+</section>
+<section class="section-tight" style="padding-top:8px">
+  <div class="wrap">
+    <div class="article-body reveal">
+<p>Most early products do not need translating yet, but almost all of them should be built so that translating later is cheap. The difference costs a few days now: keep user-facing text out of the code, store times in UTC, and format dates, numbers and money with the locale tools your framework already has. Skip that, and adding a second language later becomes a slow project that touches every screen.</p>
+<p>Founders bring me this question at two moments. One is early, when someone on the team suggests &quot;doing i18n properly from the start&quot; and the founder wonders if it is gold-plating. The other is late, when a big prospect in Germany, Brazil or Japan asks whether the product comes in their language, and the engineering estimate comes back as months. The second conversation is far more expensive than the first.</p>
+<h2>What &quot;ready to translate&quot; means</h2>
+<p>Internationalization (i18n) is the engineering work that makes translation possible. Localization (l10n) is the actual translation and cultural adaptation for one market. You can do the first without the second, and that is usually the right call early on.</p>
+<p>Being ready, in practice, means four things.</p>
+<p><strong>Text lives in message files, not in components.</strong> Every label, button, error and email subject is looked up by a key, even if English is the only file you have. Most web and mobile frameworks have a standard library for this. Using it from day one costs a little friction per screen. Retrofitting it means opening every file in the product and hunting for hard-coded strings, including the ones built by gluing pieces together.</p>
+<p><strong>Sentences are not assembled from fragments.</strong> &quot;You have &quot; + count + &quot; new messages&quot; breaks in nearly every other language, because word order and plural rules differ. Some languages have more than two plural forms. Use the message format your library supports, which handles plurals and variables inside one translatable sentence.</p>
+<p><strong>Dates, times, numbers and money go through locale-aware formatting.</strong> Store timestamps in UTC and convert at display time. Format &quot;1,234.50&quot; and &quot;14/10/2026&quot; with the platform&#39;s built-in formatting instead of writing it by hand. Store money as an integer amount plus a currency code, never as a float with an implied dollar sign.</p>
+<p><strong>The layout survives longer text.</strong> Translated text is often noticeably longer than English, and German is the classic example. Buttons with fixed widths and labels that truncate are the first things to break. If you might ever support Arabic or Hebrew, right-to-left layout is a bigger job, and worth knowing about before you design the whole interface around left-to-right assumptions.</p>
+<p>None of these require choosing languages, hiring translators or buying a translation platform. They are habits, and they are cheapest when the codebase is small.</p>
+<h2>When you should actually localize</h2>
+<p>Translating the product is a business decision, not an engineering one. I look for at least one of these signals before recommending it.</p>
+<h3>A specific deal or market needs it</h3>
+<p>A named customer or channel partner needs the product in their language and the revenue covers the work. This is the cleanest case. Ask exactly what needs translating: often it is the end-user screens and emails, not the admin panel or the docs.</p>
+<h3>Your traffic is already there</h3>
+<p>Your analytics show meaningful signups or usage from a non-English market, and those users convert or retain worse than English-speaking users. If they do just as well in English, translation may not be your bottleneck.</p>
+<h3>The market will not buy in English</h3>
+<p>Some government, education, healthcare and consumer buyers require the local language by policy or by habit. If you are targeting them, localization is part of the product, not an add-on.</p>
+<p>If none of these apply, the honest answer is: be ready, and wait.</p>
+<h2>What it costs to retrofit</h2>
+<p>The retrofit is the part that surprises people. In a typical seed-stage web app I have seen it break down roughly like this:</p>
+<ul>
+<li>Finding and extracting strings: every component, template, validation message, email and push notification. In a codebase that has never done it, this is the bulk of the work, and it is tedious enough that strings get missed.</li>
+<li>Fixing concatenated sentences and plurals, which needs a developer to rewrite logic, not just move text.</li>
+<li>Dates, currencies and time zones, which often reveals real bugs that were already hurting your own users.</li>
+<li>Layout fixes once the first translation lands and buttons overflow.</li>
+<li>Text that lives outside the app: emails sent from your backend, PDF invoices, error messages from your API, onboarding copy stored in the database, the marketing site.</li>
+</ul>
+<p>None of it is difficult engineering. It is wide engineering. It touches everything, which means it competes with every other priority for weeks, and it lands just when a big deal is waiting on it. That is why the cheap version, done early, pays for itself.</p>
+<h2>A practical plan by stage</h2>
+<p><strong>Pre-product or MVP.</strong> Use your framework&#39;s standard i18n library from the first screen, with English as the only language. Store times in UTC, money as integer plus currency. That is it.</p>
+<p><strong>Early customers, one language.</strong> Add a check in code review or linting that flags hard-coded user-facing strings. Keep emails and notifications in the same message system as the app.</p>
+<p><strong>First localization.</strong> Pick one language driven by a real customer or market. Translate the screens end users touch first. Have a native speaker who knows your product review the result in context; machine translation is a reasonable first draft, but a mistranslated button in a checkout flow costs more than the review.</p>
+<p><strong>More than two languages.</strong> This is when a translation management tool and a defined workflow for new strings start to pay off, so a release does not ship with half its new text untranslated.</p>
+<p>If you are planning a market expansion and want to know what your codebase will actually need, a <a href="/teardown">technical teardown</a> will tell you where the hard-coded assumptions are before you promise a launch date. For a broader view of where engineering effort is best spent this year, <a href="/book-a-call">book a call</a>.</p>
+<h2>FAQ</h2>
+<h3>Is it overkill to set up i18n before we have international customers?</h3>
+<p>Setting up the library and keeping text out of components is not overkill. It costs little when the codebase is small. Buying translation tools and translating into several languages before anyone asks is usually premature.</p>
+<h3>Can we just use machine translation for the whole app?</h3>
+<p>As a first draft, often yes. For checkout, billing, legal text and anything a customer could misunderstand in a costly way, have a fluent speaker review it in the live product.</p>
+<h3>How long does adding a second language take?</h3>
+<p>It depends almost entirely on whether the codebase was ready. A product with strings already in message files can add a language mostly as translation work. One that was never prepared can spend weeks just extracting and fixing text before translation starts.</p>
+<h3>Should we translate the marketing site first?</h3>
+<p>Often, yes. A translated landing page is a cheap way to test whether a market responds before you localize the product itself.</p>
+
+    </div>
+    <div class="article-body">
+      <div class="author-card reveal">
+        <span class="ac-av">F</span>
+        <div>
+          <div class="ac-name">The founder of Fraction</div>
+          <div class="ac-bio">Built engineering teams from 2 to 30. Killed more bad rebuilds than I've greenlit. <a href="about.html" class="link-grow" style="font-size:0.96rem">More about me <span class="arrow">&rarr;</span></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" style="padding-top:clamp(32px,5vw,56px)">
+  <div class="wrap">
+    <div class="callout reveal" style="text-align:center">
+      <h3 style="margin-left:auto;margin-right:auto;max-width:22ch">Not sure the call you're about to make is the right one?</h3>
+      <p style="margin:0 auto 26px">That's exactly what a 20-minute fit call is for &mdash; or a two-week Teardown if you'd rather start with a written verdict.</p>
+      <div class="ph-cta" style="justify-content:center">
+        <a href="book-a-call.html" class="btn btn-accent">Book a fit call <span class="arrow">&rarr;</span></a>
+        <a href="teardown.html" class="link-grow" style="color:#fff">Start with a Teardown <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap-wide">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#14140F"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+        <p style="color:var(--grey-2); max-width:30ch; margin-top:18px; font-size:0.96rem; line-height:1.5">Senior technical leadership for founders who aren't ready for a full-time CTO — and shouldn't hire one yet.</p>
+      </div>
+      <div><h5>Service</h5><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="comparison.html">Fractional vs full-time</a></li><li><a href="teardown.html">The Tech Teardown</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="blog.html">Writing</a></li><li><a href="book-a-call.html">Book a call</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+      <div><h5>Start here</h5><ul><li><a href="book-a-call.html">Book a 20-min fit call</a></li><li><a href="teardown.html">Start with a Teardown</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Fraction · <a href="https://getfractioncto.com">getfractioncto.com</a> — no contract, no equity, cancel anytime.</span>
+      <span>Built on judgment, not hours.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="motion.js"></script>
+</body>
+</html>
