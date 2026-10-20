@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Your biggest customer&#39;s list page loads every row and times out — Fraction</title>
+  <meta name="description" content="Why list endpoints that return every row cause outages as customers grow, and how to fix them with limits and pagination." />
+  <meta name="theme-color" content="#FAFAF9" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Fraction" />
+  <meta property="og:title" content="Your biggest customer&#39;s list page loads every row and times out — Fraction" />
+  <meta property="og:description" content="Why list endpoints that return every row cause outages as customers grow, and how to fix them with limits and pagination." />
+  <meta property="og:url" content="https://getfractioncto.com/post-list-page-loads-every-row" />
+  <meta property="og:image" content="https://getfractioncto.com/og-image.png" />
+  <meta property="article:published_time" content="2026-10-20T06:24:23.840Z" />
+  <meta property="article:author" content="The founder of Fraction" />
+  <meta property="article:section" content="Pattern recognition" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Your biggest customer&#39;s list page loads every row and times out — Fraction" />
+  <meta name="twitter:description" content="Why list endpoints that return every row cause outages as customers grow, and how to fix them with limits and pagination." />
+  <meta name="twitter:image" content="https://getfractioncto.com/og-image.png" />
+  <link rel="canonical" href="https://getfractioncto.com/post-list-page-loads-every-row" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script src="/analytics.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Your biggest customer&#39;s list page loads every row and times out",
+  "description": "Why list endpoints that return every row cause outages as customers grow, and how to fix them with limits and pagination.",
+  "datePublished": "2026-10-20T06:24:23.840Z",
+  "dateModified": "2026-10-20T06:24:23.840Z",
+  "author": {
+    "@type": "Person",
+    "name": "The founder of Fraction",
+    "url": "https://getfractioncto.com/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fraction",
+    "url": "https://getfractioncto.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://getfractioncto.com/og-image.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://getfractioncto.com/post-list-page-loads-every-row"
+  },
+  "image": "https://getfractioncto.com/og-image.png",
+  "articleSection": "Pattern recognition",
+  "wordCount": 1162,
+  "inLanguage": "en",
+  "isAccessibleForFree": true
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home",   "item": "https://getfractioncto.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Writing","item": "https://getfractioncto.com/blog" },
+    { "@type": "ListItem", "position": 3, "name": "Your biggest customer&#39;s list page loads every row and times out", "item": "https://getfractioncto.com/post-list-page-loads-every-row" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Fraction home"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <ul class="nav-links">
+      <li><a href="how-it-works.html">How it works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="comparison.html">Compare</a></li>
+      <li><a href="blog.html" class="active">Writing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="teardown.html">The Teardown <span class="accent-dot"></span></a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke-linecap="round"/></svg></button>
+      <button class="icon-btn" aria-label="Toggle theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M21.5 12h-2.2M4.7 12H2.5M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6M18.4 18.4l-1.6-1.6M7.2 7.2 5.6 5.6" stroke-linecap="round"/></svg></button>
+      <a href="book-a-call.html" class="btn btn-primary nav-cta">Book a fit call</a>
+      <button class="icon-btn menu-btn" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu">
+  <div class="mm-top">
+    <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <button class="icon-btn menu-btn" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg></button>
+  </div>
+  <nav>
+    <a href="how-it-works.html">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="comparison.html">Compare</a>
+    <a href="blog.html">Writing</a>
+    <a href="about.html">About</a>
+    <a href="teardown.html">The Teardown</a>
+  </nav>
+  <div class="mm-cta">
+    <a href="teardown.html" class="btn btn-ghost">Start with a Teardown</a>
+    <a href="book-a-call.html" class="btn btn-primary">Book a 20-min fit call</a>
+  </div>
+</div>
+
+<main>
+<section class="page-hero center" style="padding-bottom:clamp(24px,4vw,40px)">
+  <div class="wrap">
+    <div class="article-hero">
+      <span class="post-cat">Pattern recognition</span>
+      <h1>Your biggest customer&#39;s list page loads every row and times out</h1>
+      <div class="post-meta"><span>Oct 2026</span><span class="sep"></span><span>5 min read</span><span class="sep"></span><span>by The founder of Fraction</span></div>
+    </div>
+  </div>
+</section>
+<section class="section-tight" style="padding-top:8px">
+  <div class="wrap">
+    <div class="article-body reveal">
+<p>The orders page loaded instantly for the first year. Then a large customer signed, imported their history, and the same page started taking 20 seconds, then timing out, then knocking over the server for everyone else whenever that customer opened it. The code had not changed. The data had.</p>
+<p>The cause is almost always the same line of code: an endpoint that returns every matching row. <code>SELECT * FROM orders WHERE account_id = ?</code> with no limit, serialized to JSON, sent to the browser, rendered as one giant table. At 300 rows it is fine. At 300,000 it is an outage. This is one of the most predictable failures in early-stage products, and it hides well because every test and every demo uses small accounts.</p>
+<h2>Why it ships</h2>
+<p>Nobody writes &quot;load everything&quot; on purpose. It is the default path of least resistance.</p>
+<ul>
+<li><strong>Frameworks make it easy.</strong> <code>Order.all</code>, <code>findMany()</code>, or a generated API scaffold returns everything unless you ask otherwise.</li>
+<li><strong>The UI was designed with sample data.</strong> A table with 40 rows looks great. Nobody mocked up 40,000.</li>
+<li><strong>Development databases are small.</strong> Engineers test against seeded data or their own account. Performance is never visible locally.</li>
+<li><strong>It works for a long time.</strong> The failure appears only when one customer crosses a size threshold, which can be a year or more after the code was written. By then nobody remembers which endpoints are unbounded.</li>
+</ul>
+<h2>How it fails</h2>
+<p>The failure is rarely a clean error. It degrades in stages, which is why teams misdiagnose it.</p>
+<h3>Slow pages for one customer</h3>
+<p>First, only the biggest account notices. The page is slow, support tickets mention &quot;loading&quot;, and the team assumes it is the customer&#39;s network.</p>
+<h3>Memory spikes on the server</h3>
+<p>Then the server starts building huge responses in memory. A single request for a very large list can use hundreds of megabytes while the rows are loaded and serialized. Run a few at once and the process runs out of memory and restarts, taking everyone&#39;s requests with it.</p>
+<h3>Database pressure</h3>
+<p>Large unbounded queries hold resources, read far more data than needed, and compete with every other query. Other customers see slowness that has nothing to do with their own data.</p>
+<h3>Browser crashes</h3>
+<p>Even if the server survives, rendering tens of thousands of rows in a table can freeze the browser tab. The customer experiences this as &quot;your app crashes&quot;.</p>
+<p>Teams often reach for a cache or a bigger server at this point. Neither fixes it. A cache stores the giant response; a bigger server delays the crash. The question of <a href="/post-your-app-is-slow-add-a-cache-or-fix-the-query">whether to add a cache or fix the query</a> usually has the same answer here: fix the query.</p>
+<h2>The fix</h2>
+<h3>1. Find every unbounded endpoint</h3>
+<p>Search the codebase for list endpoints and queries without a limit. Then check which ones are reachable by customers. Your largest account is the best test case: load each main list page as that customer in a staging copy and time it. Database monitoring that shows the slowest and largest queries points to the rest.</p>
+<h3>2. Add a hard default limit</h3>
+<p>Every list endpoint should have a default page size and a maximum, for example 50 by default and 200 at most, enforced on the server even if the client asks for more. This one change stops the worst outages, even before the UI is improved.</p>
+<h3>3. Choose the right pagination style</h3>
+<p>There are two common approaches.</p>
+<ul>
+<li><strong>Offset pagination</strong> (<code>LIMIT 50 OFFSET 1000</code>) is simple and supports &quot;jump to page 20&quot;. It gets slower on deep pages because the database still walks past all the skipped rows, and results can shift if rows are added while someone is paging.</li>
+<li><strong>Cursor or keyset pagination</strong> (<code>WHERE created_at &lt; last_seen ORDER BY created_at DESC LIMIT 50</code>) stays fast at any depth and is stable while data changes. It does not support jumping to an arbitrary page number, which most users never need anyway.</li>
+</ul>
+<p>For tables that will grow large, such as orders, events, messages, and logs, use cursor pagination. For small admin lists, offset is fine.</p>
+<h3>4. Index for the sort order</h3>
+<p>Pagination is only fast if the database can read rows in the order you sort them. If you sort by <code>created_at</code> within an account, an index on <code>(account_id, created_at)</code> is typically what you need. Without it, the database still sorts the full set before returning the first 50. Our overview of <a href="/post-database-index-replica-shard">indexes, replicas and sharding</a> covers when indexes are enough, which for most early products is a long time.</p>
+<h3>5. Move exports and totals out of the list</h3>
+<p>The reason many endpoints return everything is that someone needed an export or a total. Give those their own paths: a count query for totals, and a background job that builds a CSV export and emails a link. Then the list page never needs the whole data set.</p>
+<h3>6. Test with a big account</h3>
+<p>Seed a staging account with realistic volume, ideally larger than your biggest customer today. Make it part of how you check new list pages before release.</p>
+<h2>How this shows up in a sales process</h2>
+<p>Large customers are exactly the ones who will hit this first, and usually during onboarding, when the impression matters most. If a prospect says they have five years of history to import, ask your team which pages will show that history and whether they have been tested at that size. Questions like &quot;can it handle 10x&quot; are worth answering with numbers; <a href="/post-can-it-handle-10x">what &quot;can it handle 10x&quot; really asks</a> goes deeper on that conversation.</p>
+<h2>FAQ</h2>
+<h3>How do I know if our product has this problem?</h3>
+<p>Open your main list pages while logged in as your largest customer and time them. If any take more than a couple of seconds, or the response is several megabytes, you likely have an unbounded query. Your engineer can confirm by checking for queries without a limit.</p>
+<h3>Is infinite scroll a fix?</h3>
+<p>Only if it loads data in pages behind the scenes. Infinite scroll that fetches everything at once and reveals it gradually has the same problem. The server-side limit is what matters.</p>
+<h3>Will adding pagination break our API for customers who integrate with it?</h3>
+<p>It can, if they expect every record in one response. Introduce pagination with a generous limit and clear documentation, keep it backward compatible for a period where possible, and tell integrating customers before tightening the limit.</p>
+<h3>How long does this take to fix?</h3>
+<p>A default server-side limit on the worst endpoints can usually ship in a day. Proper cursor pagination, indexes, and moving exports to background jobs across a whole product is typically one to three weeks of focused work, depending on how many list views you have.</p>
+<p>If your biggest customer is already hitting this and you need a plan you can defend, <a href="/book-a-call">book a call</a> and we will walk through it.</p>
+
+    </div>
+    <div class="article-body">
+      <div class="author-card reveal">
+        <span class="ac-av">F</span>
+        <div>
+          <div class="ac-name">The founder of Fraction</div>
+          <div class="ac-bio">Built engineering teams from 2 to 30. Killed more bad rebuilds than I've greenlit. <a href="about.html" class="link-grow" style="font-size:0.96rem">More about me <span class="arrow">&rarr;</span></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" style="padding-top:clamp(32px,5vw,56px)">
+  <div class="wrap">
+    <div class="callout reveal" style="text-align:center">
+      <h3 style="margin-left:auto;margin-right:auto;max-width:22ch">Not sure the call you're about to make is the right one?</h3>
+      <p style="margin:0 auto 26px">That's exactly what a 20-minute fit call is for &mdash; or a two-week Teardown if you'd rather start with a written verdict.</p>
+      <div class="ph-cta" style="justify-content:center">
+        <a href="book-a-call.html" class="btn btn-accent">Book a fit call <span class="arrow">&rarr;</span></a>
+        <a href="teardown.html" class="link-grow" style="color:#fff">Start with a Teardown <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap-wide">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#14140F"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+        <p style="color:var(--grey-2); max-width:30ch; margin-top:18px; font-size:0.96rem; line-height:1.5">Senior technical leadership for founders who aren't ready for a full-time CTO — and shouldn't hire one yet.</p>
+      </div>
+      <div><h5>Service</h5><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="comparison.html">Fractional vs full-time</a></li><li><a href="teardown.html">The Tech Teardown</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="blog.html">Writing</a></li><li><a href="book-a-call.html">Book a call</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+      <div><h5>Start here</h5><ul><li><a href="book-a-call.html">Book a 20-min fit call</a></li><li><a href="teardown.html">Start with a Teardown</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Fraction · <a href="https://getfractioncto.com">getfractioncto.com</a> — no contract, no equity, cancel anytime.</span>
+      <span>Built on judgment, not hours.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="motion.js"></script>
+</body>
+</html>
