@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The apps you approved into Microsoft 365 can read everything — Fraction</title>
+  <meta name="description" content="A backup vendor breach showed how approved apps reach your mail and files without MFA. How founders can audit and limit app access in M365 and Workspace." />
+  <meta name="theme-color" content="#FAFAF9" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Fraction" />
+  <meta property="og:title" content="The apps you approved into Microsoft 365 can read everything — Fraction" />
+  <meta property="og:description" content="A backup vendor breach showed how approved apps reach your mail and files without MFA. How founders can audit and limit app access in M365 and Workspace." />
+  <meta property="og:url" content="https://getfractioncto.com/post-apps-with-company-wide-access" />
+  <meta property="og:image" content="https://getfractioncto.com/og-image.png" />
+  <meta property="article:published_time" content="2026-10-21T11:50:16.133Z" />
+  <meta property="article:author" content="The founder of Fraction" />
+  <meta property="article:section" content="Pattern recognition" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="The apps you approved into Microsoft 365 can read everything — Fraction" />
+  <meta name="twitter:description" content="A backup vendor breach showed how approved apps reach your mail and files without MFA. How founders can audit and limit app access in M365 and Workspace." />
+  <meta name="twitter:image" content="https://getfractioncto.com/og-image.png" />
+  <link rel="canonical" href="https://getfractioncto.com/post-apps-with-company-wide-access" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script src="/analytics.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "The apps you approved into Microsoft 365 can read everything",
+  "description": "A backup vendor breach showed how approved apps reach your mail and files without MFA. How founders can audit and limit app access in M365 and Workspace.",
+  "datePublished": "2026-10-21T11:50:16.133Z",
+  "dateModified": "2026-10-21T11:50:16.133Z",
+  "author": {
+    "@type": "Person",
+    "name": "The founder of Fraction",
+    "url": "https://getfractioncto.com/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fraction",
+    "url": "https://getfractioncto.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://getfractioncto.com/og-image.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://getfractioncto.com/post-apps-with-company-wide-access"
+  },
+  "image": "https://getfractioncto.com/og-image.png",
+  "articleSection": "Pattern recognition",
+  "wordCount": 1355,
+  "inLanguage": "en",
+  "isAccessibleForFree": true
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home",   "item": "https://getfractioncto.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Writing","item": "https://getfractioncto.com/blog" },
+    { "@type": "ListItem", "position": 3, "name": "The apps you approved into Microsoft 365 can read everything", "item": "https://getfractioncto.com/post-apps-with-company-wide-access" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Fraction home"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <ul class="nav-links">
+      <li><a href="how-it-works.html">How it works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="comparison.html">Compare</a></li>
+      <li><a href="blog.html" class="active">Writing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="teardown.html">The Teardown <span class="accent-dot"></span></a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke-linecap="round"/></svg></button>
+      <button class="icon-btn" aria-label="Toggle theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M21.5 12h-2.2M4.7 12H2.5M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6M18.4 18.4l-1.6-1.6M7.2 7.2 5.6 5.6" stroke-linecap="round"/></svg></button>
+      <a href="book-a-call.html" class="btn btn-primary nav-cta">Book a fit call</a>
+      <button class="icon-btn menu-btn" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu">
+  <div class="mm-top">
+    <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <button class="icon-btn menu-btn" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg></button>
+  </div>
+  <nav>
+    <a href="how-it-works.html">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="comparison.html">Compare</a>
+    <a href="blog.html">Writing</a>
+    <a href="about.html">About</a>
+    <a href="teardown.html">The Teardown</a>
+  </nav>
+  <div class="mm-cta">
+    <a href="teardown.html" class="btn btn-ghost">Start with a Teardown</a>
+    <a href="book-a-call.html" class="btn btn-primary">Book a 20-min fit call</a>
+  </div>
+</div>
+
+<main>
+<section class="page-hero center" style="padding-bottom:clamp(24px,4vw,40px)">
+  <div class="wrap">
+    <div class="article-hero">
+      <span class="post-cat">Pattern recognition</span>
+      <h1>The apps you approved into Microsoft 365 can read everything</h1>
+      <div class="post-meta"><span>Oct 2026</span><span class="sep"></span><span>6 min read</span><span class="sep"></span><span>by The founder of Fraction</span></div>
+    </div>
+  </div>
+</section>
+<section class="section-tight" style="padding-top:8px">
+  <div class="wrap">
+    <div class="article-body reveal">
+<p>Every app someone approved into your company&#39;s Microsoft 365 or Google Workspace with organization-wide permissions is a key to your email, files and chats. Many of those keys work without any person logging in, which means multi-factor authentication never gets a say. If a vendor behind one of those apps is breached, the attacker can use the app&#39;s own credentials to read your data. The fix is not to stop using apps. It is to know which ones hold company-wide access, cut that access to what each one needs, and watch for changes.</p>
+<p>This stopped being theoretical last week.</p>
+<h2>What happened with ConnectWise Cloud Backup</h2>
+<p>On October 17, 2026, ConnectWise shut down customer access to its Cloud Backup service, formerly SkyKick Cloud Backup, a product many managed service providers use to back up their clients&#39; Microsoft 365 and Google Workspace data. According to <a href="https://www.bleepingcomputer.com/news/security/hackers-breach-microsoft-365-tenants-via-connectwise-supply-chain-attack/">BleepingComputer&#39;s report</a>, the attacker authenticated as the backup application itself, using its secret, through automated scripts. No user signed in, so MFA did not apply.</p>
+<p>The permissions the app already held were broad, because a backup tool needs to read everything: mail and attachments, OneDrive and SharePoint files, Teams chats. Security firms reported seeing related applications assign themselves admin roles inside customer tenants, and one firm said it had identified at least 162 compromised tenants in the environments it monitors. As of October 18, ConnectWise said scheduled backups were not running and restores were unavailable, while stating that the backup archives themselves remained encrypted and showed no sign of compromise.</p>
+<p>Two separate lessons are packed into that story. One is about access. The other is about what happens to your backups when the vendor goes dark.</p>
+<h2>Why app access is different from user access</h2>
+<p>Most founders have spent effort on user security: MFA for everyone, offboarding when people leave, maybe single sign-on. Apps sit outside most of that.</p>
+<h3>Two kinds of app permission</h3>
+<p>When an app connects to Microsoft 365 or Google Workspace, it gets one of two broad kinds of access.</p>
+<ul>
+<li><strong>Delegated access</strong> lets the app act as a signed-in user, limited to what that user can see. If the user leaves, the access usually goes with them.</li>
+<li><strong>Application access</strong> (on Google, often through domain-wide delegation for a service account) lets the app act on its own, across the whole organization, with no user present. Backup tools, email security tools, archiving and compliance tools commonly need this.</li>
+</ul>
+<p>Application access is the dangerous kind. It authenticates with a secret or certificate that the vendor holds. If that secret leaks from the vendor&#39;s systems, your MFA, your password policy and your login alerts are not in the path.</p>
+<h3>Nobody remembers approving them</h3>
+<p>In a typical seed or Series A company, these approvals happened one at a time over years. A founder connected a backup tool in the first month. An early ops hire approved a signature manager. Someone tried an AI meeting assistant that asked for calendar and mail access across the domain. The trial ended; the permission did not. We have written about how this accumulates in <a href="/post-integration-sprawl">the integration sprawl nobody decided to build</a>.</p>
+<h2>What to do this week</h2>
+<p>None of this needs a security team. It needs an admin login and about two hours.</p>
+<h3>1. List every app with organization-wide access</h3>
+<p>In Microsoft 365, the Entra admin center shows enterprise applications and the permissions each has been granted, including which ones are application permissions with admin consent. In Google Workspace, the Admin console lists connected third-party apps under API controls, and domain-wide delegation entries are listed separately. Export both lists into a sheet with four columns: app, vendor, what it can access, who owns the relationship.</p>
+<h3>2. Remove what nobody uses</h3>
+<p>Anything from a finished trial, a former employee&#39;s experiment, or a tool you replaced should go. When small companies run this review for the first time, it is common to find more apps with broad access than anyone on the team can name. Every one you remove is one fewer vendor whose breach becomes yours.</p>
+<h3>3. Shrink what stays</h3>
+<p>For each remaining app, ask whether it needs to read everything or only something. A signature tool does not need to read mail content. A calendar scheduler does not need files. Many vendors offer narrower permission options if you ask, or let you limit the app to specific mailboxes or groups. Where the platform supports scoping an app to a subset of users, use it.</p>
+<h3>4. Turn off casual consent</h3>
+<p>Change your settings so ordinary users cannot grant apps broad access to company data without an admin. Microsoft 365 lets you restrict user consent; Google Workspace lets you mark apps as trusted, limited or blocked. This is the single setting that stops the list from growing back.</p>
+<h3>5. Watch for credential and role changes</h3>
+<p>The early signs in the ConnectWise incident were changes, not data access: apps adding credentials and assigning themselves roles. Set alerts for new credentials added to applications, new admin role assignments, and new admin-consented apps. These events should be rare in a small company, so every alert is worth a look. Admin accounts that are shared or poorly controlled make all of this harder, which is why <a href="/post-shared-admin-logins">shared admin logins</a> are worth fixing at the same time.</p>
+<h3>6. Know the kill switch before you need it</h3>
+<p>Write down, for your highest-access apps, how to disable each one and revoke its credentials. Note that disabling an app may stop it from getting new tokens while existing tokens stay valid until they expire. Know how long that window is for your platform, and what else you would need to revoke.</p>
+<h2>The backup lesson</h2>
+<p>The second half of this story is about recovery. Many companies treat their SaaS backup vendor as the backup. When that vendor shut down access, its customers could not restore anything, regardless of whether their own data had been touched.</p>
+<p>A backup you cannot reach during an incident is not doing its job. For most startups the answer is not a second commercial backup product. It is a periodic export of the data you could not live without, stored somewhere the primary backup vendor cannot reach, and a restore you have actually tested. We cover the same principle for infrastructure in <a href="/post-backups-outside-your-cloud-provider">whether your backups live somewhere other than your cloud provider</a>.</p>
+<p>Ask two questions of any backup vendor: if your service is offline for a week, how do I get my data, and can I export it on a schedule to storage I control?</p>
+<h2>If you are the vendor</h2>
+<p>If your own product asks customers for organization-wide access, this incident is what their security reviews will now ask about: how you store application secrets, how quickly you can rotate them, whether you request only the permissions you need, and how you would tell them about a compromise. Our post on <a href="/post-saas-integration-oauth-token-risk">integrations that hold your customers&#39; OAuth tokens</a> covers that side of the table.</p>
+<h2>FAQ</h2>
+<h3>We are a 10-person startup. Is this really our problem?</h3>
+<p>Yes, possibly more than for a large company. Small companies tend to grant broad access freely and rarely review it, and one founder&#39;s mailbox often contains contracts, investor updates and customer data.</p>
+<h3>Does MFA protect us from this?</h3>
+<p>Not against application access. MFA protects user sign-ins. An app using its own secret or certificate does not sign in as a user, which is exactly why the attacker in this case could get in without one.</p>
+<h3>Should we stop using third-party backup for Microsoft 365 or Google Workspace?</h3>
+<p>No. Backup is still worth having. The point is to review its permissions, alert on changes, and keep an independent export of your most important data so a vendor outage does not leave you with nothing.</p>
+<h3>How often should we review connected apps?</h3>
+<p>Quarterly is reasonable for most early-stage companies, plus a review whenever someone leaves who had admin rights. If an outside review would help, a <a href="/teardown">technical teardown</a> includes access and vendor risk, or you can <a href="/book-a-call">book a call</a> to talk through your setup.</p>
+
+    </div>
+    <div class="article-body">
+      <div class="author-card reveal">
+        <span class="ac-av">F</span>
+        <div>
+          <div class="ac-name">The founder of Fraction</div>
+          <div class="ac-bio">Built engineering teams from 2 to 30. Killed more bad rebuilds than I've greenlit. <a href="about.html" class="link-grow" style="font-size:0.96rem">More about me <span class="arrow">&rarr;</span></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" style="padding-top:clamp(32px,5vw,56px)">
+  <div class="wrap">
+    <div class="callout reveal" style="text-align:center">
+      <h3 style="margin-left:auto;margin-right:auto;max-width:22ch">Not sure the call you're about to make is the right one?</h3>
+      <p style="margin:0 auto 26px">That's exactly what a 20-minute fit call is for &mdash; or a two-week Teardown if you'd rather start with a written verdict.</p>
+      <div class="ph-cta" style="justify-content:center">
+        <a href="book-a-call.html" class="btn btn-accent">Book a fit call <span class="arrow">&rarr;</span></a>
+        <a href="teardown.html" class="link-grow" style="color:#fff">Start with a Teardown <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap-wide">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#14140F"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+        <p style="color:var(--grey-2); max-width:30ch; margin-top:18px; font-size:0.96rem; line-height:1.5">Senior technical leadership for founders who aren't ready for a full-time CTO — and shouldn't hire one yet.</p>
+      </div>
+      <div><h5>Service</h5><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="comparison.html">Fractional vs full-time</a></li><li><a href="teardown.html">The Tech Teardown</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="blog.html">Writing</a></li><li><a href="book-a-call.html">Book a call</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+      <div><h5>Start here</h5><ul><li><a href="book-a-call.html">Book a 20-min fit call</a></li><li><a href="teardown.html">Start with a Teardown</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Fraction · <a href="https://getfractioncto.com">getfractioncto.com</a> — no contract, no equity, cancel anytime.</span>
+      <span>Built on judgment, not hours.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="motion.js"></script>
+</body>
+</html>
