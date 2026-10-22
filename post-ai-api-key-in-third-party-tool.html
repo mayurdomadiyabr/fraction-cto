@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>A tool holding your AI API key got breached. Who pays? — Fraction</title>
+  <meta name="description" content="After the OpenCode breach: how to limit the damage when a third-party tool holding your AI provider key is hacked. Scoped keys, caps, rotation." />
+  <meta name="theme-color" content="#FAFAF9" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Fraction" />
+  <meta property="og:title" content="A tool holding your AI API key got breached. Who pays? — Fraction" />
+  <meta property="og:description" content="After the OpenCode breach: how to limit the damage when a third-party tool holding your AI provider key is hacked. Scoped keys, caps, rotation." />
+  <meta property="og:url" content="https://getfractioncto.com/post-ai-api-key-in-third-party-tool" />
+  <meta property="og:image" content="https://getfractioncto.com/og-image.png" />
+  <meta property="article:published_time" content="2026-10-22T13:58:26.255Z" />
+  <meta property="article:author" content="The founder of Fraction" />
+  <meta property="article:section" content="Pattern recognition" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="A tool holding your AI API key got breached. Who pays? — Fraction" />
+  <meta name="twitter:description" content="After the OpenCode breach: how to limit the damage when a third-party tool holding your AI provider key is hacked. Scoped keys, caps, rotation." />
+  <meta name="twitter:image" content="https://getfractioncto.com/og-image.png" />
+  <link rel="canonical" href="https://getfractioncto.com/post-ai-api-key-in-third-party-tool" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script src="/analytics.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "A tool holding your AI API key got breached. Who pays?",
+  "description": "After the OpenCode breach: how to limit the damage when a third-party tool holding your AI provider key is hacked. Scoped keys, caps, rotation.",
+  "datePublished": "2026-10-22T13:58:26.255Z",
+  "dateModified": "2026-10-22T13:58:26.255Z",
+  "author": {
+    "@type": "Person",
+    "name": "The founder of Fraction",
+    "url": "https://getfractioncto.com/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fraction",
+    "url": "https://getfractioncto.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://getfractioncto.com/og-image.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://getfractioncto.com/post-ai-api-key-in-third-party-tool"
+  },
+  "image": "https://getfractioncto.com/og-image.png",
+  "articleSection": "Pattern recognition",
+  "wordCount": 1519,
+  "inLanguage": "en",
+  "isAccessibleForFree": true
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home",   "item": "https://getfractioncto.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Writing","item": "https://getfractioncto.com/blog" },
+    { "@type": "ListItem", "position": 3, "name": "A tool holding your AI API key got breached. Who pays?", "item": "https://getfractioncto.com/post-ai-api-key-in-third-party-tool" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Fraction home"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <ul class="nav-links">
+      <li><a href="how-it-works.html">How it works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="comparison.html">Compare</a></li>
+      <li><a href="blog.html" class="active">Writing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="teardown.html">The Teardown <span class="accent-dot"></span></a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke-linecap="round"/></svg></button>
+      <button class="icon-btn" aria-label="Toggle theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M21.5 12h-2.2M4.7 12H2.5M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6M18.4 18.4l-1.6-1.6M7.2 7.2 5.6 5.6" stroke-linecap="round"/></svg></button>
+      <a href="book-a-call.html" class="btn btn-primary nav-cta">Book a fit call</a>
+      <button class="icon-btn menu-btn" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu">
+  <div class="mm-top">
+    <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <button class="icon-btn menu-btn" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg></button>
+  </div>
+  <nav>
+    <a href="how-it-works.html">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="comparison.html">Compare</a>
+    <a href="blog.html">Writing</a>
+    <a href="about.html">About</a>
+    <a href="teardown.html">The Teardown</a>
+  </nav>
+  <div class="mm-cta">
+    <a href="teardown.html" class="btn btn-ghost">Start with a Teardown</a>
+    <a href="book-a-call.html" class="btn btn-primary">Book a 20-min fit call</a>
+  </div>
+</div>
+
+<main>
+<section class="page-hero center" style="padding-bottom:clamp(24px,4vw,40px)">
+  <div class="wrap">
+    <div class="article-hero">
+      <span class="post-cat">Pattern recognition</span>
+      <h1>A tool holding your AI API key got breached. Who pays?</h1>
+      <div class="post-meta"><span>Oct 2026</span><span class="sep"></span><span>7 min read</span><span class="sep"></span><span>by The founder of Fraction</span></div>
+    </div>
+  </div>
+</section>
+<section class="section-tight" style="padding-top:8px">
+  <div class="wrap">
+    <div class="article-body reveal">
+<p>On Saturday, 17 October 2026, the team behind OpenCode, an open-source AI coding agent, told some users that API keys they had linked to its hosted Console had been exposed. Within hours, developers reported overnight charges on their OpenAI, Anthropic and Google accounts, some of them over $1,000, and some Google Cloud projects were suspended for activity consistent with hijacked resources. If your team pastes AI provider keys into third-party tools, the lesson is simple: every tool that holds your key can spend your money, and in the worst case can get the cloud project behind that key suspended. The fix is a few hours of work: one key per tool, a spending cap on each, and nothing that touches production in a project you lend to outside tools.</p>
+<h2>What happened at OpenCode</h2>
+<p>The facts, as reported by <a href="https://techcrunch.com/2026/10/19/hackers-hit-ai-coding-tool-opencode-running-up-charges-on-users-ai-accounts/">TechCrunch</a> and <a href="https://bleepingcomputer.com/news/security/opencode-hack-exposes-api-keys-amid-ai-distillation-attacks">BleepingComputer</a>:</p>
+<ul>
+<li>Attackers got into an older system behind OpenCode Console, the hosted service where some users link their own AI provider keys. The company said the incident affected 1.4% of Console users, and it emailed those users directly.</li>
+<li>The exposed keys were for external providers, including Anthropic, OpenAI and Google. OpenCode said the open-source app and command-line tool were not affected, because those keys never pass through its servers.</li>
+<li>Affected users saw unauthorized API usage overnight. Some Google Cloud projects were suspended. Anthropic and Google blocked keys they believed were exposed, and OpenAI worked on restoring access and refunding credits. OpenCode said refunds were underway.</li>
+<li>OpenCode called it a large-scale distillation attack, meaning the stolen keys were used to query large models at scale, possibly to train other models on the answers. Some observers questioned that framing. Either way, the victims paid for the queries until the keys were cut off.</li>
+</ul>
+<p>OpenCode had not said how the attackers got in or how the keys were stored at the time of writing. That matters less to a founder than the pattern, which is not unique to one tool.</p>
+<h2>Why this is a pattern, not a one-off</h2>
+<h3>Bring-your-own-key is everywhere now</h3>
+<p>A lot of AI tooling asks you to bring your own key. Coding agents, prompt playgrounds, evaluation tools, no-code builders, browser extensions, internal dashboards someone built in a weekend. Each one is reasonable on its own. The tool gets to avoid reselling model access, and you get to use your own pricing and model choice.</p>
+<p>The side effect is that your provider key ends up stored in a dozen places you do not control, each with its own security practices. In most of the small teams I look at, nobody has a list of those places.</p>
+<h3>A key is a credit card with no limit by default</h3>
+<p>An AI provider key is not just access. It is a payment instrument. Anyone holding it can run queries and you get the bill. An attacker does not need your data or your code to profit from it. They need throughput, and your account gives them throughput at your expense. We walked through the first days after a surprise bill in <a href="/post-surprise-usage-bill-first-48-hours">your cloud or API bill tripled</a>. Prevention is much cheaper than that week.</p>
+<h3>The blast radius is wider than the bill</h3>
+<p>The part of this incident that worries me most is the project suspensions. A Google API key lives in a Google Cloud project. If the key a developer gave to an outside tool sits in the same project as your production services, a provider suspending that project for abuse can take down things that have nothing to do with the tool. Your product stops because a side tool was breached.</p>
+<p>This is the same idea as the <a href="/post-npm-worm-credential-blast-radius">npm worms that steal your keys</a>: the damage depends less on the breach and more on what the stolen credential can reach.</p>
+<h2>What a small team should do this week</h2>
+<p>None of this needs a security hire. It needs one engineer and an afternoon.</p>
+<h3>1. Find every place your AI keys live</h3>
+<p>Ask the team one question: which tools, extensions, scripts and services have one of our AI provider keys? Include personal accounts people have been expensing. Write the answers in one list. Expect it to be longer than you think.</p>
+<p>If you used OpenCode Console, check for the company&#39;s email and your provider dashboards for usage you do not recognize. Revoke and replace the keys directly with each provider either way.</p>
+<h3>2. One key per tool, per person</h3>
+<p>Never share a single company key across tools. Create a separate key for each tool and, where possible, each person. When one tool is breached, you revoke one key and nothing else stops working. You can also see in the provider&#39;s usage view which key ran up the charges, which tells you where the leak was.</p>
+<h3>3. Put a ceiling on each key</h3>
+<p>The major AI providers let you organize keys into projects or workspaces and set budgets, spending limits or usage alerts on them. Exact options differ by provider and change often, so check the current console. Set a monthly limit on each tool&#39;s project that is close to its real usage, plus a usage alert below that. A breached key with a $200 cap is an annoyance. A breached key on an account with no limit is a weekend you will not get back.</p>
+<h3>4. Keep production keys out of outside tools</h3>
+<p>Production keys, the ones your product uses to serve customers, should live only in your secrets manager and your running services. Developer tools get separate keys in separate projects or workspaces with lower limits. For Google, that means a separate Cloud project for developer experiments, so a suspension cannot reach production.</p>
+<p>The same principle applies to AI agents themselves. If your agents call providers or internal tools, the scoping rules in <a href="/post-ai-agent-access-scope">you gave your AI agents the keys</a> apply directly.</p>
+<h3>5. Practice the rotation once</h3>
+<p>Pick a non-critical key and rotate it end to end: create the new key, update the tool, revoke the old one, confirm nothing broke. Time it. If it takes more than fifteen minutes, find out why. During a real incident you will be doing this under pressure for several keys at once, and you want it to be routine.</p>
+<h3>6. Add AI tools to vendor review</h3>
+<p>Before someone links a company key to a new hosted tool, ask three quick questions. Does the tool store our key on its servers, or does it stay on our machine? Can we use a key with a spending cap? Who at the company approved it? That is a lighter version of the checks we describe in <a href="/post-vet-vendors-customer-data">vetting vendors that hold customer data</a>. It takes five minutes and catches most of the risk.</p>
+<h2>A composite example</h2>
+<p>A seed-stage team of four, typical of what I see. One engineer used a hosted coding tool with the company&#39;s main OpenAI key. Another used the same key in an evaluation dashboard and a browser extension. The same key powered the product&#39;s AI feature in production. No usage limit was set, because the founder did not want the product to stop if usage spiked.</p>
+<p>If any of those three side tools leaked the key, the company would be paying an attacker&#39;s bill with no cap. Revoking the key to stop it would also break the product&#39;s AI feature for every customer, at the same moment. Splitting into four keys across two projects, with caps on the three developer keys and an alert on the production one, takes less than an hour and removes both problems.</p>
+<h2>When to get help</h2>
+<p>If your team has grown to the point where nobody knows which tools hold which credentials, that is usually a sign that technical ownership has not kept up with the number of tools. A short outside review can map where your keys, tokens and admin accounts live and what each one can reach. That is part of what a <a href="/teardown">technical teardown</a> covers, and if you want to talk through your setup, you can <a href="/book-a-call">book a call</a>.</p>
+<h2>FAQ</h2>
+<h3>Was the OpenCode app itself compromised?</h3>
+<p>According to OpenCode, no. The company said the breach affected its hosted Console, where some users linked provider keys, and that the open-source app and command-line tool do not send keys to its servers.</p>
+<h3>Should we stop using third-party AI tools that ask for our key?</h3>
+<p>No. Many are useful and well run. Use them with keys that are scoped, capped and easy to rotate, and prefer tools that keep the key on your machine when you have the choice.</p>
+<h3>Will the provider refund fraudulent charges?</h3>
+<p>Sometimes. In this case providers blocked keys and OpenAI and OpenCode said refunds were in progress. Do not plan around a refund. A spending cap is a guarantee. A refund is a request.</p>
+<h3>How often should we rotate AI provider keys?</h3>
+<p>Rotate immediately after any suspected exposure and whenever someone with access leaves. Beyond that, a regular schedule matters less than having one key per tool and a rotation you have actually practiced.</p>
+
+    </div>
+    <div class="article-body">
+      <div class="author-card reveal">
+        <span class="ac-av">F</span>
+        <div>
+          <div class="ac-name">The founder of Fraction</div>
+          <div class="ac-bio">Built engineering teams from 2 to 30. Killed more bad rebuilds than I've greenlit. <a href="about.html" class="link-grow" style="font-size:0.96rem">More about me <span class="arrow">&rarr;</span></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" style="padding-top:clamp(32px,5vw,56px)">
+  <div class="wrap">
+    <div class="callout reveal" style="text-align:center">
+      <h3 style="margin-left:auto;margin-right:auto;max-width:22ch">Not sure the call you're about to make is the right one?</h3>
+      <p style="margin:0 auto 26px">That's exactly what a 20-minute fit call is for &mdash; or a two-week Teardown if you'd rather start with a written verdict.</p>
+      <div class="ph-cta" style="justify-content:center">
+        <a href="book-a-call.html" class="btn btn-accent">Book a fit call <span class="arrow">&rarr;</span></a>
+        <a href="teardown.html" class="link-grow" style="color:#fff">Start with a Teardown <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap-wide">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#14140F"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+        <p style="color:var(--grey-2); max-width:30ch; margin-top:18px; font-size:0.96rem; line-height:1.5">Senior technical leadership for founders who aren't ready for a full-time CTO — and shouldn't hire one yet.</p>
+      </div>
+      <div><h5>Service</h5><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="comparison.html">Fractional vs full-time</a></li><li><a href="teardown.html">The Tech Teardown</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="blog.html">Writing</a></li><li><a href="book-a-call.html">Book a call</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+      <div><h5>Start here</h5><ul><li><a href="book-a-call.html">Book a 20-min fit call</a></li><li><a href="teardown.html">Start with a Teardown</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Fraction · <a href="https://getfractioncto.com">getfractioncto.com</a> — no contract, no equity, cancel anytime.</span>
+      <span>Built on judgment, not hours.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="motion.js"></script>
+</body>
+</html>
