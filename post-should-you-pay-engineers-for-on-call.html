@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Should you pay engineers extra for being on call? — Fraction</title>
+  <meta name="description" content="Should startups pay engineers for on-call? US FLSA basics, stipend and time-off models, and a starter on-call pay policy for a small engineering team." />
+  <meta name="theme-color" content="#FAFAF9" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Fraction" />
+  <meta property="og:title" content="Should you pay engineers extra for being on call? — Fraction" />
+  <meta property="og:description" content="Should startups pay engineers for on-call? US FLSA basics, stipend and time-off models, and a starter on-call pay policy for a small engineering team." />
+  <meta property="og:url" content="https://getfractioncto.com/post-should-you-pay-engineers-for-on-call" />
+  <meta property="og:image" content="https://getfractioncto.com/og-image.png" />
+  <meta property="article:published_time" content="2026-10-25T15:25:16.781Z" />
+  <meta property="article:author" content="The founder of Fraction" />
+  <meta property="article:section" content="Pricing the work" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Should you pay engineers extra for being on call? — Fraction" />
+  <meta name="twitter:description" content="Should startups pay engineers for on-call? US FLSA basics, stipend and time-off models, and a starter on-call pay policy for a small engineering team." />
+  <meta name="twitter:image" content="https://getfractioncto.com/og-image.png" />
+  <link rel="canonical" href="https://getfractioncto.com/post-should-you-pay-engineers-for-on-call" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script src="/analytics.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Should you pay engineers extra for being on call?",
+  "description": "Should startups pay engineers for on-call? US FLSA basics, stipend and time-off models, and a starter on-call pay policy for a small engineering team.",
+  "datePublished": "2026-10-25T15:25:16.781Z",
+  "dateModified": "2026-10-25T15:25:16.781Z",
+  "author": {
+    "@type": "Person",
+    "name": "The founder of Fraction",
+    "url": "https://getfractioncto.com/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fraction",
+    "url": "https://getfractioncto.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://getfractioncto.com/og-image.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://getfractioncto.com/post-should-you-pay-engineers-for-on-call"
+  },
+  "image": "https://getfractioncto.com/og-image.png",
+  "articleSection": "Pricing the work",
+  "wordCount": 1303,
+  "inLanguage": "en",
+  "isAccessibleForFree": true
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home",   "item": "https://getfractioncto.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Writing","item": "https://getfractioncto.com/blog" },
+    { "@type": "ListItem", "position": 3, "name": "Should you pay engineers extra for being on call?", "item": "https://getfractioncto.com/post-should-you-pay-engineers-for-on-call" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Fraction home"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <ul class="nav-links">
+      <li><a href="how-it-works.html">How it works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="comparison.html">Compare</a></li>
+      <li><a href="blog.html" class="active">Writing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="teardown.html">The Teardown <span class="accent-dot"></span></a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke-linecap="round"/></svg></button>
+      <button class="icon-btn" aria-label="Toggle theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M21.5 12h-2.2M4.7 12H2.5M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6M18.4 18.4l-1.6-1.6M7.2 7.2 5.6 5.6" stroke-linecap="round"/></svg></button>
+      <a href="book-a-call.html" class="btn btn-primary nav-cta">Book a fit call</a>
+      <button class="icon-btn menu-btn" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu">
+  <div class="mm-top">
+    <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <button class="icon-btn menu-btn" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg></button>
+  </div>
+  <nav>
+    <a href="how-it-works.html">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="comparison.html">Compare</a>
+    <a href="blog.html">Writing</a>
+    <a href="about.html">About</a>
+    <a href="teardown.html">The Teardown</a>
+  </nav>
+  <div class="mm-cta">
+    <a href="teardown.html" class="btn btn-ghost">Start with a Teardown</a>
+    <a href="book-a-call.html" class="btn btn-primary">Book a 20-min fit call</a>
+  </div>
+</div>
+
+<main>
+<section class="page-hero center" style="padding-bottom:clamp(24px,4vw,40px)">
+  <div class="wrap">
+    <div class="article-hero">
+      <span class="post-cat">Pricing the work</span>
+      <h1>Should you pay engineers extra for being on call?</h1>
+      <div class="post-meta"><span>Oct 2026</span><span class="sep"></span><span>6 min read</span><span class="sep"></span><span>by The founder of Fraction</span></div>
+    </div>
+  </div>
+</section>
+<section class="section-tight" style="padding-top:8px">
+  <div class="wrap">
+    <div class="article-body reveal">
+<p>Yes, in most cases you should pay engineers something extra for being on call, even when the law does not require it. For salaried exempt engineers in the US, on-call duty usually does not change what you must legally pay, but a rotation with no compensation is one of the fastest ways to lose the senior people who carry it. A common shape is a flat weekly stipend for being on call plus either extra pay or time off when someone is actually paged out of hours. Equally important is keeping the rotation quiet enough that the stipend is a thank-you, not compensation for a broken system.</p>
+<p>Founders usually reach this question in one of two ways. Either a senior engineer raises it directly, often after a bad weekend, or someone resigns and lists on-call as a reason in the exit conversation. By then the question is not really about money. It is about whether the company respects the time it is asking people to give up.</p>
+<p>I have written about <a href="/post-when-do-you-need-on-call">when a startup actually needs on-call at all</a>. This post assumes you have crossed that line and are deciding how to pay for it.</p>
+<h2>What the law says, briefly</h2>
+<p>This is not legal advice, and rules differ by country and by US state, so check with an employment lawyer for your situation.</p>
+<p>In the US, the Fair Labor Standards Act distinguishes between employees who are &quot;engaged to wait&quot; and those &quot;waiting to be engaged&quot;. Under the Department of Labor&#39;s rules in <a href="https://www.ecfr.gov/current/title-29/section-785.17">29 CFR 785.17</a>, an employee who can use the on-call time mostly for their own purposes is generally not working while they wait. Courts look at factors such as how quickly someone must respond, how often they are called, and how far they can go. Carrying a phone on its own usually does not make waiting time paid working time.</p>
+<p>That analysis matters mainly for non-exempt, hourly staff. Most software engineers in the US are salaried and classified as exempt, so on-call duty generally does not change the minimum you are required to pay them. Outside the US, working-time and rest-period rules can be very different, especially in Europe, so do not copy a US policy to an engineer elsewhere without checking.</p>
+<p>The legal floor is the wrong place to set this policy, though. The real risk is retention.</p>
+<h2>Why unpaid on-call costs more than it saves</h2>
+<p>On-call takes something from an engineer even on quiet weeks. They cannot travel freely, they plan evenings around a laptop, and they sleep lighter. The engineers most likely to be on your rotation are the ones who know the system best, which also makes them the hardest to replace.</p>
+<p>When on-call is unpaid, three things tend to happen. The senior people quietly take more shifts than they should, because they do not trust anyone else. Junior people avoid it. And within a year, your most important engineer has a recruiter offer from a company that pays a stipend and pages less. Replacing one senior engineer usually costs far more than a year of stipends for the whole team, before you count the knowledge that leaves with them.</p>
+<h2>Common ways to structure it</h2>
+<p>There is no single right answer, but most policies are a combination of these pieces.</p>
+<h3>A flat stipend for being on call</h3>
+<p>A fixed amount per week, or per day, for carrying the pager, regardless of whether anything happens. This is the simplest to administer and acknowledges the cost of being available. Set it at a level that feels meaningful to the people doing it. Ask them, and look at what comparable companies in your hiring market offer.</p>
+<h3>Extra pay or time off for incidents</h3>
+<p>When someone is actually woken up or pulled away, compensate the time spent: either an hourly rate for out-of-hours work or time off in lieu. Time off works well at small companies, as long as people are actually allowed to take it. A rule like &quot;if you were paged after midnight, start late the next day&quot; costs very little and is noticed.</p>
+<h3>Weekend and holiday premiums</h3>
+<p>Many teams pay more for weekends and public holidays, because those are the shifts nobody wants. Without a premium, they end up with whoever cannot say no.</p>
+<h3>Equity or salary adjustments instead</h3>
+<p>Some founders prefer to raise base salaries for people on the rotation rather than paying a separate stipend. That can work, but it is less visible and harder to adjust as the rotation changes. A separate line keeps the cost obvious, which helps the next point.</p>
+<h2>Make the cost visible so you fix the cause</h2>
+<p>The best reason to pay for on-call explicitly is that it turns a hidden cost into a number on a spreadsheet. Once you can see what pages cost, you have a reason to reduce them.</p>
+<p>Track three things each month: the number of out-of-hours pages, how many were real incidents versus noise, and how much time was spent on them. If most pages are alerts nobody needed to act on, the first job is to fix the alerting, not to pay people more. If real incidents are frequent, the system has a reliability problem that deserves engineering time. I have written about <a href="/post-flying-blind-in-prod-when-to-pay-for-observability">when observability stops being optional</a>, and about <a href="/post-feature-freeze-reliability">freezing features to fix reliability</a> when incidents keep repeating.</p>
+<p>A quiet rotation with a modest stipend is a benefit people appreciate. A noisy rotation with a generous stipend is still a reason to leave.</p>
+<h2>A simple starting policy</h2>
+<p>For a team of four to eight engineers, a reasonable first version looks like this:</p>
+<ol>
+<li>A one-week rotation, with at least four people in it, so nobody is on more than one week a month.</li>
+<li>A flat weekly stipend for being on call, set after asking the team.</li>
+<li>Time off in lieu, or an hourly rate, for any page outside working hours.</li>
+<li>A higher rate or extra time off for weekends and public holidays.</li>
+<li>A monthly review of every page, with a goal of removing at least one noisy alert each month.</li>
+</ol>
+<p>Write it down, apply it to everyone on the rotation, including founders if they carry the pager, and revisit it every six months.</p>
+<p>If you are setting up your first rotation or trying to work out why your on-call is so noisy, that is a question I often help founders with. You can <a href="/book-a-call">book a call</a>, or see the <a href="/pricing">pricing page</a> for how a short engagement works.</p>
+<h2>FAQ</h2>
+<h3>Do I have to pay salaried engineers for on-call in the US?</h3>
+<p>For exempt salaried employees, on-call duty generally does not change the legal minimum you must pay, but state rules and individual circumstances vary. Paying something extra is mainly a retention and fairness decision. Check with an employment lawyer before writing a policy.</p>
+<h3>Should founders be on the on-call rotation?</h3>
+<p>If they are technical and know the system, being on the rotation for a while is useful. It shows the team that the burden is shared and gives founders direct feedback on how noisy the system is. Apply the same rules to them.</p>
+<h3>Is time off in lieu better than cash?</h3>
+<p>At a small company, time off is often more valued because it directly restores what was lost, which is rest. The risk is that nobody takes it when the team is busy. If you choose time off, track it and make sure it is used.</p>
+<h3>How many people do I need before starting a rotation?</h3>
+<p>Four is a sensible minimum for a weekly rotation, so that each person is on call no more than about one week a month. With fewer people, consider limiting on-call to business-critical alerts only, or covering out-of-hours with a managed service.</p>
+
+    </div>
+    <div class="article-body">
+      <div class="author-card reveal">
+        <span class="ac-av">F</span>
+        <div>
+          <div class="ac-name">The founder of Fraction</div>
+          <div class="ac-bio">Built engineering teams from 2 to 30. Killed more bad rebuilds than I've greenlit. <a href="about.html" class="link-grow" style="font-size:0.96rem">More about me <span class="arrow">&rarr;</span></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" style="padding-top:clamp(32px,5vw,56px)">
+  <div class="wrap">
+    <div class="callout reveal" style="text-align:center">
+      <h3 style="margin-left:auto;margin-right:auto;max-width:22ch">Not sure the call you're about to make is the right one?</h3>
+      <p style="margin:0 auto 26px">That's exactly what a 20-minute fit call is for &mdash; or a two-week Teardown if you'd rather start with a written verdict.</p>
+      <div class="ph-cta" style="justify-content:center">
+        <a href="book-a-call.html" class="btn btn-accent">Book a fit call <span class="arrow">&rarr;</span></a>
+        <a href="teardown.html" class="link-grow" style="color:#fff">Start with a Teardown <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap-wide">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#14140F"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+        <p style="color:var(--grey-2); max-width:30ch; margin-top:18px; font-size:0.96rem; line-height:1.5">Senior technical leadership for founders who aren't ready for a full-time CTO — and shouldn't hire one yet.</p>
+      </div>
+      <div><h5>Service</h5><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="comparison.html">Fractional vs full-time</a></li><li><a href="teardown.html">The Tech Teardown</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="blog.html">Writing</a></li><li><a href="book-a-call.html">Book a call</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+      <div><h5>Start here</h5><ul><li><a href="book-a-call.html">Book a 20-min fit call</a></li><li><a href="teardown.html">Start with a Teardown</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Fraction · <a href="https://getfractioncto.com">getfractioncto.com</a> — no contract, no equity, cancel anytime.</span>
+      <span>Built on judgment, not hours.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="motion.js"></script>
+</body>
+</html>
