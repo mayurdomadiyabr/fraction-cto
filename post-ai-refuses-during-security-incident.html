@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Your AI tools may refuse to help during a breach. Plan for it. — Fraction</title>
+  <meta name="description" content="AI safety filters can block malware analysis mid-incident, as OpenCode reported. How a small startup can test, plan and keep working without them." />
+  <meta name="theme-color" content="#FAFAF9" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Fraction" />
+  <meta property="og:title" content="Your AI tools may refuse to help during a breach. Plan for it. — Fraction" />
+  <meta property="og:description" content="AI safety filters can block malware analysis mid-incident, as OpenCode reported. How a small startup can test, plan and keep working without them." />
+  <meta property="og:url" content="https://getfractioncto.com/post-ai-refuses-during-security-incident" />
+  <meta property="og:image" content="https://getfractioncto.com/og-image.png" />
+  <meta property="article:published_time" content="2026-11-02T04:31:26.493Z" />
+  <meta property="article:author" content="The founder of Fraction" />
+  <meta property="article:section" content="Pattern recognition" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Your AI tools may refuse to help during a breach. Plan for it. — Fraction" />
+  <meta name="twitter:description" content="AI safety filters can block malware analysis mid-incident, as OpenCode reported. How a small startup can test, plan and keep working without them." />
+  <meta name="twitter:image" content="https://getfractioncto.com/og-image.png" />
+  <link rel="canonical" href="https://getfractioncto.com/post-ai-refuses-during-security-incident" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script src="/analytics.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Your AI tools may refuse to help during a breach. Plan for it.",
+  "description": "AI safety filters can block malware analysis mid-incident, as OpenCode reported. How a small startup can test, plan and keep working without them.",
+  "datePublished": "2026-11-02T04:31:26.493Z",
+  "dateModified": "2026-11-02T04:31:26.493Z",
+  "author": {
+    "@type": "Person",
+    "name": "The founder of Fraction",
+    "url": "https://getfractioncto.com/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fraction",
+    "url": "https://getfractioncto.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://getfractioncto.com/og-image.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://getfractioncto.com/post-ai-refuses-during-security-incident"
+  },
+  "image": "https://getfractioncto.com/og-image.png",
+  "articleSection": "Pattern recognition",
+  "wordCount": 1469,
+  "inLanguage": "en",
+  "isAccessibleForFree": true
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home",   "item": "https://getfractioncto.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Writing","item": "https://getfractioncto.com/blog" },
+    { "@type": "ListItem", "position": 3, "name": "Your AI tools may refuse to help during a breach. Plan for it.", "item": "https://getfractioncto.com/post-ai-refuses-during-security-incident" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Fraction home"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <ul class="nav-links">
+      <li><a href="how-it-works.html">How it works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="comparison.html">Compare</a></li>
+      <li><a href="blog.html" class="active">Writing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="teardown.html">The Teardown <span class="accent-dot"></span></a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke-linecap="round"/></svg></button>
+      <button class="icon-btn" aria-label="Toggle theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M21.5 12h-2.2M4.7 12H2.5M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6M18.4 18.4l-1.6-1.6M7.2 7.2 5.6 5.6" stroke-linecap="round"/></svg></button>
+      <a href="book-a-call.html" class="btn btn-primary nav-cta">Book a fit call</a>
+      <button class="icon-btn menu-btn" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu">
+  <div class="mm-top">
+    <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <button class="icon-btn menu-btn" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg></button>
+  </div>
+  <nav>
+    <a href="how-it-works.html">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="comparison.html">Compare</a>
+    <a href="blog.html">Writing</a>
+    <a href="about.html">About</a>
+    <a href="teardown.html">The Teardown</a>
+  </nav>
+  <div class="mm-cta">
+    <a href="teardown.html" class="btn btn-ghost">Start with a Teardown</a>
+    <a href="book-a-call.html" class="btn btn-primary">Book a 20-min fit call</a>
+  </div>
+</div>
+
+<main>
+<section class="page-hero center" style="padding-bottom:clamp(24px,4vw,40px)">
+  <div class="wrap">
+    <div class="article-hero">
+      <span class="post-cat">Pattern recognition</span>
+      <h1>Your AI tools may refuse to help during a breach. Plan for it.</h1>
+      <div class="post-meta"><span>Nov 2026</span><span class="sep"></span><span>7 min read</span><span class="sep"></span><span>by The founder of Fraction</span></div>
+    </div>
+  </div>
+</section>
+<section class="section-tight" style="padding-top:8px">
+  <div class="wrap">
+    <div class="article-body reveal">
+<p>If your team now reaches for an AI assistant for most technical work, assume it may stop helping at the moment you need it most. Safety filters can block analysis of malicious code, so a breach is a bad time to find that out. The fix is cheap: decide today which AI tools you would use during an incident, test them on a harmless sample, and make sure that your team can still do the core work without them.</p>
+<p>This stopped being a hypothetical last month. When attackers went after the AI coding tool OpenCode in October 2026, its co-founder <a href="https://techcrunch.com/2026/10/19/hackers-hit-ai-coding-tool-opencode-running-up-charges-on-users-ai-accounts/">told TechCrunch</a> that the models the team used for analysis helped at first and then refused to continue once the malicious code tripped safety filters. The team later got access to a program for vetted defenders and said that improved the investigation. <a href="https://www.bleepingcomputer.com/news/security/opencode-hack-exposes-api-keys-amid-ai-distillation-attacks/">BleepingComputer reported the same account</a> of models declining investigative requests.</p>
+<p>That report is one company&#39;s account, and how attackers got in has not been explained. The breach itself and its effect on API keys is a separate topic that I covered in <a href="/post-ai-api-key-in-third-party-tool">what to do when a tool holding your AI key is breached</a>. The part worth your attention here is narrower: a team under attack lost part of its tooling because of what the attack looked like.</p>
+<h2>Why the refusal happens at the worst time</h2>
+<p>Safety systems look at the content of a request. Defending against malicious code and writing it can look similar at that level. A request like &quot;explain what this obfuscated script does and how it steals credentials&quot; can come from a defender or from someone improving an attack, and a filter has limited ability to tell which is which.</p>
+<p>So refusals are not random. They get more likely as your situation gets more serious, which means the tool works during your calm test on Tuesday and balks during the real thing on Saturday. Three kinds of request are most exposed:</p>
+<ul>
+<li>Pasting in malware or attacker scripts for analysis.</li>
+<li>Asking how a specific exploit works so that you can check whether it was used on you.</li>
+<li>Writing detection or reproduction code that closely resembles the attack.</li>
+</ul>
+<p>Ordinary incident work, like summarizing logs or writing customer updates, is less likely to be blocked. I cannot give you a refusal rate, and neither can most vendors, because it varies by model, wording and version. Treat it as a risk to plan for instead of a number to estimate.</p>
+<h2>The dependency nobody wrote down</h2>
+<p>Most startups have a plan for their cloud or their database going down, even if it is a short one. Few have considered that an AI tool has become a critical dependency for their engineers&#39; ability to think through a problem at speed. If your team is young, or your senior people have spent the last two years working mainly through agents, this deserves an honest look. The risk of <a href="/post-ai-team-feels-fast">skills fading on a team that feels fast</a> is easy to ignore until a bad day.</p>
+<p>An outage is one version of this, and <a href="/post-ai-provider-outage-fallback">your AI provider going down</a> is well worth planning for. A refusal is sneakier. The service is up and everything looks normal, but you are given a polite no, or worse, a vague partial answer that wastes twenty minutes while you are also trying to rotate credentials.</p>
+<p>There is one more trap. In a real incident, people under pressure paste things in fast. That can include customer data, secrets or evidence you may need to preserve, and it may go to a vendor that you have not cleared for that data. Refusals push people to try other tools, and the tool someone tries next at 2am, on a personal account, is the one you never reviewed.</p>
+<h2>What to set up this month</h2>
+<p>None of this needs a security team. It needs one owner and an afternoon.</p>
+<h3>Name your incident tools in advance</h3>
+<p>Pick which AI tools are approved for incident work, on which accounts, and what may be pasted into them. One paragraph is enough. Keep customer data and live secrets out by default, and strip them from logs first. If you already have a <a href="/post-shadow-ai-startup-policy">shadow AI policy</a>, add this as a section.</p>
+<h3>Run a refusal test</h3>
+<p>Take a known, already published malicious sample or a public write-up of an old attack, handled safely and without running it. Ask your approved tools to explain it, and to help write a detection rule. Write down what they do and try it again after major model changes. You will end up knowing the shape of the limits before you are on the clock. Do this for defense only, and within each vendor&#39;s terms.</p>
+<p>Vendors also run programs for vetted defenders, like the one OpenCode reportedly joined. Find out whether such a program exists for your provider and what it takes to qualify. Applying during an incident is slow, and a small company may not qualify at all, so do not make it your only plan.</p>
+<h3>Make sure the basics work without AI</h3>
+<p>Pick the five tasks you would need in an incident, such as finding who accessed what from your logs, revoking access, rotating secrets, restoring a backup and pushing a fix. Have someone do each without assistance, once. If nobody can, you have found your actual gap. This pairs with knowing that <a href="/post-backups-outside-your-cloud-provider">your backups live outside your provider</a> and that <a href="/post-server-nobody-can-rebuild">someone can rebuild your server</a>.</p>
+<h3>Know who you would call</h3>
+<p>Refusals are one more reason not to rely on your own team alone. Find a human incident response firm or an experienced security consultant before you need them, and keep their contact details somewhere that does not depend on your own systems. Check your cyber insurance too, if you have it, because many policies have rules about who you use and when you must notify them. Read yours rather than assuming.</p>
+<h3>Keep evidence separate from analysis</h3>
+<p>Save the original logs and files in a protected location before anyone begins experimenting. If a tool refuses or gives you a wrong answer, you can switch approaches without having changed or lost the evidence. Customers, investors and regulators may later ask what happened, and <a href="/post-incident-history-diligence">your record of past incidents</a> is something diligence can ask about.</p>
+<h2>Does this mean you should stop using AI for security work?</h2>
+<p>No. AI is often very useful here, particularly for reading long logs, explaining unfamiliar code, drafting a timeline and writing communications. In the OpenCode account, the same models helped before they stopped. The point is to treat AI as a fast colleague who may leave the room with no warning, and to arrange your plan so that this costs you minutes rather than the whole response.</p>
+<p>Small teams feel this most, because they have the fewest people to fall back on. It is also where a part-time technical leader earns the fee: writing the one-page plan, running the test with your team and deciding who is on point when something breaks. If you want to know how your team would actually hold up, a <a href="/teardown">technical teardown</a> will look at this directly. To talk through your own setup, <a href="/book-a-call">book a call</a>, or see <a href="/pricing">how an engagement is priced</a>.</p>
+<h2>FAQ</h2>
+<h3>Why would an AI tool refuse to help me defend my own company?</h3>
+<p>The filter usually cannot verify who you are or your intent. Analysis of malicious code can look like work on malicious code, so some tools err toward refusing. Providing clear defensive context may help, but it is no guarantee.</p>
+<h3>Would a self-hosted or open-weight model solve this?</h3>
+<p>It can reduce refusals and keep sensitive data inside your own environment, but you would then have to run it, and a less capable model can give confident wrong answers on hard analysis. See <a href="/post-switch-to-open-weight-model">whether switching to an open-weight model makes sense</a> before setting one up just for this purpose. A tested fallback is more useful than an untested one.</p>
+<h3>Is it safe to paste attacker code or logs into an AI tool?</h3>
+<p>Only under rules you have set in advance. Logs often contain customer data and secrets, and an upload may go against your contracts or policies. Remove sensitive values first, use accounts you have approved and keep unaltered originals elsewhere.</p>
+<h3>How often should we run the refusal test?</h3>
+<p>A rough guide is once or twice a year, and whenever you change your main AI tool or model. It takes less than an hour, and models change their behavior between versions without much notice.</p>
+<h3>We have three engineers. Is this overkill?</h3>
+<p>The full version might be, but the small one is not. One paragraph on approved tools, one test and one phone number can be finished in an afternoon.</p>
+
+    </div>
+    <div class="article-body">
+      <div class="author-card reveal">
+        <span class="ac-av">F</span>
+        <div>
+          <div class="ac-name">The founder of Fraction</div>
+          <div class="ac-bio">Built engineering teams from 2 to 30. Killed more bad rebuilds than I've greenlit. <a href="about.html" class="link-grow" style="font-size:0.96rem">More about me <span class="arrow">&rarr;</span></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" style="padding-top:clamp(32px,5vw,56px)">
+  <div class="wrap">
+    <div class="callout reveal" style="text-align:center">
+      <h3 style="margin-left:auto;margin-right:auto;max-width:22ch">Not sure the call you're about to make is the right one?</h3>
+      <p style="margin:0 auto 26px">That's exactly what a 20-minute fit call is for &mdash; or a two-week Teardown if you'd rather start with a written verdict.</p>
+      <div class="ph-cta" style="justify-content:center">
+        <a href="book-a-call.html" class="btn btn-accent">Book a fit call <span class="arrow">&rarr;</span></a>
+        <a href="teardown.html" class="link-grow" style="color:#fff">Start with a Teardown <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap-wide">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#14140F"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+        <p style="color:var(--grey-2); max-width:30ch; margin-top:18px; font-size:0.96rem; line-height:1.5">Senior technical leadership for founders who aren't ready for a full-time CTO — and shouldn't hire one yet.</p>
+      </div>
+      <div><h5>Service</h5><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="comparison.html">Fractional vs full-time</a></li><li><a href="teardown.html">The Tech Teardown</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="blog.html">Writing</a></li><li><a href="book-a-call.html">Book a call</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+      <div><h5>Start here</h5><ul><li><a href="book-a-call.html">Book a 20-min fit call</a></li><li><a href="teardown.html">Start with a Teardown</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Fraction · <a href="https://getfractioncto.com">getfractioncto.com</a> — no contract, no equity, cancel anytime.</span>
+      <span>Built on judgment, not hours.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="motion.js"></script>
+</body>
+</html>
