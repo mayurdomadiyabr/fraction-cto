@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>A big company self-hosted its AI coding model. Should you? — Fraction</title>
+  <meta name="description" content="Should a startup self-host an open-weight AI coding model to cut costs? Why it pays at 2,000 engineers, rarely at 10, and what to do instead." />
+  <meta name="theme-color" content="#FAFAF9" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Fraction" />
+  <meta property="og:title" content="A big company self-hosted its AI coding model. Should you? — Fraction" />
+  <meta property="og:description" content="Should a startup self-host an open-weight AI coding model to cut costs? Why it pays at 2,000 engineers, rarely at 10, and what to do instead." />
+  <meta property="og:url" content="https://getfractioncto.com/post-self-host-ai-coding-model" />
+  <meta property="og:image" content="https://getfractioncto.com/og-image.png" />
+  <meta property="article:published_time" content="2026-11-06T21:17:14.980Z" />
+  <meta property="article:author" content="The founder of Fraction" />
+  <meta property="article:section" content="Decisions" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="A big company self-hosted its AI coding model. Should you? — Fraction" />
+  <meta name="twitter:description" content="Should a startup self-host an open-weight AI coding model to cut costs? Why it pays at 2,000 engineers, rarely at 10, and what to do instead." />
+  <meta name="twitter:image" content="https://getfractioncto.com/og-image.png" />
+  <link rel="canonical" href="https://getfractioncto.com/post-self-host-ai-coding-model" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script src="/analytics.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "A big company self-hosted its AI coding model. Should you?",
+  "description": "Should a startup self-host an open-weight AI coding model to cut costs? Why it pays at 2,000 engineers, rarely at 10, and what to do instead.",
+  "datePublished": "2026-11-06T21:17:14.980Z",
+  "dateModified": "2026-11-06T21:17:14.980Z",
+  "author": {
+    "@type": "Person",
+    "name": "The founder of Fraction",
+    "url": "https://getfractioncto.com/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fraction",
+    "url": "https://getfractioncto.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://getfractioncto.com/og-image.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://getfractioncto.com/post-self-host-ai-coding-model"
+  },
+  "image": "https://getfractioncto.com/og-image.png",
+  "articleSection": "Decisions",
+  "wordCount": 1547,
+  "inLanguage": "en",
+  "isAccessibleForFree": true
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home",   "item": "https://getfractioncto.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Writing","item": "https://getfractioncto.com/blog" },
+    { "@type": "ListItem", "position": 3, "name": "A big company self-hosted its AI coding model. Should you?", "item": "https://getfractioncto.com/post-self-host-ai-coding-model" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Fraction home"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <ul class="nav-links">
+      <li><a href="how-it-works.html">How it works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="comparison.html">Compare</a></li>
+      <li><a href="blog.html" class="active">Writing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="teardown.html">The Teardown <span class="accent-dot"></span></a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke-linecap="round"/></svg></button>
+      <button class="icon-btn" aria-label="Toggle theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M21.5 12h-2.2M4.7 12H2.5M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6M18.4 18.4l-1.6-1.6M7.2 7.2 5.6 5.6" stroke-linecap="round"/></svg></button>
+      <a href="book-a-call.html" class="btn btn-primary nav-cta">Book a fit call</a>
+      <button class="icon-btn menu-btn" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu">
+  <div class="mm-top">
+    <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <button class="icon-btn menu-btn" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg></button>
+  </div>
+  <nav>
+    <a href="how-it-works.html">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="comparison.html">Compare</a>
+    <a href="blog.html">Writing</a>
+    <a href="about.html">About</a>
+    <a href="teardown.html">The Teardown</a>
+  </nav>
+  <div class="mm-cta">
+    <a href="teardown.html" class="btn btn-ghost">Start with a Teardown</a>
+    <a href="book-a-call.html" class="btn btn-primary">Book a 20-min fit call</a>
+  </div>
+</div>
+
+<main>
+<section class="page-hero center" style="padding-bottom:clamp(24px,4vw,40px)">
+  <div class="wrap">
+    <div class="article-hero">
+      <span class="post-cat">Decisions</span>
+      <h1>A big company self-hosted its AI coding model. Should you?</h1>
+      <div class="post-meta"><span>Nov 2026</span><span class="sep"></span><span>7 min read</span><span class="sep"></span><span>by The founder of Fraction</span></div>
+    </div>
+  </div>
+</section>
+<section class="section-tight" style="padding-top:8px">
+  <div class="wrap">
+    <div class="article-body reveal">
+<p>A large company says it cut its AI coding bill to a tenth by running an open-weight model on its own GPUs. Should your startup do the same? For almost every team under about fifty engineers, the answer is not yet. Self-hosting turns a variable bill into a fixed one, and fixed costs only pay off when enough people use them all day. At startup size, the better move is to get control of the bill you already have and keep the option open for later.</p>
+<p>The story that set this off was reported on 3 November 2026. <a href="https://analyticsindiamag.com/ai-news/europes-biggest-tech-startup-cuts-ai-coding-costs-by-90-using-chinese-model">Analytics India Magazine</a> covered a conference talk by Revolut&#39;s head of AI operations, who said the bank now serves most of its AI coding work from an open-weight GLM model running on its own dedicated GPUs, and that the invoice is roughly one-tenth of what it used to pay commercial providers. These are self-reported figures from a conference session, not an audited result, but the shape of the claim is believable. It is also a claim about a company with roughly 2,000 engineers using the system.</p>
+<p>Founders have started forwarding this kind of story to me with one line: &quot;should we be doing this?&quot; Here is how I think about it.</p>
+<h2>Why the economics work at Revolut&#39;s size</h2>
+<p>The reported setup is 56 high-end NVIDIA GPUs serving about 2,000 engineers. The important number is not the GPU count. It is the ratio. A dedicated GPU costs roughly the same whether it is busy or idle. When thousands of engineers send requests across the whole working day, the hardware stays busy, and the cost per request falls far below what a pay-per-token API charges.</p>
+<p>The article also notes that Revolut spent months tuning the serving stack, cutting response latency sharply while demand grew, without adding hardware. That is real engineering work by a dedicated team. It is part of the cost, even though it does not show up on the GPU invoice.</p>
+<p>Put simply, three things make self-hosting cheap at that scale:</p>
+<ul>
+<li><strong>High, steady utilisation.</strong> Many users across many time zones keep the hardware working.</li>
+<li><strong>A team to run it.</strong> People whose job is inference performance, uptime, and upgrades.</li>
+<li><strong>A bill large enough to matter.</strong> When individual engineers were reportedly spending thousands of dollars a month on API usage, a ten-times reduction pays for a lot of engineering time.</li>
+</ul>
+<h2>Why it usually does not work at startup size</h2>
+<p>Now take a typical seed or Series A team: six to fifteen engineers, mostly in one or two time zones, using an AI coding tool for part of the day.</p>
+<h3>You cannot buy a small slice of a cluster</h3>
+<p>Even a modest self-hosted setup for a capable coding model needs serious GPU memory. You pay for that whether your eight engineers are using it at 11am or asleep at 3am. A big company spreads that fixed cost over thousands of people. You spread it over eight, and most hours of the day it sits idle.</p>
+<h3>Somebody has to run it</h3>
+<p>Serving a large model well is its own discipline: batching, caching, quantisation, monitoring, upgrades when a better model version appears, and fixing it at the worst possible time. At a startup, that somebody is one of your product engineers. Every week they spend tuning inference is a week they are not shipping the product your customers pay for. I made the same argument for product features in <a href="/post-switch-to-open-weight-model">switching to an open-weight model</a>: the cost moves off an invoice you can read and onto engineering time you cannot.</p>
+<h3>Quality and tooling move fast</h3>
+<p>The commercial coding tools change constantly, and so do the open models. Today&#39;s best open-weight model may be overtaken in a few months, and the tools built around commercial models often get new capabilities first. A self-hosted setup commits you to doing your own upgrades on that cycle. I covered the general version of this in <a href="/post-ai-coding-tool-churn">your AI coding tool will change within a year</a>.</p>
+<h3>The bill may not be as big as it feels</h3>
+<p>For most early teams, AI coding spend is real but still small next to salaries. If ten engineers cost you several hundred thousand dollars a year, a coding-tool bill of a few thousand dollars a month is a line worth managing, not a line worth an infrastructure project.</p>
+<h2>A quick test: is your bill big enough to care?</h2>
+<p>Before anyone proposes self-hosting, answer three questions with real numbers.</p>
+<ol>
+<li><strong>What did you spend on AI coding tools and APIs last month, in total?</strong> Include seat licences, usage overages, and any API keys engineers use directly.</li>
+<li><strong>How is it trending?</strong> Flat, slowly rising, or doubling every quarter?</li>
+<li><strong>Who is driving it?</strong> Usually a small number of heavy users or one runaway workflow accounts for most of the spend.</li>
+</ol>
+<p>If the total is a small percentage of engineering payroll and roughly flat, stop here. Your problem is not infrastructure. If it is large and climbing fast, the next step is still usually not self-hosting. It is control. The <a href="/post-ai-coding-tool-bill">AI coding tool bill nobody budgeted for</a> walks through how that bill tends to grow.</p>
+<h2>What to do instead at startup size</h2>
+<h3>Get visibility first</h3>
+<p>Put every AI coding tool and API key on company accounts, with usage reporting turned on. Many teams find that one long-running agent loop or one engineer&#39;s experiment is behind a spike. You cannot optimise a bill you cannot see.</p>
+<h3>Set budgets, not bans</h3>
+<p>Revolut reportedly started with strict usage budgets too, well before it self-hosted. Per-person or per-team monthly limits with an easy way to request more keep costs predictable without slowing down the people getting real value.</p>
+<h3>Route by task, not by habit</h3>
+<p>Not every task needs the most expensive model. Autocomplete, simple refactors, and test generation often run fine on a cheaper tier. Hard debugging and design work may justify the top model. Most commercial tools now let you choose, and a hosted open-weight model from an inference provider gives you open-model pricing without running hardware.</p>
+<h3>Keep your workflow portable</h3>
+<p>Avoid building so much around one vendor&#39;s proprietary features that switching becomes a project. If your prompts, agent configurations, and review process can move between tools, you keep the option of self-hosting later, when the numbers justify it.</p>
+<h2>When self-hosting does start to make sense</h2>
+<p>There are real cases where it is worth considering earlier than the headcount suggests.</p>
+<ul>
+<li><strong>Data constraints.</strong> If customer contracts or regulation mean code or data cannot leave your own infrastructure, self-hosting may be a requirement, not an optimisation.</li>
+<li><strong>Very heavy, steady usage.</strong> If you run AI agents around the clock in your product or pipeline, utilisation can be high even with a small team.</li>
+<li><strong>You already run GPU infrastructure.</strong> If your product is built on your own models, the team and tooling exist, and coding workloads can share them.</li>
+</ul>
+<p>Even then, start with a hosted open-weight model on a managed inference provider. You get most of the price benefit, none of the hardware commitment, and a clear read on whether the model is good enough for your team&#39;s work before you buy anything.</p>
+<h2>What to tell your board if they ask</h2>
+<p>If an investor forwards the same story, a good answer is short: &quot;Our AI coding spend is X a month, about Y percent of engineering cost, and growing at Z. Self-hosting pays off at much larger scale because it is a fixed cost. We are controlling spend through budgets and model choice, and we keep our tooling portable so we can revisit at a larger team size.&quot; That answer shows you know your numbers and that you are not chasing a headline.</p>
+<p>If you want a second opinion on your AI tooling costs and whether the numbers point anywhere unusual, that is a common first conversation in a <a href="/pricing">fractional CTO engagement</a>. You can <a href="/book-a-call">book a call</a>, or start with a <a href="/teardown">technical teardown</a> of your current setup.</p>
+<h2>FAQ</h2>
+<h3>Is a Chinese open-weight model a security risk if we host it ourselves?</h3>
+<p>Running the weights on your own infrastructure means your prompts and code do not go to the model&#39;s creator. The remaining questions are about the model&#39;s behaviour and the licence terms, and you should review both. Some customers or regulators may have policies about model origin, so check your contracts before choosing one.</p>
+<h3>How many engineers do you need before self-hosting pays off?</h3>
+<p>There is no fixed number; it depends on usage intensity, the model size, and your hardware costs. For most companies it is in the hundreds of heavy daily users, not tens. Do the arithmetic with your own bill before assuming either way.</p>
+<h3>Can we use an open-weight model without running GPUs?</h3>
+<p>Yes. Several inference providers host popular open-weight models and charge per token, often much less than frontier APIs. That is usually the right first step for a startup curious about open models.</p>
+<h3>Will the quality be as good as the commercial tools?</h3>
+<p>For many routine coding tasks, current open models are competitive. For the hardest tasks, results vary. Test on your own codebase with your own engineers for two weeks before switching anything important.</p>
+
+    </div>
+    <div class="article-body">
+      <div class="author-card reveal">
+        <span class="ac-av">F</span>
+        <div>
+          <div class="ac-name">The founder of Fraction</div>
+          <div class="ac-bio">Built engineering teams from 2 to 30. Killed more bad rebuilds than I've greenlit. <a href="about.html" class="link-grow" style="font-size:0.96rem">More about me <span class="arrow">&rarr;</span></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" style="padding-top:clamp(32px,5vw,56px)">
+  <div class="wrap">
+    <div class="callout reveal" style="text-align:center">
+      <h3 style="margin-left:auto;margin-right:auto;max-width:22ch">Not sure the call you're about to make is the right one?</h3>
+      <p style="margin:0 auto 26px">That's exactly what a 20-minute fit call is for &mdash; or a two-week Teardown if you'd rather start with a written verdict.</p>
+      <div class="ph-cta" style="justify-content:center">
+        <a href="book-a-call.html" class="btn btn-accent">Book a fit call <span class="arrow">&rarr;</span></a>
+        <a href="teardown.html" class="link-grow" style="color:#fff">Start with a Teardown <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap-wide">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#14140F"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+        <p style="color:var(--grey-2); max-width:30ch; margin-top:18px; font-size:0.96rem; line-height:1.5">Senior technical leadership for founders who aren't ready for a full-time CTO — and shouldn't hire one yet.</p>
+      </div>
+      <div><h5>Service</h5><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="comparison.html">Fractional vs full-time</a></li><li><a href="teardown.html">The Tech Teardown</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="blog.html">Writing</a></li><li><a href="book-a-call.html">Book a call</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+      <div><h5>Start here</h5><ul><li><a href="book-a-call.html">Book a 20-min fit call</a></li><li><a href="teardown.html">Start with a Teardown</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Fraction · <a href="https://getfractioncto.com">getfractioncto.com</a> — no contract, no equity, cancel anytime.</span>
+      <span>Built on judgment, not hours.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="motion.js"></script>
+</body>
+</html>
