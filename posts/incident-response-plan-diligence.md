@@ -11,7 +11,7 @@ description: >-
   one page, five parts, and one tabletop exercise.
 author: The founder of Fraction
 readTime: 5
-draft: false
+draft: true
 ---
 
 The diligence request list has a line that reads "incident response plan", and you do not have one. You have a Slack channel called #incidents, an engineer who usually knows what to do, and a vague memory of an outage last spring. That is not nothing, but it is not a plan, and a reviewer can tell the difference.

@@ -11,7 +11,7 @@ description: >-
   and use one slide with cause, change and impact.
 author: The founder of Fraction
 readTime: 6
-draft: false
+draft: true
 ---
 
 The launch you promised the board for this quarter is not going to happen. You found out three weeks ago, the board meeting is in nine days, and the deck still shows the old date. Most founders in this spot do one of two things: they quietly move the date on a slide and hope nobody asks, or they open the meeting with a long apology. Both cost more trust than the slip itself.
