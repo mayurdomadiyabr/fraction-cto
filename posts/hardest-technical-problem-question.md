@@ -11,7 +11,7 @@ description: >-
   honestly, including when your product is not technically hard.
 author: The founder of Fraction
 readTime: 5
-draft: true
+draft: false
 ---
 
 Somewhere in your raise, an investor will lean back and ask: "What is the hardest technical problem you have solved?" Or its cousin: "What is technically hard about this?" Founders tend to hear it as a test of whether the company has a technical moat, and they reach for the most impressive-sounding answer available. That is usually the wrong move.
