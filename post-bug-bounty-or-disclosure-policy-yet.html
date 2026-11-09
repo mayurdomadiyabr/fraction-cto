@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Do you need a bug bounty yet? Start with a disclosure policy — Fraction</title>
+  <meta name="description" content="Why early startups should publish a vulnerability disclosure policy and security.txt before paying for a bug bounty." />
+  <meta name="theme-color" content="#FAFAF9" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Fraction" />
+  <meta property="og:title" content="Do you need a bug bounty yet? Start with a disclosure policy — Fraction" />
+  <meta property="og:description" content="Why early startups should publish a vulnerability disclosure policy and security.txt before paying for a bug bounty." />
+  <meta property="og:url" content="https://getfractioncto.com/post-bug-bounty-or-disclosure-policy-yet" />
+  <meta property="og:image" content="https://getfractioncto.com/og-image.png" />
+  <meta property="article:published_time" content="2026-11-09T04:11:22.402Z" />
+  <meta property="article:author" content="The founder of Fraction" />
+  <meta property="article:section" content="Knowing when" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Do you need a bug bounty yet? Start with a disclosure policy — Fraction" />
+  <meta name="twitter:description" content="Why early startups should publish a vulnerability disclosure policy and security.txt before paying for a bug bounty." />
+  <meta name="twitter:image" content="https://getfractioncto.com/og-image.png" />
+  <link rel="canonical" href="https://getfractioncto.com/post-bug-bounty-or-disclosure-policy-yet" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script src="/analytics.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Do you need a bug bounty yet? Start with a disclosure policy",
+  "description": "Why early startups should publish a vulnerability disclosure policy and security.txt before paying for a bug bounty.",
+  "datePublished": "2026-11-09T04:11:22.402Z",
+  "dateModified": "2026-11-09T04:11:22.402Z",
+  "author": {
+    "@type": "Person",
+    "name": "The founder of Fraction",
+    "url": "https://getfractioncto.com/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fraction",
+    "url": "https://getfractioncto.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://getfractioncto.com/og-image.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://getfractioncto.com/post-bug-bounty-or-disclosure-policy-yet"
+  },
+  "image": "https://getfractioncto.com/og-image.png",
+  "articleSection": "Knowing when",
+  "wordCount": 1212,
+  "inLanguage": "en",
+  "isAccessibleForFree": true
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home",   "item": "https://getfractioncto.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Writing","item": "https://getfractioncto.com/blog" },
+    { "@type": "ListItem", "position": 3, "name": "Do you need a bug bounty yet? Start with a disclosure policy", "item": "https://getfractioncto.com/post-bug-bounty-or-disclosure-policy-yet" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Fraction home"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <ul class="nav-links">
+      <li><a href="how-it-works.html">How it works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="comparison.html">Compare</a></li>
+      <li><a href="blog.html" class="active">Writing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="teardown.html">The Teardown <span class="accent-dot"></span></a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke-linecap="round"/></svg></button>
+      <button class="icon-btn" aria-label="Toggle theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M21.5 12h-2.2M4.7 12H2.5M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6M18.4 18.4l-1.6-1.6M7.2 7.2 5.6 5.6" stroke-linecap="round"/></svg></button>
+      <a href="book-a-call.html" class="btn btn-primary nav-cta">Book a fit call</a>
+      <button class="icon-btn menu-btn" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu">
+  <div class="mm-top">
+    <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <button class="icon-btn menu-btn" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg></button>
+  </div>
+  <nav>
+    <a href="how-it-works.html">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="comparison.html">Compare</a>
+    <a href="blog.html">Writing</a>
+    <a href="about.html">About</a>
+    <a href="teardown.html">The Teardown</a>
+  </nav>
+  <div class="mm-cta">
+    <a href="teardown.html" class="btn btn-ghost">Start with a Teardown</a>
+    <a href="book-a-call.html" class="btn btn-primary">Book a 20-min fit call</a>
+  </div>
+</div>
+
+<main>
+<section class="page-hero center" style="padding-bottom:clamp(24px,4vw,40px)">
+  <div class="wrap">
+    <div class="article-hero">
+      <span class="post-cat">Knowing when</span>
+      <h1>Do you need a bug bounty yet? Start with a disclosure policy</h1>
+      <div class="post-meta"><span>Nov 2026</span><span class="sep"></span><span>6 min read</span><span class="sep"></span><span>by The founder of Fraction</span></div>
+    </div>
+  </div>
+</section>
+<section class="section-tight" style="padding-top:8px">
+  <div class="wrap">
+    <div class="article-body reveal">
+<p>Short answer: most early-stage startups do not need a paid bug bounty yet. What you do need, as soon as you have a public product, is a simple vulnerability disclosure page and a security.txt file that tell a researcher how to report a problem and promise a human reply. A bounty only makes sense once you can fix reported issues quickly and have already cleaned up the obvious ones.</p>
+<p>Founders usually ask about bug bounties after one of two things happens. Either a stranger emails support with &quot;I found a security issue, what is your bounty?&quot;, or a customer&#39;s security questionnaire asks whether they have a vulnerability disclosure program. Both are good reasons to act. Neither is a reason to launch a paid program next week.</p>
+<h2>The difference between disclosure and a bounty</h2>
+<p>A vulnerability disclosure policy is a public statement of how to report a security problem to you, what you will do with the report, and that you will not take legal action against people who report in good faith within the rules. It costs nothing but a page and an inbox someone actually reads.</p>
+<p>A bug bounty adds payment. You publish a scope, a reward table, and rules, and researchers compete to find issues for money. It can be run yourself or through a platform. It works well for companies that can triage a steady stream of reports and fix the valid ones fast.</p>
+<p>The order matters. A disclosure policy is the floor. A bounty is something you add on top when you are ready.</p>
+<h2>Why a bounty is usually premature</h2>
+<h3>You will pay for the obvious findings</h3>
+<p>An early product almost always has a backlog of known weaknesses: missing security headers, verbose error messages, weak rate limits, an admin page that leaks too much. Opening a bounty before fixing these means paying strangers to tell you what a one-day internal review would have found. Run a basic review first. I covered what that looks like before a raise in <a href="/post-pentest-before-raise">do you need a pen test before you raise</a>.</p>
+<h3>The report volume can swamp a small team</h3>
+<p>Public bounties attract a lot of low-quality and automated submissions alongside the real ones. Someone has to read each one, reproduce it, decide if it is valid, and reply. On a team of three engineers, that can eat a meaningful slice of a week. If nobody owns triage, reports pile up, researchers get frustrated, and you get the worst of both worlds.</p>
+<h3>Fixing is the real cost</h3>
+<p>A bounty is only worth it if valid findings get fixed. If your team cannot ship a security fix within days, a stream of findings becomes a list of known holes sitting in an inbox. That is worse than not knowing, because now there is a record that you knew.</p>
+<h2>What to set up now</h2>
+<h3>A security.txt file</h3>
+<p>RFC 9116 defines a small text file at /.well-known/security.txt on your domain. It tells researchers where to send reports. It has two required fields: Contact, which is an email address or web form, and Expires, a date after which the file should be treated as stale. Optional fields include a link to your policy and preferred languages. It takes ten minutes to publish. Put a calendar reminder to update the Expires date before it lapses.</p>
+<h3>A short disclosure policy page</h3>
+<p>Keep it to one screen. It should say:</p>
+<ul>
+<li>How to report: a dedicated address such as a security alias, not general support.</li>
+<li>What is in scope: your main app and API, and anything you want excluded, such as third-party services you do not run.</li>
+<li>What is not allowed: accessing other customers&#39; data beyond what is needed to show the issue, denial-of-service testing, social engineering of staff.</li>
+<li>What you promise: an acknowledgement within a stated number of business days, and that you will not pursue legal action against good-faith research that follows the rules.</li>
+<li>That you do not currently pay rewards, if that is true. Saying so up front avoids awkward negotiations later.</li>
+</ul>
+<p>Public templates exist for this, including one published by the US cybersecurity agency CISA for government bodies, which is a reasonable starting point to adapt with your counsel.</p>
+<h3>One owner and one inbox</h3>
+<p>Route the security alias to at least two people, one of them technical. Decide who replies and how fast. A researcher who gets a human reply in two days usually stays cooperative. One who hears nothing for a month may publish.</p>
+<h2>When a bounty starts to make sense</h2>
+<ul>
+<li>You have fixed the findings from at least one internal or external review.</li>
+<li>You have someone who can triage reports every week without it displacing core work.</li>
+<li>You can ship a security fix within a few days of confirming it.</li>
+<li>You are getting a steady trickle of good-faith reports through your disclosure page and want to encourage more.</li>
+<li>Your customers or market expect it. Some security-conscious buyers look for one.</li>
+</ul>
+<p>A sensible middle step is a private program, invited researchers only, often run through a platform, before going public. It keeps volume manageable while you learn how to handle reports.</p>
+<h2>How to handle &quot;what is your bounty?&quot; emails today</h2>
+<p>These arrive at almost every company with a public website. Many are low-effort scanner output sent to hundreds of companies in the hope of payment. Some are real.</p>
+<p>Reply politely, point to your disclosure policy, say you do not run a paid program, and ask for the details and steps to reproduce. Then actually check the report. Do not pay for findings under pressure, and do not ignore a report because the first message was pushy. If it turns out to be real and serious, fix it, thank the person, and consider a modest thank-you payment at your discretion if your policy allows.</p>
+<p>If it involves customer data being exposed, treat it as an incident, not a support ticket. A one-page incident plan helps here, see <a href="/post-incident-response-plan-diligence">diligence asks for your incident response plan</a>. If you sell into the EU, also check whether the new reporting duties under the Cyber Resilience Act apply to you, covered in <a href="/post-eu-cra-24-hour-reporting">the EU&#39;s 24-hour vulnerability clock</a>.</p>
+<h2>FAQ</h2>
+<h3>Does having a disclosure policy invite attacks?</h3>
+<p>No. People already probe public products. A policy gives the good-faith ones a way to tell you, instead of posting it publicly or giving up.</p>
+<h3>Will security questionnaires accept a policy without a bounty?</h3>
+<p>In my experience most early-stage reviews ask whether you have a disclosure process, not whether you pay. A published policy and security.txt usually satisfy that question. The broader questionnaire problem is in <a href="/post-security-questionnaire-deal">the security questionnaire that stalls your biggest deal</a>.</p>
+<h3>Should we use a bug bounty platform?</h3>
+<p>Only once you are ready for a bounty. Platforms help with triage and payments, but they do not fix the underlying need for an owner and fast fixes.</p>
+<h3>Can we add a bounty later without changing the policy?</h3>
+<p>Yes. Write the policy so rewards are a separate section you can add when you are ready.</p>
+<p>If you want help deciding what your security setup should look like for your stage, a <a href="/teardown">technical teardown</a> covers it, or <a href="/book-a-call">book a call</a>.</p>
+
+    </div>
+    <div class="article-body">
+      <div class="author-card reveal">
+        <span class="ac-av">F</span>
+        <div>
+          <div class="ac-name">The founder of Fraction</div>
+          <div class="ac-bio">Built engineering teams from 2 to 30. Killed more bad rebuilds than I've greenlit. <a href="about.html" class="link-grow" style="font-size:0.96rem">More about me <span class="arrow">&rarr;</span></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" style="padding-top:clamp(32px,5vw,56px)">
+  <div class="wrap">
+    <div class="callout reveal" style="text-align:center">
+      <h3 style="margin-left:auto;margin-right:auto;max-width:22ch">Not sure the call you're about to make is the right one?</h3>
+      <p style="margin:0 auto 26px">That's exactly what a 20-minute fit call is for &mdash; or a two-week Teardown if you'd rather start with a written verdict.</p>
+      <div class="ph-cta" style="justify-content:center">
+        <a href="book-a-call.html" class="btn btn-accent">Book a fit call <span class="arrow">&rarr;</span></a>
+        <a href="teardown.html" class="link-grow" style="color:#fff">Start with a Teardown <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap-wide">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#14140F"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+        <p style="color:var(--grey-2); max-width:30ch; margin-top:18px; font-size:0.96rem; line-height:1.5">Senior technical leadership for founders who aren't ready for a full-time CTO — and shouldn't hire one yet.</p>
+      </div>
+      <div><h5>Service</h5><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="comparison.html">Fractional vs full-time</a></li><li><a href="teardown.html">The Tech Teardown</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="blog.html">Writing</a></li><li><a href="book-a-call.html">Book a call</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+      <div><h5>Start here</h5><ul><li><a href="book-a-call.html">Book a 20-min fit call</a></li><li><a href="teardown.html">Start with a Teardown</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Fraction · <a href="https://getfractioncto.com">getfractioncto.com</a> — no contract, no equity, cancel anytime.</span>
+      <span>Built on judgment, not hours.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="motion.js"></script>
+</body>
+</html>
