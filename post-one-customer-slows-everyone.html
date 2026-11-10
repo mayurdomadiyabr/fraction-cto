@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>One customer&#39;s script slows the app for everyone else — Fraction</title>
+  <meta name="description" content="Why multi-tenant apps get noisy neighbors, where it starts, and the per-customer limits, queues and metrics that fix it." />
+  <meta name="theme-color" content="#FAFAF9" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Fraction" />
+  <meta property="og:title" content="One customer&#39;s script slows the app for everyone else — Fraction" />
+  <meta property="og:description" content="Why multi-tenant apps get noisy neighbors, where it starts, and the per-customer limits, queues and metrics that fix it." />
+  <meta property="og:url" content="https://getfractioncto.com/post-one-customer-slows-everyone" />
+  <meta property="og:image" content="https://getfractioncto.com/og-image.png" />
+  <meta property="article:published_time" content="2026-11-10T02:45:13.054Z" />
+  <meta property="article:author" content="The founder of Fraction" />
+  <meta property="article:section" content="Pattern recognition" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="One customer&#39;s script slows the app for everyone else — Fraction" />
+  <meta name="twitter:description" content="Why multi-tenant apps get noisy neighbors, where it starts, and the per-customer limits, queues and metrics that fix it." />
+  <meta name="twitter:image" content="https://getfractioncto.com/og-image.png" />
+  <link rel="canonical" href="https://getfractioncto.com/post-one-customer-slows-everyone" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script src="/analytics.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "One customer&#39;s script slows the app for everyone else",
+  "description": "Why multi-tenant apps get noisy neighbors, where it starts, and the per-customer limits, queues and metrics that fix it.",
+  "datePublished": "2026-11-10T02:45:13.054Z",
+  "dateModified": "2026-11-10T02:45:13.054Z",
+  "author": {
+    "@type": "Person",
+    "name": "The founder of Fraction",
+    "url": "https://getfractioncto.com/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fraction",
+    "url": "https://getfractioncto.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://getfractioncto.com/og-image.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://getfractioncto.com/post-one-customer-slows-everyone"
+  },
+  "image": "https://getfractioncto.com/og-image.png",
+  "articleSection": "Pattern recognition",
+  "wordCount": 1150,
+  "inLanguage": "en",
+  "isAccessibleForFree": true
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home",   "item": "https://getfractioncto.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Writing","item": "https://getfractioncto.com/blog" },
+    { "@type": "ListItem", "position": 3, "name": "One customer&#39;s script slows the app for everyone else", "item": "https://getfractioncto.com/post-one-customer-slows-everyone" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Fraction home"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <ul class="nav-links">
+      <li><a href="how-it-works.html">How it works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="comparison.html">Compare</a></li>
+      <li><a href="blog.html" class="active">Writing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="teardown.html">The Teardown <span class="accent-dot"></span></a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke-linecap="round"/></svg></button>
+      <button class="icon-btn" aria-label="Toggle theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M21.5 12h-2.2M4.7 12H2.5M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6M18.4 18.4l-1.6-1.6M7.2 7.2 5.6 5.6" stroke-linecap="round"/></svg></button>
+      <a href="book-a-call.html" class="btn btn-primary nav-cta">Book a fit call</a>
+      <button class="icon-btn menu-btn" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu">
+  <div class="mm-top">
+    <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <button class="icon-btn menu-btn" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg></button>
+  </div>
+  <nav>
+    <a href="how-it-works.html">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="comparison.html">Compare</a>
+    <a href="blog.html">Writing</a>
+    <a href="about.html">About</a>
+    <a href="teardown.html">The Teardown</a>
+  </nav>
+  <div class="mm-cta">
+    <a href="teardown.html" class="btn btn-ghost">Start with a Teardown</a>
+    <a href="book-a-call.html" class="btn btn-primary">Book a 20-min fit call</a>
+  </div>
+</div>
+
+<main>
+<section class="page-hero center" style="padding-bottom:clamp(24px,4vw,40px)">
+  <div class="wrap">
+    <div class="article-hero">
+      <span class="post-cat">Pattern recognition</span>
+      <h1>One customer&#39;s script slows the app for everyone else</h1>
+      <div class="post-meta"><span>Nov 2026</span><span class="sep"></span><span>5 min read</span><span class="sep"></span><span>by The founder of Fraction</span></div>
+    </div>
+  </div>
+</section>
+<section class="section-tight" style="padding-top:8px">
+  <div class="wrap">
+    <div class="article-body reveal">
+<p>If one customer&#39;s import, integration or script can make your app slow for every other customer, you have a noisy-neighbor problem, and it will get worse as you win bigger accounts. The fix at startup scale is not a new architecture. It is per-customer limits on the expensive paths, moving heavy work into a queue that one customer cannot monopolize, and dashboards that show load by customer so you can see who is causing it.</p>
+<p>This pattern usually shows up the same way. Support gets a wave of &quot;the app is slow&quot; tickets from several customers at once. Engineering looks at the servers and finds them maxed out. An hour later someone notices that one customer started a bulk import, connected a new integration, or wrote a script that calls your API in a tight loop.</p>
+<h2>Why shared systems make this inevitable</h2>
+<p>Most early-stage products are multi-tenant: every customer shares the same servers, the same database and the same background workers. That is the right choice. It is cheaper and simpler than giving each customer their own copy.</p>
+<p>The trade-off is that shared resources have no idea who is using them. Without limits, the customer who sends the most work gets the most capacity, and everyone else waits. Small customers feel it first, because their normal, light usage suddenly gets slow for reasons they cannot see.</p>
+<p>The risk grows with success. Your first enterprise-size customer often has ten or a hundred times the data of your average account. Their routine operations are someone else&#39;s outage.</p>
+<h2>Where it usually starts</h2>
+<p>In the codebases I review, the same few paths cause most noisy-neighbor incidents.</p>
+<h3>Bulk imports and exports</h3>
+<p>A customer uploads a large spreadsheet or asks for a full export. The work runs inside a web request or on the same workers that handle everyone&#39;s background jobs. It eats the database and the job queue for an hour.</p>
+<h3>Public API without per-customer limits</h3>
+<p>You gave customers an API, which is good. But the only limit is the server&#39;s capacity. One customer&#39;s integration retries aggressively on errors, so a small problem becomes a flood. If you are still deciding whether to offer an API, <a href="/post-should-you-build-an-api">read this first</a>.</p>
+<h3>Reports and searches over large accounts</h3>
+<p>A dashboard that is instant for a customer with 2,000 records takes a minute for a customer with 2 million, and it holds database resources the whole time. This is a close cousin of the <a href="/post-list-page-loads-every-row">list page that loads every row</a>.</p>
+<h3>Webhooks and sync jobs</h3>
+<p>An integration partner sends a burst of events, or a sync job for one customer re-processes everything after an error. All of it lands on shared workers.</p>
+<h2>The fixes, in the order I would do them</h2>
+<p>You do not need to rebuild into separate infrastructure per customer. Most of the benefit comes from a few targeted changes.</p>
+<h3>1. Measure load per customer</h3>
+<p>Before changing anything, add the customer or account ID to your logs and metrics for requests, background jobs and slow queries. Then you can answer the first question in any incident: who is causing this? Without it, every slowdown is a guessing game.</p>
+<h3>2. Add per-customer rate limits on the expensive paths</h3>
+<p>Put limits on API requests per customer, not just per server. Start generous, so normal customers never notice, and return a clear error with a retry hint when a limit is hit. Cloud API gateways support this directly; the AWS partner blog has a <a href="https://aws.amazon.com/blogs/apn/enabling-tiering-and-throttling-in-a-multi-tenant-amazon-eks-saas-solution-using-amazon-api-gateway">worked example of per-tenant throttling</a> using usage plans and per-tenant keys. Whether you use a gateway or a few lines in your app matters less than having the limit.</p>
+<h3>3. Move heavy work off the web request</h3>
+<p>Imports, exports, large reports and bulk updates should run as background jobs, not inside the request. The user gets a &quot;we will email you when it is ready&quot; message instead of a spinner that ties up a server.</p>
+<h3>4. Make the queue fair</h3>
+<p>Moving work to a queue only helps if one customer cannot fill it. Simple approaches: cap how many jobs one customer can run at once, process large jobs in chunks, or give big bulk work its own lower-priority queue so it never blocks everyone&#39;s small, urgent jobs.</p>
+<h3>5. Set expectations in your plans</h3>
+<p>Once limits exist, write them into your pricing tiers and documentation. Larger customers who genuinely need more capacity can buy it. This turns a technical constraint into an honest commercial conversation instead of an outage.</p>
+<h2>What it costs to fix</h2>
+<p>For a typical early-stage product, the first three steps are a few days to two weeks of focused engineering work, depending on how much heavy work currently runs inside web requests. Fair queuing and tiered limits are another week or two. These are judgment-based ranges from the teams I have worked with, not a benchmark.</p>
+<p>Compare that with the cost of losing a few smaller customers because the app keeps slowing down, or of an enterprise customer&#39;s import taking the product down during a sales demo.</p>
+<h2>When it is a sign of something bigger</h2>
+<p>Sometimes the noisy neighbor is a symptom of a deeper design issue: every customer&#39;s data in tables with no account-level indexes, reports computed on every page load, or no way to tell which customer a job belongs to. If you cannot answer &quot;who caused the last slowdown&quot; within an hour, the gap is observability and data design, not just limits. It is also worth checking <a href="/post-tenant-isolation-by-memory">what keeps each customer&#39;s data apart</a> while you are in there.</p>
+<p>A short outside review can tell you whether limits and queues are enough or whether a bigger change is coming. Our <a href="/teardown">technical teardown</a> looks at exactly these shared paths.</p>
+<h2>FAQ</h2>
+<h3>What is a noisy neighbor in SaaS?</h3>
+<p>It is when one customer&#39;s heavy usage of shared servers, databases or queues slows the product down for other customers. It is normal in multi-tenant products and is managed with per-customer limits, fair queues and monitoring.</p>
+<h3>Do we need separate infrastructure for big customers?</h3>
+<p>Usually not at first. Per-customer limits and fair background queues handle most cases. Dedicated infrastructure for a few very large customers can make sense later, and it should be priced into their contract.</p>
+<h3>Will rate limits annoy our customers?</h3>
+<p>Not if they are set well above normal usage and return clear errors. Most customers never hit them. The ones who do are usually running scripts or integrations that should be paced anyway.</p>
+<h3>How do I know if we have this problem?</h3>
+<p>Look at your last few slowdowns. If several customers complained at once and the cause turned out to be one account&#39;s activity, you have it. If you could not find the cause at all, you probably have it and cannot see it yet. <a href="/book-a-call">Book a call</a> if you want help working out which.</p>
+
+    </div>
+    <div class="article-body">
+      <div class="author-card reveal">
+        <span class="ac-av">F</span>
+        <div>
+          <div class="ac-name">The founder of Fraction</div>
+          <div class="ac-bio">Built engineering teams from 2 to 30. Killed more bad rebuilds than I've greenlit. <a href="about.html" class="link-grow" style="font-size:0.96rem">More about me <span class="arrow">&rarr;</span></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" style="padding-top:clamp(32px,5vw,56px)">
+  <div class="wrap">
+    <div class="callout reveal" style="text-align:center">
+      <h3 style="margin-left:auto;margin-right:auto;max-width:22ch">Not sure the call you're about to make is the right one?</h3>
+      <p style="margin:0 auto 26px">That's exactly what a 20-minute fit call is for &mdash; or a two-week Teardown if you'd rather start with a written verdict.</p>
+      <div class="ph-cta" style="justify-content:center">
+        <a href="book-a-call.html" class="btn btn-accent">Book a fit call <span class="arrow">&rarr;</span></a>
+        <a href="teardown.html" class="link-grow" style="color:#fff">Start with a Teardown <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap-wide">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#14140F"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+        <p style="color:var(--grey-2); max-width:30ch; margin-top:18px; font-size:0.96rem; line-height:1.5">Senior technical leadership for founders who aren't ready for a full-time CTO — and shouldn't hire one yet.</p>
+      </div>
+      <div><h5>Service</h5><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="comparison.html">Fractional vs full-time</a></li><li><a href="teardown.html">The Tech Teardown</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="blog.html">Writing</a></li><li><a href="book-a-call.html">Book a call</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+      <div><h5>Start here</h5><ul><li><a href="book-a-call.html">Book a 20-min fit call</a></li><li><a href="teardown.html">Start with a Teardown</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Fraction · <a href="https://getfractioncto.com">getfractioncto.com</a> — no contract, no equity, cancel anytime.</span>
+      <span>Built on judgment, not hours.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="motion.js"></script>
+</body>
+</html>
