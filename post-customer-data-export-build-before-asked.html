@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>A customer asks for all their data. Build export before they do — Fraction</title>
+  <meta name="description" content="Why to build a full customer data export early: GDPR portability, EU Data Act switching, what to include, and cost." />
+  <meta name="theme-color" content="#FAFAF9" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Fraction" />
+  <meta property="og:title" content="A customer asks for all their data. Build export before they do — Fraction" />
+  <meta property="og:description" content="Why to build a full customer data export early: GDPR portability, EU Data Act switching, what to include, and cost." />
+  <meta property="og:url" content="https://getfractioncto.com/post-customer-data-export-build-before-asked" />
+  <meta property="og:image" content="https://getfractioncto.com/og-image.png" />
+  <meta property="article:published_time" content="2026-11-11T04:03:56.782Z" />
+  <meta property="article:author" content="The founder of Fraction" />
+  <meta property="article:section" content="Decisions" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="A customer asks for all their data. Build export before they do — Fraction" />
+  <meta name="twitter:description" content="Why to build a full customer data export early: GDPR portability, EU Data Act switching, what to include, and cost." />
+  <meta name="twitter:image" content="https://getfractioncto.com/og-image.png" />
+  <link rel="canonical" href="https://getfractioncto.com/post-customer-data-export-build-before-asked" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script src="/analytics.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "A customer asks for all their data. Build export before they do",
+  "description": "Why to build a full customer data export early: GDPR portability, EU Data Act switching, what to include, and cost.",
+  "datePublished": "2026-11-11T04:03:56.782Z",
+  "dateModified": "2026-11-11T04:03:56.782Z",
+  "author": {
+    "@type": "Person",
+    "name": "The founder of Fraction",
+    "url": "https://getfractioncto.com/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fraction",
+    "url": "https://getfractioncto.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://getfractioncto.com/og-image.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://getfractioncto.com/post-customer-data-export-build-before-asked"
+  },
+  "image": "https://getfractioncto.com/og-image.png",
+  "articleSection": "Decisions",
+  "wordCount": 1148,
+  "inLanguage": "en",
+  "isAccessibleForFree": true
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home",   "item": "https://getfractioncto.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Writing","item": "https://getfractioncto.com/blog" },
+    { "@type": "ListItem", "position": 3, "name": "A customer asks for all their data. Build export before they do", "item": "https://getfractioncto.com/post-customer-data-export-build-before-asked" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Fraction home"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <ul class="nav-links">
+      <li><a href="how-it-works.html">How it works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="comparison.html">Compare</a></li>
+      <li><a href="blog.html" class="active">Writing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="teardown.html">The Teardown <span class="accent-dot"></span></a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke-linecap="round"/></svg></button>
+      <button class="icon-btn" aria-label="Toggle theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M21.5 12h-2.2M4.7 12H2.5M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6M18.4 18.4l-1.6-1.6M7.2 7.2 5.6 5.6" stroke-linecap="round"/></svg></button>
+      <a href="book-a-call.html" class="btn btn-primary nav-cta">Book a fit call</a>
+      <button class="icon-btn menu-btn" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu">
+  <div class="mm-top">
+    <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <button class="icon-btn menu-btn" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg></button>
+  </div>
+  <nav>
+    <a href="how-it-works.html">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="comparison.html">Compare</a>
+    <a href="blog.html">Writing</a>
+    <a href="about.html">About</a>
+    <a href="teardown.html">The Teardown</a>
+  </nav>
+  <div class="mm-cta">
+    <a href="teardown.html" class="btn btn-ghost">Start with a Teardown</a>
+    <a href="book-a-call.html" class="btn btn-primary">Book a 20-min fit call</a>
+  </div>
+</div>
+
+<main>
+<section class="page-hero center" style="padding-bottom:clamp(24px,4vw,40px)">
+  <div class="wrap">
+    <div class="article-hero">
+      <span class="post-cat">Decisions</span>
+      <h1>A customer asks for all their data. Build export before they do</h1>
+      <div class="post-meta"><span>Nov 2026</span><span class="sep"></span><span>5 min read</span><span class="sep"></span><span>by The founder of Fraction</span></div>
+    </div>
+  </div>
+</section>
+<section class="section-tight" style="padding-top:8px">
+  <div class="wrap">
+    <div class="article-body reveal">
+<p>Sooner or later a customer asks for all of their data. Sometimes they are leaving, sometimes their own auditor wants it, sometimes a larger buyer will not sign without knowing they can get out. The right move for most early B2B products is to build a plain, self-serve full export before the first request arrives: one button, standard formats, complete data. It is cheap to build early, expensive to improvise under deadline, and increasingly a legal expectation rather than a courtesy.</p>
+<p>This is not legal advice; check your obligations with a lawyer for your markets. But the engineering decision is clear enough to make now.</p>
+<h2>Why the first request is always a fire drill</h2>
+<p>Without an export feature, the first request lands on an engineer as a one-off job. They write queries against production, discover that half the data lives in a different service, that file attachments are in object storage with no customer mapping, and that some fields only make sense with lookups to other tables. A week later the customer gets a zip of CSVs with internal IDs nobody can interpret.</p>
+<p>Then the second customer asks, and the script no longer matches the schema.</p>
+<p>A one-off export also creates risk. A hurried query that joins on the wrong tenant column can send one customer another customer&#39;s records. If your isolation depends on every query remembering a filter, my notes on <a href="/post-tenant-isolation-by-memory">how tenant data stays apart</a> are worth reading before anyone writes that script.</p>
+<h2>The legal pressure is growing</h2>
+<p>Two sets of rules matter for many startups selling into Europe:</p>
+<ul>
+<li><strong>GDPR data portability.</strong> Article 20 gives individuals the right to receive personal data they provided in a structured, commonly used and machine-readable format. Article 12 expects a response without undue delay and in any event within one month, extendable in some cases. If your users are individuals, or your customers&#39; end users are, you need a way to produce this.</li>
+<li><strong>The EU Data Act and switching.</strong> The Data Act has applied since 12 September 2025 and includes rules on switching between data processing services, which commentators read as covering a wide range of cloud and SaaS offerings. Providers must support customers moving their data and digital assets to another provider, and per law-firm summaries such as <a href="https://www.pinsentmasons.com/out-law/guides/switching-porting-rules-eu-data-act">Pinsent Masons&#39; guide</a>, switching charges are capped at cost until 12 January 2027 and then generally prohibited.</li>
+</ul>
+<p>Whether and how these apply to you depends on what you sell and to whom. The practical takeaway does not: a customer&#39;s ability to take their data out is becoming a product requirement, and contracts with larger buyers increasingly ask for it in writing.</p>
+<h2>What a good export looks like</h2>
+<h3>Complete</h3>
+<p>Every object a customer created or uploaded: records, comments, history where it matters, settings, user lists, and files. If you leave out attachments because they are harder, the export fails the one test that matters: could the customer actually move to another tool with it?</p>
+<h3>Readable without your code</h3>
+<p>Use standard formats. CSV for tabular data, JSON for nested structures, original files for attachments. Replace internal IDs with readable references where you can, or include the lookup tables. Add a short README in the export explaining each file.</p>
+<h3>Self-serve, with sensible limits</h3>
+<p>An admin should be able to start an export from settings and get a download link by email when it is ready. Generate it as a background job, not a request that times out. Rate-limit it, log who requested it, and expire download links after a set period.</p>
+<h3>Secure</h3>
+<p>A full export is the most sensitive file your product produces. Restrict it to admins, require a recent sign-in, notify other admins when an export is requested, and store generated files encrypted with short retention. Your <a href="/post-data-retention-policy-yet">data retention rules</a> should cover export files too.</p>
+<h2>How much it costs to build</h2>
+<p>For a typical early B2B product with one main database and object storage, a first full export is usually a small project: a background job that walks each table by tenant, writes files, zips them with attachments, and emails a link. In my experience, a competent engineer can ship a solid first version in one to two weeks; that is a judgment from projects I have seen, not a benchmark. The cost rises sharply if your data is spread across several services with no consistent tenant key, which is itself a finding worth knowing about.</p>
+<p>Two design choices keep it cheap long term:</p>
+<ol>
+<li><strong>Generate the export from the same data model your app uses</strong>, not a hand-written list of tables. New tables should show up in the export by default, or fail a test if they are not mapped.</li>
+<li><strong>Test it.</strong> Add an automated test that creates a sample tenant, runs an export, and checks the output contains every object type. Exports rot quietly when nobody uses them for months.</li>
+</ol>
+<h2>Export is also a sales and diligence asset</h2>
+<p>Enterprise buyers ask about exit in security questionnaires and contract negotiations. Saying &quot;admins can export everything, in standard formats, from settings&quot; closes that question in one line. Investors doing diligence ask similar questions about <a href="/post-customer-data-location-diligence">where customer data lives</a> and how it can be retrieved. A working export is evidence of a data model you understand.</p>
+<p>There is a counterintuitive commercial effect too. Making it easy to leave reduces the fear of signing. Founders worry an export button increases churn. In practice customers who want to leave will leave anyway; the export decides whether they leave angry and tell people.</p>
+<h2>What to skip in the first version</h2>
+<ul>
+<li><strong>Scheduled exports and direct pushes to warehouses.</strong> Useful later, not needed now.</li>
+<li><strong>Import from your own export format.</strong> Nice for round-tripping, rarely requested early.</li>
+<li><strong>Per-field selection.</strong> Export everything; let the customer filter.</li>
+</ul>
+<h2>FAQ</h2>
+<h3>Do we legally have to offer a data export?</h3>
+<p>It depends on your markets, customers and the data involved. GDPR portability and the EU Data Act switching rules apply to many businesses serving Europe. Get legal advice for your situation, but plan to have an export regardless.</p>
+<h3>Can we charge for exports?</h3>
+<p>Charging for routine access to a customer&#39;s own data is increasingly restricted in Europe and damages trust everywhere. Charging for genuinely custom migration work is a different conversation. Keep the standard export free.</p>
+<h3>What format should we use?</h3>
+<p>CSV for tables, JSON for nested data, original files for uploads, plus a README. Avoid proprietary formats or database dumps the customer cannot open.</p>
+<h3>How do we stop exports being used to steal data?</h3>
+<p>Restrict to admins, require re-authentication, notify other admins, log every request, and expire links. Treat export as a privileged action, not a convenience.</p>
+<p>If you want a quick review of whether your data model supports a clean export, a <a href="/teardown">technical teardown</a> covers it, or you can <a href="/book-a-call">book a call</a>.</p>
+
+    </div>
+    <div class="article-body">
+      <div class="author-card reveal">
+        <span class="ac-av">F</span>
+        <div>
+          <div class="ac-name">The founder of Fraction</div>
+          <div class="ac-bio">Built engineering teams from 2 to 30. Killed more bad rebuilds than I've greenlit. <a href="about.html" class="link-grow" style="font-size:0.96rem">More about me <span class="arrow">&rarr;</span></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" style="padding-top:clamp(32px,5vw,56px)">
+  <div class="wrap">
+    <div class="callout reveal" style="text-align:center">
+      <h3 style="margin-left:auto;margin-right:auto;max-width:22ch">Not sure the call you're about to make is the right one?</h3>
+      <p style="margin:0 auto 26px">That's exactly what a 20-minute fit call is for &mdash; or a two-week Teardown if you'd rather start with a written verdict.</p>
+      <div class="ph-cta" style="justify-content:center">
+        <a href="book-a-call.html" class="btn btn-accent">Book a fit call <span class="arrow">&rarr;</span></a>
+        <a href="teardown.html" class="link-grow" style="color:#fff">Start with a Teardown <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap-wide">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#14140F"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+        <p style="color:var(--grey-2); max-width:30ch; margin-top:18px; font-size:0.96rem; line-height:1.5">Senior technical leadership for founders who aren't ready for a full-time CTO — and shouldn't hire one yet.</p>
+      </div>
+      <div><h5>Service</h5><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="comparison.html">Fractional vs full-time</a></li><li><a href="teardown.html">The Tech Teardown</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="blog.html">Writing</a></li><li><a href="book-a-call.html">Book a call</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+      <div><h5>Start here</h5><ul><li><a href="book-a-call.html">Book a 20-min fit call</a></li><li><a href="teardown.html">Start with a Teardown</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Fraction · <a href="https://getfractioncto.com">getfractioncto.com</a> — no contract, no equity, cancel anytime.</span>
+      <span>Built on judgment, not hours.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="motion.js"></script>
+</body>
+</html>

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Should your marketing site live in your product codebase? — Fraction</title>
+  <meta name="description" content="Marketing site in the product repo or separate? Ownership, risk, SEO and the cases where one codebase wins." />
+  <meta name="theme-color" content="#FAFAF9" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Fraction" />
+  <meta property="og:title" content="Should your marketing site live in your product codebase? — Fraction" />
+  <meta property="og:description" content="Marketing site in the product repo or separate? Ownership, risk, SEO and the cases where one codebase wins." />
+  <meta property="og:url" content="https://getfractioncto.com/post-marketing-site-separate-from-product" />
+  <meta property="og:image" content="https://getfractioncto.com/og-image.png" />
+  <meta property="article:published_time" content="2026-11-11T04:03:57.000Z" />
+  <meta property="article:author" content="The founder of Fraction" />
+  <meta property="article:section" content="Decisions" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Should your marketing site live in your product codebase? — Fraction" />
+  <meta name="twitter:description" content="Marketing site in the product repo or separate? Ownership, risk, SEO and the cases where one codebase wins." />
+  <meta name="twitter:image" content="https://getfractioncto.com/og-image.png" />
+  <link rel="canonical" href="https://getfractioncto.com/post-marketing-site-separate-from-product" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script src="/analytics.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Should your marketing site live in your product codebase?",
+  "description": "Marketing site in the product repo or separate? Ownership, risk, SEO and the cases where one codebase wins.",
+  "datePublished": "2026-11-11T04:03:57.000Z",
+  "dateModified": "2026-11-11T04:03:57.000Z",
+  "author": {
+    "@type": "Person",
+    "name": "The founder of Fraction",
+    "url": "https://getfractioncto.com/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fraction",
+    "url": "https://getfractioncto.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://getfractioncto.com/og-image.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://getfractioncto.com/post-marketing-site-separate-from-product"
+  },
+  "image": "https://getfractioncto.com/og-image.png",
+  "articleSection": "Decisions",
+  "wordCount": 1144,
+  "inLanguage": "en",
+  "isAccessibleForFree": true
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home",   "item": "https://getfractioncto.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Writing","item": "https://getfractioncto.com/blog" },
+    { "@type": "ListItem", "position": 3, "name": "Should your marketing site live in your product codebase?", "item": "https://getfractioncto.com/post-marketing-site-separate-from-product" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Fraction home"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <ul class="nav-links">
+      <li><a href="how-it-works.html">How it works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="comparison.html">Compare</a></li>
+      <li><a href="blog.html" class="active">Writing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="teardown.html">The Teardown <span class="accent-dot"></span></a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke-linecap="round"/></svg></button>
+      <button class="icon-btn" aria-label="Toggle theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M21.5 12h-2.2M4.7 12H2.5M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6M18.4 18.4l-1.6-1.6M7.2 7.2 5.6 5.6" stroke-linecap="round"/></svg></button>
+      <a href="book-a-call.html" class="btn btn-primary nav-cta">Book a fit call</a>
+      <button class="icon-btn menu-btn" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu">
+  <div class="mm-top">
+    <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <button class="icon-btn menu-btn" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg></button>
+  </div>
+  <nav>
+    <a href="how-it-works.html">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="comparison.html">Compare</a>
+    <a href="blog.html">Writing</a>
+    <a href="about.html">About</a>
+    <a href="teardown.html">The Teardown</a>
+  </nav>
+  <div class="mm-cta">
+    <a href="teardown.html" class="btn btn-ghost">Start with a Teardown</a>
+    <a href="book-a-call.html" class="btn btn-primary">Book a 20-min fit call</a>
+  </div>
+</div>
+
+<main>
+<section class="page-hero center" style="padding-bottom:clamp(24px,4vw,40px)">
+  <div class="wrap">
+    <div class="article-hero">
+      <span class="post-cat">Decisions</span>
+      <h1>Should your marketing site live in your product codebase?</h1>
+      <div class="post-meta"><span>Nov 2026</span><span class="sep"></span><span>5 min read</span><span class="sep"></span><span>by The founder of Fraction</span></div>
+    </div>
+  </div>
+</section>
+<section class="section-tight" style="padding-top:8px">
+  <div class="wrap">
+    <div class="article-body reveal">
+<p>Should your marketing website live in the same codebase as your product? For most early startups, no. Put the marketing site on a separate site builder or a separate small repository that marketing can edit without an engineer, and keep the product app focused on the product. Merge them only when there is a concrete reason, such as shared pricing logic or heavy programmatic SEO that needs your product data.</p>
+<p>This sounds like a minor tooling choice. It is actually a decision about who can change what, how fast, and what breaks when they do.</p>
+<h2>How the two get tangled</h2>
+<p>The usual story: the first engineer builds the product in a modern framework and adds the landing page as one more route because it is quick. Then come a pricing page, a blog, a few landing pages for campaigns, a careers page. Each needs an engineer, a pull request and a deploy. Marketing waits days for a headline change. Engineers resent being a content management system. Eventually someone proposes a rebuild.</p>
+<p>The reverse also happens. A no-code site builder hosts the marketing pages, then someone embeds a signup form, a pricing calculator and a dashboard preview into it with custom scripts, and the marketing site becomes an undocumented part of the product.</p>
+<h2>Why separate is the default</h2>
+<h3>Different owners, different speed</h3>
+<p>Marketing pages change weekly. Product code should change through review and testing. Putting both through the same pipeline either slows marketing down or loosens controls on the product. Separate systems let each move at its natural speed.</p>
+<h3>Different failure modes</h3>
+<p>A broken marketing page costs you some signups for an hour. A broken product deploy can cost you customers. When the two share a deploy, a typo fix on the homepage carries the risk of the whole app. Separating them removes that coupling.</p>
+<h3>Hosted site builders are good now</h3>
+<p>Visual builders handle responsive layout, forms, basic SEO fields, hosting and a CMS for blog content. For a team without a dedicated web developer, that is usually more polish per hour than hand-built pages in the product repo. Your engineer&#39;s time is better spent on the product.</p>
+<h3>Cleaner security boundary</h3>
+<p>Marketing sites tend to collect third-party scripts: analytics, chat widgets, ad pixels, heatmaps. Keeping them off the domain and origin where your logged-in app runs reduces what a compromised script could reach. A common split is the marketing site on the main domain and the product on an app subdomain.</p>
+<h2>When one codebase makes sense</h2>
+<h3>Pricing and plans must match exactly</h3>
+<p>If your pricing page reads plans and prices from the same source the billing system uses, keeping them together avoids drift. A separate site can still do this by reading from an API, but some teams find one codebase simpler.</p>
+<h3>Programmatic SEO from product data</h3>
+<p>If your growth plan involves thousands of pages generated from product data, such as public templates, directories or integration pages, those pages need your data model and are effectively product features. That work belongs with engineering.</p>
+<h3>You have a web team</h3>
+<p>Once you have someone whose job is the website, they may prefer a code-based setup with a headless CMS. That is a good choice when the person maintaining it is a developer, not a founder squeezing it in at night.</p>
+<h2>Four questions that decide it</h2>
+<p>Ask these, in order:</p>
+<ol>
+<li><strong>Who will edit the site most weeks?</strong> If the answer is a non-engineer, separate it.</li>
+<li><strong>Does any page need live product data?</strong> If only pricing, serve it from an API or update it by hand. If thousands of pages, keep that part with engineering.</li>
+<li><strong>Does the marketing site need logged-in state?</strong> Usually not beyond &quot;Log in&quot; and &quot;Start trial&quot; links. If it does, keep that piece in the app.</li>
+<li><strong>Who owns the domain, DNS and certificates?</strong> Write it down. Split setups fail at the seams, and a lapsed domain or certificate takes both sites down together; see <a href="/post-domain-or-certificate-expired">what happens when the domain expires</a>.</li>
+</ol>
+<h2>Making a split setup work</h2>
+<p>A separate marketing site is not free of engineering. A few things need care:</p>
+<ul>
+<li><strong>Domain layout.</strong> Main domain for marketing, app subdomain for the product, with redirects tested. Decide early; moving later costs SEO effort.</li>
+<li><strong>Analytics across both.</strong> Signups start on the marketing site and finish in the app. Configure your analytics so a visitor is followed across the boundary, or you will not know which pages drive signups. If you are weighing analytics tools, my notes on <a href="/post-build-product-analytics-or-buy">building or buying product analytics</a> apply here.</li>
+<li><strong>Consistent design.</strong> Share a small set of colors, fonts and button styles so the jump from site to app does not feel like a different company.</li>
+<li><strong>Export and ownership.</strong> Make sure the site builder account is owned by the company, not a contractor&#39;s personal account, and that you can export content if you ever leave.</li>
+</ul>
+<h2>The cost of getting it wrong</h2>
+<p>Neither choice is fatal, and both are reversible. The real cost is time. A marketing site inside the product repo can quietly consume a day or two of engineering a month on copy edits and campaign pages. Across a year, that is weeks of product work for changes a site builder lets marketing do in minutes. Conversely, a no-code site hacked into a product front end can become a migration project you never planned for.</p>
+<p>If you are early and have one or two engineers, protect their time. Separate the marketing site, keep the boundary clean, and revisit when the website has its own owner. If you are unsure where your engineering hours are going, that is a question a fractional CTO answers quickly; see <a href="/comparison">how it compares to hiring</a>.</p>
+<h2>FAQ</h2>
+<h3>Is a site builder bad for SEO?</h3>
+<p>Not inherently. Modern builders output crawlable pages and let you set titles, descriptions and redirects. Content quality and site structure matter far more than whether pages came from a builder or a framework.</p>
+<h3>Should the blog live on the marketing site or a subdomain?</h3>
+<p>On the main domain, usually as a subfolder, alongside the marketing pages. It is content, owned by marketing, and benefits from the same domain authority.</p>
+<h3>Our landing page is already in the app. Should we move it now?</h3>
+<p>Only if engineers are spending real time on marketing edits or deploys are being blocked by content changes. Otherwise move it when you next redesign the site.</p>
+<h3>Can the pricing page stay accurate on a separate site?</h3>
+<p>Yes. Either update it by hand with a checklist whenever billing changes, or have the site read plan data from a small public endpoint. For most early teams, a checklist is enough.</p>
+<p>If you want help deciding what your engineers should and should not be spending time on, <a href="/book-a-call">book a call</a>.</p>
+
+    </div>
+    <div class="article-body">
+      <div class="author-card reveal">
+        <span class="ac-av">F</span>
+        <div>
+          <div class="ac-name">The founder of Fraction</div>
+          <div class="ac-bio">Built engineering teams from 2 to 30. Killed more bad rebuilds than I've greenlit. <a href="about.html" class="link-grow" style="font-size:0.96rem">More about me <span class="arrow">&rarr;</span></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" style="padding-top:clamp(32px,5vw,56px)">
+  <div class="wrap">
+    <div class="callout reveal" style="text-align:center">
+      <h3 style="margin-left:auto;margin-right:auto;max-width:22ch">Not sure the call you're about to make is the right one?</h3>
+      <p style="margin:0 auto 26px">That's exactly what a 20-minute fit call is for &mdash; or a two-week Teardown if you'd rather start with a written verdict.</p>
+      <div class="ph-cta" style="justify-content:center">
+        <a href="book-a-call.html" class="btn btn-accent">Book a fit call <span class="arrow">&rarr;</span></a>
+        <a href="teardown.html" class="link-grow" style="color:#fff">Start with a Teardown <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap-wide">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#14140F"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+        <p style="color:var(--grey-2); max-width:30ch; margin-top:18px; font-size:0.96rem; line-height:1.5">Senior technical leadership for founders who aren't ready for a full-time CTO — and shouldn't hire one yet.</p>
+      </div>
+      <div><h5>Service</h5><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="comparison.html">Fractional vs full-time</a></li><li><a href="teardown.html">The Tech Teardown</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="blog.html">Writing</a></li><li><a href="book-a-call.html">Book a call</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+      <div><h5>Start here</h5><ul><li><a href="book-a-call.html">Book a 20-min fit call</a></li><li><a href="teardown.html">Start with a Teardown</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Fraction · <a href="https://getfractioncto.com">getfractioncto.com</a> — no contract, no equity, cancel anytime.</span>
+      <span>Built on judgment, not hours.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="motion.js"></script>
+</body>
+</html>

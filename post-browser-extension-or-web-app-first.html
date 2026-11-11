@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Build a browser extension or a web app first? — Fraction</title>
+  <meta name="description" content="Extension or web app first: when in-page value justifies an extension, the platform risks, and a thin-client architecture." />
+  <meta name="theme-color" content="#FAFAF9" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Fraction" />
+  <meta property="og:title" content="Build a browser extension or a web app first? — Fraction" />
+  <meta property="og:description" content="Extension or web app first: when in-page value justifies an extension, the platform risks, and a thin-client architecture." />
+  <meta property="og:url" content="https://getfractioncto.com/post-browser-extension-or-web-app-first" />
+  <meta property="og:image" content="https://getfractioncto.com/og-image.png" />
+  <meta property="article:published_time" content="2026-11-11T04:03:56.263Z" />
+  <meta property="article:author" content="The founder of Fraction" />
+  <meta property="article:section" content="Decisions" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Build a browser extension or a web app first? — Fraction" />
+  <meta name="twitter:description" content="Extension or web app first: when in-page value justifies an extension, the platform risks, and a thin-client architecture." />
+  <meta name="twitter:image" content="https://getfractioncto.com/og-image.png" />
+  <link rel="canonical" href="https://getfractioncto.com/post-browser-extension-or-web-app-first" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script src="/analytics.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Build a browser extension or a web app first?",
+  "description": "Extension or web app first: when in-page value justifies an extension, the platform risks, and a thin-client architecture.",
+  "datePublished": "2026-11-11T04:03:56.263Z",
+  "dateModified": "2026-11-11T04:03:56.263Z",
+  "author": {
+    "@type": "Person",
+    "name": "The founder of Fraction",
+    "url": "https://getfractioncto.com/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fraction",
+    "url": "https://getfractioncto.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://getfractioncto.com/og-image.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://getfractioncto.com/post-browser-extension-or-web-app-first"
+  },
+  "image": "https://getfractioncto.com/og-image.png",
+  "articleSection": "Decisions",
+  "wordCount": 1324,
+  "inLanguage": "en",
+  "isAccessibleForFree": true
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home",   "item": "https://getfractioncto.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Writing","item": "https://getfractioncto.com/blog" },
+    { "@type": "ListItem", "position": 3, "name": "Build a browser extension or a web app first?", "item": "https://getfractioncto.com/post-browser-extension-or-web-app-first" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Fraction home"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <ul class="nav-links">
+      <li><a href="how-it-works.html">How it works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="comparison.html">Compare</a></li>
+      <li><a href="blog.html" class="active">Writing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="teardown.html">The Teardown <span class="accent-dot"></span></a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke-linecap="round"/></svg></button>
+      <button class="icon-btn" aria-label="Toggle theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M21.5 12h-2.2M4.7 12H2.5M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6M18.4 18.4l-1.6-1.6M7.2 7.2 5.6 5.6" stroke-linecap="round"/></svg></button>
+      <a href="book-a-call.html" class="btn btn-primary nav-cta">Book a fit call</a>
+      <button class="icon-btn menu-btn" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu">
+  <div class="mm-top">
+    <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <button class="icon-btn menu-btn" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg></button>
+  </div>
+  <nav>
+    <a href="how-it-works.html">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="comparison.html">Compare</a>
+    <a href="blog.html">Writing</a>
+    <a href="about.html">About</a>
+    <a href="teardown.html">The Teardown</a>
+  </nav>
+  <div class="mm-cta">
+    <a href="teardown.html" class="btn btn-ghost">Start with a Teardown</a>
+    <a href="book-a-call.html" class="btn btn-primary">Book a 20-min fit call</a>
+  </div>
+</div>
+
+<main>
+<section class="page-hero center" style="padding-bottom:clamp(24px,4vw,40px)">
+  <div class="wrap">
+    <div class="article-hero">
+      <span class="post-cat">Decisions</span>
+      <h1>Build a browser extension or a web app first?</h1>
+      <div class="post-meta"><span>Nov 2026</span><span class="sep"></span><span>6 min read</span><span class="sep"></span><span>by The founder of Fraction</span></div>
+    </div>
+  </div>
+</section>
+<section class="section-tight" style="padding-top:8px">
+  <div class="wrap">
+    <div class="article-body reveal">
+<p>If your product could live as a browser extension, the question is usually not &quot;extension or web app&quot; but &quot;which one do I build first, and how much of the product should depend on it&quot;. My default answer: build the extension first only when the value happens inside someone else&#39;s page, and keep the core logic, data and accounts in a normal web backend so the extension is a thin client you could replace.</p>
+<p>Founders get pulled toward extensions because they look cheap. A small JavaScript bundle, no app store fees worth mentioning, instant distribution through one store. That picture is half right. The build is often cheap. The dependency is not.</p>
+<h2>When an extension is the right first product</h2>
+<p>An extension earns its place when the user&#39;s work happens on pages you do not control. If your product reads, annotates, fills in or augments something inside Gmail, LinkedIn, a CRM, a support desk or a code review tool, a standalone web app forces the user to copy and paste between tabs. That friction kills adoption faster than any missing feature.</p>
+<h3>The job is &quot;in the flow&quot; of another tool</h3>
+<p>Good extension products shorten a loop the user already runs dozens of times a day. Pull data about the person whose profile I am viewing. Draft a reply inside the support ticket. Flag a risky clause in the contract I have open. If your pitch contains the words &quot;without leaving&quot;, you probably need an extension somewhere in the product.</p>
+<h3>You need a low-friction trial</h3>
+<p>Installing an extension is one click and a permission prompt. For a bottom-up product sold to individuals inside companies, that can be the difference between a trial and a bounce. It is also a natural wedge: the extension proves value, and the web app is where the team plan, billing and admin live later.</p>
+<h2>When it is the wrong first product</h2>
+<h3>The value is a workflow, not a moment</h3>
+<p>If users need to set up projects, invite teammates, manage records and see history, you are building an application. Cramming that into an extension popup or side panel produces a cramped, fragile product. Build the web app and add an extension later as an entry point.</p>
+<h3>Your buyer is IT, not the user</h3>
+<p>Many companies restrict which extensions employees may install, and Chrome lets administrators allow-list or block extensions through policy. If you sell to regulated or security-conscious companies, the extension that sailed through your design-partner pilot may be blocked on day one of the real rollout. Ask your first three enterprise prospects how they manage extensions before you bet the product on one.</p>
+<h3>The page you depend on changes without notice</h3>
+<p>An extension that reads another product&#39;s page is coupled to that product&#39;s markup. When the host site ships a redesign, your selectors break, often on a Tuesday afternoon with no warning. I have seen teams spend a third of their engineering time keeping up with one host site. If the host offers an API, building on the API is usually more stable than scraping its page, even when the extension is the front end.</p>
+<h2>The platform risk is real, not theoretical</h2>
+<p>Browser extensions run under rules set by the browser vendor, and those rules change. The clearest recent example is Chrome&#39;s move from Manifest V2 to Manifest V3. Per <a href="https://developer.chrome.com/docs/extensions/develop/migrate/mv2-deprecation-timeline">Google&#39;s own timeline</a>, Manifest V2 extensions were disabled by default in 2025, Chrome 138 was the last version that could run them at all, and the remaining Manifest V2 extensions were scheduled for removal from the Chrome Web Store on 31 August 2026. Teams that had built on background pages and blocking web requests had to rework real parts of their products on the browser&#39;s schedule, not their own.</p>
+<p>You cannot avoid this class of risk with an extension. You can contain it:</p>
+<ul>
+<li><strong>Keep business logic on your server.</strong> The extension collects context and shows results. Decisions, data and models live in your backend, where you control the runtime.</li>
+<li><strong>Request the narrowest permissions you need.</strong> Broad permissions such as access to all sites slow store review, scare security teams and make you a bigger target. Ask for host permissions only on the sites you actually support.</li>
+<li><strong>Treat store review as a release dependency.</strong> Updates go through review, and review time varies. Do not plan a launch that depends on an extension update going live the same day.</li>
+<li><strong>Plan for more than one browser early, but ship one first.</strong> Most of the market is Chromium-based, and Firefox and Safari have their own packaging and review. Pick one, prove the product, then port.</li>
+</ul>
+<h2>A sensible architecture for a first version</h2>
+<p>The pattern I recommend for most early teams:</p>
+<ol>
+<li><strong>A normal web backend with accounts and an API.</strong> Users sign in once. The extension calls the same API a future web app would call. If you are unsure how much API you need, my notes on <a href="/post-should-you-build-an-api">whether to build an API</a> cover the trade-off.</li>
+<li><strong>A thin extension.</strong> Content scripts read only what they need from the page, send it to your backend, and render the response in a side panel or inline element. No secrets in the extension bundle; anything shipped to the browser can be read by anyone who installs it.</li>
+<li><strong>A small web app from day one, even if it is only settings and billing.</strong> You will need it for account management, payments, and the admin view a team buyer asks for. Having it early also gives you a fallback channel if the extension is blocked or broken.</li>
+<li><strong>Monitoring on the host-page integration.</strong> A simple synthetic check that loads the host page and confirms your selectors still match will catch breakages before customers report them.</li>
+</ol>
+<p>This shape keeps the expensive, durable work in code you control, and keeps the extension cheap to rewrite when the browser or the host site changes the rules.</p>
+<h2>Cost and team implications</h2>
+<p>An extension does not need a specialist, but it does need someone who understands browser security models, permission scopes and the store&#39;s policies. A generalist full-stack engineer can build a solid first version in a few weeks if the backend already exists. The ongoing cost is maintenance against host-site changes and browser updates, which is easy to underestimate in a plan that only budgets for the build.</p>
+<p>If an agency is quoting you, ask them where the business logic will live and how they will handle host-site breakage. An answer that puts everything inside the extension is a warning sign. A <a href="/teardown">second opinion on the plan</a> before you sign is usually cheaper than reworking an extension-only architecture six months in.</p>
+<h2>FAQ</h2>
+<h3>Is a browser extension cheaper to build than a web app?</h3>
+<p>The first version often is, because the surface is small. The total cost is not necessarily lower, because you take on maintenance against another site&#39;s markup and the browser vendor&#39;s policy changes. Budget for that ongoing work, not just the build.</p>
+<h3>Can an extension be the whole product?</h3>
+<p>For narrow, individual-user tools, sometimes. For anything sold to teams, you will need a web app for accounts, billing and administration. Build the backend so both can exist.</p>
+<h3>Should we support Firefox and Safari at launch?</h3>
+<p>Usually not. Prove the product on one browser, most often Chrome, then port. Porting is much easier when the logic sits on your server and the extension is thin.</p>
+<h3>How do we reduce the risk of being blocked by enterprise IT?</h3>
+<p>Ask for minimal permissions, publish a clear security and data-handling page, and offer a web-app path that works without the extension. Ask prospects about their extension policy during the sales process, not after the contract.</p>
+<p>If you are deciding whether your product should start as an extension and want someone to pressure-test the architecture, <a href="/book-a-call">book a call</a> and we will go through it together.</p>
+
+    </div>
+    <div class="article-body">
+      <div class="author-card reveal">
+        <span class="ac-av">F</span>
+        <div>
+          <div class="ac-name">The founder of Fraction</div>
+          <div class="ac-bio">Built engineering teams from 2 to 30. Killed more bad rebuilds than I've greenlit. <a href="about.html" class="link-grow" style="font-size:0.96rem">More about me <span class="arrow">&rarr;</span></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" style="padding-top:clamp(32px,5vw,56px)">
+  <div class="wrap">
+    <div class="callout reveal" style="text-align:center">
+      <h3 style="margin-left:auto;margin-right:auto;max-width:22ch">Not sure the call you're about to make is the right one?</h3>
+      <p style="margin:0 auto 26px">That's exactly what a 20-minute fit call is for &mdash; or a two-week Teardown if you'd rather start with a written verdict.</p>
+      <div class="ph-cta" style="justify-content:center">
+        <a href="book-a-call.html" class="btn btn-accent">Book a fit call <span class="arrow">&rarr;</span></a>
+        <a href="teardown.html" class="link-grow" style="color:#fff">Start with a Teardown <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap-wide">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#14140F"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+        <p style="color:var(--grey-2); max-width:30ch; margin-top:18px; font-size:0.96rem; line-height:1.5">Senior technical leadership for founders who aren't ready for a full-time CTO — and shouldn't hire one yet.</p>
+      </div>
+      <div><h5>Service</h5><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="comparison.html">Fractional vs full-time</a></li><li><a href="teardown.html">The Tech Teardown</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="blog.html">Writing</a></li><li><a href="book-a-call.html">Book a call</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+      <div><h5>Start here</h5><ul><li><a href="book-a-call.html">Book a 20-min fit call</a></li><li><a href="teardown.html">Start with a Teardown</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Fraction · <a href="https://getfractioncto.com">getfractioncto.com</a> — no contract, no equity, cancel anytime.</span>
+      <span>Built on judgment, not hours.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="motion.js"></script>
+</body>
+</html>
