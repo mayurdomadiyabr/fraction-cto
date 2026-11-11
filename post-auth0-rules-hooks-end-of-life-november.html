@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Auth0 Rules and Hooks stop on 18 November. Is your login on them? — Fraction</title>
+  <meta name="description" content="Auth0 Rules and Hooks reach end of life 18 Nov 2026. Check your tenant, rewrite as Actions, and test token claims first." />
+  <meta name="theme-color" content="#FAFAF9" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Fraction" />
+  <meta property="og:title" content="Auth0 Rules and Hooks stop on 18 November. Is your login on them? — Fraction" />
+  <meta property="og:description" content="Auth0 Rules and Hooks reach end of life 18 Nov 2026. Check your tenant, rewrite as Actions, and test token claims first." />
+  <meta property="og:url" content="https://getfractioncto.com/post-auth0-rules-hooks-end-of-life-november" />
+  <meta property="og:image" content="https://getfractioncto.com/og-image.png" />
+  <meta property="article:published_time" content="2026-11-11T04:46:43.511Z" />
+  <meta property="article:author" content="The founder of Fraction" />
+  <meta property="article:section" content="Vendors" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Auth0 Rules and Hooks stop on 18 November. Is your login on them? — Fraction" />
+  <meta name="twitter:description" content="Auth0 Rules and Hooks reach end of life 18 Nov 2026. Check your tenant, rewrite as Actions, and test token claims first." />
+  <meta name="twitter:image" content="https://getfractioncto.com/og-image.png" />
+  <link rel="canonical" href="https://getfractioncto.com/post-auth0-rules-hooks-end-of-life-november" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script src="/analytics.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Auth0 Rules and Hooks stop on 18 November. Is your login on them?",
+  "description": "Auth0 Rules and Hooks reach end of life 18 Nov 2026. Check your tenant, rewrite as Actions, and test token claims first.",
+  "datePublished": "2026-11-11T04:46:43.511Z",
+  "dateModified": "2026-11-11T04:46:43.511Z",
+  "author": {
+    "@type": "Person",
+    "name": "The founder of Fraction",
+    "url": "https://getfractioncto.com/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fraction",
+    "url": "https://getfractioncto.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://getfractioncto.com/og-image.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://getfractioncto.com/post-auth0-rules-hooks-end-of-life-november"
+  },
+  "image": "https://getfractioncto.com/og-image.png",
+  "articleSection": "Vendors",
+  "wordCount": 1549,
+  "inLanguage": "en",
+  "isAccessibleForFree": true
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home",   "item": "https://getfractioncto.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Writing","item": "https://getfractioncto.com/blog" },
+    { "@type": "ListItem", "position": 3, "name": "Auth0 Rules and Hooks stop on 18 November. Is your login on them?", "item": "https://getfractioncto.com/post-auth0-rules-hooks-end-of-life-november" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Fraction home"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <ul class="nav-links">
+      <li><a href="how-it-works.html">How it works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="comparison.html">Compare</a></li>
+      <li><a href="blog.html" class="active">Writing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="teardown.html">The Teardown <span class="accent-dot"></span></a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke-linecap="round"/></svg></button>
+      <button class="icon-btn" aria-label="Toggle theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M21.5 12h-2.2M4.7 12H2.5M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6M18.4 18.4l-1.6-1.6M7.2 7.2 5.6 5.6" stroke-linecap="round"/></svg></button>
+      <a href="book-a-call.html" class="btn btn-primary nav-cta">Book a fit call</a>
+      <button class="icon-btn menu-btn" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu">
+  <div class="mm-top">
+    <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <button class="icon-btn menu-btn" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg></button>
+  </div>
+  <nav>
+    <a href="how-it-works.html">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="comparison.html">Compare</a>
+    <a href="blog.html">Writing</a>
+    <a href="about.html">About</a>
+    <a href="teardown.html">The Teardown</a>
+  </nav>
+  <div class="mm-cta">
+    <a href="teardown.html" class="btn btn-ghost">Start with a Teardown</a>
+    <a href="book-a-call.html" class="btn btn-primary">Book a 20-min fit call</a>
+  </div>
+</div>
+
+<main>
+<section class="page-hero center" style="padding-bottom:clamp(24px,4vw,40px)">
+  <div class="wrap">
+    <div class="article-hero">
+      <span class="post-cat">Vendors</span>
+      <h1>Auth0 Rules and Hooks stop on 18 November. Is your login on them?</h1>
+      <div class="post-meta"><span>Nov 2026</span><span class="sep"></span><span>7 min read</span><span class="sep"></span><span>by The founder of Fraction</span></div>
+    </div>
+  </div>
+</section>
+<section class="section-tight" style="padding-top:8px">
+  <div class="wrap">
+    <div class="article-body reveal">
+<p>If your product signs users in through Auth0 and your tenant is older than late 2023, there is a real chance some of your login logic still runs as Auth0 Rules or Hooks. Auth0&#39;s documentation sets the end-of-life date for Rules and Hooks at 18 November 2026. The safe move this week is to check whether you use them, move any that exist to Auth0 Actions, and test sign-in end to end before that date rather than after it.</p>
+<p>This is a small job for most startups. It becomes a big one only when nobody knows the Rules exist, which is common when an agency or a departed engineer set up authentication years ago.</p>
+<h2>What is actually changing</h2>
+<p>Auth0 offers three ways to run your own code during authentication. Rules ran during login. Hooks ran at other points, such as before or after a user registers. Actions is the newer system that replaces both, with versioning, a code editor with type hints, and support for npm packages.</p>
+<p>According to <a href="https://auth0.com/docs/customize/rules">Auth0&#39;s Rules documentation</a>, Rules and Hooks have not been available to new tenants created from 16 October 2023, and their end-of-life date is 18 November 2026. Auth0 publishes separate guides for migrating Rules to Actions and Hooks to Actions. The documentation does not spell out every detail of what an affected tenant will experience after that date, so plan as if the code stops running, because that is what end of life means for anything you depend on.</p>
+<p>If your tenant was created after October 2023, you cannot have Rules or Hooks, and you can stop reading here unless you want the checklist for future vendor deadlines.</p>
+<h2>Why a founder should care about a login script</h2>
+<p>Rules usually look harmless. They are often ten or twenty lines of JavaScript. But they sit on the one path every user takes, and they tend to do things the rest of your product silently depends on.</p>
+<h3>Common jobs Rules quietly do</h3>
+<p>In the setups I have reviewed, Rules typically:</p>
+<ul>
+<li><strong>Add custom claims to tokens</strong>, such as a user&#39;s role, organization ID, plan or tenant. Your API may read those claims to decide what a user can see.</li>
+<li><strong>Block or flag unverified emails</strong> before letting someone in.</li>
+<li><strong>Assign default roles</strong> to new users.</li>
+<li><strong>Enrich profiles</strong> by calling an external service, or copy data from your own database into the user record.</li>
+<li><strong>Sync new sign-ups</strong> to a CRM, mailing list or analytics tool.</li>
+<li><strong>Enforce extra checks</strong> for certain customers, like requiring multi-factor authentication for one enterprise account.</li>
+</ul>
+<h3>Why the failure is dangerous, not just annoying</h3>
+<p>If a Rule that blocks something stops running, the block disappears. If a Rule that adds a role or organization claim stops running, your API may receive tokens without the claim it expects. Depending on how your authorization code handles a missing value, the result is either users locked out of features or, worse, users seeing data they should not. A defensive codebase denies access when a claim is missing. Not every codebase is defensive. If you are not sure how your app keeps one customer&#39;s data from another, my note on <a href="/post-tenant-isolation-by-memory">what keeps tenant data apart</a> is worth reading alongside this.</p>
+<h2>A one-week plan</h2>
+<p>Seven days is enough for a typical startup with a handful of Rules. It is tight if you have dozens or if nobody understands them, so start today.</p>
+<h3>Day 1: inventory</h3>
+<p>Sign in to the Auth0 dashboard for every tenant you run, including development and staging. Look for the Rules and Hooks sections and list each item that is enabled: its name, what it does in one sentence, and who wrote it. Also check whether any deployment pipeline or infrastructure-as-code tool creates Rules automatically, because those can come back after you delete them by hand.</p>
+<p>If you find nothing enabled in any tenant, you are done. Write that down so the next person does not repeat the check.</p>
+<h3>Day 2: decide keep, rewrite or delete</h3>
+<p>For each Rule or Hook, decide whether it still matters. Old setups accumulate scripts for integrations you no longer use. Deleting a dead Rule is cheaper than migrating it. Be careful with anything that touches roles, claims or blocking, and confirm with whoever owns authorization before removing it.</p>
+<h3>Days 3 to 4: rewrite as Actions</h3>
+<p>Most login Rules become a post-login Action. Hooks map to other triggers depending on when they ran, for example around user registration or machine-to-machine token exchange. Follow Auth0&#39;s migration guides rather than translating line by line from memory; the event and API objects are shaped differently, and secrets are configured differently.</p>
+<p>Two practical rules while rewriting:</p>
+<ul>
+<li><strong>Keep each Action small and single-purpose.</strong> One for claims, one for blocking, one for CRM sync. It makes testing and rollback easier.</li>
+<li><strong>Move secrets into the Action&#39;s secrets settings,</strong> not hard-coded values. Migration is a good moment to rotate any API keys that lived inside old Rules for years.</li>
+</ul>
+<h3>Day 5: test the real flows</h3>
+<p>In a development tenant, test every path a real user takes: password sign-in, social sign-in, single sign-on for enterprise customers, sign-up, password reset, and any machine-to-machine clients. For each, decode the token your app receives and compare its claims with what production issues today. A difference in one claim is exactly the kind of bug that ships quietly. If your enterprise customers use SSO connections, test those individually; my <a href="/post-enterprise-sso-build-or-buy">SSO build-or-buy note</a> covers why those connections are often configured one customer at a time.</p>
+<h3>Days 6 to 7: switch over and watch</h3>
+<p>Deploy the Actions to production, then disable the old Rules and Hooks one at a time, checking sign-in after each. Read Auth0&#39;s guidance on how Rules and Actions behave while both are active, so you do not run the same logic twice during the switch. Watch login logs and error rates for a day. Keep the old code exported somewhere so you can refer back to it, even though you cannot re-enable it after end of life.</p>
+<h2>If someone else set up your auth</h2>
+<p>Many early products had authentication built by an agency or a contractor who is no longer around. Rules are one of the places their work hides, because the code lives in a vendor dashboard rather than your repository. If that is you, ask three questions now:</p>
+<ol>
+<li><strong>Who has admin access to our Auth0 tenants?</strong> Make sure at least one current employee does, using a company account rather than a personal one.</li>
+<li><strong>Is any of our auth configuration in source control?</strong> If not, this migration is the moment to start, so the next deadline is a code review rather than an archaeology project.</li>
+<li><strong>Can the original builder explain each Rule?</strong> If they are reachable, an hour of their time is worth paying for. If not, treat each Rule as unknown and test accordingly.</li>
+</ol>
+<p>This pattern is broader than Auth0. Vendor deadlines keep arriving: model retirements, <a href="/post-cloud-provider-retires-service">cloud services that get shut down</a>, platforms moving to maintenance mode. The teams that handle them calmly are the ones that keep a short register of every external service they depend on, with an owner and the date of any announced change.</p>
+<h2>What it costs</h2>
+<p>For a startup with a few Rules and a working development tenant, this is typically one to three days of an engineer&#39;s time; that is my judgment from similar migrations, not a benchmark. The cost climbs when nobody can explain what the Rules do, when there is no development tenant to test in, or when authorization logic in your API depends on claims in ways nobody documented. Those are findings worth having regardless of the deadline.</p>
+<p>If you would like a second pair of eyes on your auth setup before the date, a <a href="/teardown">technical teardown</a> covers it, or <a href="/book-a-call">book a call</a> and we can walk through your tenant together.</p>
+<h2>FAQ</h2>
+<h3>How do I know if my Auth0 tenant uses Rules or Hooks?</h3>
+<p>Open the Auth0 dashboard for each tenant and check the Rules and Hooks sections for enabled items. Tenants created from 16 October 2023 never had access to them. Check development and staging tenants too, and any tooling that creates Rules automatically.</p>
+<h3>What happens if we miss the 18 November 2026 date?</h3>
+<p>Auth0 lists that date as end of life for Rules and Hooks. Plan as if they stop running. The practical risk is that sign-in still appears to work while blocks, roles or token claims your app relies on silently disappear.</p>
+<h3>Can we migrate everything into one big Action?</h3>
+<p>You can, but small single-purpose Actions are easier to test, debug and roll back. Group by job: claims, access checks, profile enrichment, external sync.</p>
+<h3>Do Actions cost more than Rules?</h3>
+<p>Check your current Auth0 plan and its limits on Actions. For most startups the migration does not change the bill, but confirm before assuming, especially if your Rules call external services on every login.</p>
+<h3>Is this a reason to leave Auth0?</h3>
+<p>Not by itself. A forced migration is a fair moment to ask whether your identity provider still fits, but switching providers is a much larger project than moving Rules to Actions. Do the migration first, then decide calmly.</p>
+
+    </div>
+    <div class="article-body">
+      <div class="author-card reveal">
+        <span class="ac-av">F</span>
+        <div>
+          <div class="ac-name">The founder of Fraction</div>
+          <div class="ac-bio">Built engineering teams from 2 to 30. Killed more bad rebuilds than I've greenlit. <a href="about.html" class="link-grow" style="font-size:0.96rem">More about me <span class="arrow">&rarr;</span></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" style="padding-top:clamp(32px,5vw,56px)">
+  <div class="wrap">
+    <div class="callout reveal" style="text-align:center">
+      <h3 style="margin-left:auto;margin-right:auto;max-width:22ch">Not sure the call you're about to make is the right one?</h3>
+      <p style="margin:0 auto 26px">That's exactly what a 20-minute fit call is for &mdash; or a two-week Teardown if you'd rather start with a written verdict.</p>
+      <div class="ph-cta" style="justify-content:center">
+        <a href="book-a-call.html" class="btn btn-accent">Book a fit call <span class="arrow">&rarr;</span></a>
+        <a href="teardown.html" class="link-grow" style="color:#fff">Start with a Teardown <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap-wide">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#14140F"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+        <p style="color:var(--grey-2); max-width:30ch; margin-top:18px; font-size:0.96rem; line-height:1.5">Senior technical leadership for founders who aren't ready for a full-time CTO — and shouldn't hire one yet.</p>
+      </div>
+      <div><h5>Service</h5><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="comparison.html">Fractional vs full-time</a></li><li><a href="teardown.html">The Tech Teardown</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="blog.html">Writing</a></li><li><a href="book-a-call.html">Book a call</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+      <div><h5>Start here</h5><ul><li><a href="book-a-call.html">Book a 20-min fit call</a></li><li><a href="teardown.html">Start with a Teardown</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Fraction · <a href="https://getfractioncto.com">getfractioncto.com</a> — no contract, no equity, cancel anytime.</span>
+      <span>Built on judgment, not hours.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="motion.js"></script>
+</body>
+</html>
