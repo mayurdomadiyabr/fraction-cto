@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Postgres 14 support ended. Your RDS bill changes in March — Fraction</title>
+  <meta name="description" content="PostgreSQL 14 reached end of life on 12 Nov 2026. RDS Extended Support fees start 1 Mar 2027. Which version to pick and a practical upgrade plan." />
+  <meta name="theme-color" content="#FAFAF9" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Fraction" />
+  <meta property="og:title" content="Postgres 14 support ended. Your RDS bill changes in March — Fraction" />
+  <meta property="og:description" content="PostgreSQL 14 reached end of life on 12 Nov 2026. RDS Extended Support fees start 1 Mar 2027. Which version to pick and a practical upgrade plan." />
+  <meta property="og:url" content="https://getfractioncto.com/post-postgres-14-end-of-life-rds-bill" />
+  <meta property="og:image" content="https://getfractioncto.com/og-image.png" />
+  <meta property="article:published_time" content="2026-11-16T02:27:56.911Z" />
+  <meta property="article:author" content="The founder of Fraction" />
+  <meta property="article:section" content="Vendors" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Postgres 14 support ended. Your RDS bill changes in March — Fraction" />
+  <meta name="twitter:description" content="PostgreSQL 14 reached end of life on 12 Nov 2026. RDS Extended Support fees start 1 Mar 2027. Which version to pick and a practical upgrade plan." />
+  <meta name="twitter:image" content="https://getfractioncto.com/og-image.png" />
+  <link rel="canonical" href="https://getfractioncto.com/post-postgres-14-end-of-life-rds-bill" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script src="/analytics.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Postgres 14 support ended. Your RDS bill changes in March",
+  "description": "PostgreSQL 14 reached end of life on 12 Nov 2026. RDS Extended Support fees start 1 Mar 2027. Which version to pick and a practical upgrade plan.",
+  "datePublished": "2026-11-16T02:27:56.911Z",
+  "dateModified": "2026-11-16T02:27:56.911Z",
+  "author": {
+    "@type": "Person",
+    "name": "The founder of Fraction",
+    "url": "https://getfractioncto.com/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fraction",
+    "url": "https://getfractioncto.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://getfractioncto.com/og-image.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://getfractioncto.com/post-postgres-14-end-of-life-rds-bill"
+  },
+  "image": "https://getfractioncto.com/og-image.png",
+  "articleSection": "Vendors",
+  "wordCount": 1541,
+  "inLanguage": "en",
+  "isAccessibleForFree": true
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home",   "item": "https://getfractioncto.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Writing","item": "https://getfractioncto.com/blog" },
+    { "@type": "ListItem", "position": 3, "name": "Postgres 14 support ended. Your RDS bill changes in March", "item": "https://getfractioncto.com/post-postgres-14-end-of-life-rds-bill" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Fraction home"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <ul class="nav-links">
+      <li><a href="how-it-works.html">How it works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="comparison.html">Compare</a></li>
+      <li><a href="blog.html" class="active">Writing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="teardown.html">The Teardown <span class="accent-dot"></span></a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke-linecap="round"/></svg></button>
+      <button class="icon-btn" aria-label="Toggle theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M21.5 12h-2.2M4.7 12H2.5M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6M18.4 18.4l-1.6-1.6M7.2 7.2 5.6 5.6" stroke-linecap="round"/></svg></button>
+      <a href="book-a-call.html" class="btn btn-primary nav-cta">Book a fit call</a>
+      <button class="icon-btn menu-btn" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu">
+  <div class="mm-top">
+    <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <button class="icon-btn menu-btn" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg></button>
+  </div>
+  <nav>
+    <a href="how-it-works.html">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="comparison.html">Compare</a>
+    <a href="blog.html">Writing</a>
+    <a href="about.html">About</a>
+    <a href="teardown.html">The Teardown</a>
+  </nav>
+  <div class="mm-cta">
+    <a href="teardown.html" class="btn btn-ghost">Start with a Teardown</a>
+    <a href="book-a-call.html" class="btn btn-primary">Book a 20-min fit call</a>
+  </div>
+</div>
+
+<main>
+<section class="page-hero center" style="padding-bottom:clamp(24px,4vw,40px)">
+  <div class="wrap">
+    <div class="article-hero">
+      <span class="post-cat">Vendors</span>
+      <h1>Postgres 14 support ended. Your RDS bill changes in March</h1>
+      <div class="post-meta"><span>Nov 2026</span><span class="sep"></span><span>7 min read</span><span class="sep"></span><span>by The founder of Fraction</span></div>
+    </div>
+  </div>
+</section>
+<section class="section-tight" style="padding-top:8px">
+  <div class="wrap">
+    <div class="article-body reveal">
+<p>PostgreSQL 14 reached its scheduled community end of life on 12 November 2026, so the project no longer plans fixes for it, security fixes included. If you run it on Amazon RDS you have until 28 February 2027 before AWS starts charging Extended Support fees per vCPU-hour on top of your normal bill. For most startups the right move is to plan a major-version upgrade, to 17 or 18, this quarter, test it on a copy of production, and finish before March.</p>
+<p>This is one of those deadlines that looks like housekeeping and turns into a surprise bill or a rushed weekend if nobody owns it. Here is how I would handle it at a seed or Series A company.</p>
+<h2>What changed on 12 November</h2>
+<p>The PostgreSQL project supports each major version for five years. Its <a href="https://www.postgresql.org/support/versioning/">versioning page</a> lists PostgreSQL 14 with a first release of 30 September 2021 and a final release of 12 November 2026. After the final minor release, the community does not plan further patches for that line.</p>
+<p>Your database does not stop working. What stops is the stream of fixes. Any security or data-corruption bug found in 14 from here on is your problem unless a vendor patches it for you.</p>
+<p>The supported lines now are 15 (final release November 2027), 16 (November 2028), 17 (November 2029) and 18 (November 2030), per the same page.</p>
+<h2>What it means on AWS, Azure and Google Cloud</h2>
+<p>Managed database providers run their own calendars, and that is where the money is.</p>
+<h3>Amazon RDS and Aurora</h3>
+<p>The AWS <a href="https://docs.aws.amazon.com/AmazonRDS/latest/PostgreSQLReleaseNotes/postgresql-release-calendar.html">RDS for PostgreSQL release calendar</a> lists, for PostgreSQL 14:</p>
+<ul>
+<li>Community end of life: 12 November 2026.</li>
+<li>RDS end of standard support: 28 February 2027.</li>
+<li>Extended Support year 1 pricing from 1 March 2027.</li>
+<li>Extended Support year 3 pricing from 1 March 2029.</li>
+<li>End of Extended Support: 28 February 2030.</li>
+</ul>
+<p>Extended Support is charged per vCPU-hour on top of what you already pay for the instance. The <a href="https://aws.amazon.com/rds/postgresql/pricing/">RDS for PostgreSQL pricing page</a> gives an example rate of 0.100 USD per vCPU-hour in US East (Ohio) for years one and two, and 0.200 USD in year three. Rates vary by region, so check yours.</p>
+<p>To make that concrete: an instance with 4 vCPUs running all month is about 730 hours, so 4 x 730 x 0.10 is roughly 290 USD a month, or about 3,500 USD a year, for that one instance, before year-three pricing doubles it. Add read replicas, staging copies and that forgotten analytics replica, and a small team can easily be paying for a version nobody chose to keep.</p>
+<p>Whether a database is enrolled depends on how it was created. According to the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support-creating-db-instance.html">RDS Extended Support documentation</a>, the console leaves the option unticked, but the CLI and API default to enrolling when the setting is not specified, which covers most infrastructure-as-code setups. An enrolled database keeps running and gets billed. A database that is not enrolled is upgraded to a newer major version automatically after standard support ends, on AWS&#39;s schedule. Either way, it becomes a decision made for you unless someone makes it first.</p>
+<h3>Azure and Google Cloud</h3>
+<p>Azure Database for PostgreSQL and Cloud SQL have their own support windows and extended-support policies for older major versions. I am not going to quote their dates or prices here because they differ by product tier and change; check your provider&#39;s version policy page directly. The planning approach below is the same.</p>
+<h3>Self-hosted or a platform like Heroku or Render</h3>
+<p>If you run Postgres yourself, there is no extra fee, but there are also no more patches unless you buy them from a commercial vendor. Platform providers usually publish deprecation notices for old versions; look for them in your account and email.</p>
+<h2>Should you pay for Extended Support or upgrade?</h2>
+<p>For almost every early-stage company, upgrade. Extended Support makes sense as a short bridge, not a plan.</p>
+<p>Pay for a few months of it only if:</p>
+<ul>
+<li>You are in the middle of a fundraise, launch or migration and cannot take the risk of a database change right now.</li>
+<li>A dependency, such as an extension or an old ORM version, genuinely blocks the upgrade and needs time to replace.</li>
+<li>The database is tiny, so the fee is a rounding error, and you have a dated plan to upgrade anyway.</li>
+</ul>
+<p>If none of those apply, every month on Extended Support is money spent on standing still. I wrote more generally about <a href="/post-dependency-upgrade-or-defer">when to upgrade and when to defer a dependency</a>; a database major version is the case where deferring is most expensive.</p>
+<h2>Which version to upgrade to</h2>
+<p>My default advice, as judgment rather than a rule:</p>
+<ul>
+<li><strong>PostgreSQL 17</strong> if you want the safest jump. It has been out since late 2024, is supported into 2029 by the community, and your provider, extensions and tools will all handle it.</li>
+<li><strong>PostgreSQL 18</strong> if your managed provider supports it as a major-upgrade target, your extensions support it, and you want the longest runway. Check each extension you use before choosing.</li>
+<li><strong>Not 15 or 16</strong> unless something blocks a bigger jump. You would be doing this again within one to two years.</li>
+</ul>
+<p>Skipping several major versions at once is normal with Postgres; tools like <code>pg_upgrade</code> and the managed providers&#39; major-version upgrade support it. What matters is testing.</p>
+<h2>A practical upgrade plan</h2>
+<p>For a typical startup database under a few hundred gigabytes, this is a few days of focused engineering work spread over two to three weeks, in my experience. Larger databases or zero-downtime requirements take longer.</p>
+<h3>1. Inventory what you are running</h3>
+<p>List every PostgreSQL 14 instance: production, replicas, staging, preview environments, analytics copies, and anything a past agency set up. The forgotten ones are where surprise fees come from. If you are not sure who has access to all of it, see <a href="/post-cloud-resources-nobody-owns">cloud resources nobody owns</a>.</p>
+<h3>2. Check extensions and drivers</h3>
+<p>List installed extensions (<code>SELECT * FROM pg_extension;</code>) and confirm each supports your target version on your provider. Check your database drivers and ORM versions too.</p>
+<h3>3. Rehearse on a copy</h3>
+<p>Restore a recent snapshot to a new instance, run the major-version upgrade on it, and time it. Run your test suite and your heaviest real queries against the upgraded copy. Major versions can change query plans, so compare the slow-query log before and after.</p>
+<h3>4. Decide on downtime</h3>
+<p>An in-place major-version upgrade on RDS involves downtime that depends on database size; your rehearsal tells you roughly how long. If you cannot accept that, look at blue/green deployments or logical replication, which cost more effort but reduce the cut-over window.</p>
+<h3>5. Take a fresh backup and pick a quiet window</h3>
+<p>Confirm you can restore it. If your backups only live in one account, read <a href="/post-backups-outside-your-cloud-provider">keeping backups outside your cloud provider</a> first.</p>
+<h3>6. Upgrade, then watch for a week</h3>
+<p>Run <code>ANALYZE</code> after the upgrade so the planner has fresh statistics, watch error rates and query latency, and keep the old snapshot until you are confident.</p>
+<h2>If an agency or contractor runs your database</h2>
+<p>Ask them three questions this week: which instances are on 14, what their upgrade plan and date is, and whether the work is covered by your existing retainer. If the answer to the last one is unclear, our notes on <a href="/post-agency-maintenance-retainer">what an agency maintenance retainer should cover</a> will help you frame the conversation.</p>
+<h2>This is not the only deadline</h2>
+<p>PostgreSQL 14 is part of a run of end-of-life dates this season. We covered <a href="/post-node-js-26-lts-upgrade">Node.js 26 and the older Node lines</a> and <a href="/post-python-3-10-end-of-life">Python 3.10 reaching end of life</a> recently. The pattern is the same each time: inventory, test on a copy, upgrade before the provider starts charging or forcing it. If this keeps catching you out, the fix is an owner and a calendar, which is also what we look for in <a href="/post-cloud-provider-retires-service">a cloud provider retiring a service</a>.</p>
+<h2>FAQ</h2>
+<h3>Will AWS force-upgrade my PostgreSQL 14 database?</h3>
+<p>Not if it is enrolled in Extended Support; you will be billed instead. If it is not enrolled, AWS upgrades it to a supported major version automatically after standard support ends, on its schedule rather than yours. Check each instance&#39;s Extended Support setting in the RDS console or CLI.</p>
+<h3>Is it safe to stay on PostgreSQL 14 for a few months?</h3>
+<p>For a few months, usually yes, but you are now relying on no serious security bug being found. If your database is reachable only from your application and you upgrade before March, the risk is modest.</p>
+<h3>How long does a major-version upgrade take?</h3>
+<p>Rehearse it to find out. Small databases often upgrade in minutes; large ones can take much longer, and the rehearsal is the only reliable estimate.</p>
+<h3>Can we jump straight from 14 to 18?</h3>
+<p>Usually yes, if your provider supports that path and your extensions support 18. Test it on a copy first.</p>
+<p>If you are not sure how many databases you are running or what a safe upgrade looks like for your setup, a <a href="/teardown">technical teardown</a> will map it quickly, or you can <a href="/book-a-call">book a call</a> and we will work out the plan together.</p>
+
+    </div>
+    <div class="article-body">
+      <div class="author-card reveal">
+        <span class="ac-av">F</span>
+        <div>
+          <div class="ac-name">The founder of Fraction</div>
+          <div class="ac-bio">Built engineering teams from 2 to 30. Killed more bad rebuilds than I've greenlit. <a href="about.html" class="link-grow" style="font-size:0.96rem">More about me <span class="arrow">&rarr;</span></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" style="padding-top:clamp(32px,5vw,56px)">
+  <div class="wrap">
+    <div class="callout reveal" style="text-align:center">
+      <h3 style="margin-left:auto;margin-right:auto;max-width:22ch">Not sure the call you're about to make is the right one?</h3>
+      <p style="margin:0 auto 26px">That's exactly what a 20-minute fit call is for &mdash; or a two-week Teardown if you'd rather start with a written verdict.</p>
+      <div class="ph-cta" style="justify-content:center">
+        <a href="book-a-call.html" class="btn btn-accent">Book a fit call <span class="arrow">&rarr;</span></a>
+        <a href="teardown.html" class="link-grow" style="color:#fff">Start with a Teardown <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap-wide">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#14140F"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+        <p style="color:var(--grey-2); max-width:30ch; margin-top:18px; font-size:0.96rem; line-height:1.5">Senior technical leadership for founders who aren't ready for a full-time CTO — and shouldn't hire one yet.</p>
+      </div>
+      <div><h5>Service</h5><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="comparison.html">Fractional vs full-time</a></li><li><a href="teardown.html">The Tech Teardown</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="blog.html">Writing</a></li><li><a href="book-a-call.html">Book a call</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+      <div><h5>Start here</h5><ul><li><a href="book-a-call.html">Book a 20-min fit call</a></li><li><a href="teardown.html">Start with a Teardown</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Fraction · <a href="https://getfractioncto.com">getfractioncto.com</a> — no contract, no equity, cancel anytime.</span>
+      <span>Built on judgment, not hours.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="motion.js"></script>
+</body>
+</html>
