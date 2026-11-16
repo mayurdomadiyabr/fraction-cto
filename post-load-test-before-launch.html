@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Do you need a load test before your launch? — Fraction</title>
+  <meta name="description" content="When an early startup should load test before launch, the three tests that matter, and the bottlenecks that break first." />
+  <meta name="theme-color" content="#FAFAF9" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Fraction" />
+  <meta property="og:title" content="Do you need a load test before your launch? — Fraction" />
+  <meta property="og:description" content="When an early startup should load test before launch, the three tests that matter, and the bottlenecks that break first." />
+  <meta property="og:url" content="https://getfractioncto.com/post-load-test-before-launch" />
+  <meta property="og:image" content="https://getfractioncto.com/og-image.png" />
+  <meta property="article:published_time" content="2026-11-16T02:24:12.219Z" />
+  <meta property="article:author" content="The founder of Fraction" />
+  <meta property="article:section" content="Knowing when" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Do you need a load test before your launch? — Fraction" />
+  <meta name="twitter:description" content="When an early startup should load test before launch, the three tests that matter, and the bottlenecks that break first." />
+  <meta name="twitter:image" content="https://getfractioncto.com/og-image.png" />
+  <link rel="canonical" href="https://getfractioncto.com/post-load-test-before-launch" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script src="/analytics.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Do you need a load test before your launch?",
+  "description": "When an early startup should load test before launch, the three tests that matter, and the bottlenecks that break first.",
+  "datePublished": "2026-11-16T02:24:12.219Z",
+  "dateModified": "2026-11-16T02:24:12.219Z",
+  "author": {
+    "@type": "Person",
+    "name": "The founder of Fraction",
+    "url": "https://getfractioncto.com/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fraction",
+    "url": "https://getfractioncto.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://getfractioncto.com/og-image.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://getfractioncto.com/post-load-test-before-launch"
+  },
+  "image": "https://getfractioncto.com/og-image.png",
+  "articleSection": "Knowing when",
+  "wordCount": 1242,
+  "inLanguage": "en",
+  "isAccessibleForFree": true
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home",   "item": "https://getfractioncto.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Writing","item": "https://getfractioncto.com/blog" },
+    { "@type": "ListItem", "position": 3, "name": "Do you need a load test before your launch?", "item": "https://getfractioncto.com/post-load-test-before-launch" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Fraction home"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <ul class="nav-links">
+      <li><a href="how-it-works.html">How it works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="comparison.html">Compare</a></li>
+      <li><a href="blog.html" class="active">Writing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="teardown.html">The Teardown <span class="accent-dot"></span></a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke-linecap="round"/></svg></button>
+      <button class="icon-btn" aria-label="Toggle theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M21.5 12h-2.2M4.7 12H2.5M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6M18.4 18.4l-1.6-1.6M7.2 7.2 5.6 5.6" stroke-linecap="round"/></svg></button>
+      <a href="book-a-call.html" class="btn btn-primary nav-cta">Book a fit call</a>
+      <button class="icon-btn menu-btn" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu">
+  <div class="mm-top">
+    <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <button class="icon-btn menu-btn" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg></button>
+  </div>
+  <nav>
+    <a href="how-it-works.html">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="comparison.html">Compare</a>
+    <a href="blog.html">Writing</a>
+    <a href="about.html">About</a>
+    <a href="teardown.html">The Teardown</a>
+  </nav>
+  <div class="mm-cta">
+    <a href="teardown.html" class="btn btn-ghost">Start with a Teardown</a>
+    <a href="book-a-call.html" class="btn btn-primary">Book a 20-min fit call</a>
+  </div>
+</div>
+
+<main>
+<section class="page-hero center" style="padding-bottom:clamp(24px,4vw,40px)">
+  <div class="wrap">
+    <div class="article-hero">
+      <span class="post-cat">Knowing when</span>
+      <h1>Do you need a load test before your launch?</h1>
+      <div class="post-meta"><span>Nov 2026</span><span class="sep"></span><span>6 min read</span><span class="sep"></span><span>by The founder of Fraction</span></div>
+    </div>
+  </div>
+</section>
+<section class="section-tight" style="padding-top:8px">
+  <div class="wrap">
+    <div class="article-body reveal">
+<p>You need a load test before a launch only when you expect a sudden, predictable spike: a Product Hunt day, a press hit, a big customer rollout, a TV or influencer mention, or a migration that moves every user at once. For steady, organic growth, good monitoring and a cheap smoke test usually beat a formal load-testing project. The point of the test is not a big number to put on a slide. It is finding the first thing that breaks while you still have time to fix it.</p>
+<p>Most early products do not fall over because the code is slow. They fall over because one specific thing runs out: database connections, a third-party rate limit, a background queue, or the free tier on a service nobody remembered was on a free tier.</p>
+<h2>When a load test earns its cost</h2>
+<p>These are the situations where I push founders to test before the date, not after.</p>
+<ul>
+<li><strong>A dated traffic event.</strong> Launch day, a demo day, a newsletter feature, a paid campaign with a big budget. You know the day, so you can rehearse it.</li>
+<li><strong>A large customer going live.</strong> An enterprise rollout that adds thousands of users on a Monday morning is a spike, even if your total user count still looks small.</li>
+<li><strong>A migration or re-platform.</strong> Moving to a new database, host or framework changes your performance profile in ways nobody has measured yet.</li>
+<li><strong>Usage-shaped pricing or SLAs.</strong> If you have promised a customer uptime or response times, you should know where your limits are before they find them.</li>
+<li><strong>A recent outage under load.</strong> If you went down once, test the fix before the next spike proves it does not work.</li>
+</ul>
+<p>If none of those apply and traffic is growing a few percent a week, you are usually better served by watching real metrics and fixing what they show. I covered the related trap of <a href="/post-premature-scaling">scaling before you need to</a>, and heavy load testing for traffic that may never come is a version of it.</p>
+<h2>What to test, in order</h2>
+<p>The Grafana k6 documentation lays out a useful ladder of <a href="https://grafana.com/docs/k6/latest/testing-guides/test-types/">load test types</a>, from tiny smoke tests up to stress, spike, soak and breakpoint tests. For an early startup, three rungs are enough.</p>
+<h3>1. A smoke test</h3>
+<p>A handful of simulated users for a minute or two, against your most important flows: sign up, log in, the core action, checkout if you have one. This catches broken scripts and obvious errors, and it is cheap enough to run whenever those flows change.</p>
+<h3>2. An expected-peak test</h3>
+<p>Estimate your peak honestly, then test at two to three times that. If you think launch day brings 2,000 visitors in the first hour, model the share who sign up and use the core action, and simulate that rate. The multiplier is a rule of thumb, not a benchmark; it covers the fact that launch estimates are usually wrong.</p>
+<h3>3. A spike test</h3>
+<p>Go from near zero to your peak in seconds rather than minutes. Real launches look like this: a post goes live and everyone arrives at once. Spike tests often surface auto-scaling that reacts too slowly and connection pools that fill instantly.</p>
+<p>Soak tests (hours at steady load) and breakpoint tests (raise load until something fails) are useful later. Most seed-stage teams do not need them for a launch.</p>
+<h2>What usually breaks first</h2>
+<p>From the products I have looked at, the first failure is rarely where the founder expects.</p>
+<ul>
+<li><strong>Database connections.</strong> Serverless functions or many app instances each open connections until the database refuses new ones. A connection pooler often fixes it.</li>
+<li><strong>Third-party limits.</strong> Email providers, AI APIs, payment providers and SMS gateways all rate limit. Your code can be fast and still fail because a vendor says no.</li>
+<li><strong>One slow query.</strong> A dashboard or search query that is fine with ten rows becomes the bottleneck at ten thousand. If one customer&#39;s data already slows things down, see <a href="/post-one-customer-slows-everyone">when one customer slows everyone</a>.</li>
+<li><strong>Background jobs.</strong> Welcome emails, imports and webhook processing pile up in a queue that drains slower than it fills.</li>
+<li><strong>Plan limits.</strong> Free or starter tiers on hosting, databases or auth providers with hard caps on requests or users.</li>
+</ul>
+<p>Write down which of these you checked. That list is more useful than the test results themselves.</p>
+<h2>How to run it without a big project</h2>
+<p>You do not need a performance team. A sensible engineer can do a useful round in two to four days.</p>
+<ol>
+<li><strong>Pick the three to five flows that matter on launch day.</strong> Not every endpoint.</li>
+<li><strong>Test against a production-like environment</strong>, with realistic data volume. Testing an empty staging database tells you little.</li>
+<li><strong>Use an open-source tool.</strong> k6, Locust and Artillery are all common choices. Pick whichever your team can script fastest.</li>
+<li><strong>Watch the system, not just the tool.</strong> Database CPU and connections, error rates, queue depth and third-party responses tell you why something failed.</li>
+<li><strong>Fix the first bottleneck, then rerun.</strong> The second bottleneck is often hiding behind the first.</li>
+<li><strong>Tell your vendors.</strong> If you expect a large spike in email, SMS or AI calls, ask for a temporary limit increase in advance. Some providers need days.</li>
+</ol>
+<p>Never point a load test at a third-party API or a system you do not own without permission. Mock or stub external calls where you can, and test them separately against their documented limits.</p>
+<h2>The launch-day plan matters as much as the test</h2>
+<p>A load test tells you where the edges are. The plan tells you what to do when you hit one anyway.</p>
+<ul>
+<li>A way to turn off non-essential features quickly, such as heavy dashboards or AI extras.</li>
+<li>A waitlist or queue page you can switch on if sign-ups outrun capacity.</li>
+<li>Someone awake and watching during the spike, with access to scale things up. If you do not yet have a rotation, see <a href="/post-when-do-you-need-on-call">when you need on-call</a>.</li>
+<li>A simple place to tell users what is going on, if you have one, like a <a href="/post-do-you-need-a-status-page-yet">status page</a>.</li>
+</ul>
+<p>A launch that slows down gracefully and recovers is fine. A launch that silently drops sign-ups is the one that hurts.</p>
+<h2>FAQ</h2>
+<h3>How many users should we simulate?</h3>
+<p>Start from your honest peak estimate for the busiest hour, convert it into actions per second on your key flows, and test at two to three times that. Simulating a million users when you expect two thousand is wasted effort.</p>
+<h3>Can we load test production?</h3>
+<p>Sometimes, carefully, in a quiet window and with your vendors&#39; limits in mind. Many early teams test a production-sized copy instead. Either way, make sure test data cannot reach real customers or trigger real emails and payments.</p>
+<h3>Is load testing needed for a B2B product with a few customers?</h3>
+<p>Usually not as a project. A smoke test on core flows plus monitoring is enough until a large customer rollout or a migration is coming.</p>
+<h3>What does a load test cost?</h3>
+<p>Mostly engineering time, typically a few days for a first round, plus some cloud cost for the test environment. The open-source tools are free.</p>
+<p>If your launch date is close and you are not sure where your system will break, a <a href="/teardown">technical teardown</a> can find the weak points quickly, or you can <a href="/book-a-call">book a call</a> to walk through your launch plan.</p>
+
+    </div>
+    <div class="article-body">
+      <div class="author-card reveal">
+        <span class="ac-av">F</span>
+        <div>
+          <div class="ac-name">The founder of Fraction</div>
+          <div class="ac-bio">Built engineering teams from 2 to 30. Killed more bad rebuilds than I've greenlit. <a href="about.html" class="link-grow" style="font-size:0.96rem">More about me <span class="arrow">&rarr;</span></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" style="padding-top:clamp(32px,5vw,56px)">
+  <div class="wrap">
+    <div class="callout reveal" style="text-align:center">
+      <h3 style="margin-left:auto;margin-right:auto;max-width:22ch">Not sure the call you're about to make is the right one?</h3>
+      <p style="margin:0 auto 26px">That's exactly what a 20-minute fit call is for &mdash; or a two-week Teardown if you'd rather start with a written verdict.</p>
+      <div class="ph-cta" style="justify-content:center">
+        <a href="book-a-call.html" class="btn btn-accent">Book a fit call <span class="arrow">&rarr;</span></a>
+        <a href="teardown.html" class="link-grow" style="color:#fff">Start with a Teardown <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap-wide">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#14140F"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+        <p style="color:var(--grey-2); max-width:30ch; margin-top:18px; font-size:0.96rem; line-height:1.5">Senior technical leadership for founders who aren't ready for a full-time CTO — and shouldn't hire one yet.</p>
+      </div>
+      <div><h5>Service</h5><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="comparison.html">Fractional vs full-time</a></li><li><a href="teardown.html">The Tech Teardown</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="blog.html">Writing</a></li><li><a href="book-a-call.html">Book a call</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+      <div><h5>Start here</h5><ul><li><a href="book-a-call.html">Book a 20-min fit call</a></li><li><a href="teardown.html">Start with a Teardown</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Fraction · <a href="https://getfractioncto.com">getfractioncto.com</a> — no contract, no equity, cancel anytime.</span>
+      <span>Built on judgment, not hours.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="motion.js"></script>
+</body>
+</html>

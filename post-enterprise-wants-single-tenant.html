@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>An enterprise prospect wants single-tenant. Do you need it? — Fraction</title>
+  <meta name="description" content="An enterprise wants single-tenant hosting: the isolation options, what a dedicated instance really costs, and when to say yes." />
+  <meta name="theme-color" content="#FAFAF9" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Fraction" />
+  <meta property="og:title" content="An enterprise prospect wants single-tenant. Do you need it? — Fraction" />
+  <meta property="og:description" content="An enterprise wants single-tenant hosting: the isolation options, what a dedicated instance really costs, and when to say yes." />
+  <meta property="og:url" content="https://getfractioncto.com/post-enterprise-wants-single-tenant" />
+  <meta property="og:image" content="https://getfractioncto.com/og-image.png" />
+  <meta property="article:published_time" content="2026-11-16T02:24:13.065Z" />
+  <meta property="article:author" content="The founder of Fraction" />
+  <meta property="article:section" content="Knowing when" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="An enterprise prospect wants single-tenant. Do you need it? — Fraction" />
+  <meta name="twitter:description" content="An enterprise wants single-tenant hosting: the isolation options, what a dedicated instance really costs, and when to say yes." />
+  <meta name="twitter:image" content="https://getfractioncto.com/og-image.png" />
+  <link rel="canonical" href="https://getfractioncto.com/post-enterprise-wants-single-tenant" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script src="/analytics.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "An enterprise prospect wants single-tenant. Do you need it?",
+  "description": "An enterprise wants single-tenant hosting: the isolation options, what a dedicated instance really costs, and when to say yes.",
+  "datePublished": "2026-11-16T02:24:13.065Z",
+  "dateModified": "2026-11-16T02:24:13.065Z",
+  "author": {
+    "@type": "Person",
+    "name": "The founder of Fraction",
+    "url": "https://getfractioncto.com/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fraction",
+    "url": "https://getfractioncto.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://getfractioncto.com/og-image.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://getfractioncto.com/post-enterprise-wants-single-tenant"
+  },
+  "image": "https://getfractioncto.com/og-image.png",
+  "articleSection": "Knowing when",
+  "wordCount": 1061,
+  "inLanguage": "en",
+  "isAccessibleForFree": true
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home",   "item": "https://getfractioncto.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Writing","item": "https://getfractioncto.com/blog" },
+    { "@type": "ListItem", "position": 3, "name": "An enterprise prospect wants single-tenant. Do you need it?", "item": "https://getfractioncto.com/post-enterprise-wants-single-tenant" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Fraction home"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <ul class="nav-links">
+      <li><a href="how-it-works.html">How it works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="comparison.html">Compare</a></li>
+      <li><a href="blog.html" class="active">Writing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="teardown.html">The Teardown <span class="accent-dot"></span></a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke-linecap="round"/></svg></button>
+      <button class="icon-btn" aria-label="Toggle theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M21.5 12h-2.2M4.7 12H2.5M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6M18.4 18.4l-1.6-1.6M7.2 7.2 5.6 5.6" stroke-linecap="round"/></svg></button>
+      <a href="book-a-call.html" class="btn btn-primary nav-cta">Book a fit call</a>
+      <button class="icon-btn menu-btn" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu">
+  <div class="mm-top">
+    <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <button class="icon-btn menu-btn" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg></button>
+  </div>
+  <nav>
+    <a href="how-it-works.html">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="comparison.html">Compare</a>
+    <a href="blog.html">Writing</a>
+    <a href="about.html">About</a>
+    <a href="teardown.html">The Teardown</a>
+  </nav>
+  <div class="mm-cta">
+    <a href="teardown.html" class="btn btn-ghost">Start with a Teardown</a>
+    <a href="book-a-call.html" class="btn btn-primary">Book a 20-min fit call</a>
+  </div>
+</div>
+
+<main>
+<section class="page-hero center" style="padding-bottom:clamp(24px,4vw,40px)">
+  <div class="wrap">
+    <div class="article-hero">
+      <span class="post-cat">Knowing when</span>
+      <h1>An enterprise prospect wants single-tenant. Do you need it?</h1>
+      <div class="post-meta"><span>Nov 2026</span><span class="sep"></span><span>5 min read</span><span class="sep"></span><span>by The founder of Fraction</span></div>
+    </div>
+  </div>
+</section>
+<section class="section-tight" style="padding-top:8px">
+  <div class="wrap">
+    <div class="article-body reveal">
+<p>When an enterprise prospect asks for single-tenant hosting, most early startups should not say yes to a fully separate copy of the product. Find out what the buyer actually needs, which is usually stronger data isolation, a specific region, their own encryption keys or a clearer audit scope, and meet that with targeted changes to your shared platform. A true dedicated instance makes sense when the deal is large enough to pay for running and upgrading a second product, and when you expect more customers like it.</p>
+<p>The request often arrives late in a deal, phrased as a requirement in a security questionnaire or a redline. Founders feel they must answer yes or lose the contract. Usually there is a third option.</p>
+<h2>What &quot;single-tenant&quot; can mean</h2>
+<p>Buyers use the term loosely, and so do vendors. It helps to separate the options, from lightest to heaviest.</p>
+<h3>Logical isolation in a shared system</h3>
+<p>Everyone runs on the same application and database, but every query is scoped to a tenant and the boundary is enforced in code and tested. This is how most SaaS products work. If yours relies on developers remembering to add a filter, read <a href="/post-tenant-isolation-by-memory">tenant isolation by memory</a> first; that is the gap buyers are really worried about.</p>
+<h3>Separate database or schema per customer</h3>
+<p>The application is shared, but this customer&#39;s data lives in its own database or schema. This gives a clear data boundary, easier per-customer backup and deletion, and a simpler story for auditors, without running a second application.</p>
+<h3>Customer-managed encryption keys</h3>
+<p>Data stays in your shared system but is encrypted with a key the customer controls through their cloud provider&#39;s key service. They can revoke access. Some cloud databases and storage services support this directly.</p>
+<h3>Dedicated data plane</h3>
+<p>A shared control plane (sign-up, billing, admin) with this customer&#39;s compute and storage in a separate environment, sometimes in their chosen region or cloud account.</p>
+<h3>Fully dedicated instance</h3>
+<p>A complete, separate copy of your product and infrastructure for one customer. Every deploy, migration and incident now happens twice.</p>
+<p>Each step down this list adds cost. The last one adds the most, and the cost is permanent.</p>
+<h2>Why the full version is expensive</h2>
+<p>The hosting bill is the smallest part. The real costs, in the products I have seen, are these:</p>
+<ul>
+<li><strong>Upgrades.</strong> Every release must reach the dedicated instance too. If it falls behind, you are maintaining two versions of your product.</li>
+<li><strong>Migrations.</strong> Database changes must run in each environment. A migration that fails in one is an incident nobody else has.</li>
+<li><strong>Monitoring and on-call.</strong> Another set of alerts, dashboards and failure modes.</li>
+<li><strong>Support.</strong> Bugs that only happen in one environment take longer to diagnose.</li>
+<li><strong>Sales precedent.</strong> Once one customer has it, the next large prospect will ask too, and your price for it is now on record.</li>
+</ul>
+<p>As a rough rule of thumb, not a benchmark, I would assume a dedicated instance takes a noticeable slice of one engineer&#39;s time ongoing, before any customization. If the contract does not cover that, the deal loses money no matter how good the logo is.</p>
+<h2>The questions to ask before answering</h2>
+<p>Treat the request as a discovery conversation. Ask the buyer&#39;s security or procurement team:</p>
+<ol>
+<li><strong>What risk are you trying to reduce?</strong> Data mixing with other customers, regulatory location, access by your staff, or audit scope.</li>
+<li><strong>Is this a hard requirement or a preference?</strong> Many questionnaires list single-tenant as one acceptable way to meet a control, not the only one.</li>
+<li><strong>Would a separate database, customer-managed keys or a specific region meet it?</strong></li>
+<li><strong>Do you need it in your own cloud account, or in ours?</strong></li>
+<li><strong>What certifications or documents would satisfy the same concern?</strong> Sometimes a SOC 2 report, a pen test summary and a clear data-flow diagram resolve it.</li>
+</ol>
+<p>The answers usually narrow the request to one or two concrete controls. Our post on <a href="/post-security-questionnaire-deal">handling a security questionnaire that blocks a deal</a> covers the broader process.</p>
+<h2>When saying yes is right</h2>
+<p>A dedicated deployment can be a good decision when:</p>
+<ul>
+<li>The contract value clearly covers the ongoing engineering cost, not just the setup.</li>
+<li>You expect several similar customers, such as regulated industries or government, so the work becomes a product line.</li>
+<li>Your deployment is already automated. If you can create a full environment from code in under a day, the marginal cost drops a lot. If your environment was built by hand, see <a href="/post-server-nobody-can-rebuild">the server nobody can rebuild</a> before promising anything.</li>
+<li>The customer accepts your release schedule, so the instance does not fall behind.</li>
+</ul>
+<h2>How to say yes without wrecking your roadmap</h2>
+<p>If you go ahead, set rules up front:</p>
+<ul>
+<li><strong>Same code, same version.</strong> No customer-specific branches. Configuration only.</li>
+<li><strong>Charge for it explicitly.</strong> A separate line item for dedicated hosting, priced to cover ongoing work, with a minimum term.</li>
+<li><strong>Automate before you deploy.</strong> Infrastructure as code and automated migrations for both environments.</li>
+<li><strong>Write down what is different.</strong> Which features, integrations or support terms change for this customer.</li>
+</ul>
+<p>Pricing this kind of work is tricky early on. Our notes on <a href="/post-price-an-enterprise-paid-pilot">pricing an enterprise paid pilot</a> apply here too.</p>
+<h2>FAQ</h2>
+<h3>Is single-tenant more secure than multi-tenant?</h3>
+<p>Not automatically. It changes where the isolation boundary sits. A well-built multi-tenant system with enforced isolation can be safer than a poorly maintained dedicated instance that misses security updates.</p>
+<h3>Can we start multi-tenant and add single-tenant later?</h3>
+<p>Yes, and it is the easier direction. Moving a product built for one customer per instance to a shared model is much harder than adding dedicated options to a shared one.</p>
+<h3>What should we charge for a dedicated instance?</h3>
+<p>Enough to cover hosting plus the ongoing engineering time for upgrades, monitoring and support, with margin. Price it as a premium tier with a minimum contract length, not a one-time setup fee.</p>
+<h3>Will saying no lose the deal?</h3>
+<p>Sometimes, but less often than founders fear. Offering a specific alternative control, with documentation, often satisfies the security team.</p>
+<p>If a large deal hinges on a hosting or isolation question and you want an outside view on what to offer, <a href="/book-a-call">book a call</a>. For a broader look at whether your architecture is ready for enterprise buyers, see our <a href="/teardown">technical teardown</a> or <a href="/pricing">pricing</a>.</p>
+
+    </div>
+    <div class="article-body">
+      <div class="author-card reveal">
+        <span class="ac-av">F</span>
+        <div>
+          <div class="ac-name">The founder of Fraction</div>
+          <div class="ac-bio">Built engineering teams from 2 to 30. Killed more bad rebuilds than I've greenlit. <a href="about.html" class="link-grow" style="font-size:0.96rem">More about me <span class="arrow">&rarr;</span></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" style="padding-top:clamp(32px,5vw,56px)">
+  <div class="wrap">
+    <div class="callout reveal" style="text-align:center">
+      <h3 style="margin-left:auto;margin-right:auto;max-width:22ch">Not sure the call you're about to make is the right one?</h3>
+      <p style="margin:0 auto 26px">That's exactly what a 20-minute fit call is for &mdash; or a two-week Teardown if you'd rather start with a written verdict.</p>
+      <div class="ph-cta" style="justify-content:center">
+        <a href="book-a-call.html" class="btn btn-accent">Book a fit call <span class="arrow">&rarr;</span></a>
+        <a href="teardown.html" class="link-grow" style="color:#fff">Start with a Teardown <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap-wide">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#14140F"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+        <p style="color:var(--grey-2); max-width:30ch; margin-top:18px; font-size:0.96rem; line-height:1.5">Senior technical leadership for founders who aren't ready for a full-time CTO — and shouldn't hire one yet.</p>
+      </div>
+      <div><h5>Service</h5><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="comparison.html">Fractional vs full-time</a></li><li><a href="teardown.html">The Tech Teardown</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="blog.html">Writing</a></li><li><a href="book-a-call.html">Book a call</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+      <div><h5>Start here</h5><ul><li><a href="book-a-call.html">Book a 20-min fit call</a></li><li><a href="teardown.html">Start with a Teardown</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Fraction · <a href="https://getfractioncto.com">getfractioncto.com</a> — no contract, no equity, cancel anytime.</span>
+      <span>Built on judgment, not hours.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="motion.js"></script>
+</body>
+</html>

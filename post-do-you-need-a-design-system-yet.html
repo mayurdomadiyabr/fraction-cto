@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Do you need a design system yet, or just a component library? — Fraction</title>
+  <meta name="description" content="When an early startup needs a design system vs a themed component library: the signs, the stages, and the hidden costs." />
+  <meta name="theme-color" content="#FAFAF9" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Fraction" />
+  <meta property="og:title" content="Do you need a design system yet, or just a component library? — Fraction" />
+  <meta property="og:description" content="When an early startup needs a design system vs a themed component library: the signs, the stages, and the hidden costs." />
+  <meta property="og:url" content="https://getfractioncto.com/post-do-you-need-a-design-system-yet" />
+  <meta property="og:image" content="https://getfractioncto.com/og-image.png" />
+  <meta property="article:published_time" content="2026-11-16T02:24:11.767Z" />
+  <meta property="article:author" content="The founder of Fraction" />
+  <meta property="article:section" content="Knowing when" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Do you need a design system yet, or just a component library? — Fraction" />
+  <meta name="twitter:description" content="When an early startup needs a design system vs a themed component library: the signs, the stages, and the hidden costs." />
+  <meta name="twitter:image" content="https://getfractioncto.com/og-image.png" />
+  <link rel="canonical" href="https://getfractioncto.com/post-do-you-need-a-design-system-yet" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script src="/analytics.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Do you need a design system yet, or just a component library?",
+  "description": "When an early startup needs a design system vs a themed component library: the signs, the stages, and the hidden costs.",
+  "datePublished": "2026-11-16T02:24:11.767Z",
+  "dateModified": "2026-11-16T02:24:11.767Z",
+  "author": {
+    "@type": "Person",
+    "name": "The founder of Fraction",
+    "url": "https://getfractioncto.com/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fraction",
+    "url": "https://getfractioncto.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://getfractioncto.com/og-image.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://getfractioncto.com/post-do-you-need-a-design-system-yet"
+  },
+  "image": "https://getfractioncto.com/og-image.png",
+  "articleSection": "Knowing when",
+  "wordCount": 1302,
+  "inLanguage": "en",
+  "isAccessibleForFree": true
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home",   "item": "https://getfractioncto.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Writing","item": "https://getfractioncto.com/blog" },
+    { "@type": "ListItem", "position": 3, "name": "Do you need a design system yet, or just a component library?", "item": "https://getfractioncto.com/post-do-you-need-a-design-system-yet" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Fraction home"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <ul class="nav-links">
+      <li><a href="how-it-works.html">How it works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="comparison.html">Compare</a></li>
+      <li><a href="blog.html" class="active">Writing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="teardown.html">The Teardown <span class="accent-dot"></span></a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke-linecap="round"/></svg></button>
+      <button class="icon-btn" aria-label="Toggle theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M21.5 12h-2.2M4.7 12H2.5M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6M18.4 18.4l-1.6-1.6M7.2 7.2 5.6 5.6" stroke-linecap="round"/></svg></button>
+      <a href="book-a-call.html" class="btn btn-primary nav-cta">Book a fit call</a>
+      <button class="icon-btn menu-btn" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu">
+  <div class="mm-top">
+    <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <button class="icon-btn menu-btn" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg></button>
+  </div>
+  <nav>
+    <a href="how-it-works.html">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="comparison.html">Compare</a>
+    <a href="blog.html">Writing</a>
+    <a href="about.html">About</a>
+    <a href="teardown.html">The Teardown</a>
+  </nav>
+  <div class="mm-cta">
+    <a href="teardown.html" class="btn btn-ghost">Start with a Teardown</a>
+    <a href="book-a-call.html" class="btn btn-primary">Book a 20-min fit call</a>
+  </div>
+</div>
+
+<main>
+<section class="page-hero center" style="padding-bottom:clamp(24px,4vw,40px)">
+  <div class="wrap">
+    <div class="article-hero">
+      <span class="post-cat">Knowing when</span>
+      <h1>Do you need a design system yet, or just a component library?</h1>
+      <div class="post-meta"><span>Nov 2026</span><span class="sep"></span><span>6 min read</span><span class="sep"></span><span>by The founder of Fraction</span></div>
+    </div>
+  </div>
+</section>
+<section class="section-tight" style="padding-top:8px">
+  <div class="wrap">
+    <div class="article-body reveal">
+<p>Most startups before Series A do not need a design system. They need a small, shared component library and a one-page style sheet: colors, type sizes, spacing and the five or six components every screen uses. A full design system, with its own documentation site, versioning and a person who owns it, starts to pay off when two or more teams build UI in parallel and inconsistency is costing you real time or real deals.</p>
+<p>The question usually arrives after a designer joins, or after a founder clicks through the product and notices three different button styles on one page. Both are fair triggers to tidy up. Neither is a reason to fund a design-system project.</p>
+<h2>What people mean by &quot;design system&quot;</h2>
+<p>The phrase covers three very different levels of investment, and most arguments about it happen because two people mean different levels.</p>
+<h3>Level 1: tokens and a style sheet</h3>
+<p>A short list of named values: brand colors, a type scale, a spacing scale, border radius, shadows. In code these live in one file (CSS variables, a Tailwind config, a theme object). In design they live in one shared library file. Cost: a few days of a designer and an engineer agreeing on the values and replacing the hard-coded ones.</p>
+<h3>Level 2: a shared component library</h3>
+<p>Buttons, inputs, selects, modals, tables, toasts and the layout shell, built once and reused everywhere. Many early teams get this almost for free by adopting an open-source library such as Radix, MUI or shadcn/ui and theming it with the tokens from level 1. Cost: one to three engineer-weeks to adopt and migrate the most-used screens, in my experience, then a little upkeep.</p>
+<h3>Level 3: a design system as a product</h3>
+<p>Documentation site, usage guidelines, accessibility standards per component, versioned releases, a contribution process, and someone whose job includes owning it. This is what large companies mean. Cost: a meaningful slice of at least one person, permanently.</p>
+<p>Levels 1 and 2 are cheap and pay back fast. Level 3 is a headcount decision dressed up as a design decision.</p>
+<h2>The signs you need more than a style sheet</h2>
+<p>These are the patterns I look for before recommending anything beyond level 2.</p>
+<ul>
+<li><strong>Two or more teams ship UI at the same time.</strong> With one team, consistency is a conversation. With two, it needs a shared artifact or it drifts within a quarter.</li>
+<li><strong>The same component exists three times in the codebase.</strong> Search for &quot;Modal&quot; or &quot;DatePicker&quot;. If you find three implementations with different bugs, you are already paying the cost of not having a library.</li>
+<li><strong>Enterprise buyers ask about accessibility.</strong> Procurement teams increasingly send accessibility questionnaires or ask for a VPAT. Fixing contrast, focus states and keyboard navigation once in shared components is far cheaper than fixing them per screen.</li>
+<li><strong>You run more than one product surface.</strong> A web app, a marketing site and a mobile app that should feel like one brand need shared tokens at minimum.</li>
+<li><strong>Designers hand off screens that engineers rebuild from scratch every time.</strong> If each handoff includes custom spacing and one-off components, the gap is process plus a library, not a bigger system.</li>
+</ul>
+<p>If none of these are true, a design system project is very likely polish, not progress. I have written before about the cost of <a href="/post-polishing-instead-of-launching">polishing instead of launching</a>, and an early design system is one of the most respectable-looking ways to do it.</p>
+<h2>The signs you do not need it yet</h2>
+<ul>
+<li>You have one product team of fewer than about six engineers.</li>
+<li>You are still changing the core workflow every few weeks because you have not found product-market fit.</li>
+<li>Customers complain about missing features, not about inconsistency.</li>
+<li>Your designer is part-time or contract.</li>
+</ul>
+<p>In that situation, a design system freezes decisions you have not finished making. Every component you formalize becomes something you have to migrate when the product changes shape, and pre-PMF products change shape a lot.</p>
+<h2>What I recommend at each stage</h2>
+<h3>Pre-seed and seed, one team</h3>
+<p>Pick an existing component library rather than building your own. Theme it with a small token file. Write a one-page &quot;how our UI works&quot; note: which library, where the tokens live, the rule that new components go in one shared folder. That is the whole system. Total effort is usually under two weeks, and it removes most of the inconsistency founders notice.</p>
+<p>If you have not hired a designer yet, read <a href="/post-first-product-designer-yet">whether you need a product designer yet</a> before spending on this at all. A library with sensible defaults gets a solo engineering team surprisingly far.</p>
+<h3>Late seed to Series A, two teams</h3>
+<p>Keep the open-source base, but give the shared folder an owner, usually a senior frontend engineer spending perhaps 10 to 20 percent of their time on it. Add a review rule: new shared components need a second pair of eyes. Fix accessibility basics in the shared components. This is still level 2, just with ownership.</p>
+<h3>Series A and beyond, three or more teams</h3>
+<p>Now level 3 can be worth it, especially with multiple surfaces or an enterprise sales motion. Even then, I would start with documentation inside the repo before building a separate documentation site, and fund it as a part-time responsibility before making it anyone&#39;s full-time job.</p>
+<h2>The costs founders underestimate</h2>
+<p><strong>Migration.</strong> A new component library is only valuable once old screens use it. Migrating a mature product can take longer than building the library. Plan to migrate the five most-used screens and let the rest move as they are touched.</p>
+<p><strong>Opportunity cost.</strong> Two engineer-months on a design system is two engineer-months not spent on the features in your pipeline. That trade is fine at Series A with ten engineers. It is rarely fine at seed with three.</p>
+<p><strong>Lock-in to your own decisions.</strong> A heavily customized in-house library becomes a thing new hires must learn and you must maintain. An open-source base with light theming ages better.</p>
+<h2>How to tell if the work paid off</h2>
+<p>Pick two or three things to watch before you start, so you are not grading it on vibes:</p>
+<ul>
+<li>Time from approved design to shipped screen, on a few comparable features before and after.</li>
+<li>Number of duplicate components in the codebase, which you can count with a search.</li>
+<li>Accessibility issues found in a basic audit of your top screens.</li>
+<li>Designer and engineer complaints in retros, which sounds soft but is a reliable early signal.</li>
+</ul>
+<p>If none of these move after a quarter, stop investing beyond upkeep.</p>
+<h2>FAQ</h2>
+<h3>Is a Figma library the same as a design system?</h3>
+<p>No. A shared Figma library is the design half of level 1 or 2. It helps, but if engineers do not have matching components in code, the screens will still drift.</p>
+<h3>Should we build our own component library from scratch?</h3>
+<p>Rarely, before Series A. Mature open-source libraries handle accessibility and edge cases that take a long time to get right. Theme one and spend your engineering time on what customers pay for.</p>
+<h3>Who should own the design system at a small startup?</h3>
+<p>A senior frontend engineer with a designer as a partner, as a part-time responsibility. A dedicated owner makes sense once several teams depend on it.</p>
+<h3>Does a design system help with fundraising or diligence?</h3>
+<p>Not directly. Investors look at velocity, quality and risk. A consistent, accessible UI helps sales and retention, which helps the story, but nobody funds a company because it has a documentation site for its buttons.</p>
+<p>If you are trying to decide where your next engineering month should go, design system included, a <a href="/teardown">technical teardown</a> gives you an outside view, or you can <a href="/book-a-call">book a call</a> and talk it through.</p>
+
+    </div>
+    <div class="article-body">
+      <div class="author-card reveal">
+        <span class="ac-av">F</span>
+        <div>
+          <div class="ac-name">The founder of Fraction</div>
+          <div class="ac-bio">Built engineering teams from 2 to 30. Killed more bad rebuilds than I've greenlit. <a href="about.html" class="link-grow" style="font-size:0.96rem">More about me <span class="arrow">&rarr;</span></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" style="padding-top:clamp(32px,5vw,56px)">
+  <div class="wrap">
+    <div class="callout reveal" style="text-align:center">
+      <h3 style="margin-left:auto;margin-right:auto;max-width:22ch">Not sure the call you're about to make is the right one?</h3>
+      <p style="margin:0 auto 26px">That's exactly what a 20-minute fit call is for &mdash; or a two-week Teardown if you'd rather start with a written verdict.</p>
+      <div class="ph-cta" style="justify-content:center">
+        <a href="book-a-call.html" class="btn btn-accent">Book a fit call <span class="arrow">&rarr;</span></a>
+        <a href="teardown.html" class="link-grow" style="color:#fff">Start with a Teardown <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap-wide">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#14140F"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+        <p style="color:var(--grey-2); max-width:30ch; margin-top:18px; font-size:0.96rem; line-height:1.5">Senior technical leadership for founders who aren't ready for a full-time CTO — and shouldn't hire one yet.</p>
+      </div>
+      <div><h5>Service</h5><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="comparison.html">Fractional vs full-time</a></li><li><a href="teardown.html">The Tech Teardown</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="blog.html">Writing</a></li><li><a href="book-a-call.html">Book a call</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+      <div><h5>Start here</h5><ul><li><a href="book-a-call.html">Book a 20-min fit call</a></li><li><a href="teardown.html">Start with a Teardown</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Fraction · <a href="https://getfractioncto.com">getfractioncto.com</a> — no contract, no equity, cancel anytime.</span>
+      <span>Built on judgment, not hours.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="motion.js"></script>
+</body>
+</html>
