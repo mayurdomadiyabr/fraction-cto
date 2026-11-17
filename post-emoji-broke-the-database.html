@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>A customer typed an emoji and your database rejected it — Fraction</title>
+  <meta name="description" content="Emoji errors, garbled names, rejected apostrophes: why MySQL utf8, length counting and name validation break, and how to fix them." />
+  <meta name="theme-color" content="#FAFAF9" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Fraction" />
+  <meta property="og:title" content="A customer typed an emoji and your database rejected it — Fraction" />
+  <meta property="og:description" content="Emoji errors, garbled names, rejected apostrophes: why MySQL utf8, length counting and name validation break, and how to fix them." />
+  <meta property="og:url" content="https://getfractioncto.com/post-emoji-broke-the-database" />
+  <meta property="og:image" content="https://getfractioncto.com/og-image.png" />
+  <meta property="article:published_time" content="2026-11-17T04:51:20.135Z" />
+  <meta property="article:author" content="The founder of Fraction" />
+  <meta property="article:section" content="Pattern recognition" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="A customer typed an emoji and your database rejected it — Fraction" />
+  <meta name="twitter:description" content="Emoji errors, garbled names, rejected apostrophes: why MySQL utf8, length counting and name validation break, and how to fix them." />
+  <meta name="twitter:image" content="https://getfractioncto.com/og-image.png" />
+  <link rel="canonical" href="https://getfractioncto.com/post-emoji-broke-the-database" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script src="/analytics.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "A customer typed an emoji and your database rejected it",
+  "description": "Emoji errors, garbled names, rejected apostrophes: why MySQL utf8, length counting and name validation break, and how to fix them.",
+  "datePublished": "2026-11-17T04:51:20.135Z",
+  "dateModified": "2026-11-17T04:51:20.135Z",
+  "author": {
+    "@type": "Person",
+    "name": "The founder of Fraction",
+    "url": "https://getfractioncto.com/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fraction",
+    "url": "https://getfractioncto.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://getfractioncto.com/og-image.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://getfractioncto.com/post-emoji-broke-the-database"
+  },
+  "image": "https://getfractioncto.com/og-image.png",
+  "articleSection": "Pattern recognition",
+  "wordCount": 1150,
+  "inLanguage": "en",
+  "isAccessibleForFree": true
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home",   "item": "https://getfractioncto.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Writing","item": "https://getfractioncto.com/blog" },
+    { "@type": "ListItem", "position": 3, "name": "A customer typed an emoji and your database rejected it", "item": "https://getfractioncto.com/post-emoji-broke-the-database" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Fraction home"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <ul class="nav-links">
+      <li><a href="how-it-works.html">How it works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="comparison.html">Compare</a></li>
+      <li><a href="blog.html" class="active">Writing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="teardown.html">The Teardown <span class="accent-dot"></span></a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke-linecap="round"/></svg></button>
+      <button class="icon-btn" aria-label="Toggle theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M21.5 12h-2.2M4.7 12H2.5M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6M18.4 18.4l-1.6-1.6M7.2 7.2 5.6 5.6" stroke-linecap="round"/></svg></button>
+      <a href="book-a-call.html" class="btn btn-primary nav-cta">Book a fit call</a>
+      <button class="icon-btn menu-btn" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu">
+  <div class="mm-top">
+    <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <button class="icon-btn menu-btn" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg></button>
+  </div>
+  <nav>
+    <a href="how-it-works.html">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="comparison.html">Compare</a>
+    <a href="blog.html">Writing</a>
+    <a href="about.html">About</a>
+    <a href="teardown.html">The Teardown</a>
+  </nav>
+  <div class="mm-cta">
+    <a href="teardown.html" class="btn btn-ghost">Start with a Teardown</a>
+    <a href="book-a-call.html" class="btn btn-primary">Book a 20-min fit call</a>
+  </div>
+</div>
+
+<main>
+<section class="page-hero center" style="padding-bottom:clamp(24px,4vw,40px)">
+  <div class="wrap">
+    <div class="article-hero">
+      <span class="post-cat">Pattern recognition</span>
+      <h1>A customer typed an emoji and your database rejected it</h1>
+      <div class="post-meta"><span>Nov 2026</span><span class="sep"></span><span>5 min read</span><span class="sep"></span><span>by The founder of Fraction</span></div>
+    </div>
+  </div>
+</section>
+<section class="section-tight" style="padding-top:8px">
+  <div class="wrap">
+    <div class="article-body reveal">
+<p>When a customer types an emoji, an accented name or an apostrophe and your app errors, saves it as question marks or cuts the text off, the cause is almost always text handling that assumed plain English: a MySQL column using the old 3-byte utf8 character set, code that counts characters wrong, or validation that rejects real names. The fix is to use utf8mb4 (or Postgres UTF8) end to end, treat length limits as characters rather than bytes, and test with real-world text before customers do.</p>
+<p>This sounds like a small bug class, and individually each instance is. But I keep finding it in products that are selling internationally, collecting names, or storing user-generated content, and it erodes trust in a way that is hard to see from the inside. A customer whose name is rejected by your sign-up form does not file a bug. They leave.</p>
+<h2>The symptoms</h2>
+<ul>
+<li><strong>&quot;Incorrect string value&quot; errors</strong> in your logs when someone saves a message, a product review or a bio with an emoji in it.</li>
+<li><strong>Question marks or garbled characters</strong> in names, addresses or comments, especially for customers in Europe, Latin America and Asia.</li>
+<li><strong>Truncated text</strong> that ends mid-word, or with a broken character, because a limit was enforced in bytes.</li>
+<li><strong>&quot;Please enter a valid name&quot;</strong> for people called O&#39;Brien, Nguyen-Smith, Zoe with an accent, or anyone with one name.</li>
+<li><strong>SMS costs that jump</strong> when one emoji or non-Latin character goes into a templated text.</li>
+</ul>
+<h2>Why it happens</h2>
+<h3>MySQL&#39;s &quot;utf8&quot; is not full UTF-8</h3>
+<p>In MySQL, the character set historically called <code>utf8</code> is really <code>utf8mb3</code>: it stores up to three bytes per character and only covers what Unicode calls the Basic Multilingual Plane. Emoji and some other characters need four bytes. The MySQL manual says <a href="https://dev.mysql.com/doc/refman/8.4/en/charset-unicode-utf8.html">utf8mb3 is deprecated and recommends utf8mb4 for all new applications</a>. Plenty of databases, and the frameworks and tutorials that created them, still default to the old one, especially on schemas that started on MySQL 5.x.</p>
+<p>With strict SQL mode on, MySQL rejects the insert and you see the error. With it off, the data can be silently mangled. I am not sure which is worse.</p>
+<h3>&quot;Length&quot; means different things in different places</h3>
+<p>A database column might limit bytes or characters depending on the engine and type. JavaScript&#39;s <code>.length</code> counts UTF-16 code units, so a single emoji often counts as two, and some emoji built from several code points count as more. A form that says &quot;50 characters max&quot; can disagree with the database about what 50 means, and the user sees an error or a cut-off.</p>
+<h3>Validation written from the developer&#39;s own name</h3>
+<p>A regular expression that only allows A to Z for names looks tidy and rejects a large share of the world. Hyphens, apostrophes, spaces, accents and single-word names are normal. The W3C&#39;s guidance on <a href="https://www.w3.org/International/questions/qa-personal-names">personal names around the world</a> is the clearest short read on this.</p>
+<p>An apostrophe that breaks a save deserves a closer look for a different reason: if a name like O&#39;Brien causes a database error, the query may be built by string concatenation rather than parameters, which is the shape of a SQL injection risk. That belongs in the <a href="/post-ai-code-security-holes">security holes I look for in AI-written code</a> and in human-written code too.</p>
+<h3>SMS encoding changes the price</h3>
+<p>A standard SMS segment holds 160 characters in the GSM-7 alphabet. Include one character outside it, such as an emoji or many non-Latin letters, and the message switches to UCS-2 encoding, where a single segment holds 70 characters. A templated reminder with a customer&#39;s name in it can quietly cost two or three times as much to send. Twilio&#39;s documentation on <a href="https://www.twilio.com/docs/glossary/what-is-ucs-2-character-encoding">message encoding and segments</a> explains the mechanics.</p>
+<h2>The fix</h2>
+<h3>1. Find out what you actually have</h3>
+<p>Check the character set and collation of your database, every table and every text column, plus the connection setting your application uses. A database can be utf8mb4 while one old table, or the client connection, is not. On Postgres, check that the database encoding is UTF8; it nearly always is, and then the remaining issues are in the application.</p>
+<h3>2. Convert to utf8mb4, carefully</h3>
+<p>Converting a large MySQL table rewrites it, so plan it like any <a href="/post-one-line-migration-took-production-down">migration that can take production down</a>: test on a copy, measure the time, and run it in a quiet window or with an online schema-change tool. Watch for index length limits. A VARCHAR(255) index that fit under 3-byte characters can exceed the index size limit at 4 bytes on older row formats, so some indexes need a shorter prefix or a newer row format.</p>
+<h3>3. Make lengths and validation honest</h3>
+<p>Decide whether limits are about display or storage, and count them the same way in the front end, the API and the database. Loosen name validation to allow letters from any script, spaces, hyphens and apostrophes, and use a single &quot;full name&quot; field unless you truly need separate parts. Make sure every query uses parameters.</p>
+<h3>4. Test with real-world text</h3>
+<p>Add a small set of test strings to your automated tests: an emoji, an accented name, a right-to-left name, a name with an apostrophe, a very long name. It takes an hour to add and catches regressions forever. This sits alongside the other data-type traps I see often, such as <a href="/post-money-and-time-data-types">money stored as a float and time stored without a zone</a>.</p>
+<h2>What this costs to fix</h2>
+<p>For a young product the audit is an afternoon. Converting the database is a day to a few days depending on table size and how careful the migration needs to be. Validation and tests are another day. Compared with losing international sign-ups you never knew about, it is cheap. If you want this checked along with the rest of the stack, it is part of a <a href="/teardown">technical teardown</a>.</p>
+<h2>FAQ</h2>
+<h3>We use Postgres. Are we safe?</h3>
+<p>From the storage problem, usually yes, since Postgres UTF8 stores four-byte characters fine. The length counting, validation and SMS issues are in your application and apply regardless of database.</p>
+<h3>Should we just block emoji?</h3>
+<p>Only where there is a real reason, such as a field that feeds a system that cannot handle them. Blocking them everywhere frustrates users and does not fix the underlying assumption that text is ASCII.</p>
+<h3>Is the utf8mb4 conversion risky?</h3>
+<p>It is a schema change on every text column, so treat it with care: back up, rehearse on a copy, and watch indexes. It is routine work when planned, and painful when done live on a Friday.</p>
+<h3>How do I know if this is costing us customers?</h3>
+<p>Search your error logs for &quot;Incorrect string value&quot; and look at validation failures on name and address fields by country. If those numbers are not zero, it is. If you want help reading them, <a href="/book-a-call">book a call</a>.</p>
+
+    </div>
+    <div class="article-body">
+      <div class="author-card reveal">
+        <span class="ac-av">F</span>
+        <div>
+          <div class="ac-name">The founder of Fraction</div>
+          <div class="ac-bio">Built engineering teams from 2 to 30. Killed more bad rebuilds than I've greenlit. <a href="about.html" class="link-grow" style="font-size:0.96rem">More about me <span class="arrow">&rarr;</span></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" style="padding-top:clamp(32px,5vw,56px)">
+  <div class="wrap">
+    <div class="callout reveal" style="text-align:center">
+      <h3 style="margin-left:auto;margin-right:auto;max-width:22ch">Not sure the call you're about to make is the right one?</h3>
+      <p style="margin:0 auto 26px">That's exactly what a 20-minute fit call is for &mdash; or a two-week Teardown if you'd rather start with a written verdict.</p>
+      <div class="ph-cta" style="justify-content:center">
+        <a href="book-a-call.html" class="btn btn-accent">Book a fit call <span class="arrow">&rarr;</span></a>
+        <a href="teardown.html" class="link-grow" style="color:#fff">Start with a Teardown <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap-wide">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#14140F"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+        <p style="color:var(--grey-2); max-width:30ch; margin-top:18px; font-size:0.96rem; line-height:1.5">Senior technical leadership for founders who aren't ready for a full-time CTO — and shouldn't hire one yet.</p>
+      </div>
+      <div><h5>Service</h5><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="comparison.html">Fractional vs full-time</a></li><li><a href="teardown.html">The Tech Teardown</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="blog.html">Writing</a></li><li><a href="book-a-call.html">Book a call</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+      <div><h5>Start here</h5><ul><li><a href="book-a-call.html">Book a 20-min fit call</a></li><li><a href="teardown.html">Start with a Teardown</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Fraction · <a href="https://getfractioncto.com">getfractioncto.com</a> — no contract, no equity, cancel anytime.</span>
+      <span>Built on judgment, not hours.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="motion.js"></script>
+</body>
+</html>

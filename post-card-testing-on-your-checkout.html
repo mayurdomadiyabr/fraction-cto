@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Hundreds of small charges hit your Stripe account overnight — Fraction</title>
+  <meta name="description" content="Card testing on your checkout: how to recognise it, why it costs more than it looks, and the fixes that stop it, in order." />
+  <meta name="theme-color" content="#FAFAF9" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Fraction" />
+  <meta property="og:title" content="Hundreds of small charges hit your Stripe account overnight — Fraction" />
+  <meta property="og:description" content="Card testing on your checkout: how to recognise it, why it costs more than it looks, and the fixes that stop it, in order." />
+  <meta property="og:url" content="https://getfractioncto.com/post-card-testing-on-your-checkout" />
+  <meta property="og:image" content="https://getfractioncto.com/og-image.png" />
+  <meta property="article:published_time" content="2026-11-17T04:51:19.315Z" />
+  <meta property="article:author" content="The founder of Fraction" />
+  <meta property="article:section" content="Pattern recognition" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Hundreds of small charges hit your Stripe account overnight — Fraction" />
+  <meta name="twitter:description" content="Card testing on your checkout: how to recognise it, why it costs more than it looks, and the fixes that stop it, in order." />
+  <meta name="twitter:image" content="https://getfractioncto.com/og-image.png" />
+  <link rel="canonical" href="https://getfractioncto.com/post-card-testing-on-your-checkout" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script src="/analytics.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Hundreds of small charges hit your Stripe account overnight",
+  "description": "Card testing on your checkout: how to recognise it, why it costs more than it looks, and the fixes that stop it, in order.",
+  "datePublished": "2026-11-17T04:51:19.315Z",
+  "dateModified": "2026-11-17T04:51:19.315Z",
+  "author": {
+    "@type": "Person",
+    "name": "The founder of Fraction",
+    "url": "https://getfractioncto.com/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fraction",
+    "url": "https://getfractioncto.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://getfractioncto.com/og-image.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://getfractioncto.com/post-card-testing-on-your-checkout"
+  },
+  "image": "https://getfractioncto.com/og-image.png",
+  "articleSection": "Pattern recognition",
+  "wordCount": 1060,
+  "inLanguage": "en",
+  "isAccessibleForFree": true
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home",   "item": "https://getfractioncto.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Writing","item": "https://getfractioncto.com/blog" },
+    { "@type": "ListItem", "position": 3, "name": "Hundreds of small charges hit your Stripe account overnight", "item": "https://getfractioncto.com/post-card-testing-on-your-checkout" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Fraction home"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <ul class="nav-links">
+      <li><a href="how-it-works.html">How it works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="comparison.html">Compare</a></li>
+      <li><a href="blog.html" class="active">Writing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="teardown.html">The Teardown <span class="accent-dot"></span></a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke-linecap="round"/></svg></button>
+      <button class="icon-btn" aria-label="Toggle theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M21.5 12h-2.2M4.7 12H2.5M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6M18.4 18.4l-1.6-1.6M7.2 7.2 5.6 5.6" stroke-linecap="round"/></svg></button>
+      <a href="book-a-call.html" class="btn btn-primary nav-cta">Book a fit call</a>
+      <button class="icon-btn menu-btn" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu">
+  <div class="mm-top">
+    <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <button class="icon-btn menu-btn" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg></button>
+  </div>
+  <nav>
+    <a href="how-it-works.html">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="comparison.html">Compare</a>
+    <a href="blog.html">Writing</a>
+    <a href="about.html">About</a>
+    <a href="teardown.html">The Teardown</a>
+  </nav>
+  <div class="mm-cta">
+    <a href="teardown.html" class="btn btn-ghost">Start with a Teardown</a>
+    <a href="book-a-call.html" class="btn btn-primary">Book a 20-min fit call</a>
+  </div>
+</div>
+
+<main>
+<section class="page-hero center" style="padding-bottom:clamp(24px,4vw,40px)">
+  <div class="wrap">
+    <div class="article-hero">
+      <span class="post-cat">Pattern recognition</span>
+      <h1>Hundreds of small charges hit your Stripe account overnight</h1>
+      <div class="post-meta"><span>Nov 2026</span><span class="sep"></span><span>5 min read</span><span class="sep"></span><span>by The founder of Fraction</span></div>
+    </div>
+  </div>
+</section>
+<section class="section-tight" style="padding-top:8px">
+  <div class="wrap">
+    <div class="article-body reveal">
+<p>If you wake up to hundreds of small charges or failed payments on your Stripe account, most from customers you have never heard of, you are almost certainly being used for card testing: fraudsters running stolen card numbers through your checkout to find out which ones still work. The fix is to make your payment flow expensive to automate (rate limits, a challenge on suspicious attempts, no payment without an account or session), refund any successful fraudulent charges, and alert on decline rates so you catch the next wave in minutes rather than at breakfast.</p>
+<p>I see this most often at startups with a cheap or free-trial plan, a donation or &quot;pay what you want&quot; form, or a sign-up flow that saves a card before anything else. To an attacker those look the same: a cheap way to ask a bank &quot;is this card live?&quot;</p>
+<h2>How to recognise it</h2>
+<p>Card testing has a distinctive shape once you know what to look for.</p>
+<ul>
+<li><strong>A burst of activity at odd hours.</strong> Dozens or hundreds of attempts in a short window, often overnight in your timezone.</li>
+<li><strong>Mostly declines.</strong> Stolen card lists are full of dead numbers, so the decline rate spikes far above normal.</li>
+<li><strong>Small amounts.</strong> The lowest plan, a one-dollar authorisation, or the minimum your form allows.</li>
+<li><strong>Throwaway identities.</strong> Random-looking emails, mismatched names and billing addresses, many cards from one IP range or one browser fingerprint.</li>
+<li><strong>New customer records with no usage.</strong> The accounts that were created never log in again.</li>
+</ul>
+<p>Stripe&#39;s own guide to <a href="https://docs.stripe.com/disputes/prevention/card-testing">protecting yourself from card testing</a> describes the same pattern and says plainly that stopping it usually needs code changes in your integration, which is why it lands on the engineering team rather than finance.</p>
+<h2>Why it is more than a nuisance</h2>
+<p>It is tempting to shrug, because most of the attempts failed and the money that went through was small. The costs are elsewhere.</p>
+<h3>Disputes and fees</h3>
+<p>The successful charges were made on stolen cards. When the real cardholders see them, some will dispute. Each dispute costs a fee on top of the refund, and dispute rates are something card networks and payment providers watch closely. Stripe recommends refunding fraudulent payments quickly to get ahead of disputes.</p>
+<h3>Your payment account&#39;s health</h3>
+<p>A sustained spike in declines and disputes is a signal to your payment provider that something on your side is broken. You do not want to be explaining your integration to a risk team while your real customers&#39; payments are on the line.</p>
+<h3>Polluted metrics and side costs</h3>
+<p>Hundreds of fake sign-ups distort your conversion numbers, trigger welcome emails that bounce (hurting your email reputation), and can fire SMS verification messages you pay for. This is a cousin of <a href="/post-sms-bill-tripled-overnight">SMS pumping, where a sign-up spike that looks great is really fraud</a>. The same &quot;too good to be true&quot; growth instinct applies.</p>
+<h2>Why your checkout was the target</h2>
+<p>Attackers pick integrations that let them try a card cheaply, quickly and anonymously. The common weaknesses I find:</p>
+<ul>
+<li>The payment or &quot;add card&quot; endpoint can be called without a logged-in session.</li>
+<li>There is no limit on how many attempts one IP, account or browser can make.</li>
+<li>The amount is user-controlled (donations, tips, custom pricing).</li>
+<li>The front end creates a payment directly from a public key with nothing server-side checking the request.</li>
+<li>Nobody is alerted when declines jump, so the attack runs for hours.</li>
+</ul>
+<p>None of these are exotic. They are what an MVP looks like when the payment flow was built to work, and nobody yet had a reason to build it to resist abuse.</p>
+<h2>The fix, in order</h2>
+<h3>1. Stop the current wave</h3>
+<p>Turn on or tighten fraud rules in your payment provider (Stripe Radar has rules for blocking or reviewing by velocity, IP and card country). Temporarily require a challenge such as a CAPTCHA on the payment step. If the attack is on a free trial that saves a card, consider pausing that path for a day.</p>
+<h3>2. Clean up</h3>
+<p>Refund the successful fraudulent charges, mark the fake customers, and exclude them from your growth numbers. Note the time window so you can explain the blip later, including to investors who ask about that week&#39;s sign-ups.</p>
+<h3>3. Make attempts expensive</h3>
+<p>Require a session or account before any payment attempt. Rate-limit card attempts per IP, per account and per device. Send the provider the extra data it uses to score risk, such as customer email, name and billing address. Make sure the amount and the product are set on your server, not trusted from the browser.</p>
+<h3>4. Alert on the shape, not the total</h3>
+<p>Add an alert on decline rate and on payment attempts per hour, compared with your normal baseline. Card testing is obvious in those two charts. Revenue charts barely move, which is why founders miss it. If your monitoring already pages people for every error, fix that first; an alert in a channel <a href="/post-error-tracker-nobody-reads">full of errors nobody reads</a> will not help.</p>
+<h2>What this costs to fix</h2>
+<p>For a typical seed-stage product, stopping an active attack is an afternoon. Hardening the flow properly is a few days of work. That is small next to a week of dispute fees and a payment account under review. If you are not sure how exposed your checkout is, this is a standard part of a <a href="/teardown">technical teardown</a>.</p>
+<h2>FAQ</h2>
+<h3>Is card testing my fault?</h3>
+<p>You did not steal the cards, but an integration that lets anyone try cards anonymously and endlessly is what attackers look for. Stripe describes prevention as a responsibility shared by merchants, card networks and Stripe.</p>
+<h3>Will a CAPTCHA alone stop it?</h3>
+<p>It helps, especially as an emergency measure, but determined attackers can get past challenges. Combine it with rate limits, requiring a session, and provider fraud rules.</p>
+<h3>Should I refund the fraudulent charges that succeeded?</h3>
+<p>Generally yes. Stripe&#39;s guidance is to refund them to reduce disputes. The real cardholders did not authorise them.</p>
+<h3>Do I need a fraud vendor?</h3>
+<p>At seed stage, usually not. The tools built into your payment provider plus basic rate limiting cover most cases. Revisit it if fraud keeps coming back after you have hardened the flow. If you want help deciding, <a href="/book-a-call">book a call</a>.</p>
+
+    </div>
+    <div class="article-body">
+      <div class="author-card reveal">
+        <span class="ac-av">F</span>
+        <div>
+          <div class="ac-name">The founder of Fraction</div>
+          <div class="ac-bio">Built engineering teams from 2 to 30. Killed more bad rebuilds than I've greenlit. <a href="about.html" class="link-grow" style="font-size:0.96rem">More about me <span class="arrow">&rarr;</span></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" style="padding-top:clamp(32px,5vw,56px)">
+  <div class="wrap">
+    <div class="callout reveal" style="text-align:center">
+      <h3 style="margin-left:auto;margin-right:auto;max-width:22ch">Not sure the call you're about to make is the right one?</h3>
+      <p style="margin:0 auto 26px">That's exactly what a 20-minute fit call is for &mdash; or a two-week Teardown if you'd rather start with a written verdict.</p>
+      <div class="ph-cta" style="justify-content:center">
+        <a href="book-a-call.html" class="btn btn-accent">Book a fit call <span class="arrow">&rarr;</span></a>
+        <a href="teardown.html" class="link-grow" style="color:#fff">Start with a Teardown <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap-wide">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#14140F"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+        <p style="color:var(--grey-2); max-width:30ch; margin-top:18px; font-size:0.96rem; line-height:1.5">Senior technical leadership for founders who aren't ready for a full-time CTO — and shouldn't hire one yet.</p>
+      </div>
+      <div><h5>Service</h5><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="comparison.html">Fractional vs full-time</a></li><li><a href="teardown.html">The Tech Teardown</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="blog.html">Writing</a></li><li><a href="book-a-call.html">Book a call</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+      <div><h5>Start here</h5><ul><li><a href="book-a-call.html">Book a 20-min fit call</a></li><li><a href="teardown.html">Start with a Teardown</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Fraction · <a href="https://getfractioncto.com">getfractioncto.com</a> — no contract, no equity, cancel anytime.</span>
+      <span>Built on judgment, not hours.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="motion.js"></script>
+</body>
+</html>
