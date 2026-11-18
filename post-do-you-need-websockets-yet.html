@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Do you need WebSockets, or will polling do? — Fraction</title>
+  <meta name="description" content="Polling, server-sent events or WebSockets? A practical way for early-stage teams to choose, with the hidden costs of real-time features." />
+  <meta name="theme-color" content="#FAFAF9" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Fraction" />
+  <meta property="og:title" content="Do you need WebSockets, or will polling do? — Fraction" />
+  <meta property="og:description" content="Polling, server-sent events or WebSockets? A practical way for early-stage teams to choose, with the hidden costs of real-time features." />
+  <meta property="og:url" content="https://getfractioncto.com/post-do-you-need-websockets-yet" />
+  <meta property="og:image" content="https://getfractioncto.com/og-image.png" />
+  <meta property="article:published_time" content="2026-11-18T04:35:41.314Z" />
+  <meta property="article:author" content="The founder of Fraction" />
+  <meta property="article:section" content="Decisions" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Do you need WebSockets, or will polling do? — Fraction" />
+  <meta name="twitter:description" content="Polling, server-sent events or WebSockets? A practical way for early-stage teams to choose, with the hidden costs of real-time features." />
+  <meta name="twitter:image" content="https://getfractioncto.com/og-image.png" />
+  <link rel="canonical" href="https://getfractioncto.com/post-do-you-need-websockets-yet" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script src="/analytics.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Do you need WebSockets, or will polling do?",
+  "description": "Polling, server-sent events or WebSockets? A practical way for early-stage teams to choose, with the hidden costs of real-time features.",
+  "datePublished": "2026-11-18T04:35:41.314Z",
+  "dateModified": "2026-11-18T04:35:41.314Z",
+  "author": {
+    "@type": "Person",
+    "name": "The founder of Fraction",
+    "url": "https://getfractioncto.com/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fraction",
+    "url": "https://getfractioncto.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://getfractioncto.com/og-image.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://getfractioncto.com/post-do-you-need-websockets-yet"
+  },
+  "image": "https://getfractioncto.com/og-image.png",
+  "articleSection": "Decisions",
+  "wordCount": 1402,
+  "inLanguage": "en",
+  "isAccessibleForFree": true
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home",   "item": "https://getfractioncto.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Writing","item": "https://getfractioncto.com/blog" },
+    { "@type": "ListItem", "position": 3, "name": "Do you need WebSockets, or will polling do?", "item": "https://getfractioncto.com/post-do-you-need-websockets-yet" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Fraction home"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <ul class="nav-links">
+      <li><a href="how-it-works.html">How it works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="comparison.html">Compare</a></li>
+      <li><a href="blog.html" class="active">Writing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="teardown.html">The Teardown <span class="accent-dot"></span></a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke-linecap="round"/></svg></button>
+      <button class="icon-btn" aria-label="Toggle theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M21.5 12h-2.2M4.7 12H2.5M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6M18.4 18.4l-1.6-1.6M7.2 7.2 5.6 5.6" stroke-linecap="round"/></svg></button>
+      <a href="book-a-call.html" class="btn btn-primary nav-cta">Book a fit call</a>
+      <button class="icon-btn menu-btn" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu">
+  <div class="mm-top">
+    <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <button class="icon-btn menu-btn" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg></button>
+  </div>
+  <nav>
+    <a href="how-it-works.html">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="comparison.html">Compare</a>
+    <a href="blog.html">Writing</a>
+    <a href="about.html">About</a>
+    <a href="teardown.html">The Teardown</a>
+  </nav>
+  <div class="mm-cta">
+    <a href="teardown.html" class="btn btn-ghost">Start with a Teardown</a>
+    <a href="book-a-call.html" class="btn btn-primary">Book a 20-min fit call</a>
+  </div>
+</div>
+
+<main>
+<section class="page-hero center" style="padding-bottom:clamp(24px,4vw,40px)">
+  <div class="wrap">
+    <div class="article-hero">
+      <span class="post-cat">Decisions</span>
+      <h1>Do you need WebSockets, or will polling do?</h1>
+      <div class="post-meta"><span>Nov 2026</span><span class="sep"></span><span>6 min read</span><span class="sep"></span><span>by The founder of Fraction</span></div>
+    </div>
+  </div>
+</section>
+<section class="section-tight" style="padding-top:8px">
+  <div class="wrap">
+    <div class="article-body reveal">
+<p>Most early products do not need WebSockets. If a screen only has to show new data within a few seconds, polling every 5 to 15 seconds is cheaper to build, easier to debug and good enough for years. If the server only needs to push updates one way, such as progress bars, notifications or streamed AI responses, server-sent events are usually the next step. Reach for WebSockets when both sides really do send small messages constantly: chat, live cursors, multiplayer editing.</p>
+<p>I get asked this question in a particular way. A founder sees a competitor&#39;s dashboard update &quot;live&quot;, or an engineer says the product &quot;should be real-time&quot;, and suddenly there is a two-week ticket to add a WebSocket layer. Sometimes that is right. More often the product needed fresher data on one screen, not a new piece of infrastructure.</p>
+<h2>What &quot;real-time&quot; usually means to your customer</h2>
+<p>Before choosing a technology, ask what the customer would notice. In my experience the answers fall into three groups.</p>
+<ul>
+<li><strong>&quot;I want to see it without refreshing.&quot;</strong> An order status, a report that finished, a new comment. A delay of 5 to 10 seconds is invisible to most people here.</li>
+<li><strong>&quot;I want to watch it happen.&quot;</strong> A file processing, an import running, an AI answer being written word by word. The data flows one way, server to browser, and it flows for a limited time.</li>
+<li><strong>&quot;I am working with other people at the same moment.&quot;</strong> Chat, shared documents, a live auction, a game. Both sides send messages, often several per second, and a one-second lag feels broken.</li>
+</ul>
+<p>Only the third group truly needs a persistent two-way connection. The first two get mislabelled as real-time and then built with the most complex tool available.</p>
+<h2>The three options in plain terms</h2>
+<h3>Polling</h3>
+<p>The browser asks the server &quot;anything new?&quot; on a timer. It is plain HTTP, so it works through every proxy, load balancer, CDN and corporate firewall your customers have. Your existing authentication, logging and error handling all apply unchanged.</p>
+<p>The cost is wasted requests. If 300 users keep a page open and poll every 10 seconds, that is 30 requests a second, most of them returning &quot;nothing new&quot;. For a small product on a normal server that is trivial, especially if the endpoint is a cheap indexed query. It becomes a problem at much higher numbers, or when the polled query is expensive. If your polling endpoint is slow, fix the query first; I wrote about that trade-off in <a href="/post-your-app-is-slow-add-a-cache-or-fix-the-query">add a cache or fix the query</a>.</p>
+<h3>Server-sent events</h3>
+<p>The browser opens one long-lived HTTP connection and the server writes events down it as they happen. Browsers support this natively through the <code>EventSource</code> API, which reconnects automatically if the connection drops (<a href="https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events">MDN has a clear guide</a>). It is one-way only: the browser still sends normal requests when it wants to do something.</p>
+<p>This fits progress updates, notifications and token-by-token AI responses very well. Many AI products already stream answers this way. The catch is that long-lived connections behave differently from normal requests. Some hosting platforms and proxies cut connections after a timeout, buffer the response, or bill by connection time. Check this before you commit, especially on <a href="/post-serverless-or-a-server">serverless platforms</a>.</p>
+<h3>WebSockets</h3>
+<p>A WebSocket is a persistent two-way connection. It is the right tool for chat, presence, collaborative editing and anything where the browser sends many small messages too.</p>
+<p>What founders do not see in the estimate is everything around it:</p>
+<ul>
+<li>Each server now holds open connections, so deploys must drain or drop them, and clients must reconnect and catch up on anything they missed.</li>
+<li>If you run more than one server, a message created on server A has to reach users connected to server B. That usually means adding a pub/sub layer such as Redis.</li>
+<li>Authentication happens once at connect time, so you need a plan for expired sessions and revoked access on a connection that stays open for hours.</li>
+<li>Load testing, monitoring and debugging all get harder, because failures are now about connection state, not single requests.</li>
+</ul>
+<p>None of this is exotic, but in my experience it turns a &quot;two-day feature&quot; into two to four weeks of work for a small team, plus ongoing care. That is my rule of thumb, not a law.</p>
+<h2>A simple decision path</h2>
+<p>This is the order I walk teams through.</p>
+<ol>
+<li><strong>Can the screen tolerate a 5 to 15 second delay?</strong> Use polling. Add a check so polling pauses when the browser tab is hidden. Done.</li>
+<li><strong>Does data only flow from server to browser, for a while?</strong> Use server-sent events, after confirming your hosting handles long-lived connections.</li>
+<li><strong>Do users interact with each other live, sending frequent messages both ways?</strong> Use WebSockets, and seriously consider a managed service.</li>
+<li><strong>Is &quot;real-time&quot; a sales checkbox rather than a user need?</strong> Ship polling and see if anyone notices. Usually nobody does.</li>
+</ol>
+<p>The mistake I see most is skipping straight to step 3 because it sounds like the serious engineering answer.</p>
+<h2>Build it yourself or use a managed service</h2>
+<p>If you do need WebSockets, there are hosted services (Pusher, Ably and the realtime features of platforms like Supabase and Firebase are common examples) that handle connections, fan-out across servers and reconnection for you. You call their API from your backend; they deliver to browsers.</p>
+<p>I lean towards a managed service when:</p>
+<ul>
+<li>The realtime feature is supporting, not core. Live notifications in a B2B tool are a good example.</li>
+<li>You have one or two engineers and no one who has run connection-heavy systems before.</li>
+<li>You want to find out whether customers use the feature before investing in it.</li>
+</ul>
+<p>I lean towards building it when realtime is the product itself, such as a collaborative editor, when message volume makes per-message pricing expensive, or when data residency rules limit where messages can travel. Pricing for these services changes often, so model it against your own expected connection and message counts rather than trusting a blog post, including this one. Keep the provider behind a thin interface in your code so switching later is a contained job; I explain how much abstraction is worth it in <a href="/post-vendor-abstraction-layer">the vendor abstraction layer post</a>.</p>
+<h2>A real pattern from the room</h2>
+<p>A pattern I have seen several times: a B2B SaaS team spends most of a quarter building a WebSocket service so that a status dashboard updates live. The dashboard is opened a few times a day by a handful of ops managers. Then the WebSocket service becomes the most fragile part of the system, the thing that breaks on every deploy. Replacing it with 10-second polling removes a service, fixes the deploy problem, and none of the customers notice the difference.</p>
+<p>The opposite mistake is rarer but real: a team building a shared workspace product polls every second, the database falls over at a few hundred concurrent users, and they have to rebuild under pressure. The lesson is the same in both cases: match the tool to how the feature is actually used.</p>
+<h2>FAQ</h2>
+<h3>Is polling bad practice?</h3>
+<p>No. It is a deliberate trade of some wasted requests for a much simpler system. Plenty of mature products still poll for things that change occasionally. It becomes bad practice when the polled endpoint is expensive or the interval is very short across many users.</p>
+<h3>Can I start with polling and move to WebSockets later?</h3>
+<p>Yes, and that is usually the smart order. Keep the &quot;fetch latest state&quot; endpoint even after you add push, because clients need it to catch up after reconnecting anyway.</p>
+<h3>Do AI chat features need WebSockets?</h3>
+<p>Usually not. Streaming an AI answer is one-way, server to browser, for a few seconds. Server-sent events or a streamed HTTP response handle it well. You only need WebSockets if users interrupt or collaborate in ways that require constant two-way messaging.</p>
+<h3>Will investors care which one we use?</h3>
+<p>Not directly. In technical diligence they care whether the choice fits the product and whether the team can explain it. A clear &quot;we poll because updates are infrequent&quot; is a better answer than an over-built system nobody can maintain. If you want a second opinion on choices like this before a raise, a <a href="/teardown">technical teardown</a> is built for exactly that, or you can <a href="/book-a-call">book a call</a> and we will talk it through.</p>
+
+    </div>
+    <div class="article-body">
+      <div class="author-card reveal">
+        <span class="ac-av">F</span>
+        <div>
+          <div class="ac-name">The founder of Fraction</div>
+          <div class="ac-bio">Built engineering teams from 2 to 30. Killed more bad rebuilds than I've greenlit. <a href="about.html" class="link-grow" style="font-size:0.96rem">More about me <span class="arrow">&rarr;</span></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" style="padding-top:clamp(32px,5vw,56px)">
+  <div class="wrap">
+    <div class="callout reveal" style="text-align:center">
+      <h3 style="margin-left:auto;margin-right:auto;max-width:22ch">Not sure the call you're about to make is the right one?</h3>
+      <p style="margin:0 auto 26px">That's exactly what a 20-minute fit call is for &mdash; or a two-week Teardown if you'd rather start with a written verdict.</p>
+      <div class="ph-cta" style="justify-content:center">
+        <a href="book-a-call.html" class="btn btn-accent">Book a fit call <span class="arrow">&rarr;</span></a>
+        <a href="teardown.html" class="link-grow" style="color:#fff">Start with a Teardown <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap-wide">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#14140F"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+        <p style="color:var(--grey-2); max-width:30ch; margin-top:18px; font-size:0.96rem; line-height:1.5">Senior technical leadership for founders who aren't ready for a full-time CTO — and shouldn't hire one yet.</p>
+      </div>
+      <div><h5>Service</h5><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="comparison.html">Fractional vs full-time</a></li><li><a href="teardown.html">The Tech Teardown</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="blog.html">Writing</a></li><li><a href="book-a-call.html">Book a call</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+      <div><h5>Start here</h5><ul><li><a href="book-a-call.html">Book a 20-min fit call</a></li><li><a href="teardown.html">Start with a Teardown</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Fraction · <a href="https://getfractioncto.com">getfractioncto.com</a> — no contract, no equity, cancel anytime.</span>
+      <span>Built on judgment, not hours.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="motion.js"></script>
+</body>
+</html>

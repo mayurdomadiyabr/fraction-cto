@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Generating PDFs: build it, buy it, or render HTML? — Fraction</title>
+  <meta name="description" content="Headless browser, PDF library or hosted API? How to choose a PDF generation approach for invoices and reports, and what to avoid." />
+  <meta name="theme-color" content="#FAFAF9" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Fraction" />
+  <meta property="og:title" content="Generating PDFs: build it, buy it, or render HTML? — Fraction" />
+  <meta property="og:description" content="Headless browser, PDF library or hosted API? How to choose a PDF generation approach for invoices and reports, and what to avoid." />
+  <meta property="og:url" content="https://getfractioncto.com/post-pdf-generation-build-or-buy" />
+  <meta property="og:image" content="https://getfractioncto.com/og-image.png" />
+  <meta property="article:published_time" content="2026-11-18T04:35:48.693Z" />
+  <meta property="article:author" content="The founder of Fraction" />
+  <meta property="article:section" content="Decisions" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Generating PDFs: build it, buy it, or render HTML? — Fraction" />
+  <meta name="twitter:description" content="Headless browser, PDF library or hosted API? How to choose a PDF generation approach for invoices and reports, and what to avoid." />
+  <meta name="twitter:image" content="https://getfractioncto.com/og-image.png" />
+  <link rel="canonical" href="https://getfractioncto.com/post-pdf-generation-build-or-buy" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script src="/analytics.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Generating PDFs: build it, buy it, or render HTML?",
+  "description": "Headless browser, PDF library or hosted API? How to choose a PDF generation approach for invoices and reports, and what to avoid.",
+  "datePublished": "2026-11-18T04:35:48.693Z",
+  "dateModified": "2026-11-18T04:35:48.693Z",
+  "author": {
+    "@type": "Person",
+    "name": "The founder of Fraction",
+    "url": "https://getfractioncto.com/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fraction",
+    "url": "https://getfractioncto.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://getfractioncto.com/og-image.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://getfractioncto.com/post-pdf-generation-build-or-buy"
+  },
+  "image": "https://getfractioncto.com/og-image.png",
+  "articleSection": "Decisions",
+  "wordCount": 1172,
+  "inLanguage": "en",
+  "isAccessibleForFree": true
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home",   "item": "https://getfractioncto.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Writing","item": "https://getfractioncto.com/blog" },
+    { "@type": "ListItem", "position": 3, "name": "Generating PDFs: build it, buy it, or render HTML?", "item": "https://getfractioncto.com/post-pdf-generation-build-or-buy" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Fraction home"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <ul class="nav-links">
+      <li><a href="how-it-works.html">How it works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="comparison.html">Compare</a></li>
+      <li><a href="blog.html" class="active">Writing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="teardown.html">The Teardown <span class="accent-dot"></span></a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke-linecap="round"/></svg></button>
+      <button class="icon-btn" aria-label="Toggle theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M21.5 12h-2.2M4.7 12H2.5M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6M18.4 18.4l-1.6-1.6M7.2 7.2 5.6 5.6" stroke-linecap="round"/></svg></button>
+      <a href="book-a-call.html" class="btn btn-primary nav-cta">Book a fit call</a>
+      <button class="icon-btn menu-btn" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu">
+  <div class="mm-top">
+    <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <button class="icon-btn menu-btn" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg></button>
+  </div>
+  <nav>
+    <a href="how-it-works.html">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="comparison.html">Compare</a>
+    <a href="blog.html">Writing</a>
+    <a href="about.html">About</a>
+    <a href="teardown.html">The Teardown</a>
+  </nav>
+  <div class="mm-cta">
+    <a href="teardown.html" class="btn btn-ghost">Start with a Teardown</a>
+    <a href="book-a-call.html" class="btn btn-primary">Book a 20-min fit call</a>
+  </div>
+</div>
+
+<main>
+<section class="page-hero center" style="padding-bottom:clamp(24px,4vw,40px)">
+  <div class="wrap">
+    <div class="article-hero">
+      <span class="post-cat">Decisions</span>
+      <h1>Generating PDFs: build it, buy it, or render HTML?</h1>
+      <div class="post-meta"><span>Nov 2026</span><span class="sep"></span><span>5 min read</span><span class="sep"></span><span>by The founder of Fraction</span></div>
+    </div>
+  </div>
+</section>
+<section class="section-tight" style="padding-top:8px">
+  <div class="wrap">
+    <div class="article-body reveal">
+<p>For most products that need to produce invoices, reports or certificates, the practical choice is to design the document as an HTML page and render it to PDF with a headless browser such as Chrome via Puppeteer or Playwright, running in a background job. Buy a hosted PDF API if you have little server capacity or need guaranteed output at volume. Avoid starting new work on wkhtmltopdf: its main repository was archived in January 2023 and it no longer receives fixes.</p>
+<p>PDF generation sounds like a solved problem until a customer opens an invoice and the table runs off the page, the logo is missing, or the totals in the PDF do not match the screen. Then it becomes a recurring support ticket.</p>
+<h2>Why PDFs are harder than they look</h2>
+<p>A PDF is a fixed-layout document. Web pages flow; PDFs do not. Most of the pain comes from that difference:</p>
+<ul>
+<li><strong>Page breaks.</strong> Long tables split in the middle of a row, headers do not repeat, a signature block ends up alone on the last page.</li>
+<li><strong>Fonts.</strong> The font on your server is not the font on your laptop. Characters from other languages, or currency symbols, render as empty boxes.</li>
+<li><strong>Images and assets.</strong> The renderer cannot reach an image behind authentication, so the logo disappears.</li>
+<li><strong>Speed and memory.</strong> Rendering a 40-page report can take seconds and a lot of memory, which is fine once and painful when 500 customers export at month end.</li>
+<li><strong>Accuracy.</strong> If the PDF is built from a separate template with its own calculations, it drifts from what the app shows. For invoices that is a real problem.</li>
+</ul>
+<h2>The main options</h2>
+<h3>Render HTML with a headless browser</h3>
+<p>You build the document as an HTML page with print-specific CSS, then load it in headless Chrome and print to PDF. Puppeteer and Playwright both support this (<a href="https://pptr.dev/">Puppeteer&#39;s docs</a> show the basic call). This is my default recommendation for most teams because:</p>
+<ul>
+<li>Your engineers already know HTML and CSS, so templates are easy to change.</li>
+<li>You can preview the document in a normal browser while designing it.</li>
+<li>Modern print CSS handles page size, margins and page-break rules reasonably well.</li>
+</ul>
+<p>The cost is that headless Chrome is heavy. It needs a few hundred megabytes of memory per instance, starts slowly, and does not fit comfortably inside some serverless limits. Run it in a background worker, not inside the web request, and limit how many renders run at once. If you do not have background jobs yet, <a href="/post-do-you-need-a-job-queue-yet">this post on job queues</a> explains the decision.</p>
+<h3>Generate the PDF directly with a library</h3>
+<p>Libraries such as PDFKit (Node), ReportLab (Python) or similar tools in other languages draw the PDF by placing text and shapes at coordinates. Output is fast, small and very predictable.</p>
+<p>The trade-off is that layout is written in code. Every design change, such as moving a logo or adding a column, is an engineering task. I like this approach for simple, fixed documents produced at high volume, like shipping labels or tickets. For anything a designer or customer will want to customise, it gets expensive.</p>
+<h3>Use a hosted PDF API</h3>
+<p>Several services take HTML or a template plus data and return a PDF. You avoid running browsers yourself and usually get good handling of fonts and page breaks. I lean towards this when:</p>
+<ul>
+<li>Your team is one or two engineers and nobody wants to operate headless browsers.</li>
+<li>You are on a hosting platform that makes heavy background processes awkward.</li>
+<li>Volume is moderate and predictable, so per-document pricing stays small.</li>
+</ul>
+<p>Check how the service handles data. Invoices and reports often contain customer names, addresses and amounts, and you are now sending that to another processor. Some enterprise customers will ask about it, and it may need to appear in your list of sub-processors.</p>
+<h3>What I would not start with</h3>
+<p>wkhtmltopdf was the standard tool for years, and many older systems still use it. But the <a href="https://github.com/wkhtmltopdf/wkhtmltopdf">main repository</a> was archived in January 2023, and it relies on an old browser engine that does not understand much modern CSS. If you already depend on it, it is not an emergency, but plan a move to a maintained renderer when you next touch those documents. Do not add new documents on top of it.</p>
+<h2>Make the numbers come from one place</h2>
+<p>The most important design rule is not about rendering at all. The PDF should be built from the same data and calculations the app uses, ideally a single function that returns the invoice or report as data, which both the screen and the PDF template display. If the PDF does its own maths, sooner or later a customer finds a difference between the two and asks which one is right.</p>
+<p>For invoices, also decide whether you store the generated PDF or regenerate it on demand. I recommend storing the final PDF once an invoice is issued. If you change the template next year, old invoices should not silently change. Store the file in object storage with the record, as described in <a href="/post-file-uploads-build-or-buy">the file uploads post</a>.</p>
+<p>If the documents are invoices, check first whether your billing provider already generates them. Teams sometimes build an invoice PDF system that Stripe or their accounting tool would have produced for free; see <a href="/post-build-billing-or-use-stripe">build billing or use Stripe</a>.</p>
+<h2>A rough effort guide</h2>
+<p>Rules of thumb from projects I have seen, not quotes:</p>
+<ul>
+<li>One simple document (an invoice or certificate) rendered with headless Chrome in a background job: three to five days, including fonts and page breaks.</li>
+<li>A configurable report builder with charts and long tables: several weeks, mostly spent on layout edge cases.</li>
+<li>A hosted PDF API for the same simple document: one to two days to integrate.</li>
+</ul>
+<h2>FAQ</h2>
+<h3>Can we generate PDFs in the browser instead?</h3>
+<p>You can, with client-side libraries or by using the browser&#39;s print dialog. It works for &quot;save this page&quot; use cases. It is unreliable for documents that must look identical for every user, such as invoices, because output depends on each user&#39;s browser and fonts.</p>
+<h3>Why do our PDFs show empty boxes instead of characters?</h3>
+<p>The font on the rendering server does not contain those characters. Install or embed fonts that cover every language and currency symbol you use, and test with real customer data, not lorem ipsum.</p>
+<h3>Should PDF generation run on the web server?</h3>
+<p>Not for anything beyond trivial documents. Rendering is slow and memory-hungry, and a burst of exports can slow the whole app. Put it in a background job and notify the user, or email the file, when it is ready.</p>
+<h3>Is this worth a fractional CTO&#39;s time?</h3>
+<p>The decision takes an hour; getting it wrong costs weeks of support tickets. If documents are part of how you bill or report to customers, it is worth a short review of the plan. You can <a href="/book-a-call">book a call</a> or see our <a href="/pricing">pricing</a> for short engagements.</p>
+
+    </div>
+    <div class="article-body">
+      <div class="author-card reveal">
+        <span class="ac-av">F</span>
+        <div>
+          <div class="ac-name">The founder of Fraction</div>
+          <div class="ac-bio">Built engineering teams from 2 to 30. Killed more bad rebuilds than I've greenlit. <a href="about.html" class="link-grow" style="font-size:0.96rem">More about me <span class="arrow">&rarr;</span></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" style="padding-top:clamp(32px,5vw,56px)">
+  <div class="wrap">
+    <div class="callout reveal" style="text-align:center">
+      <h3 style="margin-left:auto;margin-right:auto;max-width:22ch">Not sure the call you're about to make is the right one?</h3>
+      <p style="margin:0 auto 26px">That's exactly what a 20-minute fit call is for &mdash; or a two-week Teardown if you'd rather start with a written verdict.</p>
+      <div class="ph-cta" style="justify-content:center">
+        <a href="book-a-call.html" class="btn btn-accent">Book a fit call <span class="arrow">&rarr;</span></a>
+        <a href="teardown.html" class="link-grow" style="color:#fff">Start with a Teardown <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap-wide">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#14140F"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+        <p style="color:var(--grey-2); max-width:30ch; margin-top:18px; font-size:0.96rem; line-height:1.5">Senior technical leadership for founders who aren't ready for a full-time CTO — and shouldn't hire one yet.</p>
+      </div>
+      <div><h5>Service</h5><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="comparison.html">Fractional vs full-time</a></li><li><a href="teardown.html">The Tech Teardown</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="blog.html">Writing</a></li><li><a href="book-a-call.html">Book a call</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+      <div><h5>Start here</h5><ul><li><a href="book-a-call.html">Book a 20-min fit call</a></li><li><a href="teardown.html">Start with a Teardown</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Fraction · <a href="https://getfractioncto.com">getfractioncto.com</a> — no contract, no equity, cancel anytime.</span>
+      <span>Built on judgment, not hours.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="motion.js"></script>
+</body>
+</html>
