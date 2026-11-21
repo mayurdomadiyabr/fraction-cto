@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>OpenAI shuts off GPT-4o and GPT-4.1 on Jan 14. Plan the switch — Fraction</title>
+  <meta name="description" content="GPT-4o and GPT-4.1 leave the OpenAI API on Jan 14, 2027. Find every call, test the replacement on real inputs, and switch before the holidays." />
+  <meta name="theme-color" content="#FAFAF9" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Fraction" />
+  <meta property="og:title" content="OpenAI shuts off GPT-4o and GPT-4.1 on Jan 14. Plan the switch — Fraction" />
+  <meta property="og:description" content="GPT-4o and GPT-4.1 leave the OpenAI API on Jan 14, 2027. Find every call, test the replacement on real inputs, and switch before the holidays." />
+  <meta property="og:url" content="https://getfractioncto.com/post-openai-gpt-4o-api-shutdown-january" />
+  <meta property="og:image" content="https://getfractioncto.com/og-image.png" />
+  <meta property="article:published_time" content="2026-11-21T04:37:24.845Z" />
+  <meta property="article:author" content="The founder of Fraction" />
+  <meta property="article:section" content="Vendors" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="OpenAI shuts off GPT-4o and GPT-4.1 on Jan 14. Plan the switch — Fraction" />
+  <meta name="twitter:description" content="GPT-4o and GPT-4.1 leave the OpenAI API on Jan 14, 2027. Find every call, test the replacement on real inputs, and switch before the holidays." />
+  <meta name="twitter:image" content="https://getfractioncto.com/og-image.png" />
+  <link rel="canonical" href="https://getfractioncto.com/post-openai-gpt-4o-api-shutdown-january" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script src="/analytics.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "OpenAI shuts off GPT-4o and GPT-4.1 on Jan 14. Plan the switch",
+  "description": "GPT-4o and GPT-4.1 leave the OpenAI API on Jan 14, 2027. Find every call, test the replacement on real inputs, and switch before the holidays.",
+  "datePublished": "2026-11-21T04:37:24.845Z",
+  "dateModified": "2026-11-21T04:37:24.845Z",
+  "author": {
+    "@type": "Person",
+    "name": "The founder of Fraction",
+    "url": "https://getfractioncto.com/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fraction",
+    "url": "https://getfractioncto.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://getfractioncto.com/og-image.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://getfractioncto.com/post-openai-gpt-4o-api-shutdown-january"
+  },
+  "image": "https://getfractioncto.com/og-image.png",
+  "articleSection": "Vendors",
+  "wordCount": 1396,
+  "inLanguage": "en",
+  "isAccessibleForFree": true
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home",   "item": "https://getfractioncto.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Writing","item": "https://getfractioncto.com/blog" },
+    { "@type": "ListItem", "position": 3, "name": "OpenAI shuts off GPT-4o and GPT-4.1 on Jan 14. Plan the switch", "item": "https://getfractioncto.com/post-openai-gpt-4o-api-shutdown-january" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Fraction home"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <ul class="nav-links">
+      <li><a href="how-it-works.html">How it works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="comparison.html">Compare</a></li>
+      <li><a href="blog.html" class="active">Writing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="teardown.html">The Teardown <span class="accent-dot"></span></a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke-linecap="round"/></svg></button>
+      <button class="icon-btn" aria-label="Toggle theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M21.5 12h-2.2M4.7 12H2.5M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6M18.4 18.4l-1.6-1.6M7.2 7.2 5.6 5.6" stroke-linecap="round"/></svg></button>
+      <a href="book-a-call.html" class="btn btn-primary nav-cta">Book a fit call</a>
+      <button class="icon-btn menu-btn" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu">
+  <div class="mm-top">
+    <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <button class="icon-btn menu-btn" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg></button>
+  </div>
+  <nav>
+    <a href="how-it-works.html">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="comparison.html">Compare</a>
+    <a href="blog.html">Writing</a>
+    <a href="about.html">About</a>
+    <a href="teardown.html">The Teardown</a>
+  </nav>
+  <div class="mm-cta">
+    <a href="teardown.html" class="btn btn-ghost">Start with a Teardown</a>
+    <a href="book-a-call.html" class="btn btn-primary">Book a 20-min fit call</a>
+  </div>
+</div>
+
+<main>
+<section class="page-hero center" style="padding-bottom:clamp(24px,4vw,40px)">
+  <div class="wrap">
+    <div class="article-hero">
+      <span class="post-cat">Vendors</span>
+      <h1>OpenAI shuts off GPT-4o and GPT-4.1 on Jan 14. Plan the switch</h1>
+      <div class="post-meta"><span>Nov 2026</span><span class="sep"></span><span>6 min read</span><span class="sep"></span><span>by The founder of Fraction</span></div>
+    </div>
+  </div>
+</section>
+<section class="section-tight" style="padding-top:8px">
+  <div class="wrap">
+    <div class="article-body reveal">
+<p>If your product calls OpenAI&#39;s API with GPT-4o, GPT-4o mini, GPT-4.1 or GPT-4.1 mini, those calls stop working on January 14, 2027. OpenAI&#39;s <a href="https://developers.openai.com/api/docs/deprecations">deprecations page</a> lists all four model families for shutdown on that date, with notice dated October 14, 2026. You have under eight weeks, and two of them are the holidays. Find every place you call these models now, test a replacement on your own real inputs, and switch before the end of December so January is for cleanup, not firefighting.</p>
+<p>This matters more for small teams than the headline suggests. GPT-4o mini in particular became the default cheap model in a lot of early-stage products. It is often called from places nobody remembers: a classification step in a background job, a summary in a weekly email, a support-ticket tagger a contractor wrote last year.</p>
+<h2>What is actually changing</h2>
+<p>Precision first, because founders tend to mix up two separate things.</p>
+<h3>The API, not ChatGPT</h3>
+<p>OpenAI already removed GPT-4o and GPT-4.1 from the ChatGPT app earlier this year, according to its <a href="https://help.openai.com/en/articles/20001051-retiring-gpt-4o-and-other-chatgpt-models">help centre</a>. That did not affect developers; the models stayed in the API. This is the API shutdown. After January 14, requests that name these models will fail rather than quietly fall back to something else.</p>
+<h3>Which models</h3>
+<p>At the time of writing, the deprecations page lists dated snapshots of GPT-4o (including gpt-4o-2024-08-06 and gpt-4o-2024-11-20), GPT-4o mini (gpt-4o-mini-2024-07-18), GPT-4.1 (gpt-4.1-2025-04-14) and GPT-4.1 mini (gpt-4.1-mini-2025-04-14). If your code uses a short alias like &quot;gpt-4o&quot; rather than a dated snapshot, treat it as affected too. Check the page yourself for the exact list, and for the recommended replacement it names (gpt-6-luna at the time of writing).</p>
+<h3>Nearby dates worth knowing</h3>
+<p>Some related models have their own dates. At the time of writing the same page lists the gpt-4o transcription models for shutdown in late February 2027, and developers have reported separate notices about OpenAI&#39;s text-to-speech models. If you use voice features, check those dates separately rather than assuming they match.</p>
+<h2>Why &quot;just change the model name&quot; is not the plan</h2>
+<p>Swapping a string in a config file takes five minutes. Knowing the product still works afterwards is the actual job.</p>
+<h3>Outputs change shape</h3>
+<p>A newer model may write longer answers, format lists differently, handle JSON slightly differently, or refuse things the old one allowed. If any code parses the output, such as pulling a category label out of a sentence, a small change in phrasing can break it silently.</p>
+<h3>Costs and speed change</h3>
+<p>The replacement may be priced differently per token, use more tokens per answer, or respond faster or slower. Your unit economics for AI features can move in either direction. I would not assume it is cheaper or more expensive; measure it on your own traffic. Our piece on <a href="/post-gemini-flash-price-doubles-january">the Gemini Flash price change</a> walks through how to estimate this for a real feature.</p>
+<h3>Prompts were tuned to the old model</h3>
+<p>Most teams adjusted their prompts by trial and error until the old model behaved. Those adjustments may now be unnecessary, or actively unhelpful. Expect to retune some of them.</p>
+<h2>A plan for the next six weeks</h2>
+<p>This is the order I would work in. For a typical seed-stage product with a handful of AI features, it is one to two weeks of a single engineer&#39;s time, spread out. Treat that as a rule of thumb; it grows quickly if AI calls are scattered across many services.</p>
+<h3>Week one: find every call</h3>
+<p>Search the codebase, infrastructure config and environment variables for every model name above, including aliases. Then check OpenAI&#39;s usage dashboard, which shows usage by model, for traffic you cannot account for in the code. That usually turns up the forgotten script or the no-code automation someone connected to your API key. Do not forget third-party tools that use your OpenAI key on your behalf.</p>
+<p>Make a simple list: where each call lives, what it does for the user, who owns it, and how bad it is if it breaks.</p>
+<h3>Week two: build a small test set</h3>
+<p>For each feature, collect twenty to fifty real inputs with the outputs you consider good. Strip personal data. This is your test set. It does not need to be fancy; a spreadsheet is fine. Without it, &quot;the new model seems fine&quot; just means someone tried three examples.</p>
+<h3>Weeks three and four: run the replacement side by side</h3>
+<p>Run the test set through the recommended replacement, and through one or two alternatives if you want options. Compare quality, output format, latency and cost per call. Fix prompts and parsing where needed. If a feature depends on very specific behaviour, this is where you find out.</p>
+<h3>Week five: switch, with a way back</h3>
+<p>Put the model name behind a single config setting if it is not already, so switching is a one-line change and reverting is too. Roll out feature by feature, highest value last. Watch error rates and a few real outputs for each feature for a day or two before moving on.</p>
+<h3>Week six: buffer</h3>
+<p>Keep the week before January 14 free. Something will turn up late: an old mobile app version, a scheduled job that only runs monthly, a partner integration. Note that &quot;revert to the old model&quot; stops being an option on the 14th, so the fallback after that date has to be another current model.</p>
+<h2>The decision behind the deadline</h2>
+<p>Every forced migration is a chance to ask a better question than &quot;which model replaces this one&quot;.</p>
+<h3>Should this feature use a smaller or different model?</h3>
+<p>Many features that were built on GPT-4o would run perfectly well on a smaller, cheaper model. Some would be better on a different provider entirely. If you are reconsidering providers, our post on <a href="/post-switch-to-open-weight-model">switching to an open-weight model</a> covers the tradeoffs.</p>
+<h3>Should you depend on one provider at all?</h3>
+<p>This is the second or third forced migration many teams have done in two years. If every AI feature is wired directly to one vendor, each deprecation becomes a project. A thin internal layer that names models in one place, plus a tested fallback, makes the next one routine. We wrote about the broader pattern in <a href="/post-ai-model-deprecation-risk">the AI model your product runs on will be retired</a> and about outages in <a href="/post-ai-provider-outage-fallback">planning a provider fallback</a>. Do not over-build it, though. A config file and a test set get you most of the value.</p>
+<h2>A short example</h2>
+<p>A composite of what I have seen: a seed-stage B2B tool with three AI features. A summary feature in the main product, a ticket classifier in the support queue, and a weekly digest email. The team knew about the first two. The usage dashboard showed a fourth caller: an internal script that tagged new leads in the CRM, written by a contractor who had left. The summary and digest switched cleanly. The classifier needed its output parsing fixed because the new model added an explanation after the label. The lead tagger was simply switched off, because nobody had used its tags in months. Total effort was about six engineer-days. Finding the fourth caller in December rather than on January 14 was the whole point.</p>
+<h2>FAQ</h2>
+<h3>Will my GPT-4o calls fall back to a newer model automatically?</h3>
+<p>Do not count on it. Plan for requests to these models to fail after January 14, 2027, and switch explicitly before then. Check OpenAI&#39;s deprecations page for the official behaviour.</p>
+<h3>What about models we fine-tuned on GPT-4o or GPT-4.1?</h3>
+<p>Check the deprecations page and your OpenAI account for the specific status of fine-tuned models, and plan to retrain or replace them on a supported base model. Budget time for collecting training data again if you did not keep it.</p>
+<h3>Is it safe to switch on the last day?</h3>
+<p>No. If the replacement behaves differently, you need time to fix it, and after the 14th you cannot roll back to the old model. Aim to finish by the end of December.</p>
+<h3>Can a fractional CTO help with this?</h3>
+<p>Yes, mostly with the inventory and the test set, which are where small teams cut corners. If you would like a second pair of eyes, <a href="/book-a-call">book a call</a>, or start with a <a href="/teardown">technical teardown</a> that maps every external dependency in your product. The <a href="/pricing">pricing page</a> explains both.</p>
+
+    </div>
+    <div class="article-body">
+      <div class="author-card reveal">
+        <span class="ac-av">F</span>
+        <div>
+          <div class="ac-name">The founder of Fraction</div>
+          <div class="ac-bio">Built engineering teams from 2 to 30. Killed more bad rebuilds than I've greenlit. <a href="about.html" class="link-grow" style="font-size:0.96rem">More about me <span class="arrow">&rarr;</span></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" style="padding-top:clamp(32px,5vw,56px)">
+  <div class="wrap">
+    <div class="callout reveal" style="text-align:center">
+      <h3 style="margin-left:auto;margin-right:auto;max-width:22ch">Not sure the call you're about to make is the right one?</h3>
+      <p style="margin:0 auto 26px">That's exactly what a 20-minute fit call is for &mdash; or a two-week Teardown if you'd rather start with a written verdict.</p>
+      <div class="ph-cta" style="justify-content:center">
+        <a href="book-a-call.html" class="btn btn-accent">Book a fit call <span class="arrow">&rarr;</span></a>
+        <a href="teardown.html" class="link-grow" style="color:#fff">Start with a Teardown <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap-wide">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#14140F"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+        <p style="color:var(--grey-2); max-width:30ch; margin-top:18px; font-size:0.96rem; line-height:1.5">Senior technical leadership for founders who aren't ready for a full-time CTO — and shouldn't hire one yet.</p>
+      </div>
+      <div><h5>Service</h5><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="comparison.html">Fractional vs full-time</a></li><li><a href="teardown.html">The Tech Teardown</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="blog.html">Writing</a></li><li><a href="book-a-call.html">Book a call</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+      <div><h5>Start here</h5><ul><li><a href="book-a-call.html">Book a 20-min fit call</a></li><li><a href="teardown.html">Start with a Teardown</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Fraction · <a href="https://getfractioncto.com">getfractioncto.com</a> — no contract, no equity, cancel anytime.</span>
+      <span>Built on judgment, not hours.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="motion.js"></script>
+</body>
+</html>
