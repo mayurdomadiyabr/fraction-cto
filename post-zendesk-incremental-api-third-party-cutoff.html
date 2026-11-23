@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Zendesk cuts third-party Incremental API access on Dec 2. Migrate — Fraction</title>
+  <meta name="description" content="Zendesk ends Incremental API access for third-party apps from 2 Dec 2026 to 19 Jan 2027. What breaks, the 60-day extension, and how to migrate." />
+  <meta name="theme-color" content="#FAFAF9" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Fraction" />
+  <meta property="og:title" content="Zendesk cuts third-party Incremental API access on Dec 2. Migrate — Fraction" />
+  <meta property="og:description" content="Zendesk ends Incremental API access for third-party apps from 2 Dec 2026 to 19 Jan 2027. What breaks, the 60-day extension, and how to migrate." />
+  <meta property="og:url" content="https://getfractioncto.com/post-zendesk-incremental-api-third-party-cutoff" />
+  <meta property="og:image" content="https://getfractioncto.com/og-image.png" />
+  <meta property="article:published_time" content="2026-11-23T04:18:59.333Z" />
+  <meta property="article:author" content="The founder of Fraction" />
+  <meta property="article:section" content="Vendors" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Zendesk cuts third-party Incremental API access on Dec 2. Migrate — Fraction" />
+  <meta name="twitter:description" content="Zendesk ends Incremental API access for third-party apps from 2 Dec 2026 to 19 Jan 2027. What breaks, the 60-day extension, and how to migrate." />
+  <meta name="twitter:image" content="https://getfractioncto.com/og-image.png" />
+  <link rel="canonical" href="https://getfractioncto.com/post-zendesk-incremental-api-third-party-cutoff" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script src="/analytics.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Zendesk cuts third-party Incremental API access on Dec 2. Migrate",
+  "description": "Zendesk ends Incremental API access for third-party apps from 2 Dec 2026 to 19 Jan 2027. What breaks, the 60-day extension, and how to migrate.",
+  "datePublished": "2026-11-23T04:18:59.333Z",
+  "dateModified": "2026-11-23T04:18:59.333Z",
+  "author": {
+    "@type": "Person",
+    "name": "The founder of Fraction",
+    "url": "https://getfractioncto.com/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fraction",
+    "url": "https://getfractioncto.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://getfractioncto.com/og-image.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://getfractioncto.com/post-zendesk-incremental-api-third-party-cutoff"
+  },
+  "image": "https://getfractioncto.com/og-image.png",
+  "articleSection": "Vendors",
+  "wordCount": 1454,
+  "inLanguage": "en",
+  "isAccessibleForFree": true
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home",   "item": "https://getfractioncto.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Writing","item": "https://getfractioncto.com/blog" },
+    { "@type": "ListItem", "position": 3, "name": "Zendesk cuts third-party Incremental API access on Dec 2. Migrate", "item": "https://getfractioncto.com/post-zendesk-incremental-api-third-party-cutoff" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Fraction home"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <ul class="nav-links">
+      <li><a href="how-it-works.html">How it works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="comparison.html">Compare</a></li>
+      <li><a href="blog.html" class="active">Writing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="teardown.html">The Teardown <span class="accent-dot"></span></a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke-linecap="round"/></svg></button>
+      <button class="icon-btn" aria-label="Toggle theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M21.5 12h-2.2M4.7 12H2.5M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6M18.4 18.4l-1.6-1.6M7.2 7.2 5.6 5.6" stroke-linecap="round"/></svg></button>
+      <a href="book-a-call.html" class="btn btn-primary nav-cta">Book a fit call</a>
+      <button class="icon-btn menu-btn" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu">
+  <div class="mm-top">
+    <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <button class="icon-btn menu-btn" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg></button>
+  </div>
+  <nav>
+    <a href="how-it-works.html">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="comparison.html">Compare</a>
+    <a href="blog.html">Writing</a>
+    <a href="about.html">About</a>
+    <a href="teardown.html">The Teardown</a>
+  </nav>
+  <div class="mm-cta">
+    <a href="teardown.html" class="btn btn-ghost">Start with a Teardown</a>
+    <a href="book-a-call.html" class="btn btn-primary">Book a 20-min fit call</a>
+  </div>
+</div>
+
+<main>
+<section class="page-hero center" style="padding-bottom:clamp(24px,4vw,40px)">
+  <div class="wrap">
+    <div class="article-hero">
+      <span class="post-cat">Vendors</span>
+      <h1>Zendesk cuts third-party Incremental API access on Dec 2. Migrate</h1>
+      <div class="post-meta"><span>Nov 2026</span><span class="sep"></span><span>7 min read</span><span class="sep"></span><span>by The founder of Fraction</span></div>
+    </div>
+  </div>
+</section>
+<section class="section-tight" style="padding-top:8px">
+  <div class="wrap">
+    <div class="article-body reveal">
+<p>Zendesk is cutting off its Incremental APIs for third-party apps and integrations. The rollout starts on 2 December 2026, pauses from 17 December to 4 January, and is due to finish by 19 January 2027. If your product syncs tickets, users, or help center articles out of your customers&#39; Zendesk accounts, and it uses any <code>/incremental/</code> endpoint, you need to move to the standard APIs before your customers&#39; accounts are switched over.</p>
+<p>The source for all of this is Zendesk&#39;s own <a href="https://support.zendesk.com/hc/en-us/articles/11275429993498-Announcing-end-of-availability-of-Incremental-APIs-for-third-party-developers">announcement</a> and its <a href="https://developer.zendesk.com/documentation/marketplace/building-a-marketplace-app/incremental-third-party/">developer migration guide</a>. Read both before you plan, because the guide lists which endpoints have alternatives and which do not.</p>
+<h2>Who this hits</h2>
+<p>Zendesk&#39;s stated reason is security: bulk export endpoints let a compromised third-party credential pull a customer&#39;s whole dataset quickly, and AI workflows have made that riskier. The change applies to third-party integrations whether or not they are listed in the Zendesk Marketplace.</p>
+<h3>Startups that sell into Zendesk customers</h3>
+<p>This is the group that should be worried. If you sell any of the following, there is a good chance you call an incremental endpoint somewhere:</p>
+<ul>
+<li><strong>AI support agents and copilots</strong> that ingest a customer&#39;s ticket history to train or ground answers.</li>
+<li><strong>Support analytics and QA tools</strong> that pull every ticket and metric event to compute dashboards.</li>
+<li><strong>Knowledge base and search tools</strong> that sync help center articles.</li>
+<li><strong>Data connectors</strong> that move Zendesk data into a warehouse for your customers.</li>
+</ul>
+<p>The incremental endpoints were the natural choice for all of these. They let you ask &quot;give me everything that changed since my last checkpoint&quot; and get a clean stream back. That is exactly the capability Zendesk is removing for third parties.</p>
+<h3>Companies using Zendesk for their own support</h3>
+<p>If you only use Zendesk for your own customer support and your own scripts pull your own data, Zendesk says internal use cases need no action. The question to check is whether any tool you bought pulls your data through these endpoints. If it does, that vendor has to migrate, and their sync may break or slow down during the rollout.</p>
+<h2>What actually changes</h2>
+<p>The announcement and the guide list the affected endpoints and their suggested alternatives. The main ones for most products:</p>
+<ul>
+<li><code>/api/v2/incremental/tickets</code> and <code>/tickets/cursor</code> move to <code>/api/v2/tickets</code>.</li>
+<li><code>/api/v2/incremental/ticket_events</code> moves to <code>/api/v2/ticket_audits</code>.</li>
+<li><code>/api/v2/incremental/ticket_metric_events</code> moves to <code>/api/v2/tickets?include=metric_events</code>.</li>
+<li><code>/api/v2/incremental/users</code> and <code>/organizations</code> move to the standard users and organizations endpoints.</li>
+<li><code>/api/v2/help_center/incremental/articles</code> moves to <code>/api/v2/help_center/articles</code>.</li>
+</ul>
+<p>Two Talk (voice) stats endpoints, for incremental calls and call legs, have no alternative listed at all. If your product depends on those, you have a product decision to make, not just a migration.</p>
+<h3>Why this is not a find-and-replace</h3>
+<p>Zendesk&#39;s guide says plainly that the alternatives are not one-to-one replacements. The incremental endpoints gave you change tracking, ordered events, and deleted records in one stream. The standard endpoints are built for fetching specific records. When you swap them, check how your sync handles:</p>
+<ul>
+<li><strong>Change detection.</strong> How do you find what changed since your last run without an incremental cursor?</li>
+<li><strong>Deleted records.</strong> Incremental exports told you when something was deleted. Will you still find out?</li>
+<li><strong>Ordering and duplicates.</strong> If events arrive in a different order or more than once, does your checkpoint logic still work?</li>
+<li><strong>Rate limits.</strong> Pulling the same data through transactional endpoints usually means more requests. On a large customer account, a sync that took minutes could take hours.</li>
+<li><strong>Backfills.</strong> Onboarding a new customer with years of tickets is the hardest case. Plan how you will do it on the standard APIs.</li>
+</ul>
+<h2>The holiday timing problem</h2>
+<p>The rollout window is short and broken in the middle. It starts on 2 December, pauses for the holidays, and resumes in January. In practice your engineering team has about two working weeks in December before most people take time off, and the same is true of your customers&#39; Zendesk admins.</p>
+<p>That matters for two reasons. First, you cannot predict which of your customers&#39; accounts will be switched in the first phase, so a working sync can fail on any day from 2 December. Second, if you need customers to do anything, like approve an extension or re-authorize your app, December is the worst month to ask.</p>
+<p>If an agency built or maintains your integration, check now whether they are working through December. The pattern from <a href="/post-agency-holiday-shutdown">agency holiday shutdowns</a> applies: the fix needs to ship before the people who can ship it leave.</p>
+<h2>The extension, and why not to rely on it</h2>
+<p>Zendesk lets a customer&#39;s account admin request a 60-day extension for specific partners. Per the announcement, this starts in November 2026 and is done in Admin Center under Apps and integrations, then APIs, then API Configuration.</p>
+<p>That is useful, but it is your customer&#39;s action, not yours. You would need every affected customer&#39;s admin to log in and request it on your behalf, which is a support campaign in itself. Use it as a safety net for your largest accounts if your migration slips, not as the plan.</p>
+<h2>A plan for the next two weeks</h2>
+<p>For a startup with one Zendesk integration, this is roughly the order I would run it.</p>
+<h3>This week: find every call</h3>
+<p>Search your code, workers, and connector configuration for <code>/incremental/</code> and for the specific endpoint paths above. Check background jobs and data pipelines, not just the main app. Then check logs for which endpoints are actually being hit in production; there is often a forgotten nightly backfill.</p>
+<h3>Next: design the new sync</h3>
+<p>For each affected call, read the alternative endpoint&#39;s documentation and decide how you will detect changes, handle deletions, and checkpoint. Write it down in a short design note. This is usually a day of senior engineering time, and it is the step where most of the risk sits.</p>
+<h3>Then: build, test on real data, and ship before the pause</h3>
+<p>Test against a real, large Zendesk account, not a sandbox with ten tickets. Measure how long a full sync and an incremental-style update take under rate limits. Ship behind a flag so you can switch accounts over one at a time.</p>
+<h3>In parallel: tell your customers</h3>
+<p>Send a short note to customers who use the integration: what is changing, that you are on it, and what, if anything, you need from them. If you think you will miss the window for some accounts, ask those admins to request the 60-day extension early, before the holidays.</p>
+<h2>The pattern behind this</h2>
+<p>Zendesk&#39;s own reasoning names AI workflows as the reason for the change, and that is the part worth noticing. The general lesson, covered in <a href="/post-platform-closing-free-api">when a platform closes its free API</a>, is that any integration whose core value is bulk-pulling data out of someone else&#39;s platform has a policy risk, not just a technical one. The more valuable that data becomes for training and grounding AI, the more protective platforms are likely to be about bulk access.</p>
+<p>For founders, the practical step is to keep a list of every external API your product depends on, who owns each integration, and how you would hear about a change. Many teams discover these notices from a customer&#39;s support ticket, weeks after the email went to an engineer who has since left.</p>
+<p>If you want help scoping the migration or a second opinion on your sync design, <a href="/book-a-call">book a call</a>. If you want a broader look at where else your product depends on a platform that could change the rules, a <a href="/teardown">teardown</a> covers that.</p>
+<h2>FAQ</h2>
+<h3>Does this affect companies that only use Zendesk internally?</h3>
+<p>According to Zendesk, internal use cases need no action and can keep using the Incremental APIs. The change targets third-party apps and integrations. Check whether any vendor tool you use pulls your data through these endpoints.</p>
+<h3>When exactly will my integration stop working?</h3>
+<p>Zendesk gives a rollout window, not a single date: it starts 2 December 2026, pauses from 17 December to 4 January 2027, and is due to complete by 19 January 2027. Any given customer account could be switched at any point in that window, so plan to be migrated before 2 December where you can.</p>
+<h3>Can I just swap the endpoint URLs?</h3>
+<p>No. Zendesk says the alternatives are not one-to-one replacements. You will likely need to change how you track changes, paginate, handle deletions, and stay under rate limits.</p>
+<h3>What if there is no alternative endpoint for what we use?</h3>
+<p>Two Talk stats endpoints have no listed alternative. If you depend on them, contact Zendesk through its partner channels, and decide what your product does without that data. That is a product decision as much as an engineering one.</p>
+
+    </div>
+    <div class="article-body">
+      <div class="author-card reveal">
+        <span class="ac-av">F</span>
+        <div>
+          <div class="ac-name">The founder of Fraction</div>
+          <div class="ac-bio">Built engineering teams from 2 to 30. Killed more bad rebuilds than I've greenlit. <a href="about.html" class="link-grow" style="font-size:0.96rem">More about me <span class="arrow">&rarr;</span></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" style="padding-top:clamp(32px,5vw,56px)">
+  <div class="wrap">
+    <div class="callout reveal" style="text-align:center">
+      <h3 style="margin-left:auto;margin-right:auto;max-width:22ch">Not sure the call you're about to make is the right one?</h3>
+      <p style="margin:0 auto 26px">That's exactly what a 20-minute fit call is for &mdash; or a two-week Teardown if you'd rather start with a written verdict.</p>
+      <div class="ph-cta" style="justify-content:center">
+        <a href="book-a-call.html" class="btn btn-accent">Book a fit call <span class="arrow">&rarr;</span></a>
+        <a href="teardown.html" class="link-grow" style="color:#fff">Start with a Teardown <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap-wide">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#14140F"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+        <p style="color:var(--grey-2); max-width:30ch; margin-top:18px; font-size:0.96rem; line-height:1.5">Senior technical leadership for founders who aren't ready for a full-time CTO — and shouldn't hire one yet.</p>
+      </div>
+      <div><h5>Service</h5><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="comparison.html">Fractional vs full-time</a></li><li><a href="teardown.html">The Tech Teardown</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="blog.html">Writing</a></li><li><a href="book-a-call.html">Book a call</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+      <div><h5>Start here</h5><ul><li><a href="book-a-call.html">Book a 20-min fit call</a></li><li><a href="teardown.html">Start with a Teardown</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Fraction · <a href="https://getfractioncto.com">getfractioncto.com</a> — no contract, no equity, cancel anytime.</span>
+      <span>Built on judgment, not hours.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="motion.js"></script>
+</body>
+</html>
