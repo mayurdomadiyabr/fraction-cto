@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ORM or raw SQL for your startup? Use both, on purpose — Fraction</title>
+  <meta name="description" content="Should your startup use an ORM or raw SQL? Where each helps and hurts, the split I recommend, and signals your team has the balance wrong." />
+  <meta name="theme-color" content="#FAFAF9" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Fraction" />
+  <meta property="og:title" content="ORM or raw SQL for your startup? Use both, on purpose — Fraction" />
+  <meta property="og:description" content="Should your startup use an ORM or raw SQL? Where each helps and hurts, the split I recommend, and signals your team has the balance wrong." />
+  <meta property="og:url" content="https://getfractioncto.com/post-orm-or-raw-sql" />
+  <meta property="og:image" content="https://getfractioncto.com/og-image.png" />
+  <meta property="article:published_time" content="2026-11-25T02:44:30.255Z" />
+  <meta property="article:author" content="The founder of Fraction" />
+  <meta property="article:section" content="Decisions" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="ORM or raw SQL for your startup? Use both, on purpose — Fraction" />
+  <meta name="twitter:description" content="Should your startup use an ORM or raw SQL? Where each helps and hurts, the split I recommend, and signals your team has the balance wrong." />
+  <meta name="twitter:image" content="https://getfractioncto.com/og-image.png" />
+  <link rel="canonical" href="https://getfractioncto.com/post-orm-or-raw-sql" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script src="/analytics.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "ORM or raw SQL for your startup? Use both, on purpose",
+  "description": "Should your startup use an ORM or raw SQL? Where each helps and hurts, the split I recommend, and signals your team has the balance wrong.",
+  "datePublished": "2026-11-25T02:44:30.255Z",
+  "dateModified": "2026-11-25T02:44:30.255Z",
+  "author": {
+    "@type": "Person",
+    "name": "The founder of Fraction",
+    "url": "https://getfractioncto.com/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fraction",
+    "url": "https://getfractioncto.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://getfractioncto.com/og-image.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://getfractioncto.com/post-orm-or-raw-sql"
+  },
+  "image": "https://getfractioncto.com/og-image.png",
+  "articleSection": "Decisions",
+  "wordCount": 1080,
+  "inLanguage": "en",
+  "isAccessibleForFree": true
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home",   "item": "https://getfractioncto.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Writing","item": "https://getfractioncto.com/blog" },
+    { "@type": "ListItem", "position": 3, "name": "ORM or raw SQL for your startup? Use both, on purpose", "item": "https://getfractioncto.com/post-orm-or-raw-sql" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Fraction home"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <ul class="nav-links">
+      <li><a href="how-it-works.html">How it works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="comparison.html">Compare</a></li>
+      <li><a href="blog.html" class="active">Writing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="teardown.html">The Teardown <span class="accent-dot"></span></a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke-linecap="round"/></svg></button>
+      <button class="icon-btn" aria-label="Toggle theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M21.5 12h-2.2M4.7 12H2.5M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6M18.4 18.4l-1.6-1.6M7.2 7.2 5.6 5.6" stroke-linecap="round"/></svg></button>
+      <a href="book-a-call.html" class="btn btn-primary nav-cta">Book a fit call</a>
+      <button class="icon-btn menu-btn" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu">
+  <div class="mm-top">
+    <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <button class="icon-btn menu-btn" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg></button>
+  </div>
+  <nav>
+    <a href="how-it-works.html">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="comparison.html">Compare</a>
+    <a href="blog.html">Writing</a>
+    <a href="about.html">About</a>
+    <a href="teardown.html">The Teardown</a>
+  </nav>
+  <div class="mm-cta">
+    <a href="teardown.html" class="btn btn-ghost">Start with a Teardown</a>
+    <a href="book-a-call.html" class="btn btn-primary">Book a 20-min fit call</a>
+  </div>
+</div>
+
+<main>
+<section class="page-hero center" style="padding-bottom:clamp(24px,4vw,40px)">
+  <div class="wrap">
+    <div class="article-hero">
+      <span class="post-cat">Decisions</span>
+      <h1>ORM or raw SQL for your startup? Use both, on purpose</h1>
+      <div class="post-meta"><span>Nov 2026</span><span class="sep"></span><span>5 min read</span><span class="sep"></span><span>by The founder of Fraction</span></div>
+    </div>
+  </div>
+</section>
+<section class="section-tight" style="padding-top:8px">
+  <div class="wrap">
+    <div class="article-body reveal">
+<p>For most early products, use an ORM for everyday reads and writes and drop to raw SQL for the handful of queries that need it. The ORM gives you speed, safer defaults and readable migrations; raw SQL gives you control over the queries that matter for performance and reporting. The mistake is not picking one. The mistake is treating the choice as all-or-nothing, or letting nobody on the team read the SQL the ORM writes.</p>
+<p>An ORM (object-relational mapper) is the library that lets your code say &quot;get this customer and their last ten orders&quot; instead of writing the database query by hand. Every framework has one or more. Founders ask me about this when a senior candidate says &quot;ORMs are for beginners&quot; or when the app gets slow and someone blames the ORM.</p>
+<h2>What the ORM actually buys you</h2>
+<p>On a team of one to five engineers, an ORM earns its place for reasons that have little to do with taste:</p>
+<ul>
+<li><strong>Speed on the boring 80 percent.</strong> Most of an early product is create, read, update and delete on a few dozen tables. Writing that by hand is slow and repetitive.</li>
+<li><strong>Safer defaults.</strong> ORMs parameterize queries for you, which closes off the most common route to SQL injection. Hand-written SQL can be just as safe, but only if every engineer does it right every time.</li>
+<li><strong>Migrations as code.</strong> Schema changes live in version control next to the code that depends on them, and a new engineer can rebuild the database from scratch. That matters more than people think; see <a href="/post-one-line-migration-took-production-down">what a one-line migration did to production</a>.</li>
+<li><strong>Easier hiring and onboarding.</strong> Engineers who know your framework already know its ORM.</li>
+</ul>
+<h2>Where the ORM hurts</h2>
+<p>The criticism is real, and it shows up in the same places in nearly every codebase I review.</p>
+<h3>Hidden query counts</h3>
+<p>The classic is the N+1 problem: you load 50 orders, then the code touches each order&#39;s customer, and the ORM quietly runs 51 queries. It looks like one line of code. I wrote about finding these in <a href="/post-your-app-is-slow-add-a-cache-or-fix-the-query">your app is slow: add a cache or fix the query</a>; the fix is almost always to tell the ORM to load the related rows up front.</p>
+<h3>Loading far more than you need</h3>
+<p>ORMs make it easy to load whole rows and whole tables. That is how a list page ends up pulling every record into memory, the pattern behind <a href="/post-list-page-loads-every-row">the list page that loads every row</a>.</p>
+<h3>Reporting and analytics queries</h3>
+<p>Grouping, window functions, multi-table aggregates and anything a finance person asks for are usually clearer and faster in SQL. Forcing them through the ORM produces code nobody can read and queries nobody can tune.</p>
+<h3>Database features the ORM does not model</h3>
+<p>Full-text search, partial indexes, row locks, upserts with conditions, and database-specific types are often awkward or missing. The <a href="/post-search-box-is-a-like-query">search box built on a LIKE query</a> is often an ORM default that nobody questioned.</p>
+<h2>The split I recommend</h2>
+<p>Use both, on purpose, with a rule the whole team knows.</p>
+<ol>
+<li><strong>ORM by default</strong> for normal application reads and writes.</li>
+<li><strong>Raw SQL, parameterized, in one place</strong> for reporting, heavy aggregates, search and the few hot paths you have measured. Keep these queries in a clearly named module, not scattered through controllers.</li>
+<li><strong>Migrations always through the migration tool</strong>, even when the change itself is raw SQL, so the history stays in one place.</li>
+<li><strong>Query logging on in development.</strong> Every engineer should see the SQL their code produces. Most ORM performance problems are found in five minutes by reading the log.</li>
+<li><strong>A slow-query view in production.</strong> Your database already tracks its slowest queries. Look at that list monthly; it tells you exactly which queries deserve hand-written SQL.</li>
+</ol>
+<p>This keeps the speed of the ORM where it helps and removes it where it hurts. It also means the &quot;ORMs are for beginners&quot; argument stops being a philosophy debate and becomes a question about specific queries.</p>
+<h2>What about query builders?</h2>
+<p>Between a full ORM and raw strings sit query builders: libraries that let you compose SQL in code, with parameters, without mapping rows into objects. They are a good middle option for teams that like to see the SQL shape but want composition and safety. They do not change the recommendation; they are another tool for the &quot;raw SQL&quot; bucket.</p>
+<h2>Signals you have the balance wrong</h2>
+<ul>
+<li><strong>Every slow page traces back to ORM-generated queries nobody has read.</strong> You need logging and a review habit, not a rewrite.</li>
+<li><strong>Business logic lives in hand-written SQL strings copied across files.</strong> You lost the safety and readability the ORM offered; consolidate.</li>
+<li><strong>Engineers are fighting the ORM to express a query.</strong> That query should be SQL.</li>
+<li><strong>Someone proposes removing the ORM entirely.</strong> On an early product this is rarely worth it. It is a large, risky change that fixes a problem a handful of queries could fix. The same logic applies to most rewrite proposals; see <a href="/post-rewrite-or-refactor">rewrite or refactor</a>.</li>
+</ul>
+<h2>FAQ</h2>
+<h3>Is using an ORM a red flag in technical diligence?</h3>
+<p>No. Diligence reviewers look for whether the team understands its queries, has indexes where they matter and can explain its slow spots. An ORM used with query logging and a few well-placed raw queries reads as mature. An ORM nobody has looked under is the concern.</p>
+<h3>Are ORMs slower than raw SQL?</h3>
+<p>The ORM&#39;s own overhead is usually small. The slowness comes from the queries it is allowed to generate, like N+1 patterns and loading unneeded columns. Fix those and most of the gap disappears.</p>
+<h3>Should a non-technical founder have an opinion on this?</h3>
+<p>Not on which library, but you can ask one useful question: &quot;Which of our queries do we write by hand, and why?&quot; A clear answer means the team is choosing. &quot;We never look at the SQL&quot; means nobody is.</p>
+<h3>When should we move a query from the ORM to raw SQL?</h3>
+<p>When it shows up in your slow-query list, when it is a report or aggregate, or when expressing it through the ORM takes more code than the SQL itself. Measure first, then move it.</p>
+<p>If your app is getting slower and the team is split on why, a <a href="/teardown">technical teardown</a> will pin down which queries are the problem. If you want help setting a sensible default for a new team, a <a href="/book-a-call">short call</a> is usually enough.</p>
+
+    </div>
+    <div class="article-body">
+      <div class="author-card reveal">
+        <span class="ac-av">F</span>
+        <div>
+          <div class="ac-name">The founder of Fraction</div>
+          <div class="ac-bio">Built engineering teams from 2 to 30. Killed more bad rebuilds than I've greenlit. <a href="about.html" class="link-grow" style="font-size:0.96rem">More about me <span class="arrow">&rarr;</span></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" style="padding-top:clamp(32px,5vw,56px)">
+  <div class="wrap">
+    <div class="callout reveal" style="text-align:center">
+      <h3 style="margin-left:auto;margin-right:auto;max-width:22ch">Not sure the call you're about to make is the right one?</h3>
+      <p style="margin:0 auto 26px">That's exactly what a 20-minute fit call is for &mdash; or a two-week Teardown if you'd rather start with a written verdict.</p>
+      <div class="ph-cta" style="justify-content:center">
+        <a href="book-a-call.html" class="btn btn-accent">Book a fit call <span class="arrow">&rarr;</span></a>
+        <a href="teardown.html" class="link-grow" style="color:#fff">Start with a Teardown <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap-wide">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#14140F"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+        <p style="color:var(--grey-2); max-width:30ch; margin-top:18px; font-size:0.96rem; line-height:1.5">Senior technical leadership for founders who aren't ready for a full-time CTO — and shouldn't hire one yet.</p>
+      </div>
+      <div><h5>Service</h5><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="comparison.html">Fractional vs full-time</a></li><li><a href="teardown.html">The Tech Teardown</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="blog.html">Writing</a></li><li><a href="book-a-call.html">Book a call</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+      <div><h5>Start here</h5><ul><li><a href="book-a-call.html">Book a 20-min fit call</a></li><li><a href="teardown.html">Start with a Teardown</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Fraction · <a href="https://getfractioncto.com">getfractioncto.com</a> — no contract, no equity, cancel anytime.</span>
+      <span>Built on judgment, not hours.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="motion.js"></script>
+</body>
+</html>
