@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Attackers got into dev and reached production in 3 days. Yours? — Fraction</title>
+  <meta name="description" content="An attacker went from Chainstack&#39;s dev environment to production in three days. Four bridges from dev to prod at most startups, and how to close them." />
+  <meta name="theme-color" content="#FAFAF9" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Fraction" />
+  <meta property="og:title" content="Attackers got into dev and reached production in 3 days. Yours? — Fraction" />
+  <meta property="og:description" content="An attacker went from Chainstack&#39;s dev environment to production in three days. Four bridges from dev to prod at most startups, and how to close them." />
+  <meta property="og:url" content="https://getfractioncto.com/post-dev-environment-path-to-production" />
+  <meta property="og:image" content="https://getfractioncto.com/og-image.png" />
+  <meta property="article:published_time" content="2026-11-27T02:43:28.875Z" />
+  <meta property="article:author" content="The founder of Fraction" />
+  <meta property="article:section" content="Pattern recognition" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Attackers got into dev and reached production in 3 days. Yours? — Fraction" />
+  <meta name="twitter:description" content="An attacker went from Chainstack&#39;s dev environment to production in three days. Four bridges from dev to prod at most startups, and how to close them." />
+  <meta name="twitter:image" content="https://getfractioncto.com/og-image.png" />
+  <link rel="canonical" href="https://getfractioncto.com/post-dev-environment-path-to-production" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script src="/analytics.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Attackers got into dev and reached production in 3 days. Yours?",
+  "description": "An attacker went from Chainstack&#39;s dev environment to production in three days. Four bridges from dev to prod at most startups, and how to close them.",
+  "datePublished": "2026-11-27T02:43:28.875Z",
+  "dateModified": "2026-11-27T02:43:28.875Z",
+  "author": {
+    "@type": "Person",
+    "name": "The founder of Fraction",
+    "url": "https://getfractioncto.com/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Fraction",
+    "url": "https://getfractioncto.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://getfractioncto.com/og-image.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://getfractioncto.com/post-dev-environment-path-to-production"
+  },
+  "image": "https://getfractioncto.com/og-image.png",
+  "articleSection": "Pattern recognition",
+  "wordCount": 1564,
+  "inLanguage": "en",
+  "isAccessibleForFree": true
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home",   "item": "https://getfractioncto.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Writing","item": "https://getfractioncto.com/blog" },
+    { "@type": "ListItem", "position": 3, "name": "Attackers got into dev and reached production in 3 days. Yours?", "item": "https://getfractioncto.com/post-dev-environment-path-to-production" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Fraction home"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <ul class="nav-links">
+      <li><a href="how-it-works.html">How it works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="comparison.html">Compare</a></li>
+      <li><a href="blog.html" class="active">Writing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="teardown.html">The Teardown <span class="accent-dot"></span></a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" stroke-linecap="round"/></svg></button>
+      <button class="icon-btn" aria-label="Toggle theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M21.5 12h-2.2M4.7 12H2.5M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6M18.4 18.4l-1.6-1.6M7.2 7.2 5.6 5.6" stroke-linecap="round"/></svg></button>
+      <a href="book-a-call.html" class="btn btn-primary nav-cta">Book a fit call</a>
+      <button class="icon-btn menu-btn" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu">
+  <div class="mm-top">
+    <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#FF6B35"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+    <button class="icon-btn menu-btn" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg></button>
+  </div>
+  <nav>
+    <a href="how-it-works.html">How it works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="comparison.html">Compare</a>
+    <a href="blog.html">Writing</a>
+    <a href="about.html">About</a>
+    <a href="teardown.html">The Teardown</a>
+  </nav>
+  <div class="mm-cta">
+    <a href="teardown.html" class="btn btn-ghost">Start with a Teardown</a>
+    <a href="book-a-call.html" class="btn btn-primary">Book a 20-min fit call</a>
+  </div>
+</div>
+
+<main>
+<section class="page-hero center" style="padding-bottom:clamp(24px,4vw,40px)">
+  <div class="wrap">
+    <div class="article-hero">
+      <span class="post-cat">Pattern recognition</span>
+      <h1>Attackers got into dev and reached production in 3 days. Yours?</h1>
+      <div class="post-meta"><span>Nov 2026</span><span class="sep"></span><span>7 min read</span><span class="sep"></span><span>by The founder of Fraction</span></div>
+    </div>
+  </div>
+</section>
+<section class="section-tight" style="padding-top:8px">
+  <div class="wrap">
+    <div class="article-body reveal">
+<p>In early November, Chainstack disclosed that an attacker came in through a third-party component, landed first in a development environment, and reached parts of production three days later, taking customer names, emails, and password hashes. The lesson for a startup is not about that component. It is that, at most early companies, development is a path to production: the same cloud account, shared credentials, a copy of real data, and a deploy pipeline that can touch everything. Separate them so that losing dev costs you a day of cleanup, not a breach notice.</p>
+<p>I am working from public reporting here, not inside knowledge. <a href="https://chainstack.com/security-incident-nov-2026/">Chainstack&#39;s incident report</a> gives the timeline: first access to a development environment on October 26, production reached on October 29, detection and access cut on October 31, investigation closed on November 2. <a href="https://theblock.co/news/ecosystems/2026-11-12-chainstack-security-breach-438509">The Block&#39;s coverage</a> adds what was exposed. Chainstack has not named the component or the attacker, and I will not guess. What matters for you is the shape of the incident, because it is a shape I see in almost every early-stage stack I review.</p>
+<h2>Why dev is the soft way in</h2>
+<p>Development environments are built for speed. That is their job. Engineers install new packages freely, try new tools, open ports to test a webhook, and paste credentials into config files to get something working by Friday. Security controls that would be unthinkable in production are normal in dev, and that is mostly fine.</p>
+<p>The problem is not that dev is loose. It is that dev is connected. If an attacker who lands in dev can reach production, then your production security is only as strong as the loosest part of dev. And dev is where the new, unreviewed code lives: fresh dependencies, browser extensions, AI coding tools, and test integrations nobody has looked at. <a href="/post-npm-worm-credential-blast-radius">The npm worm that harvested credentials</a> worked the same way: it did not need production. It needed a machine that held production keys.</p>
+<h2>The four bridges from dev to production</h2>
+<p>When I look at how a startup&#39;s environments are wired, I am looking for bridges. These four account for most of what I find.</p>
+<h3>Shared cloud account</h3>
+<p>Dev, staging, and production all live in one AWS, Google Cloud, or Azure account. Separation is by naming convention: resources called &quot;dev-api&quot; and &quot;prod-api&quot; side by side. Anyone with broad rights in that account can reach both, and a role that was meant for dev is one policy mistake away from production. AWS&#39;s own guidance on organising environments with multiple accounts recommends separate accounts for separate workloads and environments for exactly this reason: the account is the strongest boundary you get by default.</p>
+<h3>Shared credentials</h3>
+<p>The same database password, API key, or cloud access key works in more than one environment. This is the most common bridge by far, and the cheapest to remove. It happens because someone copied the production environment file to get dev running, and nobody went back. If you read about <a href="/post-internal-tool-breach-workos">the WorkOS breach</a> last week, a development credential that also worked in production was part of that story too.</p>
+<h3>Real data in dev</h3>
+<p>A copy of the production database restored into dev or staging so engineers can debug with realistic data. Now dev holds your customers&#39; names, emails, and password hashes, and an attacker does not need to reach production at all. <a href="/post-production-data-on-laptops">Production data on laptops</a> is the related problem one step further out.</p>
+<h3>A pipeline that can do everything</h3>
+<p>The CI/CD system that deploys dev also deploys production, using one set of credentials with rights across every environment. Anyone who can change a dev pipeline file, or a dependency the pipeline runs, can often get those credentials. In practice, the pipeline is the most privileged user in your company, and it is frequently the least watched.</p>
+<h2>What separation looks like at a 5 to 20 person startup</h2>
+<p>You do not need a security team for this. You need a few structural choices, made once, that turn dev into a dead end instead of a path.</p>
+<h3>Put production in its own cloud account</h3>
+<p>One account for production, one for everything else. Two accounts is enough at seed stage; you can split dev and staging later. Most cloud providers make this a short job with their organisation features, and your company should own the top-level organisation, not a reseller or an agency. If you are not sure who owns yours, <a href="/post-cloud-account-in-reseller-organization">check whether your account sits inside someone else&#39;s organization</a>.</p>
+<p>Moving an existing production workload into a new account is real work, so the usual order is the reverse: leave production where it is, and move dev and staging out. That is often a few days of engineering time for a small product, as a rule of thumb, and it removes the biggest bridge at once.</p>
+<h3>Give every environment its own secrets</h3>
+<p>No credential should work in two environments. Generate separate database passwords, API keys, and service accounts for dev and production, and store production secrets somewhere dev cannot read. A <a href="/post-secrets-manager-yet">secrets manager</a> makes this easier but is not required to start; the platform&#39;s own per-environment settings will do. Then rotate any production secret that has ever been copied into dev, because you cannot know where those copies went.</p>
+<h3>Keep real customer data out of dev</h3>
+<p>Use seeded fake data or a masked copy where names, emails, and hashes are replaced. If engineers truly need production data to debug, give them time-limited, logged access to a read replica inside the production boundary, rather than bringing the data out. This is less convenient, and it is the change engineers push back on most. It is also the one that most directly limits what a dev breach exposes.</p>
+<h3>Split the pipeline&#39;s power</h3>
+<p>Use separate deploy credentials for each environment, and make production deploys run from a protected branch with required review, so a change to a dev pipeline cannot reach production keys. If your CI provider supports short-lived credentials issued per run instead of long-lived keys stored in settings, use them for production first.</p>
+<h2>The questions to ask your team this week</h2>
+<p>If you are a non-technical founder, you do not need to do this work yourself. You need to know whether it has been done. Ask your lead engineer or agency these five questions, and ask for a yes or no on each:</p>
+<ol>
+<li>Is production in a separate cloud account from dev and staging?</li>
+<li>Does any password, key, or token work in both dev and production?</li>
+<li>Is there a copy of real customer data anywhere outside production?</li>
+<li>Can the dev or staging deploy pipeline reach production credentials?</li>
+<li>If a developer&#39;s laptop were compromised tonight, what could the attacker reach by morning?</li>
+</ol>
+<p>The fifth question is the one that matters. A good answer is short and specific. A long pause is a finding.</p>
+<p>If the answers are uncomfortable, do not try to fix everything in a week. Remove shared credentials first, because it is cheap and closes the most common bridge. Then get real data out of dev. Then split the cloud account. Each step stands on its own.</p>
+<h2>What this costs you if you skip it</h2>
+<p>Investors and enterprise customers ask about this now. Environment separation shows up in security questionnaires, in SOC 2 controls, and in technical diligence, and &quot;they share an account and credentials&quot; is a finding that slows a deal while you fix it under pressure. It is much cheaper to make the change on your own schedule than on a customer&#39;s.</p>
+<p>The deeper cost is the one in Chainstack&#39;s disclosure. The time between first access and production was three days. Most small teams would not notice an intruder in dev in three days, and they should not have to. The point of separation is that you do not need to notice in time, because there is nothing in dev worth taking and no road from there to anything that is.</p>
+<h2>FAQ</h2>
+<h3>Do we need separate cloud accounts if we only have three engineers?</h3>
+<p>Yes, at least two: one for production and one for everything else. It is a one-time setup, it costs nothing extra on most providers, and it is much harder to do once the product has grown.</p>
+<h3>Is a staging environment the same as separation?</h3>
+<p>No. Staging is a place to test before release. Separation is about whether staging and dev can reach production. A staging environment in the same account with the same credentials adds a bridge, not a wall. <a href="/post-staging-environment-yet">Do you need staging yet</a> covers when staging itself is worth it.</p>
+<h3>Can we use production data in staging if we mask it?</h3>
+<p>Masked data is fine when the masking is real: names, emails, password hashes, and payment details replaced, not just hidden in the interface. Check it once by looking at the actual database.</p>
+<h3>What should we do first if everything is shared today?</h3>
+<p>Remove shared credentials and rotate any production secret that has been in dev. It is the fastest change and closes the most common path.</p>
+<p>If you want someone to map the bridges between your environments and tell you which to close first, that is a standard part of a <a href="/teardown">Fraction teardown</a>. See <a href="/pricing">pricing</a> for how engagements work, or <a href="/book-a-call">book a call</a> and we can go through your setup together.</p>
+
+    </div>
+    <div class="article-body">
+      <div class="author-card reveal">
+        <span class="ac-av">F</span>
+        <div>
+          <div class="ac-name">The founder of Fraction</div>
+          <div class="ac-bio">Built engineering teams from 2 to 30. Killed more bad rebuilds than I've greenlit. <a href="about.html" class="link-grow" style="font-size:0.96rem">More about me <span class="arrow">&rarr;</span></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" style="padding-top:clamp(32px,5vw,56px)">
+  <div class="wrap">
+    <div class="callout reveal" style="text-align:center">
+      <h3 style="margin-left:auto;margin-right:auto;max-width:22ch">Not sure the call you're about to make is the right one?</h3>
+      <p style="margin:0 auto 26px">That's exactly what a 20-minute fit call is for &mdash; or a two-week Teardown if you'd rather start with a written verdict.</p>
+      <div class="ph-cta" style="justify-content:center">
+        <a href="book-a-call.html" class="btn btn-accent">Book a fit call <span class="arrow">&rarr;</span></a>
+        <a href="teardown.html" class="link-grow" style="color:#fff">Start with a Teardown <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap-wide">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><circle cx="6.5" cy="6.5" r="2.2" fill="#14140F"/><circle cx="17.5" cy="17.5" r="2.2" fill="#fff"/><line x1="19" y1="4" x2="5" y2="20" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>Fraction</a>
+        <p style="color:var(--grey-2); max-width:30ch; margin-top:18px; font-size:0.96rem; line-height:1.5">Senior technical leadership for founders who aren't ready for a full-time CTO — and shouldn't hire one yet.</p>
+      </div>
+      <div><h5>Service</h5><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="comparison.html">Fractional vs full-time</a></li><li><a href="teardown.html">The Tech Teardown</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="blog.html">Writing</a></li><li><a href="book-a-call.html">Book a call</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+      <div><h5>Start here</h5><ul><li><a href="book-a-call.html">Book a 20-min fit call</a></li><li><a href="teardown.html">Start with a Teardown</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Fraction · <a href="https://getfractioncto.com">getfractioncto.com</a> — no contract, no equity, cancel anytime.</span>
+      <span>Built on judgment, not hours.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="motion.js"></script>
+</body>
+</html>
